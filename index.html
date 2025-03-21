@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nom de l'Auteur - Boutique</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Nom de l'Auteur</h1>
+        <nav>
+            <ul>
+                <li><a href="#accueil">Accueil</a></li>
+                <li><a href="#boutique">Boutique</a></li>
+                <li><a href="#galerie">Galerie</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="accueil">
+        <h2>Bienvenue</h2>
+        <p>Auteur & Illustrateur passionné, découvrez mes œuvres et mes livres.</p>
+    </section>
+
+    <section id="boutique">
+        <h2>Mes Livres</h2>
+        <div class="livre">
+            <img src="livre1.jpg" alt="Livre 1">
+            <h3>Titre du Livre</h3>
+            <p>Résumé rapide du livre.</p>
+            <button>Acheter</button>
+        </div>
+        <div class="livre">
+            <img src="livre2.jpg" alt="Livre 2">
+            <h3>Titre du Livre</h3>
+            <p>Résumé rapide du livre.</p>
+            <button>Acheter</button>
+        </div>
+    </section>
+
+    <section id="galerie">
+        <h2>Galerie d’Illustrations</h2>
+        <div class="illustrations">
+            <img src="illustration1.jpg" alt="Illustration 1">
+            <img src="illustration2.jpg" alt="Illustration 2">
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact</h2>
+        <form>
+            <label for="name">Nom :</label>
+            <input type="text" id="name" required>
+
+            <label for="email">Email :</label>
+            <input type="email" id="email" required>
+
+            <label for="message">Message :</label>
+            <textarea id="message" required></textarea>
+
+            <button type="submit">Envoyer</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Nom de l'Auteur. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
