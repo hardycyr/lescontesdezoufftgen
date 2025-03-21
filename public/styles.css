@@ -7,7 +7,7 @@ body {
 }
 
 header {
-    background-color: #222;
+    background-color: #241c48;
     color: white;
     padding: 20px;
     text-align: center;
@@ -27,6 +27,10 @@ nav ul li a {
     color: white;
     text-decoration: none;
     font-weight: bold;
+}
+
+h2{
+    color: #241c48;
 }
 
 section {
