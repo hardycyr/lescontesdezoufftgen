@@ -33,7 +33,6 @@
         </div>
     </section>
 
-
     <section id="boutique">
         <h2>Mes Livres</h2>
         <div class="livre">
@@ -55,6 +54,46 @@
         <h2>Contact</h2>
         <form>
             <label for="name">Nom :</label>
+            <input type="text" id="name" name="name" required>
+        
+            <label for="email">Email :</label>
+            <input type="email" id="email" name="email" required>
+        
+            <label for="message">Message :</label>
+            <textarea id="message" name="message" required></textarea>
+        
+            <!-- reCAPTCHA -->
+            <div class="g-recaptcha" data-sitekey="6Lccxf0qAAAAAGeg6hau-3YrvNKry7rrUsHmppMT"></div>
+        
+            <button type="submit">Envoyer</button>
+        </form>
+        
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script>
+        document.getElementById("contactForm").addEventListener("submit", async function(event) {
+            event.preventDefault();
+            const formData = new FormData(this);
+            const recaptchaResponse = grecaptcha.getResponse();
+        
+            if (!recaptchaResponse) {
+                alert("Veuillez valider le CAPTCHA.");
+                return;
+            }
+        
+            formData.append("recaptcha", recaptchaResponse);
+        
+            const response = await fetch("/contact", {
+                method: "POST",
+                body: formData
+            });
+        
+            const result = await response.json();
+            alert(result.message);
+        });
+        </script>
+        
+        <! <form>
+            <label for="name">Nom :</label>
             <input type="text" id="name" required>
 
             <label for="email">Email :</label>
@@ -65,7 +104,7 @@
 
             <button type="submit">Envoyer</button>
         </form>
-    </section>
+    </section> -->
 
     <footer>
         <p>&copy; 2024 Les contes de Zoufftgen. Tous droits réservés.</p>
