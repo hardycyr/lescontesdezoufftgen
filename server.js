@@ -2,7 +2,16 @@ const express = require("express");
 const fetch = require("node-fetch");
 const path = require("path");
 const cors = require("cors");
+const nodemailer = require("nodemailer");
 const app = express();
+
+const transporter = nodemailer.createTransport({
+    service: "gmail", // Utilise Gmail, Outlook ou autre
+    auth: {
+        user: "lescontesdezoufftgen@gmail.com", // Remplace par ton adresse email
+        pass: "7cpxapb7+" // Remplace par ton mot de passe ou App Password
+    }
+});
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -22,16 +31,20 @@ app.post("/", async (req, res) => {
         body: `secret=${SECRET_KEY}&response=${recaptcha}`
     });
 
-    const data = await response.json();
+    const mailOptions = {
+        from: email,
+        to: "cyrille.hardy@gmail.com", // Remplace par ton adresse
+        subject: "Nouveau message depuis le site lescontesdezoufftgen.fr !",
+        text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`
+    };
 
-    if (!data.success) {
-        return res.status(400).json({ message: "CAPTCHA invalide." });
+    try {
+        await transporter.sendMail(mailOptions);
+        res.json({ message: "Email envoyé avec succès !" });
+    } catch (error) {
+        console.error("Erreur d'envoi :", error);
+        res.status(500).json({ message: "Erreur lors de l'envoi de l'email." });
     }
-
-    // Simuler l'envoi d'email (remplace par un vrai service)
-    console.log(`📩 Message reçu de ${name} (${email}): ${message}`);
-
-    res.json({ message: "Message envoyé avec succès !" });
 });
 
 app.get("/", (req, res) => {
