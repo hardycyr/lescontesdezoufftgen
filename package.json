@@ -1,7 +1,10 @@
 {
-    "name": "mon-site",
+    "name": "les contes de zoufftgen",
     "version": "1.0.0",
     "main": "server.js",
+    "engines": {
+        "node": "18.x"
+    },
     "dependencies": {
         "cors": "^2.8.5",
         "express": "^4.21.2",
@@ -11,4 +14,6 @@
     "scripts": {
         "start": "node server.js"
     }
+
+    
 }
