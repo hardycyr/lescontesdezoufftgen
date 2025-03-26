@@ -1,9 +1,11 @@
 import fetch from "node-fetch";
-const express = require("express");
-//const fetch = require("node-fetch");
-const path = require("path");
-const cors = require("cors");
+import express from "express";
+import cors from "cors";
+import path from "path";
+import { fileURLToPath } from "url";
 const nodemailer = require("nodemailer");
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 const app = express();
 
 const transporter = nodemailer.createTransport({
