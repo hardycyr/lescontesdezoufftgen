@@ -120,7 +120,7 @@
         
             formData.append("recaptcha", recaptchaResponse);
         
-            const response = await fetch("/contact", {
+            const response = await fetch("/", {
                 method: "POST",
                 body: formData
             });
