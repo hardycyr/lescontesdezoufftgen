@@ -1,15 +1,16 @@
+import fetch from "node-fetch";
 const express = require("express");
-const fetch = require("node-fetch");
+//const fetch = require("node-fetch");
 const path = require("path");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 const app = express();
 
 const transporter = nodemailer.createTransport({
-    service: "gmail", // Utilise Gmail, Outlook ou autre
+    service: "gmail", 
     auth: {
-        user: "lescontesdezoufftgen@gmail.com", // Remplace par ton adresse email
-        pass: "7cpxapb7+" // Remplace par ton mot de passe ou App Password
+        user: "lescontesdezoufftgen@gmail.com", 
+        pass: "7cpxapb7+" 
     }
 });
 
@@ -33,7 +34,7 @@ app.post("/", async (req, res) => {
 
     const mailOptions = {
         from: email,
-        to: "cyrille.hardy@gmail.com", // Remplace par ton adresse
+        to: "cyrille.hardy@gmail.com", 
         subject: "Nouveau message depuis le site lescontesdezoufftgen.fr !",
         text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`
     };
