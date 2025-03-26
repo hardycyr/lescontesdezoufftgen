@@ -37,7 +37,7 @@ app.post("/", async (req, res) => {
 
     const mailOptions = {
         from: email,
-        to: "cyrille.hardy@gmail.com", 
+        to: "helene.ag@hotmail.com", 
         subject: "Nouveau message depuis le site lescontesdezoufftgen.fr !",
         text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`
     };
