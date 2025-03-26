@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
     service: "gmail", 
     auth: {
         user: "lescontesdezoufftgen@gmail.com", 
-        pass: "7cpxapb7+" 
+        pass: "autp bsid ntls irsr" 
     }
 });
 
