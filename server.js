@@ -115,34 +115,40 @@ app.post("/create-checkout-session", async (req, res) => {
 
 
 app.post("/", async (req, res) => {
-    const { name, email, message, recaptcha } = req.body;
+  const { name, email, message, recaptcha } = req.body;
 
-    // Vérifier le reCAPTCHA avec Google
-    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`
-    });
+  if (!name || !email || !message || !recaptcha) {
+    return res.status(400).json({ success: false, message: "Champs manquants." });
+  }
 
-    const mailOptions = {
-        from: email,
-        to: "helene.ag@hotmail.com", 
-        subject: "Nouveau message depuis le site lescontesdezoufftgen.fr !",
-        text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`
-    };
+  // 🔍 Vérifie le captcha auprès de Google
+  const captchaVerification = await fetch("https://www.google.com/recaptcha/api/siteverify", {
+    method: "POST",
+    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`
+  });
 
-    try {
-      if (!name || !email || !message) {
-        return res.status(400).json({ success: false, message: "Champs manquants." });
-      }
-      else{
-        await transporter.sendMail(mailOptions);
-        res.json({ success: true, message: "Votre message a bien été envoyé !" });
-      }
-    } catch (error) {
-        console.error("Erreur d'envoi :", error);
-        res.status(500).json({ success: false, message: "Erreur lors de l'envoi du message." });
-    }
+  const captchaResult = await captchaVerification.json();
+
+  if (!captchaResult.success) {
+    return res.status(400).json({ success: false, message: "Échec de la vérification reCAPTCHA." });
+  }
+
+  // ✅ Si tout est bon, envoyer le mail
+  const mailOptions = {
+    from: email,
+    to: "helene.ag@hotmail.com",
+    subject: "Nouveau message depuis le site lescontesdezoufftgen.fr !",
+    text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`
+  };
+
+  try {
+    await transporter.sendMail(mailOptions);
+    res.json({ success: true, message: "Votre message a bien été envoyé !" });
+  } catch (error) {
+    console.error("Erreur d'envoi :", error);
+    res.status(500).json({ success: false, message: "Erreur lors de l'envoi du message." });
+  }
 });
 
 app.get("/", (req, res) => {
