@@ -10,6 +10,7 @@ import nodemailer from "nodemailer";
 
 dotenv.config();
 
+const app = express();
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
@@ -17,7 +18,6 @@ app.use(express.static("public")); // Met ton index.html dans /public
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-const app = express();
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const transporter = nodemailer.createTransport({
