@@ -86,7 +86,7 @@ app.post("/create-checkout-session", async (req, res) => {
                 "FI", "FJ", "FO", "FR",
                 "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY",
                 "HK", "HN", "HR", "HT", "HU",
-                "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IR", "IS", "IT",
+                "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IS", "IT",
                 "JE", "JM", "JO", "JP",
                 "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KY", "KZ",
                 "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY",
@@ -97,13 +97,13 @@ app.post("/create-checkout-session", async (req, res) => {
                 "QA",
                 "RE", "RO", "RS", "RU", "RW",
                 "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SX", "SZ",
-                "TA", "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ",
+                "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ",
                 "UA", "UG", "US", "UY", "UZ",
                 "VA", "VC", "VE", "VG", "VN", "VU",
                 "WF", "WS",
                 "XK",
                 "YE", "YT",
-                "ZA", "ZM", "ZW", "ZZ"]
+                "ZA", "ZM", "ZW"]
           },
           success_url: "https://lescontesdezoufftgen.onrender.com/success.html",
           cancel_url: "https://lescontesdezoufftgen.onrender.com/cancel.html"
