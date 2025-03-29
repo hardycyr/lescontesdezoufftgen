@@ -10,6 +10,11 @@ import nodemailer from "nodemailer";
 
 dotenv.config();
 
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+app.use(cors());
+app.use(express.static("public")); // Met ton index.html dans /public
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
@@ -57,10 +62,7 @@ app.post("/create-checkout-session", async (req, res) => {
   }
 });
 
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
-app.use(express.static("public")); // Met ton index.html dans /public
+
 
 const SECRET_KEY = "6Lccxf0qAAAAAFv6yptMn6R4WqZq58b0XFI2XlwH"; // Remplace par ta clé secrète reCAPTCHA
 
