@@ -143,6 +143,7 @@ function getPanier() {
 
   document.getElementById("payer").addEventListener("click", async () => {
     const panier = getPanier();
+    console.log("Panier: " + panier);
     const response = await fetch("https://lescontesdezoufftgen.onrender.com/create-checkout-session", {
       method: "POST",
       headers: {
