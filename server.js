@@ -132,8 +132,13 @@ app.post("/", async (req, res) => {
     };
 
     try {
+      if (!name || !email || !message) {
+        return res.status(400).json({ success: false, message: "Champs manquants." });
+      }
+      else{
         await transporter.sendMail(mailOptions);
         res.json({ success: true, message: "Votre message a bien été envoyé !" });
+      }
     } catch (error) {
         console.error("Erreur d'envoi :", error);
         res.status(500).json({ success: false, message: "Erreur lors de l'envoi du message." });
