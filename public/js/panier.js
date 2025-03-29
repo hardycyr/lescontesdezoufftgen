@@ -145,9 +145,12 @@ function getPanier() {
     const panier = getPanier();
     const response = await fetch("https://lescontesdezoufftgen.onrender.com/create-checkout-session", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ cart: panier })
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ cart: panier }) // important
     });
+    
   
     const data = await response.json();
     if (data.url) {
