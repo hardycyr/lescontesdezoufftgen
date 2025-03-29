@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les contes de Zoufftgen - Boutique</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="/js/panier.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Les contes de Zoufftgen</h1>
+        <nav>
+            <ul>
+                <li><a href="/#accueil">Accueil</a></li>
+                <li><a href="/#galerie">Galerie</a></li>
+                <li><a href="/#boutique">Boutique</a></li>
+                <li><a href="/#apropos">A propos de l'auteur</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>            </ul>
+        </nav>
+    </header>
+
+    <h1>Le petit zouffarceur</h1>
+  <img src="/images/LeMaisonduPetitZouffarceur.png" alt="Couverture du livre La maison du petit zouffarceur">
+  <p>Un conte illustré</p>
+  <p><strong>14,00 €</strong></p>
+
+  <button onclick="ajouterAuPanier({
+      id: 'livre-2',
+      name: 'La maison du petit zouffarceur',
+      price: 1400
+  })">
+    Ajouter au panier
+  </button>
+
+  <a href="/boutique/panier.html">🛒 Voir le panier</a>
+
+</body>
+</html>

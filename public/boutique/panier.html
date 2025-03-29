@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les contes de Zoufftgen - Panier</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script src="/js/panier.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Les contes de Zoufftgen</h1>
+        <nav>
+            <ul>
+                <li><a href="/#accueil">Accueil</a></li>
+                <li><a href="/#galerie">Galerie</a></li>
+                <li><a href="/#boutique">Boutique</a></li>
+                <li><a href="/#apropos">A propos de l'auteur</a></li>
+                <li><a href="/#contact">Contact</a></li>
+                <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <h2>Votre Panier</h2>
+
+    <table border="1" width="80" cellspacing="0" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Prix unitaire</th>
+            <th>Quantité</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="liste-panier">
+          <!-- JS va remplir ici -->
+        </tbody>
+      </table>
+
+      <p style="margin-top: 1em;"><strong>Total général : <span id="total">0.00</span> €</strong></p>
+
+      <button id="payer">Payer</button>
+        <button id="vider-panier">🗑️ Vider le panier</button>
+
+
+</body>
+
+</html>

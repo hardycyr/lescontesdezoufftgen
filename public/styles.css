@@ -1,12 +1,11 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f8f8f8;
+  body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f9f9f9;
     color: #333;
-}
+    margin: 2rem;
+  }
 
-header {
+  header {
     background-color: #241c48;
     color: white;
     padding: 20px;
@@ -29,10 +28,6 @@ nav ul li a {
     font-weight: bold;
 }
 
-h2{
-    color: #241c48;
-}
-
 section {
     padding: 50px;
     text-align: center;
@@ -52,41 +47,123 @@ section {
     height: auto;
 }
 
-button {
-    background-color: #222;
+  h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
     color: white;
-    padding: 10px;
-    border: none;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  th {
+    background-color: #f1f1f1;
+    color: #333;
+    padding: 12px;
+    text-align: left;
+  }
+
+  td {
+    padding: 12px;
+    border-bottom: 1px solid #eee;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  input[type="number"] {
+    width: 60px;
+    padding: 4px;
+    text-align: center;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+
+  #total {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #444;
+  }
+
+  #payer, #vider-panier {
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    margin-right: 1rem;
     cursor: pointer;
-}
+    transition: background-color 0.2s ease;
+  }
 
-button:hover {
-    background-color: #555;
-}
+  #payer {
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+  }
 
-.illustrations img {
-    width: 300px;
-    margin: 10px;
-}
+  #payer:hover {
+    background-color: #45a049;
+  }
 
-form {
+  #vider-panier {
+    background-color: transparent;
+    color: #f44336;
+    border: 1px solid #f44336;
+  }
+
+  #vider-panier:hover {
+    background-color: #f44336;
+    color: white;
+  }
+
+  .btn-supprimer {
+    background-color: transparent;
+    color: #f44336;
+    border: 1px solid #f44336;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+
+  .btn-supprimer:hover {
+    background-color: #f44336;
+    color: white;
+  }
+
+  @media (max-width: 600px) {
+    table, thead, tbody, th, td, tr {
+      display: block;
+    }
+
+    thead tr {
+      display: none;
+    }
+
+    td {
+      padding: 10px;
+      border: none;
+      position: relative;
+    }
+
+    td::before {
+      content: attr(data-label);
+      font-weight: bold;
+      display: block;
+      margin-bottom: 4px;
+      color: #888;
+    }
+  }
+
+  form {
     display: flex;
     flex-direction: column;
     width: 50%;
     margin: auto;
-}
-
-input, textarea {
-    margin: 10px 0;
-    padding: 10px;
-    width: 100%;
-    border: 1px solid #ccc;
-}
-
-footer {
-    background-color: #222;
-    color: white;
-    text-align: center;
-    padding: 10px;
-    margin-top: 20px;
 }

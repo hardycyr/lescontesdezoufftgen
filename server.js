@@ -20,7 +20,6 @@ const transporter = nodemailer.createTransport({
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(cors());
-//app.use(bodyParser({ extended: true }));
 app.use(express.static("public")); // Met ton index.html dans /public
 
 const SECRET_KEY = "6Lccxf0qAAAAAFv6yptMn6R4WqZq58b0XFI2XlwH"; // Remplace par ta clé secrète reCAPTCHA
