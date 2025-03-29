@@ -1,3 +1,10 @@
+const toggle = document.getElementById("menu-toggle");
+  const menu = document.getElementById("menu-list");
+
+  toggle.addEventListener("click", () => {
+    menu.classList.toggle("open");
+  });
+
 function getPanier() {
     return JSON.parse(localStorage.getItem("panier") || "[]");
   }
