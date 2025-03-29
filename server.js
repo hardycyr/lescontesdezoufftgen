@@ -1,158 +1,81 @@
-import express from "express";
-import cors from "cors";
-import dotenv from "dotenv";
-import Stripe from "stripe";
-
-import fetch from "node-fetch";
-import path from "path";
-import { fileURLToPath } from "url";
-import nodemailer from "nodemailer";
+import express from 'express';
+import Stripe from 'stripe';
+import dotenv from 'dotenv';
+import cors from 'cors';
 
 dotenv.config();
 
-const app = express();
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
-app.use(express.static("public")); // Met ton index.html dans /public
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
+// Initialisation de Stripe avec la clé secrète
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const app = express();
 
-const transporter = nodemailer.createTransport({
-    service: "gmail", 
-    auth: {
-        user: "lescontesdezoufftgen@gmail.com", 
-        pass: "autp bsid ntls irsr" 
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Création de la session Checkout
+app.post('/create-checkout-session', async (req, res) => {
+  const { cart, country } = req.body;
+
+  if (!cart || !Array.isArray(cart)) {
+    return res.status(400).json({ error: 'Panier invalide' });
+  }
+
+  try {
+    // Création des éléments du panier (produits)
+    const line_items = cart.map(item => ({
+      price_data: {
+        currency: 'eur',
+        product_data: {
+          name: item.name
+        },
+        unit_amount: item.price,
+      },
+      quantity: Math.min(item.quantity, 2) // Limite la quantité à 2 pour chaque article
+    }));
+
+    // Calcul des frais de port en fonction du pays
+    let shippingCost = 0;
+    const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+    if (country === 'FR') {
+      shippingCost = totalQuantity <= 1 ? 400 : 600;
+    } else if (['BE', 'CH'].includes(country)) {
+      shippingCost = totalQuantity <= 1 ? 700 : 1000;
+    } else {
+      shippingCost = 1500; // Autres pays
     }
-});
 
-app.post("/create-checkout-session", async (req, res) => {
-    console.log("📦 Body reçu :", req.body);
+    // Ajouter les frais de port comme un article supplémentaire
+    line_items.push({
+      price_data: {
+        currency: 'eur',
+        product_data: { name: `Frais de port (${country})` },
+        unit_amount: shippingCost,
+      },
+      quantity: 1
+    });
 
-    const { cart, country } = req.body;
+    // Création de la session Checkout Stripe
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ['card'],
+      line_items,
+      mode: 'payment',
+      success_url: 'https://lescontesdezoufftgen.onrender.com/success.html',
+      cancel_url: 'https://lescontesdezoufftgen.onrender.com/cancel.html',
+      // Stripe affiche automatiquement un champ e-mail si celui-ci n'est pas défini
+    });
 
-    if (!cart || !Array.isArray(cart)) {
-        console.error("❌ Cart invalide :", cart);
-        return res.status(400).json({ error: "Panier manquant ou invalide" });
-      }
+    res.json({ url: session.url });
 
-    try {
-        const line_items = cart.map(item => ({
-          price_data: {
-            currency: "eur",
-            product_data: {
-              name: item.name
-            },
-            unit_amount: item.price
-          },
-          quantity: Math.min(item.quantity, 5)
-        }));
-
-        // 🧮 Calculer total d'articles
-        const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-    
-        let shippingCost = 0;
-
-        if (country === "FR") {
-          shippingCost = totalQuantity <= 1 ? 900 : 1200; // 9€ ou 12€
-        } else if (["UE"].includes(country)) {
-          shippingCost = totalQuantity <= 1 ? 500 : 1000; // 5€ ou 10€
-        } else {
-            shippingCost = totalQuantity <= 1 ? 600 : 1200; // 6€ ou 12€ pour le reste du monde
-        }
-
-        // ➕ Ajouter les frais de port comme un article
-        line_items.push({
-            price_data: {
-            currency: "eur",
-            product_data: { name: `Frais de port (${country})` },
-            unit_amount: shippingCost
-            },
-            quantity: 1
-        });
-
-        const session = await stripe.checkout.sessions.create({
-          payment_method_types: ["card"],
-          line_items,
-          mode: "payment",
-          customer_creation: 'always',
-          customer_email_collection: {
-            enabled: true // 🔥 force Stripe à demander l'email
-          },
-          shipping_address_collection: {
-            allowed_countries: ["AC", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AQ", "AR", "AT", "AU", "AW", "AX", "AZ",
-  "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BR", "BS", "BT", "BV", "BW", "BY", "BZ",
-  "CA", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CV", "CW", "CY", "CZ",
-  "DE", "DJ", "DK", "DM", "DO", "DZ",
-  "EC", "EE", "EG", "EH", "ER", "ES", "ET",
-  "FI", "FJ", "FK", "FO", "FR",
-  "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY",
-  "HK", "HN", "HR", "HT", "HU",
-  "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IS", "IT",
-  "JE", "JM", "JO", "JP",
-  "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KY", "KZ",
-  "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY",
-  "MA", "MC", "MD", "ME", "MF", "MG", "MK", "ML", "MM", "MN", "MO", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ",
-  "NA", "NC", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ",
-  "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PY",
-  "QA", "RE", "RO", "RS", "RU", "RW",
-  "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SX", "SZ",
-  "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ",
-  "UA", "UG", "US", "UY", "UZ",
-  "VA", "VC", "VE", "VG", "VN", "VU",
-  "WF", "WS", "XK", "YE", "YT", "ZA", "ZM", "ZW"]
-          },
-          success_url: "https://lescontesdezoufftgen.onrender.com/success.html",
-          cancel_url: "https://lescontesdezoufftgen.onrender.com/cancel.html"
-        });
-
-        res.json({ url: session.url });
-  } catch (error) {
-    console.error("Erreur Stripe :", error.message);
-    res.status(500).json({ error: "Échec de la création de la session." });
+  } catch (err) {
+    console.error("Erreur Stripe:", err.message);
+    res.status(500).json({ error: "Erreur serveur Stripe" });
   }
 });
 
-
-
-const SECRET_KEY = "6Lccxf0qAAAAAFv6yptMn6R4WqZq58b0XFI2XlwH"; // Remplace par ta clé secrète reCAPTCHA
-
-app.post("/", async (req, res) => {
-    const { name, email, message, recaptcha } = req.body;
-
-    // Vérifier le reCAPTCHA avec Google
-    const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${SECRET_KEY}&response=${recaptcha}`
-    });
-
-    const mailOptions = {
-        from: email,
-        to: "helene.ag@hotmail.com", 
-        subject: "Nouveau message depuis le site lescontesdezoufftgen.fr !",
-        text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`
-    };
-
-    try {
-        await transporter.sendMail(mailOptions);
-        res.json({ success: true, message: "Votre message a bien été envoyé !" });
-    } catch (error) {
-        console.error("Erreur d'envoi :", error);
-        res.status(500).json({ success: false, message: "Erreur lors de l'envoi du message." });
-    }
-});
-
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-app.get("/ping", (req, res) => {
-    res.send("Pong! L'application est réveillée.");
-});
-
-
+// Lancement du serveur sur le port défini
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Serveur en ligne sur le port ${PORT}`));
+app.listen(PORT, () => {
+  console.log(`Serveur en ligne sur le port ${PORT}`);
+});
