@@ -143,19 +143,21 @@ function getPanier() {
 
   document.getElementById("payer").addEventListener("click", async () => {
     const panier = getPanier();
-    const response = await fetch("/create-checkout-session", {
+    const response = await fetch("https://lescontesdezoufftgen.onrender.com/create-checkout-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ cart: panier })
     });
+  
     const data = await response.json();
     if (data.url) {
       viderPanier();
       window.location.href = data.url;
     } else {
-      alert("Erreur lors de la création de la session Stripe.");
+      alert("Erreur lors de la redirection vers Stripe.");
     }
   });
+  
 
   document.getElementById("vider-panier").addEventListener("click", () => {
     if (confirm("Vider le panier ?")) {

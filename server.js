@@ -4,10 +4,15 @@ import cors from "cors";
 import path from "path";
 import { fileURLToPath } from "url";
 import nodemailer from "nodemailer";
+import Stripe from "stripe";
+import dotenv from "dotenv";
+
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const app = express();
+const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 
 const transporter = nodemailer.createTransport({
     service: "gmail", 
@@ -15,6 +20,39 @@ const transporter = nodemailer.createTransport({
         user: "lescontesdezoufftgen@gmail.com", 
         pass: "autp bsid ntls irsr" 
     }
+});
+
+app.post("/create-checkout-session", async (req, res) => {
+    const { cart } = req.body;
+
+    try {
+        const line_items = cart.map(item => ({
+          price_data: {
+            currency: "eur",
+            product_data: {
+              name: item.name
+            },
+            unit_amount: item.price
+          },
+          quantity: item.quantity
+        }));
+    
+        const session = await stripe.checkout.sessions.create({
+          payment_method_types: ["card"],
+          line_items,
+          mode: "payment",
+          shipping_address_collection: {
+            allowed_countries: ["FR", "BE", "CH"]
+          },
+          success_url: "https://lescontesdezoufftgen.onrender.com/success.html",
+          cancel_url: "https://lescontesdezoufftgen.onrender.com/cancel.html"
+        });
+
+        res.json({ url: session.url });
+  } catch (error) {
+    console.error("Erreur Stripe :", error.message);
+    res.status(500).json({ error: "Échec de la création de la session." });
+  }
 });
 
 app.use(express.urlencoded({ extended: true }));
