@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiement annulé – Les Contes de Zoufftgen</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/js/panier.js" defer></script>
+  <style>
+    main {
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    h1 {
+      color: #f44336;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+
+    a.bouton-retour {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.4rem;
+      background-color: #f44336;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+
+    a.bouton-retour:hover {
+      background-color: #d32f2f;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Les contes de Zoufftgen</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/#galerie">Galerie</a></li>
+        <li><a href="/#boutique">Boutique</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>😕 Paiement annulé</h1>
+    <p>Votre commande n’a pas été finalisée.</p>
+    <p>Vous pouvez modifier votre panier ou réessayer le paiement à tout moment.</p>
+
+    <a href="/boutique/panier.html" class="bouton-retour">← Retour au panier</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    // Met à jour l’affichage du panier (si fonction dispo)
+    if (typeof updatePanierCompteur === "function") {
+      updatePanierCompteur();
+    }
+  </script>
+
+</body>
+</html>

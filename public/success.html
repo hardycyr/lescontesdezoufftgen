@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Paiement confirmé – Les Contes de Zoufftgen</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/js/panier.js" defer></script>
+  <style>
+    main {
+      max-width: 600px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      text-align: center;
+    }
+
+    h1 {
+      color: #4CAF50;
+    }
+
+    p {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+    }
+
+    a.bouton-retour {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.4rem;
+      background-color: #4CAF50;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background-color 0.2s ease;
+    }
+
+    a.bouton-retour:hover {
+      background-color: #388E3C;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Les contes de Zoufftgen</h1>
+    <nav>
+      <ul>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/#galerie">Galerie</a></li>
+        <li><a href="/#boutique">Boutique</a></li>
+        <li><a href="/#contact">Contact</a></li>
+        <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h1>🎉 Merci pour votre commande !</h1>
+    <p>Votre paiement a bien été enregistré.</p>
+    <p>Un e-mail de confirmation va vous être envoyé dans quelques instants.</p>
+
+    <a href="/" class="bouton-retour">← Retour à la boutique</a>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
+  </footer>
+
+  <script>
+    // Vider le panier uniquement après succès
+    localStorage.removeItem("panier");
+
+    // Remettre à jour l’affichage du compteur
+    if (typeof updatePanierCompteur === "function") {
+      updatePanierCompteur();
+    } else {
+      const compteur = document.getElementById("panier-compteur");
+      if (compteur) {
+        compteur.textContent = "";
+        compteur.style.display = "none";
+      }
+    }
+  </script>
+
+</body>
+</html>
