@@ -78,6 +78,9 @@ app.post("/create-checkout-session", async (req, res) => {
           line_items,
           mode: "payment",
           customer_creation: 'always',
+          customer_email_collection: {
+            enabled: true // 🔥 force Stripe à demander l'email
+          },
           shipping_address_collection: {
             allowed_countries: ["AC", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AQ", "AR", "AT", "AU", "AW", "AX", "AZ",
   "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BR", "BS", "BT", "BV", "BW", "BY", "BZ",
