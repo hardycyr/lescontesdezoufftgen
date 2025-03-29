@@ -19,6 +19,7 @@ app.use(express.static("public")); // Met ton index.html dans /public
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
 const transporter = nodemailer.createTransport({
     service: "gmail", 
@@ -113,9 +114,6 @@ app.post("/create-checkout-session", async (req, res) => {
 });
 
 
-
-const SECRET_KEY = "6Lccxf0qAAAAAFv6yptMn6R4WqZq58b0XFI2XlwH"; // Remplace par ta clé secrète reCAPTCHA
-
 app.post("/", async (req, res) => {
     const { name, email, message, recaptcha } = req.body;
 
@@ -123,7 +121,7 @@ app.post("/", async (req, res) => {
     const response = await fetch("https://www.google.com/recaptcha/api/siteverify", {
         method: "POST",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: `secret=${SECRET_KEY}&response=${recaptcha}`
+        body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`
     });
 
     const mailOptions = {
@@ -153,3 +151,24 @@ app.get("/ping", (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Serveur en ligne sur le port ${PORT}`));
+
+async function envoyerEmailConfirmation(clientEmail, cart, country, total) {
+  const itemsList = cart.map(item => `- ${item.name} x ${item.quantity}`).join("<br>");
+
+  const mailOptions = {
+    from: `"Les Contes de Zoufftgen" <${process.env.EMAIL_USER}>`,
+    to: clientEmail,
+    subject: "Merci pour votre commande !",
+    html: `
+      <h2>🎉 Merci pour votre achat !</h2>
+      <p>Voici le récapitulatif de votre commande :</p>
+      <p>${itemsList}</p>
+      <p><strong>Pays de livraison :</strong> ${country}</p>
+      <p><strong>Total :</strong> ${(total / 100).toFixed(2)} €</p>
+      <br>
+      <p>Nous vous contacterons rapidement pour l'expédition !</p>
+    `
+  };
+
+  await transporter.sendMail(mailOptions);
+}
