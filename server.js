@@ -78,7 +78,7 @@ app.post("/create-checkout-session", async (req, res) => {
           line_items,
           mode: "payment",
           shipping_address_collection: {
-            allowed_countries: ["FR", "LU", "DE", "IT", "SP", "US", "UK", "PT", "AU", "CA", "BE", "CH"]
+            allowed_countries: ["FR", "LU", "DE", "IT", "ES", "US", "GB", "PT", "AU", "CA", "BE", "CH"]
           },
           success_url: "https://lescontesdezoufftgen.onrender.com/success.html",
           cancel_url: "https://lescontesdezoufftgen.onrender.com/cancel.html"
