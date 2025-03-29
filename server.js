@@ -77,6 +77,7 @@ app.post("/create-checkout-session", async (req, res) => {
           payment_method_types: ["card"],
           line_items,
           mode: "payment",
+          customer_creation: 'always',
           shipping_address_collection: {
             allowed_countries: ["AC", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AQ", "AR", "AT", "AU", "AW", "AX", "AZ",
   "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BR", "BS", "BT", "BV", "BW", "BY", "BZ",
