@@ -29,7 +29,14 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post("/create-checkout-session", async (req, res) => {
+    console.log("📦 Body reçu :", req.body);
+
     const { cart, country } = req.body;
+
+    if (!cart || !Array.isArray(cart)) {
+        console.error("❌ Cart invalide :", cart);
+        return res.status(400).json({ error: "Panier manquant ou invalide" });
+      }
 
     try {
         const line_items = cart.map(item => ({
