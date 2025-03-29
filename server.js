@@ -29,7 +29,6 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post("/create-checkout-session", async (req, res) => {
-    console.log("Body reçu :", req.body);
     const { cart } = req.body;
 
     try {
@@ -41,9 +40,32 @@ app.post("/create-checkout-session", async (req, res) => {
             },
             unit_amount: item.price
           },
-          quantity: item.quantity
+          quantity: Math.min(item.quantity, 5)
         }));
+
+        // 🧮 Calculer total d'articles
+        const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
     
+        let shippingCost = 0;
+
+        if (country === "FR") {
+          shippingCost = totalQuantity <= 1 ? 900 : 1200; // 9€ ou 12€
+        } else if (["UE"].includes(country)) {
+          shippingCost = totalQuantity <= 1 ? 500 : 1000; // 5€ ou 10€
+        } else {
+            shippingCost = totalQuantity <= 1 ? 600 : 1200; // 6€ ou 12€ pour le reste du monde
+        }
+
+        // ➕ Ajouter les frais de port comme un article
+        line_items.push({
+            price_data: {
+            currency: "eur",
+            product_data: { name: `Frais de port (${country})` },
+            unit_amount: shippingCost
+            },
+            quantity: 1
+        });
+
         const session = await stripe.checkout.sessions.create({
           payment_method_types: ["card"],
           line_items,
