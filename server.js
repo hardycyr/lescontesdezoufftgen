@@ -23,6 +23,7 @@ const transporter = nodemailer.createTransport({
 });
 
 app.post("/create-checkout-session", async (req, res) => {
+    console.log("Body reçu :", req.body);
     const { cart } = req.body;
 
     try {
