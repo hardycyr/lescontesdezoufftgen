@@ -98,7 +98,7 @@ function getPanier() {
 
   const panier = getPanier();
   const tbody = document.getElementById("liste-panier");
-  const totalElt = document.getElementById("total");
+  const totalElt = document.getElementById("total-produits");
 
   let totalGeneral = 0;
 
@@ -132,15 +132,6 @@ function getPanier() {
   totalElt.textContent = (totalGeneral / 100).toFixed(2);
   
 
-
-
-
-
-
-
-
-
-
   document.getElementById("payer").addEventListener("click", async () => {
     const panier = getPanier();
     const pays = document.getElementById("pays").value;
@@ -168,4 +159,47 @@ function getPanier() {
       viderPanier();
     }
   });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    mettreAJourFraisEtTotal();
+  
+    document.getElementById("pays").addEventListener("change", () => {
+      mettreAJourFraisEtTotal();
+    });
+  });
+
+  function calculerFraisDePort(pays, totalQuantite) {
+    if (pays === "FR") {
+      return totalQuantite <= 1 ? 900 : 1200;
+    } else if (["UE"].includes(pays)) {
+      return totalQuantite <= 1 ? 500 : 1000;
+    } else {
+      return totalQuantite <= 1 ? 600 : 1200;
+    }
+  }
+  
+  function mettreAJourFraisEtTotal() {
+    const panier = getPanier();
+    const pays = document.getElementById("pays").value;
+    const totalProduitsSpan = document.getElementById("total-produits");
+    const fraisPortSpan = document.getElementById("frais-port");
+    const totalGeneralSpan = document.getElementById("total-general");
+    const paysLabel = document.getElementById("pays-label");
+  
+    let totalProduits = 0;
+    let totalQuantite = 0;
+  
+    panier.forEach(item => {
+      totalProduits += item.price * item.quantity;
+      totalQuantite += item.quantity;
+    });
+  
+    const fraisPort = calculerFraisDePort(pays, totalQuantite);
+    const totalGeneral = totalProduits + fraisPort;
+  
+    totalProduitsSpan.textContent = (totalProduits / 100).toFixed(2);
+    fraisPortSpan.textContent = (fraisPort / 100).toFixed(2);
+    totalGeneralSpan.textContent = (totalGeneral / 100).toFixed(2);
+    paysLabel.textContent = pays;
+  }
   

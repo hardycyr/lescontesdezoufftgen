@@ -40,14 +40,18 @@
         </tbody>
       </table>
 
-      <p style="margin-top: 1em;"><strong>Total général : <span id="total">0.00</span> €</strong></p>
-
-      <label for="pays">Pays de livraison :</label>
+      <label for="pays">Zone de livraison :</label>
       <select id="pays" required>
         <option value="FR">France</option>
         <option value="UE">Union Européenne (hors France) / Royaume Uni / Suisse</option>
         <option value="INTL">Reste du Monde (hors Union Européenne, Royaume-Uni et Suisse)</option>
       </select>
+
+      <div id="resume-panier">
+        <p>Total produits : <span id="total-produits">0.00</span> €</p>
+        <p>Frais de port estimés (<span id="pays-label">France</span>) : <span id="frais-port">0.00</span> €</p>
+        <p style="margin-top: 1em;"><strong>Total général : <span id="total-general">0.00</span> €</strong></p>
+      </div>
 
       <button id="payer">Payer</button>
         <button id="vider-panier">🗑️ Vider le panier</button>
