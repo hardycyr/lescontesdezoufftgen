@@ -146,7 +146,7 @@ function getPanier() {
   
     const data = await response.json();
     if (data.url) {
-      viderPanier();
+      //viderPanier();
       window.location.href = data.url;
     } else {
       alert("Erreur lors de la redirection vers Stripe.");
