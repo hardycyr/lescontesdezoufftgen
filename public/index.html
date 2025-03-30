@@ -8,7 +8,16 @@
   <script src="/js/panier.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
-
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu-list");
+  
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+    });
+  </script>
     <style>
     .apropos-content {
   display: block;
@@ -141,11 +150,11 @@
   <div class="background-overlay"></div>
 
   <header>
-    <h1>Les contes de Zoufftgen</h1>
+    <h1><a href="/index.html" class="logo-link">Les contes de Zoufftgen</a></h1>
     <nav>
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
-        <li><a href="#apropos">Accueil</a></li>
+        <li><a href="/">Accueil</a></li>
         <li><a href="#boutique">Mes livres</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>

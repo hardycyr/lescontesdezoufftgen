@@ -6,6 +6,16 @@
   <title>Panier - Les contes de Zoufftgen</title>
   <link rel="stylesheet" href="/styles.css">
   <script src="/js/panier.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu-list");
+  
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+    });
+  </script>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
   <style>
     .panier-table {
@@ -165,13 +175,12 @@
   <div class="background-overlay"></div>
 
   <header>
-    <h1>Les contes de Zoufftgen</h1>
+    <h1><a href="/index.html" class="logo-link">Les contes de Zoufftgen</a></h1>
     <nav>
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
         <li><a href="/index.html#accueil">Accueil</a></li>
-        <li><a href="/index.html#apropos">À propos de l’auteur</a></li>
-        <li><a href="/index.html#boutique">Boutique</a></li>
+        <li><a href="/index.html#boutique">Mes livres</a></li>
         <li><a href="/index.html#contact">Contact</a></li>
         <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
       </ul>

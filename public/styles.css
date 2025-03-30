@@ -222,3 +222,46 @@
     background-color: #237148;
   }
   
+  #menu-list {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  @media (max-width: 768px) {
+    #menu-list {
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.85);
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      z-index: 1000;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+  
+    #menu-list.open {
+      display: flex;
+    }
+  
+    #menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .logo-link {
+    text-decoration: none;
+    color: inherit; /* conserve la couleur du h1 */
+    font: inherit;  /* hérite de la police et taille du h1 */
+  }
+  
+  .logo-link:hover {
+    text-decoration: none; /* optionnel : effet au survol */
+  }
+  
+  
