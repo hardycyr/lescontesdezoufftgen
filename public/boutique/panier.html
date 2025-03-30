@@ -1,40 +1,157 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les contes de Zoufftgen - Panier</title>
-    <link rel="stylesheet" href="../styles.css">
-    <script src="/js/panier.js" defer></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panier - Les contes de Zoufftgen</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/js/panier.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .panier-table {
+      overflow-x: auto;
+      margin-bottom: 2rem;
+    }
 
-        gtag('config', 'G-YF42H2CYXX');
-    </script>
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background-color: rgba(255, 255, 255, 0.03);
+      color: #fff;
+    }
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    th {
+      background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    input[type="number"] {
+      width: 60px;
+      padding: 0.4rem;
+      border-radius: 6px;
+      border: none;
+      font-size: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      text-align: center;
+    }
+
+    input[type="number"]:focus {
+      outline: 2px solid #ffdd99;
+      background-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .btn-supprimer {
+      background-color: transparent;
+      color: #ff7f7f;
+      border: 1px solid #ff7f7f;
+      border-radius: 6px;
+      padding: 0.4rem 0.8rem;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    .btn-supprimer:hover {
+      background-color: #ff7f7f;
+      color: #1c1c1c;
+    }
+
+    @media (max-width: 768px) {
+      table, thead, tbody, th, td, tr {
+        display: block;
+      }
+
+      thead tr {
+        display: none;
+      }
+
+      tr {
+        margin-bottom: 1rem;
+        background-color: rgba(255, 255, 255, 0.05);
+        padding: 1rem;
+        border-radius: 8px;
+      }
+
+      td {
+        position: relative;
+        padding-left: 50%;
+      }
+
+      td::before {
+        position: absolute;
+        left: 1rem;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: bold;
+        color: #ffdd99;
+        content: attr(data-label);
+      }
+    }
+
+    .recapitulatif {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 1.5rem;
+      border-radius: 10px;
+      color: #fff;
+      max-width: 600px;
+      margin: 0 auto 3rem;
+    }
+
+    .recapitulatif select {
+      padding: 0.5rem;
+      border-radius: 5px;
+      margin-bottom: 1rem;
+    }
+
+    .recapitulatif p {
+      margin: 0.5rem 0;
+    }
+
+    .actions button {
+      margin-right: 1rem;
+      padding: 0.8rem 1.4rem;
+      font-weight: bold;
+      background-color: #2d8659;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .actions button:hover {
+      background-color: #237148;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Les contes de Zoufftgen</h1>
-        <nav>
-            <button id="menu-toggle" aria-label="Menu">☰</button>
-            <ul id="menu-list">
-              <li><a href="/#accueil">Accueil</a></li>
-              <li><a href="/#galerie">Galerie</a></li>
-              <li><a href="/#boutique">Boutique</a></li>
-              <li><a href="/#apropos">A propos de l'auteur</a></li>
-              <li><a href="/#contact">Contact</a></li>
-              <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
-            </ul>
-          </nav>
-    </header>
 
-    <h2>Votre Panier</h2>
+  <div class="background-overlay"></div>
 
-    <table border="1" width="80" cellspacing="0" cellpadding="10" style="width: 100%; border-collapse: collapse;">
+  <header>
+    <h1>Les contes de Zoufftgen</h1>
+    <nav>
+      <button id="menu-toggle">☰</button>
+      <ul id="menu-list">
+        <li><a href="/index.html#accueil">Accueil</a></li>
+        <li><a href="/index.html#apropos">À propos de l’auteur</a></li>
+        <li><a href="/index.html#boutique">Boutique</a></li>
+        <li><a href="/index.html#contact">Contact</a></li>
+        <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="panier">
+    <h2>Votre panier</h2>
+    <div class="panier-table">
+      <table>
         <thead>
           <tr>
             <th>Produit</th>
@@ -45,26 +162,32 @@
           </tr>
         </thead>
         <tbody id="liste-panier">
+          <!-- Dynamique JS -->
         </tbody>
       </table>
+    </div>
 
-      <label for="pays">Zone de livraison :</label>
-      <select id="pays" required>
+    <div class="recapitulatif">
+      <label for="pays">Pays de livraison :</label>
+      <select id="pays">
         <option value="FR">France</option>
-        <option value="UE">Union Européenne (hors France) / Royaume Uni / Suisse</option>
-        <option value="INTL">Reste du Monde (hors Union Européenne, Royaume-Uni et Suisse)</option>
+        <option value="UE">Union Européenne</option>
+        <option value="WORLD">Reste du monde</option>
       </select>
 
-      <div id="resume-panier">
-        <p>Total produits : <span id="total-produits">0.00</span> €</p>
-        <p>Frais de port estimés (<span id="pays-label">France</span>) : <span id="frais-port">0.00</span> €</p>
-        <p style="margin-top: 1em;"><strong>Total général : <span id="total-general">0.00</span> €</strong></p>
-      </div>
+      <p><strong>Total produits :</strong> <span id="total-produits">0.00</span> €</p>
+      <p><strong>Frais de port :</strong> <span id="frais-port">0.00</span> €</p>
+      <p><strong>Total général :</strong> <span id="total-general">0.00</span> €</p>
 
-      <button id="payer">Payer</button>
+      <div class="actions">
         <button id="vider-panier">🗑️ Vider le panier</button>
+        <button id="payer">💳 Procéder au paiement</button>
+      </div>
+    </div>
+  </section>
 
-
+  <footer>
+    <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
+  </footer>
 </body>
-
 </html>

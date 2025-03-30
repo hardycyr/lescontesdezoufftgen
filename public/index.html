@@ -1,104 +1,99 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les contes de Zoufftgen - Boutique</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="/js/index.js" defer></script>
-    <script src="/js/panier.js" defer></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-YF42H2CYXX');
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Les contes de Zoufftgen</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="/js/panier.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <h1>Les contes de Zoufftgen</h1>
-        <nav>
-            <button id="menu-toggle" aria-label="Menu">☰</button>
-            <ul id="menu-list">
-              <li><a href="#accueil">Accueil</a></li>
-              <li><a href="#galerie">Galerie</a></li>
-              <li><a href="#boutique">Boutique</a></li>
-              <li><a href="#apropos">A propos de l'auteur</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
-            </ul>
-          </nav>
-    </header>
 
-    <section id="accueil">
-        <h2>Bienvenue</h2>
-        <p>Auteur & Illustrateur passionné, découvrez mes œuvres et mes livres.</p>
-    </section>
+  <div class="background-overlay"></div>
 
-    <section id="galerie">
-        <h2>Galerie d’Illustrations</h2>
-        <div class="illustrations">
-            <img src="" alt="Illustration 1">
-            <img src="" alt="Illustration 2">
-        </div>
-    </section>
+  <header>
+    <h1>Les contes de Zoufftgen</h1>
+    <nav>
+      <button id="menu-toggle">☰</button>
+      <ul id="menu-list">
+        <li><a href="#accueil">Accueil</a></li>
+        <li><a href="#apropos">À propos de l’auteur</a></li>
+        <li><a href="#boutique">Boutique</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <section id="boutique">
-        <h2>Mes Livres</h2>
-        <div class="livre">
-            <img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture">
-            <h3>Le petit zouffarceur</h3>
-            <p>Résumé rapide du livre.</p>
-            <a href="/boutique/le-petit-zouffarceur.html" class="btn-details">📖 Détails</a>
-            <a href="#" class="btn-panier"
-                data-id="livre-1"
-                data-nom="Le petit zouffarceur"
-                data-prix="1400">
-                🛒 Acheter
-            </a>
-            
-        </div>
-        <div class="livre">
-            <img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture">
-            <h3>La maison du petit zouffarceur</h3>
-            <p>Résumé rapide du livre.</p>
-            <a href="/boutique/la-maison-du-petit-zouffarceur.html" class="btn-details">📖 Détails</a>
-            <a href="#" class="btn-panier"
-                data-id="livre-2"
-                data-nom="La maison du petit zouffarceur"
-                data-prix="1400">
-                🛒 Acheter
-            </a>
-        </div>
-    </section>
+  <section id="accueil">
+    <h2>Bienvenue</h2>
+    <p>Auteur & Illustrateur passionné, découvrez mes œuvres et mes livres.</p>
+  </section>
 
+  <section id="apropos" class="apropos">
+    <h2>À propos de l’auteur</h2>
+    <div class="apropos-content">
+      <p><em>Il était une fois… des histoires qui n’auraient jamais dû quitter la chambre d’un enfant.</em></p>
+      <p>Depuis toujours, je suis fascinée par les beaux livres, les contes et le dessin. J’ai grandi dans un petit village de campagne, entourée des animaux qui peuplent nos forêts et nos jardins. Les livres de Beatrix Potter, d’Antoon Krings ou de Kenneth Grahame notamment, ont nourri mon imaginaire, me donnant l’envie de créer mon propre univers.</p>
+      <p>Il y a 15 ans, je me suis installée à Zoufftgen. C’est ici que mes personnages ont pris vie, inspirés par les animaux croisés dans la forêt, l’histoire du village et de ses habitants, ainsi que les petits détails du quotidien.</p>
+      <p>Il y a 12 ans j’ai créé mon tout premier livre, une histoire illustrée destinée à ma nièce et dont elle était l’héroïne. Puis mon fils est né, et tous les jours, que ce soit en voiture, en cuisinant ou le soir au coucher, il me réclamait des histoires. Elles se déroulaient exactement là où nous vivons, dans les rues de Zoufftgen, au cœur de la forêt alentour, près des rivières où nous nous promenions. Il écoutait, captivé, et pour celles qui lui plaisaient particulièrement, je me promettais de les transformer en livre rien que pour lui, afin qu’il en garde une trace pour toujours.</p>
+      <p>Mais les histoires ont leur volonté propre et certaines décident de ne pas rester enfermées… En décembre 2023, St Nicolas et la Mairie de Zoufftgen ont décidé de distribuer mon premier conte à tous les enfants du village. Le journal de la région a relaté l’évènement et le livre a dû être réimprimé pour honorer de nouvelles commandes. Le second livre a vu le jour l’année suivante, et ainsi de suite…</p>
+      <h3>Mon travail</h3>
+      <p>Chaque fois qu’une histoire a plu à mon fils, je l’ai notée et conservée, jusqu’à accumuler une centaine d’idées. Mais une histoire ne vit vraiment que lorsqu’elle est racontée, alors j’espère qu’elles réussiront toutes à s’échapper de mon carnet pour devenir des livres.</p>
+      <p>J’aime dessiner ou peindre à l’aide de différentes techniques : crayon, aquarelle, feutres sur vitres, etc. Les illustrations de mes premiers livres ont été réalisées sur Procreate, un outil numérique qui m’a permis de donner vie à mon univers tout en jonglant avec mon quotidien bien rempli de maman travaillant dans un laboratoire de santé.</p>
+      <h3>Mes livres</h3>
+      <p>J’ai déjà publié mes deux premiers « contes de Zoufftgen ». Chacun des livres de cette série est une porte ouverte sur le patrimoine local empreint de féérie. Les lieux illustrés dans ces histoires existent pour de vrai, les personnages également, je vous invite à venir le vérifier par vous-mêmes…</p>
+      <h3>Et maintenant…</h3>
+      <p>Aujourd’hui, je travaille sur le troisième conte de la collection, qui vous fera découvrir les animaux qui vivent dans la forêt de Zoufftgen et les aventures qui s’y déroulent. Notamment, celles d’une très ancienne famille de sangliers…</p>
+      <p><strong>Mon rêve ?</strong> Continuer à faire voyager mes histoires et offrir un peu de poésie au monde qui nous entoure.</p>
+      <p><strong>Bienvenue dans le monde.</strong></p>
+    </div>
+  </section>
 
-    <section id="contact">
-        <h2>Contact</h2>
-        <p id="responseMessage" style="display: none;"></p> <!-- Message de confirmation -->
-        <form id="contactForm">
-            <label for="name">Nom :</label>
-            <input type="text" id="name" name="name" required>
-        
-            <label for="email">Email :</label>
-            <input type="email" id="email" name="email" required>
-        
-            <label for="message">Message :</label>
-            <textarea id="message" name="message" required></textarea>
-        
-            <!-- reCAPTCHA -->
-            <div class="g-recaptcha" data-sitekey="6Lccxf0qAAAAAGeg6hau-3YrvNKry7rrUsHmppMT"></div>
-        
-            <button type="submit">Envoyer</button>
-        </form>
-        
-        
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-    <footer>
-        <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
-    </footer>
+  <section id="boutique">
+    <h2>Mes Livres</h2>
+    <div class="livres">
+      <div class="livre">
+        <img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture">
+        <h3>Le petit zouffarceur</h3>
+        <p>Résumé rapide du livre.</p>
+        <a href="/boutique/le-petit-zouffarceur.html" class="btn-panier">📖 Détails</a>
+        <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
+      </div>
+      <div class="livre">
+        <img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture">
+        <h3>La maison du petit zouffarceur</h3>
+        <p>Résumé rapide du livre.</p>
+        <a href="/boutique/la-maison-du-petit-zouffarceur.html" class="btn-panier">📖 Détails</a>
+        <a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact</h2>
+    <form id="contactForm" class="contact-form">
+      <label for="name">Nom :</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Email :</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message :</label>
+      <textarea id="message" name="message" required></textarea>
+
+      <div class="g-recaptcha" data-sitekey="6Lccxf0qAAAAAGeg6hau-3YrvNKry7rrUsHmppMT"></div>
+
+      <button type="submit">Envoyer</button>
+    </form>
+    <p id="responseMessage" style="display: none;"></p>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
+  </footer>
+
 </body>
 </html>
