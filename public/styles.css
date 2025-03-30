@@ -456,3 +456,33 @@ nav {
     transform: translateY(-2px);
     box-shadow: 0 4px 8px rgba(0,0,0,0.3);
   }
+
+  .btn-panier {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.5em 1em;
+    background-color: #2d8659;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 1em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: all 0.2s ease;
+    cursor: pointer;
+  }
+  
+  .btn-panier:hover {
+    background-color: #237148;
+    transform: scale(1.05);
+  }
+
+  /* Responsive mobile */
+@media (max-width: 480px) {
+    .btn-panier {
+      font-size: 0.9em;
+      padding: 0.4em 0.8em;
+    }
+  }

@@ -23,20 +23,21 @@
           </nav>
     </header>
 
-    <h1>Le petit zouffarceur</h1>
+    <h1>La maison du petit zouffarceur</h1>
   <img src="/images/LeMaisonduPetitZouffarceur.png" alt="Couverture du livre La maison du petit zouffarceur">
   <p>Un conte illustré</p>
   <p><strong>14,00 €</strong></p>
 
-  <button onclick="ajouterAuPanier({
-      id: 'livre-2',
-      name: 'La maison du petit zouffarceur',
-      price: 1400
-  })">
-    Ajouter au panier
-  </button>
-
-  <a href="/boutique/panier.html">🛒 Voir le panier</a>
+  <a href="#" 
+  class="btn-panier"
+  data-id="livre-2"
+  data-nom="La maison du petit zouffarceur"
+  data-prix="1400">
+  ➕🛒 Ajouter au panier
+</a>
+<a href="/boutique/panier.html" class="btn-panier">
+    🛒 Voir le panier
+  </a>
 
 </body>
 </html>

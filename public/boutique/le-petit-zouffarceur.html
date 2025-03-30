@@ -28,15 +28,17 @@
   <p>Un conte illustré</p>
   <p><strong>14,00 €</strong></p>
 
-  <button onclick="ajouterAuPanier({
-      id: 'livre-1',
-      name: 'Le petit zouffarceur',
-      price: 1400
-  })">
-    Ajouter au panier
-  </button>
+  <a href="#" 
+  class="btn-panier"
+  data-id="livre-1"
+  data-nom="Le petit zouffarceur"
+  data-prix="1400">
+  ➕🛒 Ajouter au panier
+</a>
 
-  <a href="/boutique/panier.html">🛒 Voir le panier</a>
+<a href="/boutique/panier.html" class="btn-panier">
+    🛒 Voir le panier
+  </a>
 
 </body>
 </html>
