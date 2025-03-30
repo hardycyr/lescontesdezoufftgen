@@ -7,8 +7,9 @@
   
   /* Base */
   body {
-    font-family: 'Patrick Hand', cursive;
-    font-size: 20px; /* ou 18px si tu préfères un peu plus fin */
+    font-family: 'Proxima Nova Rg', cursive;
+    /*font-family: 'Patrick Hand', cursive;*/
+    font-size: 13.5pt; /* ou 18px si tu préfères un peu plus fin */
     line-height: 1.6;
     color: #fefefe;
     background-color: #1c1c1c;
@@ -72,7 +73,7 @@
   /* Section A propos */
   .apropos h2 {
     text-align: center;
-    font-size: 2rem;
+    font-size: 3rem;
     margin-bottom: 2rem;
     color: #ffdd99;
   }

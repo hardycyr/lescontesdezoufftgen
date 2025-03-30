@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="/js/panier.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
     <style>
     .apropos-content {
   display: block;
@@ -15,11 +17,23 @@
 
 .apropos-photo {
   float: left;
-  max-width: 300px;
+  max-width: 400px;
   margin: 0 1.5rem 1rem 0;
   border-radius: 12px;
   box-shadow: 0 0 40px rgba(255, 255, 255, 0.25);
   filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.25));
+}
+
+.section-title {
+  font-family: 'Great Vibes', cursive;
+  font-size: 3.5rem;
+  text-align: center;
+  color: transparent;
+  background: url('/images/fond-titre.jpg') center/cover no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 2rem;
+  letter-spacing: 1px;
 }
 
 .apropos-legende {
@@ -42,6 +56,8 @@
     }
 
     .apropos-text h3 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5rem;
       margin-top: 1.5rem;
     }
 
@@ -91,7 +107,7 @@
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
         <li><a href="#apropos">Accueil</a></li>
-        <li><a href="#boutique">Boutique</a></li>
+        <li><a href="#boutique">Mes livres</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
       </ul>
@@ -99,7 +115,7 @@
   </header>
 
   <section id="apropos" class="apropos">
-    <h2>Mon histoire</h2>
+    <h2 class="section-title">Mon histoire</h2>
     <div class="apropos-content">
         <div class="apropos-text">
         <p><em>Il était une fois… des histoires qui n’auraient jamais dû quitter la chambre d’un enfant.</em></p>
@@ -123,8 +139,8 @@
             <p>J’ai déjà publié mes deux premiers « contes de Zoufftgen ». Chacun des livres de cette série est une porte ouverte sur le patrimoine local empreint de féérie. Les lieux illustrés dans ces histoires existent pour de vrai, les personnages également, je vous invite à venir le vérifier par vous-mêmes…</p>
             <h3>Et maintenant…</h3>
             <p>Aujourd’hui, je travaille sur le troisième conte de la collection, qui vous fera découvrir les animaux qui vivent dans la forêt de Zoufftgen et les aventures qui s’y déroulent. Notamment, celles d’une très ancienne famille de sangliers…</p>
-            <p><strong>Mon rêve ?</strong> Continuer à faire voyager mes histoires et offrir un peu de poésie au monde qui nous entoure.</p>
-            <p><strong>Bienvenue dans le monde.</strong></p>
+            <h3>Mon rêve ?</h3>
+            <p>Continuer à faire voyager mes histoires et offrir un peu de poésie au monde qui nous entoure.</p>
         </div>
     </div>
   </section>
