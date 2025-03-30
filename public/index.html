@@ -74,28 +74,6 @@
         <p id="responseMessage" style="display: none;"></p> <!-- Message de confirmation -->
         
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-        <script>
-        document.getElementById("contactForm").addEventListener("submit", async function(event) {
-            event.preventDefault();
-            const formData = new FormData(this);
-            const recaptchaResponse = grecaptcha.getResponse();
-        
-            if (!recaptchaResponse) {
-                alert("Veuillez valider le CAPTCHA.");
-                return;
-            }
-        
-            formData.append("recaptcha", recaptchaResponse);
-        
-            const response = await fetch("/", {
-                method: "POST",
-                body: formData
-            });
-        
-            const result = await response.json();
-            alert(result.message);
-        });
-        </script>
     <footer>
         <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
     </footer>

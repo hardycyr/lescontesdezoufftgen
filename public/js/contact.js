@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   
     form.addEventListener("submit", async function(event) {
       event.preventDefault(); // 🔒 Stoppe le submit HTML classique
+
+      submitBtn.disabled = true;
   
       const formData = {
         name: document.getElementById("name").value,
@@ -42,5 +44,4 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
 
-submitBtn.disabled = true;
 setTimeout(() => submitBtn.disabled = false, 3000);
