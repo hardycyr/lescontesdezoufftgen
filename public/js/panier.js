@@ -116,6 +116,11 @@ function mettreAJourFraisEtTotal() {
   const frais = calculerFraisDePort(pays, totalQuantite);
   const total = totalProduits + frais;
 
+
+  if (totalProduitsSpan) totalProduitsSpan.textContent = (totalProduits / 100).toFixed(2);
+  if (fraisPortSpan)     fraisPortSpan.textContent = (frais / 100).toFixed(2);
+  if (totalGeneralSpan)  totalGeneralSpan.textContent = (total / 100).toFixed(2);
+  if (paysLabel)         paysLabel.textContent = pays;
   totalProduitsSpan.textContent = (totalProduits / 100).toFixed(2);
   fraisPortSpan.textContent = (frais / 100).toFixed(2);
   totalGeneralSpan.textContent = (total / 100).toFixed(2);
