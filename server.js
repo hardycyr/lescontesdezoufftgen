@@ -11,8 +11,8 @@ import nodemailer from "nodemailer";
 dotenv.config();
 
 const app = express();
-app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+app.use(express.urlencoded({ extended: false })); // facultatif
 app.use(cors());
 app.use(express.static("public")); // Met ton index.html dans /public
 
@@ -115,9 +115,11 @@ app.post("/create-checkout-session", async (req, res) => {
 
 
 app.post("/", async (req, res) => {
+  console.log("📨 Requête contact reçue :", req.body);
   const { name, email, message, recaptcha } = req.body;
 
   if (!name || !email || !message || !recaptcha) {
+    console.log("⛔ Champs manquants :", { name, email, message, recaptcha });
     return res.status(400).json({ success: false, message: "Champs manquants." });
   }
 
