@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById("contactForm");
+    const submitBtn = form.querySelector("button");
   
     form.addEventListener("submit", async function(event) {
       event.preventDefault(); // 🔒 Stoppe le submit HTML classique
@@ -40,6 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-const submitBtn = form.querySelector("button");
+
 submitBtn.disabled = true;
 setTimeout(() => submitBtn.disabled = false, 3000);
