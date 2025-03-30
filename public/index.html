@@ -6,25 +6,31 @@
   <title>Les contes de Zoufftgen</title>
   <link rel="stylesheet" href="styles.css" />
   <script src="/js/panier.js" defer></script>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
-  <style>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+    <style>
     .apropos-content {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 2rem;
-      flex-wrap: wrap;
-    }
+  display: block;
+  text-align: justify;
+}
 
-    .apropos-photo {
-        max-width: 300px;
-        width: 100%;
-        border-radius: 12px;
-        object-fit: cover;
-        box-shadow: 0 0 40px rgba(255, 255, 255, 0.25);
-        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.25));
-        transition: transform 0.3s ease;
-        }
+.apropos-photo {
+  float: left;
+  max-width: 250px;
+  margin: 0 1.5rem 1rem 0;
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.25);
+  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.25));
+}
+
+.apropos-legende {
+  margin-top: 0.3rem;
+  margin-bottom: 1.5rem;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.2rem;
+  color: #eee;
+  text-align: center;
+  clear: left;
+}
     .apropos-photo:hover {
         transform: scale(1.02);
     }
@@ -46,8 +52,14 @@
       }
 
       .apropos-photo {
-        margin-bottom: 1rem;
-      }
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+  .apropos-legende {
+    clear: none;
+  }
 
       .apropos-text {
         text-align: left;
@@ -87,13 +99,13 @@
   </header>
 
   <section id="apropos" class="apropos">
-    <h2>À propos de l’auteur</h2>
+    <h2>À propos de l’autrice</h2>
     <div class="apropos-content">
     <div class="apropos-colonne-photo">
         <img src="https://lescontesdezoufftgen.onrender.com/images/Helene-Agostinis-1.JPG"
                 alt="Photo de l'auteur"
                 class="apropos-photo" />
-        <div class="apropos-legende">Hélène Agostinis-Hardy</div>
+        <div class="apropos-legende">Hélène Agostinis</div>
     </div>
       <div class="apropos-text">
         <p><em>Il était une fois… des histoires qui n’auraient jamais dû quitter la chambre d’un enfant.</em></p>
