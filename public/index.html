@@ -29,7 +29,6 @@
   font-size: 3.5rem;
   text-align: center;
   color: transparent;
-  background: url('/images/fond-titre.jpg') center/cover no-repeat;
   -webkit-background-clip: text;
   background-clip: text;
   margin-bottom: 2rem;
@@ -95,6 +94,46 @@
   font-size: 1rem;
 }
 
+.livres {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.livre {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 15px rgba(0,0,0,0.1);
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.livre img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+.livre:hover {
+  transform: scale(1.02);
+}
+
+.livre img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.livre img:hover {
+  transform: scale(1.03);
+  filter: brightness(1.05) contrast(1.05) saturate(1.1);
+}
+
+
+
   </style>
 </head>
 <body>
@@ -149,21 +188,20 @@
     <h2>Mes Livres</h2>
     <div class="livres">
       <div class="livre">
-        <img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture">
+        <a href="/boutique/le-petit-zouffarceur.html"><img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture"></a>
         <h3>Le petit zouffarceur</h3>
         <p>Résumé rapide du livre.</p>
-        <a href="/boutique/le-petit-zouffarceur.html" class="btn-panier">📖 Détails</a>
         <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
       </div>
       <div class="livre">
-        <img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture">
+        <a href="/boutique/la-maison-du-petit-zouffarceur.html"><img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture"></a>
         <h3>La maison du petit zouffarceur</h3>
         <p>Résumé rapide du livre.</p>
-        <a href="/boutique/la-maison-du-petit-zouffarceur.html" class="btn-panier">📖 Détails</a>
         <a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
       </div>
     </div>
   </section>
+  
 
   <section id="contact" class="contact">
     <h2>Contact</h2>
