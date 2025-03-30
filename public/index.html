@@ -7,6 +7,67 @@
   <link rel="stylesheet" href="styles.css" />
   <script src="/js/panier.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    .apropos-content {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .apropos-photo {
+        max-width: 300px;
+        width: 100%;
+        border-radius: 12px;
+        object-fit: cover;
+        box-shadow: 0 0 40px rgba(255, 255, 255, 0.25);
+        filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.25));
+        transition: transform 0.3s ease;
+        }
+    .apropos-photo:hover {
+        transform: scale(1.02);
+    }
+
+    .apropos-text {
+      flex: 1;
+      min-width: 280px;
+      text-align: justify;
+    }
+
+    .apropos-text h3 {
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 768px) {
+      .apropos-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .apropos-photo {
+        margin-bottom: 1rem;
+      }
+
+      .apropos-text {
+        text-align: left;
+      }
+    }
+
+    .apropos-colonne-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.apropos-legende {
+  margin-top: 0.5rem;
+  color: #eee;
+  font-style: italic;
+  font-size: 1rem;
+}
+
+  </style>
 </head>
 <body>
 
@@ -17,8 +78,7 @@
     <nav>
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#apropos">À propos de l’auteur</a></li>
+        <li><a href="#apropos">Accueil</a></li>
         <li><a href="#boutique">Boutique</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
@@ -26,28 +86,31 @@
     </nav>
   </header>
 
-  <section id="accueil">
-    <h2>Bienvenue</h2>
-    <p>Auteur & Illustrateur passionné, découvrez mes œuvres et mes livres.</p>
-  </section>
-
   <section id="apropos" class="apropos">
     <h2>À propos de l’auteur</h2>
     <div class="apropos-content">
-      <p><em>Il était une fois… des histoires qui n’auraient jamais dû quitter la chambre d’un enfant.</em></p>
-      <p>Depuis toujours, je suis fascinée par les beaux livres, les contes et le dessin. J’ai grandi dans un petit village de campagne, entourée des animaux qui peuplent nos forêts et nos jardins. Les livres de Beatrix Potter, d’Antoon Krings ou de Kenneth Grahame notamment, ont nourri mon imaginaire, me donnant l’envie de créer mon propre univers.</p>
-      <p>Il y a 15 ans, je me suis installée à Zoufftgen. C’est ici que mes personnages ont pris vie, inspirés par les animaux croisés dans la forêt, l’histoire du village et de ses habitants, ainsi que les petits détails du quotidien.</p>
-      <p>Il y a 12 ans j’ai créé mon tout premier livre, une histoire illustrée destinée à ma nièce et dont elle était l’héroïne. Puis mon fils est né, et tous les jours, que ce soit en voiture, en cuisinant ou le soir au coucher, il me réclamait des histoires. Elles se déroulaient exactement là où nous vivons, dans les rues de Zoufftgen, au cœur de la forêt alentour, près des rivières où nous nous promenions. Il écoutait, captivé, et pour celles qui lui plaisaient particulièrement, je me promettais de les transformer en livre rien que pour lui, afin qu’il en garde une trace pour toujours.</p>
-      <p>Mais les histoires ont leur volonté propre et certaines décident de ne pas rester enfermées… En décembre 2023, St Nicolas et la Mairie de Zoufftgen ont décidé de distribuer mon premier conte à tous les enfants du village. Le journal de la région a relaté l’évènement et le livre a dû être réimprimé pour honorer de nouvelles commandes. Le second livre a vu le jour l’année suivante, et ainsi de suite…</p>
-      <h3>Mon travail</h3>
-      <p>Chaque fois qu’une histoire a plu à mon fils, je l’ai notée et conservée, jusqu’à accumuler une centaine d’idées. Mais une histoire ne vit vraiment que lorsqu’elle est racontée, alors j’espère qu’elles réussiront toutes à s’échapper de mon carnet pour devenir des livres.</p>
-      <p>J’aime dessiner ou peindre à l’aide de différentes techniques : crayon, aquarelle, feutres sur vitres, etc. Les illustrations de mes premiers livres ont été réalisées sur Procreate, un outil numérique qui m’a permis de donner vie à mon univers tout en jonglant avec mon quotidien bien rempli de maman travaillant dans un laboratoire de santé.</p>
-      <h3>Mes livres</h3>
-      <p>J’ai déjà publié mes deux premiers « contes de Zoufftgen ». Chacun des livres de cette série est une porte ouverte sur le patrimoine local empreint de féérie. Les lieux illustrés dans ces histoires existent pour de vrai, les personnages également, je vous invite à venir le vérifier par vous-mêmes…</p>
-      <h3>Et maintenant…</h3>
-      <p>Aujourd’hui, je travaille sur le troisième conte de la collection, qui vous fera découvrir les animaux qui vivent dans la forêt de Zoufftgen et les aventures qui s’y déroulent. Notamment, celles d’une très ancienne famille de sangliers…</p>
-      <p><strong>Mon rêve ?</strong> Continuer à faire voyager mes histoires et offrir un peu de poésie au monde qui nous entoure.</p>
-      <p><strong>Bienvenue dans le monde.</strong></p>
+    <div class="apropos-colonne-photo">
+        <img src="https://lescontesdezoufftgen.onrender.com/images/Helene-Agostinis-1.JPG"
+                alt="Photo de l'auteur"
+                class="apropos-photo" />
+        <div class="apropos-legende">Hélène Agostinis-Hardy</div>
+    </div>
+      <div class="apropos-text">
+        <p><em>Il était une fois… des histoires qui n’auraient jamais dû quitter la chambre d’un enfant.</em></p>
+        <p>Depuis toujours, je suis fascinée par les beaux livres, les contes et le dessin. J’ai grandi dans un petit village de campagne, entourée des animaux qui peuplent nos forêts et nos jardins. Les livres de Beatrix Potter, d’Antoon Krings ou de Kenneth Grahame notamment, ont nourri mon imaginaire, me donnant l’envie de créer mon propre univers.</p>
+        <p>Il y a 15 ans, je me suis installée à Zoufftgen. C’est ici que mes personnages ont pris vie, inspirés par les animaux croisés dans la forêt, l’histoire du village et de ses habitants, ainsi que les petits détails du quotidien.</p>
+        <p>Il y a 12 ans j’ai créé mon tout premier livre, une histoire illustrée destinée à ma nièce et dont elle était l’héroïne. Puis mon fils est né, et tous les jours, que ce soit en voiture, en cuisinant ou le soir au coucher, il me réclamait des histoires. Elles se déroulaient exactement là où nous vivons, dans les rues de Zoufftgen, au cœur de la forêt alentour, près des rivières où nous nous promenions. Il écoutait, captivé, et pour celles qui lui plaisaient particulièrement, je me promettais de les transformer en livre rien que pour lui, afin qu’il en garde une trace pour toujours.</p>
+        <p>Mais les histoires ont leur volonté propre et certaines décident de ne pas rester enfermées… En décembre 2023, St Nicolas et la Mairie de Zoufftgen ont décidé de distribuer mon premier conte à tous les enfants du village. Le journal de la région a relaté l’évènement et le livre a dû être réimprimé pour honorer de nouvelles commandes. Le second livre a vu le jour l’année suivante, et ainsi de suite…</p>
+        <h3>Mon travail</h3>
+        <p>Chaque fois qu’une histoire a plu à mon fils, je l’ai notée et conservée, jusqu’à accumuler une centaine d’idées. Mais une histoire ne vit vraiment que lorsqu’elle est racontée, alors j’espère qu’elles réussiront toutes à s’échapper de mon carnet pour devenir des livres.</p>
+        <p>J’aime dessiner ou peindre à l’aide de différentes techniques : crayon, aquarelle, feutres sur vitres, etc. Les illustrations de mes premiers livres ont été réalisées sur Procreate, un outil numérique qui m’a permis de donner vie à mon univers tout en jonglant avec mon quotidien bien rempli de maman travaillant dans un laboratoire de santé.</p>
+        <h3>Mes livres</h3>
+        <p>J’ai déjà publié mes deux premiers « contes de Zoufftgen ». Chacun des livres de cette série est une porte ouverte sur le patrimoine local empreint de féérie. Les lieux illustrés dans ces histoires existent pour de vrai, les personnages également, je vous invite à venir le vérifier par vous-mêmes…</p>
+        <h3>Et maintenant…</h3>
+        <p>Aujourd’hui, je travaille sur le troisième conte de la collection, qui vous fera découvrir les animaux qui vivent dans la forêt de Zoufftgen et les aventures qui s’y déroulent. Notamment, celles d’une très ancienne famille de sangliers…</p>
+        <p><strong>Mon rêve ?</strong> Continuer à faire voyager mes histoires et offrir un peu de poésie au monde qui nous entoure.</p>
+        <p><strong>Bienvenue dans le monde.</strong></p>
+      </div>
     </div>
   </section>
 
