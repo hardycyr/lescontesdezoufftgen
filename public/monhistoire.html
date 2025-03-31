@@ -26,6 +26,17 @@
   text-align: justify;
 }
 
+  /* Sections */
+  section {
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+    background-color: white;
+    border-radius: 12px;
+    margin-top: 2rem;
+    color: black;
+  }
+
 .apropos-photo {
   float: left;
   max-width: 400px;
@@ -35,11 +46,23 @@
   filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.25));
 }
 
+.apropos-text h3 {
+    font-family: 'Great Vibes', cursive;
+    font-size: 2.5rem;
+    margin-top: 1.5rem;
+    color: black;
+}
+
+.apropos-content em {
+    color: black;
+    font-style: italic;
+}
+
 .section-title {
   font-family: 'Great Vibes', cursive;
   font-size: 3.5rem;
   text-align: center;
-  color: #fff ;
+  color: black ;
   -webkit-background-clip: text;
   background-clip: text;
   margin-bottom: 2rem;
@@ -165,31 +188,6 @@
     </nav>
   </header>
 
-  <section id="accueil">
-    <h2 class="section-title">Bienvenue sur mon site internet</h2>
-    <h2 class="section-title">Ici vous trouverez des informations sur moi, mes contes et mes illustrations</h2>
-  </section>
-
-  <!--
-  <section id="boutique">
-    <h2 class="section-title">Mes Livres</h2>
-    <div class="livres">
-      <div class="livre">
-        <a href="/boutique/le-petit-zouffarceur.html"><img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture"></a>
-        <h3>Le petit zouffarceur</h3>
-        <p>Il se passe des choses étranges à Zoufftgen la nuit du 24 décembre...</p>
-        <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
-      </div>
-      <div class="livre">
-        <a href="/boutique/la-maison-du-petit-zouffarceur.html"><img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture"></a>
-        <h3>La maison du petit zouffarceur</h3>
-        <p>Depuis quelques temps, les Zoufftgenois s'inquiètent. Plus personne ne vient manger les noisettes qu'ils déposent sur les rebords de leurs fenêtres...</p>
-        <a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
-      </div>
-    </div>
-  </section>
-
-  
   <section id="monhistoire">
     <h2 class="section-title">Mon histoire</h2>
     <div class="apropos-content">
@@ -219,29 +217,6 @@
     </div>
   </section>
 
- 
-
-  <section id="contact" class="contact">
-    <h2 class="section-title">Contactez moi</h2>
-    <form id="contactForm" class="contact-form">
-      <label for="name">Nom :</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="message">Message :</label>
-      <textarea id="message" name="message" required></textarea>
-
-      <div class="g-recaptcha" data-sitekey="6Lccxf0qAAAAAGeg6hau-3YrvNKry7rrUsHmppMT"></div>
-
-      <button type="submit">Envoyer</button>
-    </form>
-    <p id="responseMessage" style="display: none;"></p>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  </section>
- -->
-  
   <footer>
     <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
   </footer>
