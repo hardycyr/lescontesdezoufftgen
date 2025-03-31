@@ -1,52 +1,141 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Les contes de Zoufftgen - Boutique</title>
-    <link rel="stylesheet" href="../styles.css">
-    <script src="/js/panier.js" defer></script>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-YF42H2CYXX');
-    </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le petit zouffarceur</title>
+  <link rel="stylesheet" href="/styles.css" />
+  <script src="/js/panier.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-image: url('/images/Fond.png');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .product-page {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+      color: white;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .product-image {
+      flex: 1;
+      min-width: 300px;
+    }
+    .product-image img.main-img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .gallery img {
+      width: 100px;
+      height: auto;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+    .product-details {
+      flex: 1;
+      min-width: 280px;
+    }
+    .product-details h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .product-details p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 1rem;
+    }
+    .product-price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+    .btn-panier {
+      display: inline-block;
+      padding: 0.8rem 1.2rem;
+      background-color: #2d8659;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+    .btn-panier:hover {
+      background-color: #1f5c3d;
+    }
+    header h1 a {
+      text-decoration: none;
+      color: inherit;
+    }
+    @media (max-width: 768px) {
+      .product-page {
+        flex-direction: column;
+        padding: 1rem;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Les contes de Zoufftgen</h1>
-        <nav>
-            <button id="menu-toggle" aria-label="Menu">☰</button>
-            <ul id="menu-list">
-              <li><a href="/#accueil">Accueil</a></li>
-              <li><a href="/#galerie">Galerie</a></li>
-              <li><a href="/#boutique">Boutique</a></li>
-              <li><a href="/#apropos">A propos de l'auteur</a></li>
-              <li><a href="/#contact">Contact</a></li>
-              <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
-            </ul>
-          </nav>
-    </header>
+  <div class="background-overlay"></div>
+  <header>
+    <h1><a href="/index.html">Les contes de Zoufftgen</a></h1>
+    <nav>
+      <button id="menu-toggle">☰</button>
+      <ul id="menu-list">
+        <li><a href="/index.html#apropos">À propos de l’auteur</a></li>
+        <li><a href="/index.html#boutique">Boutique</a></li>
+        <li><a href="/index.html#contact">Contact</a></li>
+        <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
+      </ul>
+    </nav>
+  </header>
 
-    <h1>La maison du petit zouffarceur</h1>
-  <img src="/images/LeMaisonduPetitZouffarceur.png" alt="Couverture du livre La maison du petit zouffarceur">
-  <p>Un conte illustré</p>
-  <p><strong>14,00 €</strong></p>
+  <section class="product-page">
+    <div class="product-image">
+      <img src="/images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture" class="main-img" id="main-image">
+      <div class="gallery">
+        <img src="/images/LaMaisonduPetitZouffarceur1.jpg" alt="Page intérieure 1" onclick="changerImage('/images/LaMaisonduPetitZouffarceur1.jpg')">
+        <img src="/images/LaMaisonduPetitZouffarceur2.jpg" alt="Page intérieure 2" onclick="changerImage('/images/LaMaisonduPetitZouffarceur2.jpg')">
+        <img src="/images/LaMaisonduPetitZouffarceur3.jpg" alt="Page intérieure 3" onclick="changerImage('/images/LaMaisonduPetitZouffarceur3.jpg')">
+      </div>
+    </div>
+    <div class="product-details">
+      <h1>La maison du petit zouffarceur</h1>
+      <p>Depuis quelques temps, les Zoufftgenois s'inquiètent. Plus personne ne vient manger les noisettes qu'ils déposent sur les rebords de leurs fenêtres.</p>
+      <p>Le petit zouffacreur a-t-il disparu?</p>
+      <p>Où est-il passé?</p>
+      <p>De nouvelles aventures vont mener les villageois jusqu'à sa maison et en apprendre un peu plus sur lui...</p>
+      <p class="product-price">14,00 €</p>
+      <a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
+    </div>
+  </section>
 
-  <a href="#" 
-  class="btn-panier"
-  data-id="livre-2"
-  data-nom="La maison du petit zouffarceur"
-  data-prix="1400">
-  ➕🛒 Ajouter au panier
-</a>
-<a href="/boutique/panier.html" class="btn-panier">
-    🛒 Voir le panier
-  </a>
+  <footer>
+    <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
+  </footer>
 
+  <script>
+    function changerImage(src) {
+      document.getElementById('main-image').src = src;
+    }
+  </script>
 </body>
 </html>

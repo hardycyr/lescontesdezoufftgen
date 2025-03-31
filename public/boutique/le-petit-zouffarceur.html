@@ -28,7 +28,7 @@
       flex: 1;
       min-width: 300px;
     }
-    .product-image img {
+    .product-image img.main-img {
       width: 100%;
       border-radius: 10px;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
@@ -37,7 +37,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
-      margin-top: 2rem;
+      margin-top: 1rem;
     }
     .gallery img {
       width: 100px;
@@ -81,6 +81,10 @@
     .btn-panier:hover {
       background-color: #1f5c3d;
     }
+    header h1 a {
+      text-decoration: none;
+      color: inherit;
+    }
     @media (max-width: 768px) {
       .product-page {
         flex-direction: column;
@@ -106,18 +110,18 @@
 
   <section class="product-page">
     <div class="product-image">
-      <img src="/images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture">
+      <img src="/images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture" class="main-img" id="main-image">
       <div class="gallery">
-        <img src="/images/LePetitZouffarceur1.jpg" alt="Page intérieure 1">
-        <img src="/images/LePetitZouffarceur2.jpg" alt="Page intérieure 2">        
-        <img src="/images/LePetitZouffarceur3.jpg" alt="Derniere de couverture - Le petit zouffarceur">
+        <img src="/images/LePetitZouffarceur1.jpg" alt="Page intérieure 1" onclick="changerImage('/images/LePetitZouffarceur1.jpg')">
+        <img src="/images/LePetitZouffarceur2.jpg" alt="Page intérieure 2" onclick="changerImage('/images/LePetitZouffarceur2.jpg')">
+        <img src="/images/LePetitZouffarceur3.jpg" alt="Page intérieure 3" onclick="changerImage('/images/LePetitZouffarceur3.jpg')">
       </div>
     </div>
     <div class="product-details">
       <h1>Le petit zouffarceur</h1>
       <p>Il se passe des choses étranges à Zoufftgen la nuit du 24 décembre.</p>
-      <p>Le Père Noël a-t-il perdu la tête? Qui a pu mettre un tel bazar dans les cadeaux?</p>
-      <p>Les Zoufftgenois vont découvrir que depuis bien longtemps, leur village compte un habitant secret...</p>
+      <p>Le Père Noël a-t-il perdu la tête? Qui a bien pu mettre un tel bazar dans les cadeaux?</p>
+      <p>Les Zoufftgenois von découvrir que depuis bien longtemps, leur village compte un habitant secret...</p>
       <p class="product-price">14,00 €</p>
       <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
     </div>
@@ -126,5 +130,11 @@
   <footer>
     <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
   </footer>
+
+  <script>
+    function changerImage(src) {
+      document.getElementById('main-image').src = src;
+    }
+  </script>
 </body>
 </html>
