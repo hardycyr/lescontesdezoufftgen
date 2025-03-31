@@ -16,6 +16,14 @@ app.use(express.urlencoded({ extended: false })); // facultatif
 app.use(cors());
 app.use(express.static("public")); // Met ton index.html dans /public
 
+app.use((req, res, next) => {
+  const host = req.headers.host;
+  if (host === "www.lescontesdezoufftgen.fr" || host === "lescontesdezoufftgen.fr") {
+    return res.redirect(301, "https://www.lescontesdezoufftgen.com" + req.url);
+  }
+  next();
+});
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
