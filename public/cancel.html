@@ -3,88 +3,80 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Paiement annulé – Les Contes de Zoufftgen</title>
+  <title>Paiement annulé</title>
   <link rel="stylesheet" href="/styles.css">
-  <script src="/js/panier.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    main {
-      max-width: 600px;
-      margin: 3rem auto;
-      padding: 2rem;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    body {
+      font-family: 'Caveat', cursive;
+      color: #fff;
+      background-color: #1c1c1c;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
       text-align: center;
     }
 
+    .background-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url('/images/Fond.png');
+      background-size: cover;
+      background-position: center;
+      filter: brightness(0.6);
+      z-index: -1;
+    }
+
+    .annulation-box {
+        background-color: rgba(0, 0, 0, 0.50);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+      max-width: 600px;
+    }
+
     h1 {
-      color: #f44336;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #ffaaaa;
     }
 
     p {
-      margin-top: 1rem;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
     }
 
-    a.bouton-retour {
-      display: inline-block;
-      margin-top: 2rem;
-      padding: 0.6rem 1.4rem;
-      background-color: #f44336;
-      color: white;
+    a.btn-retour {
+      padding: 0.8rem 1.6rem;
+      background-color: #555;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
       text-decoration: none;
-      border-radius: 6px;
-      font-weight: 500;
-      transition: background-color 0.2s ease;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
 
-    a.bouton-retour:hover {
-      background-color: #d32f2f;
+    a.btn-retour:hover {
+      background-color: #777;
     }
   </style>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-YF42H2CYXX');
-  </script>
 </head>
 <body>
+  <div class="background-overlay"></div>
 
-  <header>
-    <h1>Les contes de Zoufftgen</h1>
-    <nav>
-      <ul>
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/#galerie">Galerie</a></li>
-        <li><a href="/#boutique">Boutique</a></li>
-        <li><a href="/#contact">Contact</a></li>
-        <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <h1>😕 Paiement annulé</h1>
-    <p>Votre commande n’a pas été finalisée.</p>
-    <p>Vous pouvez modifier votre panier ou réessayer le paiement à tout moment.</p>
-
-    <a href="/boutique/panier.html" class="bouton-retour">← Retour au panier</a>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
-  </footer>
-
-  <script>
-    // Met à jour l’affichage du panier (si fonction dispo)
-    if (typeof updatePanierCompteur === "function") {
-      updatePanierCompteur();
-    }
-  </script>
-
+  <div class="annulation-box">
+    <h1>❌ Paiement annulé</h1>
+    <p>Votre commande n’a pas été finalisée.<br>
+    Si vous avez rencontré un problème, vous pouvez réessayer ou nous contacter.</p>
+    <a href="/index.html" class="btn-retour">⬅ Retour à l'accueil</a>
+  </div>
 </body>
 </html>
