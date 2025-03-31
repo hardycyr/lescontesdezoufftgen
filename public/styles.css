@@ -86,14 +86,11 @@
   }
   
   .apropos-content p {
+    font-size: 13.5pt;
+    font-family: 'Nunito', sans-serif;
     margin-bottom: 1rem;
-    font-size: 20px;
     line-height: 1.7;
-  }
-  
-  .apropos-content em {
-    color: #fff3cd;
-    font-style: italic;
+
   }
   
   .apropos-content strong {
