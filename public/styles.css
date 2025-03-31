@@ -65,7 +65,7 @@
     padding: 3rem 2rem;
     max-width: 1000px;
     margin: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.2);
     border-radius: 12px;
     margin-top: 2rem;
   }
@@ -171,14 +171,6 @@
     border-radius: 12px;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
     color: #fefefe;
-  }
-  
-  .contact h2 {
-    font-family: 'Great Vibes', cursive;
-    text-align: center;
-    font-size: 2rem;
-    color: #ffdd99;
-    margin-bottom: 2rem;
   }
   
   .contact-form label {

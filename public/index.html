@@ -39,7 +39,7 @@
   font-family: 'Great Vibes', cursive;
   font-size: 3.5rem;
   text-align: center;
-  color: transparent;
+  color: #ffdd99 ;
   -webkit-background-clip: text;
   background-clip: text;
   margin-bottom: 2rem;
@@ -156,15 +156,38 @@
     <nav>
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
-        <li><a href="/">Accueil</a></li>
+        <li><a href="#accueil">Accueil</a></li>
         <li><a href="#boutique">Mes livres</a></li>
+        <li><a href="#monhistoire">Mon histoire</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
       </ul>
     </nav>
   </header>
 
-  <section id="apropos" class="apropos">
+  <section id="accueil">
+    <h2 class="section-title">Bienvenue...</h2>
+  </section>
+
+  <section id="boutique">
+    <h2 class="section-title">Mes Livres</h2>
+    <div class="livres">
+      <div class="livre">
+        <a href="/boutique/le-petit-zouffarceur.html"><img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture"></a>
+        <h3>Le petit zouffarceur</h3>
+        <p>Il se passe des choses étranges à Zoufftgen la nuit du 24 décembre...</p>
+        <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
+      </div>
+      <div class="livre">
+        <a href="/boutique/la-maison-du-petit-zouffarceur.html"><img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture"></a>
+        <h3>La maison du petit zouffarceur</h3>
+        <p>Depuis quelques temps, les Zoufftgenois s'inquiètent. Plus personne ne vient manger les noisettes qu'ils déposent sur les rebords de leurs fenêtres...</p>
+        <a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="apropos" class="monhistoire">
     <h2 class="section-title">Mon histoire</h2>
     <div class="apropos-content">
         <div class="apropos-text">
@@ -185,7 +208,7 @@
             <p>Chaque fois qu’une histoire a plu à mon fils, je l’ai notée et conservée, jusqu’à accumuler une centaine d’idées. Mais une histoire ne vit vraiment que lorsqu’elle est racontée, alors j’espère qu’elles réussiront toutes à s’échapper de mon tiroir pour voyager jusqu’à vous.</p>
             <p>J’aime dessiner ou peindre à l’aide de différentes techniques : crayon, aquarelle, feutres sur vitres, etc. Les illustrations de mes premiers livres ont été réalisées sur Procreate, un outil numérique qui m’a permis de donner vie à mon univers tout en jonglant avec mon quotidien bien rempli de maman qui travaille.</p>
             <h3>Mes livres</h3>
-            <p>À ce jour j’ai publié mes deux premiers contes de Zoufftgen. Chacun des livres de cette série est une porte ouverte sur le patrimoine local empreint de féérie. Les lieux illustrés dans ces histoires existent pour de vrai et….les personnages également. Vous ne me croyez pas ? Pourquoi ne pas venir faire un petit tour pour le vérifier par vous-même ?</p>
+            <p>À ce jour j’ai publié mes deux premiers contes de Zoufftgen. Chacun des livres de cette série est une porte ouverte sur le patrimoine local qui est pour moi une source d’inspiration infinie. Les lieux illustrés dans ces histoires existent pour de vrai et….les personnages également. Vous ne me croyez pas ? Pourquoi ne pas venir faire un petit tour pour le vérifier par vous-même ?</p>
             <h3>Et maintenant…</h3>
             <p>Aujourd’hui, je travaille sur le troisième conte de la collection, qui vous fera découvrir les animaux qui vivent dans la forêt de Zoufftgen et les aventures qui s’y déroulent. Notamment, celles d’une très ancienne famille de sangliers…</p>
             <p>Mon rêve ? Continuer à faire voyager mes histoires et offrir un peu de poésie au monde qui nous entoure.</p>
@@ -193,27 +216,8 @@
     </div>
   </section>
 
-  <section id="boutique">
-    <h2>Mes Livres</h2>
-    <div class="livres">
-      <div class="livre">
-        <a href="/boutique/le-petit-zouffarceur.html"><img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture"></a>
-        <h3>Le petit zouffarceur</h3>
-        <p>Il se passe des choses étranges à Zoufftgen la nuit du 24 décembre...</p>
-        <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
-      </div>
-      <div class="livre">
-        <a href="/boutique/la-maison-du-petit-zouffarceur.html"><img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture"></a>
-        <h3>La maison du petit zouffarceur</h3>
-        <p>Depuis quelques temps, les Zoufftgenois s'inquiètent. Plus personne ne vient manger les noisettes qu'ils déposent sur les rebords de leurs fenêtres...</p>
-        <a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
-      </div>
-    </div>
-  </section>
-  
-
   <section id="contact" class="contact">
-    <h2>Contactez moi</h2>
+    <h2 class="section-title">Contactez moi</h2>
     <form id="contactForm" class="contact-form">
       <label for="name">Nom :</label>
       <input type="text" id="name" name="name" required>
