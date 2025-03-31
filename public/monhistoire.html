@@ -53,14 +53,6 @@
     font-weight: normal;
 }
 
-.apropos-content em {
-    color: black;
-    font-size: 16pt;
-    font-family: 'Nunito', sans-serif;
-    margin-bottom: 1rem;
-    line-height: 1.7;
-}
-
 .section-title {
   font-family: 'Rastanty Cortez', cursive;
   font-size: 12rem;
@@ -112,38 +104,6 @@
   align-items: center;
 }
 
-.livres {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 1rem 0;
-}
-
-.livre {
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.livre img {
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-}
-
-.livre:hover {
-  transform: scale(1.02);
-}
-
-.livre img {
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
 
 </style>
 </head>
@@ -156,8 +116,8 @@
     <nav>
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
-        <li><a href="#accueil">Accueil</a></li>
-        <li><a href="#boutique">Mes livres</a></li>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/meslivres.html">Mes livres</a></li>
         <li><a href="/monhistoire.html">Mon histoire</a></li>
         <li><a href="#contact">Contact</a></li>
         <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>

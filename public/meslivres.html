@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Site officiel d'une autrice et illustratrice jeunesse : découvrez ses livres, illustrations et contactez-la directement.">
+  <meta name="keywords" content="livres jeunesse, autrice, illustratrice, contes, patrimoine, éducation, Zoufftgen">
+  <title>Les contes de Zoufftgen</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="/js/panier.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu-list");
+  
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+    });
+  </script>
+    <style>
+    .apropos-content {
+  display: block;
+  text-align: justify;
+}
+
+  /* Sections */
+  section {
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+    background-color: white;
+    border-radius: 12px;
+    margin-top: 2rem;
+    color: black;
+  }
+
+.apropos-photo {
+  float: left;
+  max-width: 400px;
+  margin: 0;
+}
+
+.apropos-text h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    margin-top: 1.5rem;
+    color: black;
+    font-weight: normal;
+}
+
+.apropos-content em {
+    color: black;
+    font-size: 16pt;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.section-title {
+  font-family: 'Rastanty Cortez', cursive;
+  font-size: 12rem;
+  text-align: center;
+  color: black ;
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 0rem;
+  line-height: 1;
+  font-weight: normal;
+}
+
+.apropos-legende {
+  margin-bottom: 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+}
+    .apropos-photo:hover {
+        transform: scale(1.02);
+    }
+
+    .apropos-text {
+      flex: 1;
+      min-width: 280px;
+      text-align: justify;
+    }
+
+    @media (max-width: 768px) {
+      .apropos-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .apropos-photo {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+        .apropos-text {
+        text-align: left;
+      }
+    }
+
+    .apropos-colonne-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.livres {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.livre {
+  background-color: transparent;
+  font-family: 'Nunito', sans-serif;
+  padding: 1rem;
+  text-align: center;
+}
+
+.livre img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.5rem;
+}
+
+</style>
+</head>
+<body>
+
+  <div class="background-overlay"></div>
+
+  <header>
+    <h1><a href="/index.html" class="logo-link">Les contes de Zoufftgen</a></h1>
+    <nav>
+      <button id="menu-toggle">☰</button>
+      <ul id="menu-list">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/meslivres.html">Mes livres</a></li>
+        <li><a href="/monhistoire.html">Mon histoire</a></li>
+        <li><a href="#contact">Contact</a></li>
+        <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="boutique">
+    <h2 class="section-title">Mes Livres</h2>
+    <div class="livres">
+      <div class="livre">
+        <a href="/boutique/le-petit-zouffarceur.html"><img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture"></a>
+        <h3>Le petit zouffarceur</h3>
+        <p>Il se passe des choses étranges à Zoufftgen la nuit du 24 décembre...</p>
+        <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
+      </div>
+      <div class="livre">
+        <a href="/boutique/la-maison-du-petit-zouffarceur.html"><img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture"></a>
+        <h3>La maison du petit zouffarceur</h3>
+        <p>Depuis quelques temps, les Zoufftgenois s'inquiètent. Plus personne ne vient manger les noisettes qu'ils déposent sur les rebords de leurs fenêtres...</p>
+        <a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
+  </footer>
+
+</body>
+</html>
