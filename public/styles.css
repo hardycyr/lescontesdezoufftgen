@@ -44,7 +44,7 @@
   }
   
   header h1 {
-    font-size: 2rem;
+    font-size: 3rem;
     color: #ffeebb;
   }
   
@@ -244,7 +244,7 @@
     text-decoration: none;
     color: white;
     font-family: 'Nunito', sans-serif;
-    font: inherit;  /* hérite de la police et taille du h1 */
+    font-weight: normal;
   }
   
   .logo-link:hover {
