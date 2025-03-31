@@ -28,6 +28,13 @@
     z-index: -2;
     filter: brightness(1);
   }
+
+  @font-face {
+    font-family: 'Rastanty Cortez';
+    src: url('/fonts/RastantyCortez.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
   
   /* Menu */
   header {
@@ -51,13 +58,9 @@
   }
   
   nav a {
-    color: #fff3cd;
+    color: white;
     text-decoration: none;
-    font-weight: bold;
-  }
-  
-  nav a:hover {
-    color: #ffcc77;
+    font-weight: normal;
   }
   
   /* Sections */
@@ -239,7 +242,8 @@
 
   .logo-link {
     text-decoration: none;
-    color: inherit; /* conserve la couleur du h1 */
+    color: white;
+    font-family: 'Nunito', sans-serif;
     font: inherit;  /* hérite de la police et taille du h1 */
   }
   
