@@ -114,7 +114,7 @@ app.post("/create-checkout-session", async (req, res) => {
 });
 
 
-app.post("/", async (req, res) => {
+app.post("/contact.html", async (req, res) => {
   console.log("📨 Requête contact reçue :", req.body);
   const { name, email, message, recaptcha } = req.body;
 
