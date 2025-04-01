@@ -155,23 +155,12 @@
     background-color: #237148;
     transform: scale(1.05);
   }
-  /*
-  .contact {
-    padding: 3rem 2rem;
-    max-width: 700px;
-    margin: 3rem auto;
-    background-color: rgba(255, 255, 255, 0.05);
-    border-radius: 12px;
-    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
-    color: #fefefe;
-  }
-    */
 
   .contact-form label {
     display: block;
     margin-top: 1rem;
     margin-bottom: 0.3rem;
-    font-weight: bold;
+    font-weight: normal;
   }
   
   .contact-form input,

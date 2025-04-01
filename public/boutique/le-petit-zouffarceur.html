@@ -15,12 +15,14 @@
       background-position: center;
       background-repeat: no-repeat;
     }
+
     .product-page {
+      background-color: white;
       display: flex;
       flex-wrap: wrap;
       gap: 2rem;
       padding: 2rem;
-      color: white;
+      color: black;
       max-width: 1200px;
       margin: 0 auto;
       margin-top: 2rem;
@@ -55,14 +57,17 @@
       min-width: 280px;
     }
     .product-details h1 {
-      font-family: 'Caveat', cursive;
-      font-size: 2.5rem;
+      font-family: 'Rastanty Cortez', cursive;
+      font-size: 5rem;
       margin-bottom: 1rem;
+      font-weight: normal;
     }
     .product-details p {
+      font-family: 'Proxima Nova Rg', cursive;
       font-size: 1.1rem;
       line-height: 1.6;
-      margin-bottom: 1rem;
+      margin-bottom: 0.5rem;
+      font-weight: normal;
     }
     .product-price {
       font-size: 1.4rem;
@@ -101,9 +106,10 @@
     <nav>
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
-        <li><a href="/index.html#apropos">À propos de l’auteur</a></li>
-        <li><a href="/index.html#boutique">Boutique</a></li>
-        <li><a href="/index.html#contact">Contact</a></li>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/meslivres.html">Mes livres</a></li>
+        <li><a href="/monhistoire.html">Mon histoire</a></li>
+        <li><a href="/contact.html">Contact</a></li>
         <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
       </ul>
     </nav>
@@ -113,16 +119,19 @@
     <div class="product-image">
       <img src="/images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture" class="main-img" id="main-image">
       <div class="gallery">
+        <img src="/images/LePetitZouffarceur.jpg" alt="Page intérieure 1" onclick="changerImage('/images/LePetitZouffarceur.jpg')">
         <img src="/images/LePetitZouffarceur1.jpg" alt="Page intérieure 1" onclick="changerImage('/images/LePetitZouffarceur1.jpg')">
-        <img src="/images/LePetitZouffarceur2.jpg" alt="Page intérieure 2" onclick="changerImage('/images/LePetitZouffarceur2.jpg')">
-        <img src="/images/LePetitZouffarceur3.jpg" alt="Page intérieure 3" onclick="changerImage('/images/LePetitZouffarceur3.jpg')">
       </div>
     </div>
     <div class="product-details">
       <h1>Le petit zouffarceur</h1>
-      <p>Il se passe des choses étranges à Zoufftgen la nuit du 24 décembre.</p>
-      <p>Le Père Noël a-t-il perdu la tête? Qui a bien pu mettre un tel bazar dans les cadeaux?</p>
-      <p>Les Zoufftgenois von découvrir que depuis bien longtemps, leur village compte un habitant secret...</p>
+      <p>Livre rigide avec:</p>
+      <p>&nbsp;&nbsp;&nbsp;-&nbsp;vernis 3D sélectif sur la couverture</p>
+      <p>&nbsp;&nbsp;&nbsp;-&nbsp;une histoire illustrée</p>
+      <p>&nbsp;&nbsp;&nbsp;-&nbsp;des activités ludiques pour prolonger l'aventure</p>
+      <p>&nbsp;&nbsp;&nbsp;-&nbsp;une recette de cuisine à tester en famille</p>
+      <!--<p>Le Père Noël a-t-il perdu la tête? Qui a bien pu mettre un tel bazar dans les cadeaux?</p>
+      <p>Les Zoufftgenois von découvrir que depuis bien longtemps, leur village compte un habitant secret...</p>-->
       <p class="product-price">14,00 €</p>
       <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
     </div>
