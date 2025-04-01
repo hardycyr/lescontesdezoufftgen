@@ -80,12 +80,12 @@ function afficherPanier() {
     totalGeneral += total;
 
     ligne.innerHTML = `
-      <td>${item.name}</td>
-      <td>${(item.price / 100).toFixed(2)} €</td>
-      <td><input type="number" min="1" value="${item.quantity}" onchange="changerQuantite(${index}, this.value)" /></td>
-      <td>${(total / 100).toFixed(2)} €</td>
-      <td><button class="btn-supprimer" onclick="supprimerArticle(${index})">❌</button></td>
-    `;
+  <td data-label="Produit">${item.name}</td>
+  <td data-label="Prix unitaire">${(item.price / 100).toFixed(2)} €</td>
+  <td data-label="Quantité"><input type="number" min="1" value="${item.quantity}" onchange="changerQuantite(${index}, this.value)" /></td>
+  <td data-label="Total">${(total / 100).toFixed(2)} €</td>
+  <td data-label="Actions"><button class="btn-supprimer" onclick="supprimerArticle(${index})">❌</button></td>
+`;
     tbody.appendChild(ligne);
   });
 

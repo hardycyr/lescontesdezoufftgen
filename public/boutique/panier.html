@@ -18,139 +18,93 @@
   </script>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    .panier-table {
-      overflow-x: auto;
-      margin-bottom: 2rem;
-    }
+section {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  color: black;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  box-sizing: border-box;
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      background-color: rgba(255, 255, 255, 0.03);
-      color: #fff;
-    }
+.panier-table {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  color: black;
+}
 
-    th, td {
-      padding: 1rem;
-      text-align: left;
-      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: black;
+}
 
-    th {
-      background-color: rgba(0, 0, 0, 0.4);
-    }
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-    input[type="number"] {
-      width: 60px;
-      padding: 0.4rem;
-      border-radius: 6px;
-      border: none;
-      font-size: 1rem;
-      background-color: rgba(255, 255, 255, 0.1);
-      color: #fff;
-      text-align: center;
-    }
+th {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+}
 
-    input[type="number"]:focus {
-      outline: 2px solid #ffdd99;
-      background-color: rgba(255, 255, 255, 0.2);
-    }
-
-    .btn-supprimer {
-      background-color: transparent;
-      color: #ff7f7f;
-      border: 1px solid #ff7f7f;
-      border-radius: 6px;
-      padding: 0.4rem 0.8rem;
-      cursor: pointer;
-      font-size: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .btn-supprimer:hover {
-      background-color: #ff7f7f;
-      color: #1c1c1c;
-    }
-
-    @media (max-width: 768px) {
-      table, thead, tbody, th, td, tr {
-        display: block;
-      }
-
-      thead tr {
-        display: none;
-      }
-
-      tr {
-        margin-bottom: 1rem;
-        background-color: rgba(255, 255, 255, 0.05);
-        padding: 1rem;
-        border-radius: 8px;
-      }
-
-      td {
-        position: relative;
-        padding-left: 50%;
-      }
-
-      td::before {
-        position: absolute;
-        left: 1rem;
-        width: 45%;
-        white-space: nowrap;
-        font-weight: bold;
-        color: #ffdd99;
-        content: attr(data-label);
-      }
-    }
-
-    .recapitulatif {
-      background-color: rgba(255, 255, 255, 0.05);
-      padding: 1.5rem;
-      border-radius: 10px;
-      color: #fff;
-      max-width: 600px;
-      margin: 0 auto 3rem;
-    }
-
-    .recapitulatif select {
-      padding: 0.5rem;
-      border-radius: 5px;
-      margin-bottom: 1rem;
-    }
-
-    .recapitulatif p {
-      margin: 0.5rem 0;
-    }
-
-    .actions button {
-      margin-right: 1rem;
-      padding: 0.8rem 1.4rem;
-      font-weight: bold;
-      background-color: #2d8659;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .actions button:hover {
-      background-color: #237148;
-    }
-
-    .recapitulatif select {
-        width: 100%; /* ou une valeur fixe confortable, comme 260px */
-        padding: 0.6rem 2.5rem 0.6rem 1rem; /* + espace à droite pour la flèche */
+input[type="number"] {
+  width: 60px;
+  padding: 0.4rem;
+  border-radius: 6px;
   font-size: 1rem;
-  font-family: 'Proxima Nova Rg', cursive;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: black;
+  text-align: center;
+}
+
+input[type="number"]:focus {
+  outline: 2px solid #ffdd99;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-supprimer {
+  background-color: transparent;
+  color: #ff7f7f;
+  border: 1px solid #ff7f7f;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-supprimer:hover {
+  background-color: #ff7f7f;
+  color: #1c1c1c;
+}
+
+.recapitulatif {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: black;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.recapitulatif select {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
   background-color: rgba(255, 255, 255, 0.07);
-  color: #fff;
+  color: black;
   border: 2px solid #ffdd99;
   border-radius: 8px;
   appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,50 70,100 120,50' fill='none' stroke='%23ffdd99' stroke-width='15' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.8rem center;
@@ -158,7 +112,7 @@
 }
 
 .recapitulatif select option {
-    font-family: 'Proxima Nova Rg', cursive;
+  font-family: 'Nunito', sans-serif;
   background-color: #1c1c1c;
   color: #fff;
 }
@@ -168,6 +122,85 @@
   border-color: #ffe0b3;
   box-shadow: 0 0 8px #ffdd99;
 }
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.actions button {
+  padding: 0.8rem 1.4rem;
+  font-weight: bold;
+  background-color: #2d8659;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.actions button:hover {
+  background-color: #237148;
+}
+
+@media (max-width: 768px) {
+  .panier-table table {
+    border: 0;
+  }
+
+  .panier-table thead {
+    display: none;
+  }
+
+  .panier-table tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .panier-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .panier-table td:last-child {
+    border-bottom: none;
+  }
+
+  .panier-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #333;
+    flex: 1;
+    text-align: left;
+  }
+
+  .panier-table td input,
+  .panier-table td button {
+    flex: 1;
+    text-align: right;
+  }
+}
+.section-title {
+        font-family: 'Rastanty Cortez', cursive;
+        font-size: 5rem;
+        text-align: center;
+        color: black;
+        -webkit-background-clip: text;
+        background-clip: text;
+        margin-bottom: 0rem;
+        line-height: 1;
+        font-weight: normal;
+    }
+
   </style>
 </head>
 <body>
@@ -189,7 +222,7 @@
   </header>
 
   <section id="panier">
-    <h2>Votre panier</h2>
+    <h2 class="section-title">Votre panier</h2>
     <div class="panier-table">
       <table>
         <thead>
