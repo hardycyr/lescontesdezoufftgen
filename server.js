@@ -130,13 +130,7 @@ app.post("/contact.html", async (req, res) => {
     body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`
   });
 
-  //const captchaResult = await captchaVerification.json();
-
   const captchaResult = await captchaVerification.json();
-
-  if (!captchaResult.success) {
-    return res.status(400).json({ success: false, message: "Échec de la vérification reCAPTCHA." });
-  }
 
   if (!captchaResult.success) {
     return res.status(400).json({ success: false, message: "Échec de la vérification reCAPTCHA." });
