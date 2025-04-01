@@ -93,12 +93,11 @@
     color: #ffdd99;
   }
   
-  /* Footer */
   footer {
     text-align: center;
-    padding: 2rem;
-    font-size: 20px;
-    color: #aaa;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
   }
   
   /* Responsive menu toggle */

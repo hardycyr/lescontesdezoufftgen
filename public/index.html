@@ -21,128 +21,17 @@
     });
   </script>
     <style>
-    .apropos-content {
-  display: block;
-  text-align: justify;
-}
-
-.apropos-photo {
-  float: left;
-  max-width: 400px;
-  margin: 0 1.5rem 1rem 0;
-  border-radius: 12px;
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.25);
-  filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.25));
-}
-
-.section-title {
-  font-family: 'Great Vibes', cursive;
-  font-size: 3.5rem;
-  text-align: center;
-  color: #fff ;
-  -webkit-background-clip: text;
-  background-clip: text;
-  margin-bottom: 2rem;
-  letter-spacing: 1px;
-}
-
-.apropos-legende {
-  margin-top: 0.3rem;
-  margin-bottom: 1.5rem;
-  font-family: 'Patrick Hand', cursive;
-  font-size: 1.2rem;
-  color: #eee;
-  text-align: center;
-  clear: left;
-}
-    .apropos-photo:hover {
-        transform: scale(1.02);
-    }
-
-    .apropos-text {
-      flex: 1;
-      min-width: 280px;
-      text-align: justify;
-    }
-
-    .apropos-text h3 {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.5rem;
-      margin-top: 1.5rem;
-    }
-
-    @media (max-width: 768px) {
-      .apropos-content {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .apropos-photo {
-    float: none;
-    display: block;
-    margin: 0 auto 1rem;
-  }
-
-  .apropos-legende {
-    clear: none;
-  }
-
-      .apropos-text {
-        text-align: left;
-      }
-    }
-
-    .apropos-colonne-photo {
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
-.apropos-legende {
-  margin-top: 0.5rem;
-  color: #eee;
-  font-style: italic;
-  font-size: 1rem;
+main {
+  flex: 1; /* pousse le footer en bas */
 }
-
-.livres {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 1rem 0;
-}
-
-.livre {
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 1rem;
-  border-radius: 1rem;
-  box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  text-align: center;
-  transition: transform 0.2s ease;
-}
-
-.livre img {
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-}
-
-.livre:hover {
-  transform: scale(1.02);
-}
-
-.livre img {
-  width: 100%;
-  height: auto;
-  border-radius: 0.5rem;
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.livre img:hover {
-  transform: scale(1.03);
-  filter: brightness(1.05) contrast(1.05) saturate(1.1);
-}
-
 
 
   </style>
@@ -164,86 +53,10 @@
       </ul>
     </nav>
   </header>
-<!--
-  <section id="accueil">
-    <h2 class="section-title">Bienvenue sur mon site internet</h2>
-    <h2 class="section-title">Ici vous trouverez des informations sur moi, mes contes et mes illustrations</h2>
-  </section>
-
-  
-  <section id="boutique">
-    <h2 class="section-title">Mes Livres</h2>
-    <div class="livres">
-      <div class="livre">
-        <a href="/boutique/le-petit-zouffarceur.html"><img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture"></a>
-        <h3>Le petit zouffarceur</h3>
-        <p>Il se passe des choses étranges à Zoufftgen la nuit du 24 décembre...</p>
-        <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
-      </div>
-      <div class="livre">
-        <a href="/boutique/la-maison-du-petit-zouffarceur.html"><img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture"></a>
-        <h3>La maison du petit zouffarceur</h3>
-        <p>Depuis quelques temps, les Zoufftgenois s'inquiètent. Plus personne ne vient manger les noisettes qu'ils déposent sur les rebords de leurs fenêtres...</p>
-        <a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>
-      </div>
-    </div>
-  </section>
-
-  
-  <section id="monhistoire">
-    <h2 class="section-title">Mon histoire</h2>
-    <div class="apropos-content">
-        <div class="apropos-text">
-        <p><em>Il était une fois…des histoires qui n’étaient pas destinées à quitter la chambre d’enfant où elles sont nées.</em></p>
-        <p>Depuis toujours, je suis fascinée par les beaux livres, les contes et le dessin. J’ai grandi dans un petit village de campagne, entourée des animaux qui peuplent nos forêts et nos jardins. Les livres de Beatrix Potter, d’Antoon Krings ou de Kenneth Grahame notamment, ont nourri mon imaginaire, me donnant l’envie de créer mon propre univers.</p>
-        
-        </div>
-        <div class="apropos-colonne-photo">
-            <img src="https://lescontesdezoufftgen.onrender.com/images/Helene-Agostinis-1.png"
-                    alt="Photo de l'auteur"
-                    class="apropos-photo" />
-            <div class="apropos-legende">© Hélène Agostinis</div>
-        </div>
-        <div class="apropos-text">
-            <p>Il y a 15 ans, je me suis installée à Zoufftgen. C’est ici que j’ai créé mon tout premier livre, une histoire illustrée destinée à ma nièce et dont elle était l’héroïne. Puis mon fils est né, et tous les jours, que ce soit en voiture, en cuisinant ou le soir au coucher, il me réclamait inlassablement des histoires. Elles se déroulaient exactement là où nous vivons, dans les rues de Zoufftgen, au cœur de la forêt alentour, ou près des rivières où nous nous promenions. Il écoutait, captivé, et pour celles qui lui plaisaient particulièrement, je me promettais de les transformer en livre afin qu’il en garde une trace pour toujours, rien que pour lui.</p>
-            <p>Mais les histoires ont leur volonté propre et certaines décident de ne pas rester enfermées… En 2023, alors que j’illustrais un de mes contes pour Noël, St Nicolas et la Mairie de Zoufftgen ont décidé de le distribuer à tous les enfants du village. Le journal de la région a relaté l’évènement et le livre a dû être réimprimé pour honorer de nouvelles commandes. Le second livre a vu le jour l’année suivante, et depuis l’aventure continue…</p>
-            <h3>Mon travail</h3>
-            <p>Chaque fois qu’une histoire a plu à mon fils, je l’ai notée et conservée, jusqu’à accumuler une centaine d’idées. Mais une histoire ne vit vraiment que lorsqu’elle est racontée, alors j’espère qu’elles réussiront toutes à s’échapper de mon tiroir pour voyager jusqu’à vous.</p>
-            <p>J’aime dessiner ou peindre à l’aide de différentes techniques : crayon, aquarelle, feutres sur vitres, etc. Les illustrations de mes premiers livres ont été réalisées sur Procreate, un outil numérique qui m’a permis de donner vie à mon univers tout en jonglant avec mon quotidien bien rempli de maman qui travaille.</p>
-            <h3>Mes livres</h3>
-            <p>À ce jour j’ai publié mes deux premiers contes de Zoufftgen. Chacun des livres de cette série est une porte ouverte sur le patrimoine local qui est pour moi une source d’inspiration infinie. Les lieux illustrés dans ces histoires existent pour de vrai et….les personnages également. Vous ne me croyez pas ? Pourquoi ne pas venir faire un petit tour pour le vérifier par vous-même ?</p>
-            <h3>Et maintenant…</h3>
-            <p>Aujourd’hui, je travaille sur le troisième conte de la collection, qui vous fera découvrir les animaux qui vivent dans la forêt de Zoufftgen et les aventures qui s’y déroulent. Notamment, celles d’une très ancienne famille de sangliers…</p>
-            <p>Mon rêve ? Continuer à faire voyager mes histoires et offrir un peu de poésie au monde qui nous entoure.</p>
-        </div>
-    </div>
-  </section>
-
- 
-
-  <section id="contact" class="contact">
-    <h2 class="section-title">Contactez moi</h2>
-    <form id="contactForm" class="contact-form">
-      <label for="name">Nom :</label>
-      <input type="text" id="name" name="name" required>
-
-      <label for="email">Email :</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="message">Message :</label>
-      <textarea id="message" name="message" required></textarea>
-
-      <div class="g-recaptcha" data-sitekey="6Lccxf0qAAAAAGeg6hau-3YrvNKry7rrUsHmppMT"></div>
-
-      <button type="submit">Envoyer</button>
-    </form>
-    <p id="responseMessage" style="display: none;"></p>
-    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  </section>
- -->
+  <main></main>
 
   <footer>
-    <p>&copy; 2025 Les contes de Zoufftgen. Tous droits réservés.</p>
+    <p>&copy; 2025 Les contes de Zoufftgen. Hélène Agostinis - Tous droits réservés.</p>
   </footer>
 
 </body>
