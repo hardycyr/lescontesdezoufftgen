@@ -29,6 +29,23 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+app.use((req, res, next) => {
+  const host = req.headers.host;
+  const isHttps = req.headers['x-forwarded-proto'] === 'https';
+
+  // Force HTTPS
+  if (!isHttps) {
+    return res.redirect(`https://www.lescontesdezoufftgen.com${req.url}`);
+  }
+
+  // Force www
+  if (host && !host.startsWith('www.')) {
+    return res.redirect(`https://www.lescontesdezoufftgen.com${req.url}`);
+  }
+
+  next();
+});
+
 app.post("/create-checkout-session", async (req, res) => {
     console.log("📦 Body reçu :", req.body);
 
