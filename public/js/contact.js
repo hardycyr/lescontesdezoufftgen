@@ -31,6 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
       });
 
       const data = await response.json();
+      if (!data.success) {
+        throw new Error(data.message || 'Échec du traitement de la demande.');
+      }
 
       if (data.success) {
         responseMessage.style.color = "green";
