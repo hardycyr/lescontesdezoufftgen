@@ -124,8 +124,8 @@ app.post("/create-checkout-session", async (req, res) => {
   "VA", "VC", "VE", "VG", "VN", "VU",
   "WF", "WS", "XK", "YE", "YT", "ZA", "ZM", "ZW"]
           },
-          success_url: "https://lescontesdezoufftgen.onrender.com/success.html",
-          cancel_url: "https://lescontesdezoufftgen.onrender.com/cancel.html"
+          success_url: "https://www.lescontesdezoufftgen.com/success.html",
+          cancel_url: "https://www.lescontesdezoufftgen.com/cancel.html"
         });
 
         res.json({ url: session.url });

@@ -179,7 +179,7 @@ function initialiserPaiement() {
     if (data.url) {
       window.location.href = data.url;
     } else {
-      alert("Erreur lors de la redirection vers Stripe.");
+      alert("Erreur lors de la redirection vers Stripe. Veuillez me contacter via ma page de contact. Merci.");
     }
   });
 }
