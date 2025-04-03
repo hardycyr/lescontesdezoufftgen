@@ -6,12 +6,13 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async function(event) {
     event.preventDefault();
     submitBtn.disabled = true;
+    const recaptcha = grecaptcha.getResponse();
 
     const formData = {
       name: document.getElementById("name").value,
       email: document.getElementById("email").value,
       message: document.getElementById("message").value,
-      recaptcha: grecaptcha.getResponse()
+      recaptcha: recaptcha
     };
 
     if (!formData.recaptcha) {

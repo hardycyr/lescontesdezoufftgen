@@ -21,6 +21,8 @@ const __dirname = path.dirname(__filename);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
+console.log("Clé reCAPTCHA utilisée :", RECAPTCHA_SECRET_KEY);
+
 const transporter = nodemailer.createTransport({
     service: "gmail", 
     auth: {
@@ -29,22 +31,25 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+/*
 app.use((req, res, next) => {
   const host = req.headers.host;
   const isHttps = req.headers['x-forwarded-proto'] === 'https';
 
   // Force HTTPS
-  if (!isHttps) {
-    return res.redirect(`https://www.lescontesdezoufftgen.com${req.url}`);
-  }
+  //if (!isHttps) {
+  //  return res.redirect(`https://www.lescontesdezoufftgen.com${req.url}`);
+  //}
 
   // Force www
-  if (host && !host.startsWith('www.')) {
-    return res.redirect(`https://www.lescontesdezoufftgen.com${req.url}`);
-  }
+  //if (host && !host.startsWith('www.')) {
+  //  return res.redirect(`https://www.lescontesdezoufftgen.com${req.url}`);
+  //}
 
   next();
 });
+*/
+
 
 app.post("/create-checkout-session", async (req, res) => {
     console.log("📦 Body reçu :", req.body);
