@@ -162,6 +162,7 @@ app.post("/contact.html", async (req, res) => {
   const mailOptions = {
     from: email,
     to: "helene.ag@hotmail.com",
+    replyTo: email,
     subject: "Nouveau message depuis le site lescontesdezoufftgen.fr !",
     text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`
   };
