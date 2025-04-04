@@ -21,8 +21,6 @@ const __dirname = path.dirname(__filename);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
-console.log("Clé reCAPTCHA utilisée :", RECAPTCHA_SECRET_KEY);
-
 const transporter = nodemailer.createTransport({
     service: "gmail", 
     auth: {
