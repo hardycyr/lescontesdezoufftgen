@@ -107,6 +107,30 @@
         padding: 1rem;
       }
     }
+
+      /* Style pour la vidéo en overlay */
+  .video-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+  }
+
+  #video-player {
+    max-width: 80%;
+    max-height: 80%;
+  }
+
+  /* Masquer la vidéo par défaut */
+  .video-overlay {
+    display: none;
+  }
   </style>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -119,6 +143,34 @@
         });
       }
     });
+
+    // Fonction pour afficher la vidéo dans l'image principale
+function changerVideo(videoUrl) {
+  const videoOverlay = document.createElement('div');
+  videoOverlay.classList.add('video-overlay');
+  
+  const iframe = document.createElement('iframe');
+  iframe.id = 'video-player';
+  iframe.width = '100%';
+  iframe.height = '100%';
+  iframe.src = videoUrl;
+  iframe.frameborder = '0';
+  iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
+  iframe.allowfullscreen = true;
+  
+  // Ajouter l'iframe à l'overlay
+  videoOverlay.appendChild(iframe);
+  
+  // Ajouter l'overlay à la page
+  document.body.appendChild(videoOverlay);
+  
+  // Fermer la vidéo lorsqu'on clique en dehors de l'iframe
+  videoOverlay.addEventListener('click', function(event) {
+    if (event.target === videoOverlay) {
+      videoOverlay.remove(); // Supprimer l'overlay
+    }
+  });
+}
   </script>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
@@ -149,9 +201,11 @@
   <section class="product-page">
     <div class="product-image">
       <img src="/images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture" class="main-img" id="main-image">
+
       <div class="gallery">
         <img src="/images/LaMaisonduPetitZouffarceur.png" alt="Page intérieure 1" onclick="changerImage('/images/LaMaisonduPetitZouffarceur.png')">
         <img src="/images/LaMaisonduPetitZouffarceur3.jpg" alt="Page intérieure 3" onclick="changerImage('/images/LaMaisonduPetitZouffarceur3.jpg')">
+        <img src="https://img.youtube.com/vi/fWqenvXLS9U/hqdefault.jpg" alt="Présentation du livre Le Petit zouffarceur" onclick="changerVideo('https://www.youtube.com/embed/fWqenvXLS9U?autoplay=1')">
       </div>
     </div>
     <div class="product-details">
