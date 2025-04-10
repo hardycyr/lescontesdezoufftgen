@@ -21,6 +21,7 @@
   <script src="/js/panier.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
   <style>
+    /* Style global */
     body {
       background-image: url('/images/Fond.png');
       background-size: cover;
@@ -40,20 +41,24 @@
       margin: 0 auto;
       margin-top: 2rem;
     }
+
     .product-image {
       flex: 1 1 30%;
       min-width: 300px;
     }
+
     .product-image img.main-img {
       width: 100%;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       margin-top: 1rem;
     }
+
     .gallery img {
       width: 100px;
       height: auto;
@@ -61,19 +66,23 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
+
     .gallery img:hover {
       transform: scale(1.1);
     }
+
     .product-details {
       flex: 1 1 65%;
       min-width: 280px;
     }
+
     .product-details h1 {
       font-family: 'Rastanty Cortez', cursive;
       font-size: 5rem;
       margin-bottom: 1rem;
       font-weight: normal;
     }
+
     .product-details p {
       font-family: 'Proxima Nova Rg', cursive;
       font-size: 1.1rem;
@@ -81,11 +90,13 @@
       margin-bottom: 0.5rem;
       font-weight: normal;
     }
+
     .product-price {
       font-size: 1.4rem;
       font-weight: bold;
       margin-bottom: 1rem;
     }
+
     .btn-panier {
       display: inline-block;
       padding: 0.8rem 1.2rem;
@@ -96,19 +107,23 @@
       font-weight: bold;
       transition: background-color 0.3s;
     }
+
     .btn-panier:hover {
       background-color: #1f5c3d;
     }
+
     header h1 a {
       text-decoration: none;
       color: inherit;
     }
+
     @media (max-width: 768px) {
       .product-page {
         flex-direction: column;
         padding: 1rem;
       }
     }
+
     /* Style pour la vidéo en overlay */
     .video-overlay {
       position: fixed;
@@ -128,113 +143,44 @@
       max-height: 80%;
     }
 
-    /* Masquer la vidéo par défaut */
-    .video-overlay {
-      display: none;
+    .video-thumbnail {
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
     }
 
-    /* Galerie d'images */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1rem;
-}
+    /* Style de l'image thumbnail */
+    .thumbnail {
+      width: 100px;
+      height: auto;
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+    }
 
-/* Conteneur pour l'image miniature et l'icône Play */
-.video-thumbnail {
-  position: relative;
-  cursor: pointer;
-  display: inline-block;
-}
+    .thumbnail:hover {
+      transform: scale(1.1);
+    }
 
-/* Style de l'image thumbnail */
-.thumbnail {
-  width: 100px;
-  height: auto;
-  border-radius: 6px;
-  transition: transform 0.2s ease;
-}
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      opacity: 0.7;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      padding: 5px;
+    }
 
-/* Effet au survol de l'image */
-.thumbnail:hover {
-  transform: scale(1.1);
-}
-
-/* Icône Play superposée */
-/* Icône Play superposée */
-.play-icon {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%); /* Centrer l'icône */
-  width: 20px; /* Réduire la taille de l'icône */
-  height: 20px; /* Ajuster la hauteur */
-  opacity: 0.7; /* Moins d'opacité pour mieux se fondre avec l'image */
-  pointer-events: none; /* L'icône ne doit pas interférer avec les clics */
-  transition: opacity 0.3s ease, transform 0.3s ease;
-  background-color: rgba(0, 0, 0, 0.2); /* Ajouter un léger fond transparent pour mieux se fondre */
-  border-radius: 50%; /* Donner une forme circulaire au fond */
-  padding: 5px; /* Un petit padding pour rendre l'icône plus esthétique */
-}
-
-/* Augmenter la transparence et changer la taille au survol */
-.video-thumbnail:hover .play-icon {
-  opacity: 1;
-  transform: translate(-50%, -50%) scale(1.2); /* Agrandir légèrement l'icône lors du survol */
-}
-
+    .thumbnail:hover .play-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
   </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggle = document.getElementById("menu-toggle");
-      const menu = document.getElementById("menu-list");
-  
-      if (toggle && menu) {
-        toggle.addEventListener("click", () => {
-          menu.classList.toggle("open");
-        });
-      }
-    });
-
-// Fonction pour afficher la vidéo dans l'image principale
-function changerVideo(videoUrl) {
-  const videoOverlay = document.createElement('div');
-  videoOverlay.classList.add('video-overlay');
-  
-  const iframe = document.createElement('iframe');
-  iframe.id = 'video-player';
-  iframe.width = '100%';
-  iframe.height = '100%';
-  iframe.src = videoUrl; // URL de la vidéo YouTube avec autoplay
-  iframe.frameborder = '0';
-  iframe.allow = 'accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture';
-  iframe.allowfullscreen = true;
-  
-  // Ajouter l'iframe à l'overlay
-  videoOverlay.appendChild(iframe);
-  
-  // Ajouter l'overlay à la page
-  document.body.appendChild(videoOverlay);
-  
-  // Fermer la vidéo lorsqu'on clique en dehors de l'iframe
-  videoOverlay.addEventListener('click', function(event) {
-    if (event.target === videoOverlay) {
-      videoOverlay.remove(); // Supprimer l'overlay
-    }
-  });
-}
-
-  </script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-YF42H2CYXX');
-</script>
 </head>
 <body>
   <div class="background-overlay"></div>
@@ -251,20 +197,19 @@ function changerVideo(videoUrl) {
       </ul>
     </nav>
   </header>
+
   <section class="product-page">
     <div class="product-image">
       <img src="/images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture" class="main-img" id="main-image">
-
       <div class="gallery">
         <img src="/images/LePetitZouffarceur.jpg" alt="Page intérieure 1" onclick="changerImage('/images/LePetitZouffarceur.jpg')">
         <img src="/images/LePetitZouffarceur1.jpg" alt="Page intérieure 2" onclick="changerImage('/images/LePetitZouffarceur1.jpg')">
-        <div class="video-thumbnail" onclick="changerVideo('https://www.youtube.com/embed/fWqenvXLS9U?autoplay=1')">
-          <img src="https://img.youtube.com/vi/fWqenvXLS9U/hqdefault.jpg" alt="Vidéo de présentation" class="thumbnail">
-          <img src="/images/play-button.png" alt="Play" class="play-icon">
-        </div>
-        
+       </div>
+      <div class="gallery">
+        <iframe width="100%" src="https://www.youtube.com/embed/fWqenvXLS9U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
     </div>
+
     <div class="product-details">
       <h1>Le petit zouffarceur</h1>
       <p>Livre rigide de 32 pages  avec:</p>
@@ -279,11 +224,6 @@ function changerVideo(videoUrl) {
 
   <footer>
     <p>&copy; 2025 Les contes de Zoufftgen. Hélène Agostinis - Tous droits réservés.</p>
-    <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
-      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#ffdd99">
-        <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>
-      </svg>
-    </a>
   </footer>
 
   <script>
