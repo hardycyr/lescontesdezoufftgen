@@ -193,7 +193,7 @@ function initialiserViderPanier() {
   if (!bouton) return;
 
   bouton.addEventListener("click", () => {
-    if (confirm("Vider le panier ?")) {
+    if (confirm("Empty cart ?")) {
       localStorage.removeItem("panier");
       updatePanierCompteur();
       location.reload();
