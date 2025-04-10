@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Le petit zouffarceur | Children's Book by Hélène Agostinis | Zoufftgen's Tales</title>
+  <meta name="description" content="Discover 'Le Petit Zouffarceur', an enchanting children's book written by Hélène Agostinis. A captivating adventure not to be missed. Available in stores.">
+  <meta property="og:title" content="Le Petit Zouffarceur | Children's Book by Hélène Agostinis">
+  <meta property="og:description" content="Treat your children to the magical adventure of 'Le Petit Zouffarceur', a children's book by Hélène Agostinis. Discover it now in our online store.">
+  <meta property="og:image" content="https://www.lescontesdezoufftgen.com/images/LePetitZouffarceur.jpg">
+  <meta property="og:url" content="https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur.html">
+  <meta property="og:type" content="product">
+  <meta name="twitter:title" content="Le Petit Zouffarceur | Children's Book by Hélène Agostinis">
+  <meta name="twitter:description" content="Treat your children to the magical adventure of 'Le Petit Zouffarceur', a children's book by Hélène Agostinis. Discover it now in our online store.">
+  <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/LePetitZouffarceur.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="product:price:amount" content="14.00">
+  <meta name="product:price:currency" content="EUR">
+
+  <link rel="stylesheet" href="/styles-en.css" />
+  <script src="/js/panier.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Style global */
+    body {
+      background-image: url('/images/Back-en.png');
+      background-size: cover;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+
+    .product-page {
+      background-color: white;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      padding: 2rem;
+      color: black;
+      max-width: 1200px;
+      margin: 0 auto;
+      margin-top: 2rem;
+    }
+
+    .product-image {
+      flex: 1 1 30%;
+      min-width: 300px;
+    }
+
+    .product-image img.main-img {
+      width: 100%;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery img {
+      width: 100px;
+      height: auto;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.1);
+    }
+
+    .product-details {
+      flex: 1 1 65%;
+      min-width: 280px;
+    }
+
+    .product-details h1 {
+      font-family: 'Rastanty Cortez', cursive;
+      font-size: 5rem;
+      margin-bottom: 1rem;
+      font-weight: normal;
+    }
+
+    .product-details p {
+      font-family: 'Proxima Nova Rg', cursive;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+      font-weight: normal;
+    }
+
+    .product-price {
+      font-size: 1.4rem;
+      font-weight: bold;
+      margin-bottom: 1rem;
+    }
+
+    .btn-panier {
+      display: inline-block;
+      padding: 0.8rem 1.2rem;
+      background-color: #2d8659;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+      transition: background-color 0.3s;
+    }
+
+    .btn-panier:hover {
+      background-color: #1f5c3d;
+    }
+
+    header h1 a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    @media (max-width: 768px) {
+      .product-page {
+        flex-direction: column;
+        padding: 1rem;
+      }
+    }
+
+    /* Style pour la vidéo en overlay */
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #video-player {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .video-thumbnail {
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    /* Style de l'image thumbnail */
+    .thumbnail {
+      width: 100px;
+      height: auto;
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+    }
+
+    .thumbnail:hover {
+      transform: scale(1.1);
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      opacity: 0.7;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      padding: 5px;
+    }
+
+    .thumbnail:hover .play-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  </style>
+</head>
+<body>
+  <div class="background-overlay"></div>
+  <header>
+    <h1><a href="/index-en.html" class="logo-link">Zoufftgen's Tales</a></h1>
+    <nav>
+      <button id="menu-toggle">☰</button>
+      <ul id="menu-list">
+        <li><a href="/index-en.html">Home</a></li>
+        <li><a href="/mybooks.html">My books</a></li>
+        <li><a href="/mystory.html">My story</a></li>
+        <li><a href="/contact-en.html">Contact</a></li>
+        <li><a href="/boutique/panier-en.html">🛒 Cart <span id="panier-compteur"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="product-page">
+    <div class="product-image">
+      <img src="/images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture" class="main-img" id="main-image">
+      <div class="gallery">
+        <img src="/images/LePetitZouffarceur.jpg" alt="Page intérieure 1" onclick="changerImage('/images/LePetitZouffarceur.jpg')">
+        <img src="/images/LePetitZouffarceur1.jpg" alt="Page intérieure 2" onclick="changerImage('/images/LePetitZouffarceur1.jpg')">
+       </div>
+      <div class="gallery">
+        <iframe width="100%" src="https://www.youtube.com/embed/fWqenvXLS9U" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <div class="product-details">
+      <h1>Le petit zouffarceur</h1>
+      <p>32-page hardcover book with:</p>
+      <p>&nbsp;&nbsp;&nbsp;-&nbsp;3D selective varnish on the cover</p>
+      <p>&nbsp;&nbsp;&nbsp;-&nbsp;an illustrated story</p>
+      <p>&nbsp;&nbsp;&nbsp;-&nbsp;fun activities to extend the adventure</p>
+      <p>&nbsp;&nbsp;&nbsp;-&nbsp;a recipe to try with the family</p>
+      <p class="product-price">Price: €14.00</p>
+    <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Add to cart</a>
+      <p>If you would like a dedication, please add a personal note during checkout or contact me via the contact page after your payment.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Zoufftgen's Tales. © Hélène Agostinis - All rights reserved. </p>
+    <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
+        <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>
+      </svg>
+    </a>
+    <a href="https://www.youtube.com/@LesContesdeZoufftgen" target="_blank" aria-label="YouTube" class="facebook-icon">
+      <img width="28" height="28" src="/images/logos/youtube.png" />
+    </a>
+  </footer>
+
+  <script>
+    function changerImage(src) {
+      document.getElementById('main-image').src = src;
+    }
+  </script>
+</body>
+</html>

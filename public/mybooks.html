@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Découvrez les livres d'Hélène Agostinis, dont les célèbres 'Le petit zouffarceur' et 'La maison du petit zouffarceur'. Une lecture enchanteresse pour les enfants.">
+  <meta name="keywords" content="livres jeunesse, autrice, illustratrice, contes, patrimoine, éducation, Zoufftgen">
+  
+  <title>Les livres d'Hélène Agostinis | Les contes de Zoufftgen</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script src="/js/panier.js" defer></script>
+  <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu-list");
+  
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+    });
+  </script>
+    <style>
+    .apropos-content {
+  display: block;
+  text-align: justify;
+}
+
+  /* Sections */
+  section {
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+    background-color: white;
+    border-radius: 12px;
+    margin-top: 2rem;
+    color: black;
+  }
+
+.apropos-photo {
+  float: left;
+  max-width: 400px;
+  margin: 0;
+}
+
+.apropos-text h3 {
+    font-family: 'Nunito', sans-serif;
+    font-size: 24px;
+    margin-top: 1.5rem;
+    color: black;
+    font-weight: normal;
+}
+
+.apropos-content em {
+    color: black;
+    font-size: 16pt;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+}
+
+.section-title {
+  font-family: 'Rastanty Cortez', cursive;
+  font-size: 12rem;
+  text-align: center;
+  color: black ;
+  -webkit-background-clip: text;
+  background-clip: text;
+  margin-bottom: 0rem;
+  line-height: 1;
+  font-weight: normal;
+}
+
+@media (max-width: 768px) {
+    .section-title {
+    font-family: 'Rastanty Cortez', cursive;
+    font-size: 5rem;
+    text-align: center;
+    color: black ;
+    -webkit-background-clip: text;
+    background-clip: text;
+    margin-bottom: 0rem;
+    line-height: 1;
+    font-weight: normal;
+    }
+}
+
+.apropos-legende {
+  margin-bottom: 1rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.75rem;
+  text-align: center;
+}
+    .apropos-photo:hover {
+        transform: scale(1.02);
+    }
+
+    .apropos-text {
+      flex: 1;
+      min-width: 280px;
+      text-align: justify;
+    }
+
+    @media (max-width: 768px) {
+      .apropos-content {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .apropos-photo {
+    float: none;
+    display: block;
+    margin: 0 auto 1rem;
+  }
+
+        .apropos-text {
+        text-align: left;
+      }
+    }
+
+    .apropos-colonne-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.livres {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+}
+
+.livre {
+  background-color: transparent;
+  font-family: 'Nunito', sans-serif;
+  padding: 1rem;
+  text-align: center;
+}
+
+.livre img {
+  width: 100%;
+  height: auto;
+}
+
+</style>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YF42H2CYXX');
+</script>
+</head>
+<body>
+
+  <div class="background-overlay"></div>
+
+  <header>
+    <h1><a href="/index-en.html" class="logo-link">Zoufftgen's Tales</a></h1>
+    <nav>
+      <button id="menu-toggle">☰</button>
+      <ul id="menu-list">
+        <li><a href="/index-en.html">Home</a></li>
+        <li><a href="/mybooks.html">My books</a></li>
+        <li><a href="/mystory.html">My story</a></li>
+        <li><a href="/contact-en.html">Contact</a></li>
+        <li><a href="/boutique/panier-en.html">🛒 Cart <span id="panier-compteur"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="boutique">
+    <h2 class="section-title">My Books</h2>
+    <div class="livres">
+      <div class="livre">
+        <a href="/boutique/le-petit-zouffarceur-en.html"><img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture"></a>
+        <h3>Le petit zouffarceur</h3>
+        <p>Strange things happened in Zoufftgen on the night of December 24th...</p>
+        <a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Add to cart</a>
+      </div>
+      <div class="livre">
+        <a href="/boutique/la-maison-du-petit-zouffarceur-en.html"><img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture"></a>
+        <h3>La maison du petit zouffarceur</h3>
+        <p>For some time now, people   of Zoufftgen have been worried. No one comes to eat the hazelnuts they leave on their windowsills anymore...</p>
+        <a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Add to cart</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Zoufftgen's Tales. © Hélène Agostinis - All rights reserved. </p>
+    <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
+        <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>
+      </svg>
+    </a>
+    <a href="https://www.youtube.com/@LesContesdeZoufftgen" target="_blank" aria-label="YouTube" class="facebook-icon">
+      <img width="28" height="28" src="/images/logos/youtube.png" />
+    </a>
+  </footer>
+
+</body>
+</html>

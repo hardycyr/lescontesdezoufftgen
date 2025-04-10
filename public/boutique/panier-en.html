@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Panier - Les contes de Zoufftgen - Hélène Agostinis</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/js/panier.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu-list");
+  
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+    });
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+section {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  padding: 2rem 1rem;
+  color: black;
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-top: 2rem;
+  box-sizing: border-box;
+}
+
+.panier-table {
+  overflow-x: auto;
+  margin-bottom: 2rem;
+  color: black;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: rgba(255, 255, 255, 0.03);
+  color: black;
+}
+
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+th {
+  background-color: rgba(0, 0, 0, 0.4);
+  color: white;
+}
+
+input[type="number"] {
+  width: 60px;
+  padding: 0.4rem;
+  border-radius: 6px;
+  font-size: 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: black;
+  text-align: center;
+}
+
+input[type="number"]:focus {
+  outline: 2px solid #ffdd99;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.btn-supprimer {
+  background-color: transparent;
+  color: #ff7f7f;
+  border: 1px solid #ff7f7f;
+  border-radius: 6px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.btn-supprimer:hover {
+  background-color: #ff7f7f;
+  color: #1c1c1c;
+}
+
+.recapitulatif {
+  background-color: rgba(255, 255, 255, 0.05);
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: black;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+}
+
+.recapitulatif select {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
+  background-color: rgba(255, 255, 255, 0.07);
+  color: black;
+  border: 2px solid #ffdd99;
+  border-radius: 8px;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 140 140' width='10' height='10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20,50 70,100 120,50' fill='none' stroke='%23ffdd99' stroke-width='15' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.8rem center;
+  background-size: 1rem;
+}
+
+.recapitulatif select option {
+  font-family: 'Nunito', sans-serif;
+  background-color: #1c1c1c;
+  color: #fff;
+}
+
+.recapitulatif select:focus {
+  outline: none;
+  border-color: #ffe0b3;
+  box-shadow: 0 0 8px #ffdd99;
+}
+
+.recapitulatif textarea {
+  width: 100%;
+    padding: 0.6rem 2.5rem 0.6rem 1rem;
+    font-size: 1rem;
+    font-family: 'Nunito', sans-serif;
+    background-color: rgba(255, 255, 255, 0.07);
+    color: black;
+    border: 2px solid #ffdd99;
+    border-radius: 8px;
+    appearance: none;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+  justify-content: center;
+}
+
+.actions button {
+  padding: 0.8rem 1.4rem;
+  font-weight: bold;
+  background-color: #2d8659;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.actions button:hover {
+  background-color: #237148;
+}
+
+@media (max-width: 768px) {
+  .panier-table table {
+    border: 0;
+  }
+
+  .panier-table thead {
+    display: none;
+  }
+
+  .panier-table tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+  }
+
+  .panier-table td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  .panier-table td:last-child {
+    border-bottom: none;
+  }
+
+  .panier-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #333;
+    flex: 1;
+    text-align: left;
+  }
+
+  .panier-table td input,
+  .panier-table td button {
+    flex: 1;
+    text-align: right;
+  }
+}
+.section-title {
+        font-family: 'Rastanty Cortez', cursive;
+        font-size: 5rem;
+        text-align: center;
+        color: black;
+        -webkit-background-clip: text;
+        background-clip: text;
+        margin-bottom: 0rem;
+        line-height: 1;
+        font-weight: normal;
+    }
+
+  </style>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-YF42H2CYXX');
+</script>
+</head>
+<body>
+
+  <div class="background-overlay"></div>
+
+  <header>
+    <h1><a href="/index-en.html" class="logo-link">Zoufftgen's Tales</a></h1>
+    <nav>
+      <button id="menu-toggle">☰</button>
+      <ul id="menu-list">
+        <li><a href="/index-en.html">Home</a></li>
+        <li><a href="/mybooks.html">My books</a></li>
+        <li><a href="/mystory.html">My story</a></li>
+        <li><a href="/contact-en.html">Contact</a></li>
+        <li><a href="/boutique/panier-en.html">🛒 Cart <span id="panier-compteur"></span></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section id="panier">
+    <h2 class="section-title">Your Cart</h2>
+    <div class="panier-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th>
+            <th>Unit price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="liste-panier">
+          <!-- Dynamique JS -->
+        </tbody>
+      </table>
+    </div>
+
+    <div class="recapitulatif">
+      <label for="pays">Country of delivery :</label>
+      <select id="pays">
+        <option value="FR">France</option>
+        <option value="UE">European Union (excluding France), United Kingdom and Switzerland</option>
+        <option value="WORLD">Rest of the World (excluding the European Union, United Kingdom and Switzerland)</option>
+      </select>
+
+      <p style="visibility: hidden;"><strong>Pays sélectionné :</strong> <span id="pays-label">France</span></p>
+      <p><strong>Book prices :</strong> <span id="total-produits">0.00</span> €</p>
+      <p><strong>Shipping costs :</strong> <span id="frais-port">0.00</span> €</p>
+      <p><strong>Total price :</strong> <span id="total-general">0.00</span> €</p>
+
+      <label for="note">Personnal note :</label>
+      <p>
+        <textarea id="notePersonnelle" type="text" name="notePersonnelle" placeholder="Your personnal note (optional)"></textarea>
+      </p>
+
+      <div class="actions">
+        <button id="vider-panier">🗑️ Empty cart</button>
+        <button id="payer">💳 Proceed to payment</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Zoufftgen's Tales. © Hélène Agostinis - All rights reserved. </p>
+    <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
+        <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>
+      </svg>
+    </a>
+    <a href="https://www.youtube.com/@LesContesdeZoufftgen" target="_blank" aria-label="YouTube" class="facebook-icon">
+      <img width="28" height="28" src="/images/logos/youtube.png" />
+    </a>
+  </footer>
+</body>
+</html>

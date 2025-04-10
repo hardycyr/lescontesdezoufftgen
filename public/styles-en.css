@@ -1,0 +1,261 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  /* Base */
+  body {
+    font-family: 'Nunito', sans-serif;
+    font-size: 13.5pt; /* ou 18px si tu préfères un peu plus fin */
+    line-height: 1.6;
+    color: #fefefe;
+    background-color: #1c1c1c;
+    position: relative;
+    height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  }
+  
+  /* Image de fond */
+  .background-overlay {
+    background-image: url("/images/Back-en.png");
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2;
+    filter: brightness(1);
+  }
+
+  @font-face {
+    font-family: 'Rastanty Cortez';
+    src: url('/fonts/RastantyCortez.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+  }
+  
+  /* Menu */
+  header {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  header h1 {
+    font-size: 3rem;
+    color: #ffeebb;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 0.5rem;
+    gap: 1rem;
+  }
+  
+  nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: normal;
+  }
+  
+  /* Sections */
+  section {
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+    background-color: rgba(0, 0, 0, 0.0);
+    border-radius: 12px;
+    margin-top: 2rem;
+  }
+  
+  /* Section A propos */
+  .apropos h2 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    color: #ffdd99;
+  }
+  
+  .apropos-content p {
+    font-size: 12pt;
+    font-family: 'Nunito', sans-serif;
+    margin-bottom: 1rem;
+    line-height: 1.7;
+
+  }
+  
+  .apropos-content strong {
+    color: #ffdd99;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+  }
+
+  footer .facebook-icon {
+    display: inline-block;
+    margin-top: 1rem;
+    transition: transform 0.3s ease;
+    fill: white;
+  }
+  
+  footer .facebook-icon:hover svg {
+    transform: scale(1.1);
+    fill: white;
+  }
+  
+  /* Responsive menu toggle */
+  #menu-toggle {
+    display: none;
+  }
+  
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    
+  
+    #menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: white;
+      margin-bottom: 1rem;
+    }
+  }
+  
+  .livre {
+    margin-bottom: 3rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    text-align: center;
+  }
+  
+  .livre img {
+    max-width: 200px;
+    margin-bottom: 1rem;
+  }
+  
+  .btn-panier {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.6em 1.2em;
+    margin: 0.5rem;
+    background-color: #2d8659;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-panier:hover {
+    background-color: #237148;
+    transform: scale(1.05);
+  }
+
+  .contact-form label {
+    display: block;
+    margin-top: 1rem;
+    margin-bottom: 0.3rem;
+    font-weight: normal;
+  }
+  
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    background-color: #ffffff10;
+    color: #fff;
+  }
+  
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: #ccc;
+  }
+  
+  .contact-form button {
+    margin-top: 1rem;
+    padding: 0.8rem 1.6rem;
+    font-size: 1rem;
+    font-weight: bold;
+    background-color: #2d8659;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-form button:hover {
+    background-color: #237148;
+  }
+  
+  #menu-list {
+    display: flex;
+    gap: 1rem;
+  }
+  
+
+
+  @media (max-width: 768px) {
+    #menu-list {
+      display: none;
+      flex-direction: column;
+      background-color: rgba(0, 0, 0, 0.85);
+      position: absolute;
+      top: 60px;
+      right: 20px;
+      z-index: 1000;
+      border-radius: 10px;
+      padding: 1rem;
+    }
+  
+    #menu-list.open {
+      display: flex;
+    }
+  
+    #menu-toggle {
+      display: block;
+      background: none;
+      border: none;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .logo-link {
+    text-decoration: none;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: normal;
+  }
+  
+  .logo-link:hover {
+    text-decoration: none; /* optionnel : effet au survol */
+  }
+  
+  
