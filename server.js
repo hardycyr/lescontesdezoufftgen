@@ -123,7 +123,10 @@ app.post("/create-checkout-session", async (req, res) => {
   "WF", "WS", "XK", "YE", "YT", "ZA", "ZM", "ZW"]
           },
           success_url: "https://www.lescontesdezoufftgen.com/success.html",
-          cancel_url: "https://www.lescontesdezoufftgen.com/cancel.html"
+          cancel_url: "https://www.lescontesdezoufftgen.com/cancel.html",
+          metadata: {
+            note_personnelle: req.body.note || "Aucune note"
+          }
         });
 
         res.json({ url: session.url });
