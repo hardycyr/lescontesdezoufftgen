@@ -29,30 +29,13 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-/*
-app.use((req, res, next) => {
-  const host = req.headers.host;
-  const isHttps = req.headers['x-forwarded-proto'] === 'https';
-
-  // Force HTTPS
-  //if (!isHttps) {
-  //  return res.redirect(`https://www.lescontesdezoufftgen.com${req.url}`);
-  //}
-
-  // Force www
-  //if (host && !host.startsWith('www.')) {
-  //  return res.redirect(`https://www.lescontesdezoufftgen.com${req.url}`);
-  //}
-
-  next();
-});
-*/
-
-
 app.post("/create-checkout-session", async (req, res) => {
     console.log("📦 Body reçu :", req.body);
 
-    const { cart, country } = req.body;
+    const { cart, country, note_personnelle } = req.body;
+
+    // Vérification que la note est bien reçue
+    console.log("Note personnelle reçue:", note_personnelle);  // Ajout d'un log pour la note
 
     if (!cart || !Array.isArray(cart)) {
         console.error("❌ Cart invalide :", cart);
@@ -125,10 +108,13 @@ app.post("/create-checkout-session", async (req, res) => {
           success_url: "https://www.lescontesdezoufftgen.com/success.html",
           cancel_url: "https://www.lescontesdezoufftgen.com/cancel.html",
           metadata: {
-            note_personnelle: req.body.note || "Aucune note"
+            note_personnelle: note_personnelle || "Aucune note", // Ajout des métadonnées
+            cart_items_count: cart.length // Par exemple, ajouter aussi le nombre d'articles pour tester
           }
         });
 
+        console.log("✅ Session Stripe créée :", session);  // Afficher la session pour déboguer
+        
         res.json({ url: session.url });
   } catch (error) {
     console.error("Erreur Stripe :", error.message);

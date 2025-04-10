@@ -163,16 +163,19 @@ function supprimerArticle(index) {
 function initialiserPaiement() {
   const bouton = document.getElementById("payer");
   const selectPays = document.getElementById("pays");
+  const notePersonnelle = document.getElementById("notePersonnelle"); // Récupère le champ de la note personnelle
+  
   if (!bouton || !selectPays) return;
 
   bouton.addEventListener("click", async () => {
     const panier = getPanier();
     const pays = selectPays.value;
+    const note = notePersonnelle.value;
 
-    const response = await fetch("https://lescontesdezoufftgen.onrender.com/create-checkout-session", {
+    const response = await fetch("/create-checkout-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ cart: panier, country: pays })
+      body: JSON.stringify({ cart: panier, country: pays, note_personnelle: note })
     });
 
     const data = await response.json();
