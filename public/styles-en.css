@@ -258,4 +258,23 @@
     text-decoration: none; /* optionnel : effet au survol */
   }
   
+  .language-switcher {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
   
+  .language-switcher a {
+    margin: 0 10px;
+    font-size: 1.2rem;
+  }
+  
+  .language-switcher i {
+    margin-right: 5px; /* Ajoute de l'espace entre l'icône et le texte */
+  }
+  
+  @media (max-width: 768px) {
+    .language-switcher {
+      margin-top: 10px;
+    }
+  }
