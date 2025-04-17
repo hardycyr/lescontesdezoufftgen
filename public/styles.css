@@ -22,7 +22,7 @@
   
   /* Image de fond */
   .background-overlay {
-    background-image: url("/images/Back.png");
+    background-image: url("/images/Back.webp");
     background-size: cover;
     background-position: center;
     position: fixed;
