@@ -6,44 +6,77 @@
             http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
 <url>
   <loc>https://www.lescontesdezoufftgen.com/</loc>
-  <lastmod>2025-04-04T07:35:37+00:00</lastmod>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
   <priority>1.00</priority>
 </url>
 <url>
   <loc>https://www.lescontesdezoufftgen.com/index.html</loc>
-  <lastmod>2025-04-04T07:35:37+00:00</lastmod>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.lescontesdezoufftgen.com/meslivres.html</loc>
-  <lastmod>2025-04-04T07:35:37+00:00</lastmod>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.lescontesdezoufftgen.com/monhistoire.html</loc>
-  <lastmod>2025-04-04T07:35:37+00:00</lastmod>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.lescontesdezoufftgen.com/contact.html</loc>
-  <lastmod>2025-04-04T07:35:37+00:00</lastmod>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
   <loc>https://www.lescontesdezoufftgen.com/boutique/panier.html</loc>
-  <lastmod>2025-04-04T07:35:37+00:00</lastmod>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
   <priority>0.80</priority>
 </url>
 <url>
+  <loc>https://www.lescontesdezoufftgen.com/index-en.html</loc>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://www.lescontesdezoufftgen.com/mybooks.html</loc>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
   <loc>https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur.html</loc>
-  <lastmod>2025-04-04T07:35:37+00:00</lastmod>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
   <priority>0.64</priority>
 </url>
 <url>
   <loc>https://www.lescontesdezoufftgen.com/boutique/la-maison-du-petit-zouffarceur.html</loc>
-  <lastmod>2025-04-04T07:35:37+00:00</lastmod>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
   <priority>0.64</priority>
 </url>
-
-
+<url>
+  <loc>https://www.lescontesdezoufftgen.com/mystory.html</loc>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.lescontesdezoufftgen.com/contact-en.html</loc>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.lescontesdezoufftgen.com/boutique/panier-en.html</loc>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur-en.html</loc>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
+<url>
+  <loc>https://www.lescontesdezoufftgen.com/boutique/la-maison-du-petit-zouffarceur-en.html</loc>
+  <lastmod>2025-04-17T15:17:44+00:00</lastmod>
+  <priority>0.51</priority>
+</url>
 </urlset>
