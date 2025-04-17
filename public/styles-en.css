@@ -278,3 +278,23 @@
       margin-top: 10px;
     }
   }
+
+  .btn-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    padding: 0.6em 1.2em;
+    margin: 0.5rem;
+    background-color: #2d8659;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-more:hover {
+    background-color: #237148;
+    transform: scale(1.05);
+  }
