@@ -216,7 +216,11 @@
 
   <section class="product-page">
     <div class="product-image">
-      <img src="/images/LePetitZouffarceur.webp" alt="Le petit zouffarceur - Cover page" class="main-img" id="main-image">
+      <picture>
+        <source srcset="/images/LePetitZouffarceur-small.webp" media="(max-width: 768px)">
+        <source srcset="/images/LePetitZouffarceur.webp">
+        <img src="/images/LePetitZouffarceur.webp" alt="Le petit zouffarceur - Cover page" class="main-img" id="main-image" loading="lazy">
+      </picture>
       <div class="gallery">
         <img src="/images/LePetitZouffarceur.webp" alt="Le petit zouffarceur - Interior page 1" onclick="changerImage('/images/LePetitZouffarceur.webp')" loading="lazy">
         <img src="/images/LePetitZouffarceur1.webp" alt="Le petit zouffarceur - Interior page 2" onclick="changerImage('/images/LePetitZouffarceur1.webp')" loading="lazy">
