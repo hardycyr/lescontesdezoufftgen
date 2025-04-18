@@ -18,6 +18,7 @@
   <meta name="product:price:currency" content="EUR">
 
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="preload" href="/images/LePetitZouffarceur.webp" as="image">
   <script src="/js/panier.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
   <style>
@@ -216,17 +217,13 @@
 
   <section class="product-page">
     <div class="product-image">
-      <picture>
-        <source srcset="/images/LePetitZouffarceur-small.webp" media="(max-width: 768px)">
-        <source srcset="/images/LePetitZouffarceur.webp">
-        <img src="/images/LePetitZouffarceur.webp" alt="Le petit zouffarceur - Couverture" class="main-img" id="main-image" loading="lazy">
-      </picture>
+      <img src="/images/LePetitZouffarceur.webp" alt="Le petit zouffarceur - Couverture" class="main-img" id="main-image">
       <div class="gallery">
         <img src="/images/LePetitZouffarceur.webp" alt="Le petit zouffarceur - Page intérieure 1" onclick="changerImage('/images/LePetitZouffarceur.webp')" loading="lazy">
         <img src="/images/LePetitZouffarceur1.webp" alt="Le petit zouffarceur - Page intérieure 2" onclick="changerImage('/images/LePetitZouffarceur1.webp')" loading="lazy">
        </div>
       <div class="gallery">
-        <iframe width="100%" src="https://www.youtube-nocookie.com/embed/fWqenvXLS9U" title="Presentation Youtube" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="100%" src="https://www.youtube-nocookie.com/embed/fWqenvXLS9U" title="Presentation Youtube" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
 
