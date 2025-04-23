@@ -56,8 +56,8 @@ footer {
   position: relative;
 }
 
-.noisette-donation {
-  background: rgba(255, 248, 236, 0.7);
+.coffee-donation {
+  background: rgba(255, 248, 236, 0.9);
   padding: 2rem 1rem;
   margin: 2rem auto;
   max-width: 800px;
@@ -67,7 +67,7 @@ footer {
   color: #5a3e2b; /* texte brun foncé */
 }
 
-.noisette-container {
+.coffee-container {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -75,7 +75,7 @@ footer {
 }
 
 .noisette-img {
-  width: 100px;
+  width: 250px;
   height: auto;
   flex-shrink: 0;
 }
@@ -102,6 +102,13 @@ footer {
   margin-top: 1rem;
 }
 
+.coffee-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.2rem;
+}
+
+
 .noisette-round {
   width: 48px;
   height: 48px;
@@ -123,15 +130,79 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .noisette-container {
+  .coffee-container {
     flex-direction: column;
     text-align: center;
   }
 
+  .coffee-donation{
+    max-width: 450px;
+  }
+
   .noisette-img {
-    width: 80px;
+    width: 200px;
     margin-bottom: 1rem;
   }
+}
+
+
+.support-box {
+  background-color: #f5fdfc;
+  border: 1px solid #a96c44;
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  display: inline-block;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.coffee-selection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.coffee-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+  transform: translateY(10px);
+}
+
+.coffee-x {
+  font-size: 1.5rem;
+  color: #a96c44;
+}
+
+.coffee-options {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.coffee-quantity {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #a6dad4;
+  color: #269d92;
+  text-align: center;
+  line-height: 42px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: white;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.coffee-quantity:hover {
+  background-color: #d9f3f0;
+  transform: scale(1.05);
+}
+
+.coffee-quantity.selected {
+  background-color: #28b4a8;
+  color: white;
+  border-color: #28b4a8;
 }
   </style>
   <!-- Google tag (gtag.js) -->
@@ -180,19 +251,24 @@ footer {
     </nav>
   </header>
   <main>
-    <section class="noisette-donation">
-      <div class="noisette-container">
+    <section class="coffee-donation">
+      <div class="coffee-container">
         <img src="/android-chrome-512x512.png" alt="Le Zouffarceur" class="noisette-img">
         <div class="noisette-text">
-          <h3>Vous souhaitez me soutenir ? ☕</h3>
-          <p>Un petit café virtuel, c’est un grand encouragement pour continuer à écrire, illustrer… et rêver !</p>
-          <p>Combien de cafés souhaitez-vous m’offrir ?</p>
-      <div class="noisette-buttons">
-        <a href="https://donate.stripe.com/28o7vA61TcxefJeaEF" class="noisette-round" target="_blank">1</a>
-        <a href="https://donate.stripe.com/00g8zE0HzeFmfJe8wy" class="noisette-round" target="_blank">2</a>
-        <a href="https://donate.stripe.com/7sI6rw3TLfJqeFa28b" class="noisette-round" target="_blank">3</a>
-        <a href="https://donate.stripe.com/bIY3fkai9dBi0OkcMQ" class="noisette-round" target="_blank">4 +</a>
-      </div>
+          <p>Si vous souhaitez soutenir mon travail en faisant un don, vous pouvez m'offrir un café.</p>
+          <p>Merci beaucoup!</p>
+          <section class="support-box">
+            <div class="coffee-selection">
+              <img src="images/tasse.png" alt="Tasse de café" class="coffee-icon" />
+              <span class="coffee-x">x</span>
+              <div class="coffee-options">
+                <a href="https://donate.stripe.com/28o7vA61TcxefJeaEF" class="noisette-round" target="_blank">1</a>
+                <a href="https://donate.stripe.com/00g8zE0HzeFmfJe8wy" class="noisette-round" target="_blank">2</a>
+                <a href="https://donate.stripe.com/7sI6rw3TLfJqeFa28b" class="noisette-round" target="_blank">3</a>
+                <a href="https://donate.stripe.com/bIY3fkai9dBi0OkcMQ" class="noisette-round" target="_blank">4 +</a>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </section>

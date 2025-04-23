@@ -57,8 +57,8 @@ footer {
   position: relative;
 }
 
-.noisette-donation {
-  background: rgba(255, 248, 236, 0.7);
+.coffee-donation {
+  background: rgba(255, 248, 236, 0.9);
   padding: 2rem 1rem;
   margin: 2rem auto;
   max-width: 800px;
@@ -68,7 +68,7 @@ footer {
   color: #5a3e2b; /* texte brun foncé */
 }
 
-.noisette-container {
+.coffee-container {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -76,7 +76,7 @@ footer {
 }
 
 .noisette-img {
-  width: 100px;
+  width: 250px;
   height: auto;
   flex-shrink: 0;
 }
@@ -103,6 +103,13 @@ footer {
   margin-top: 1rem;
 }
 
+.coffee-icon {
+  font-size: 2.2rem;
+  margin-bottom: 1.2rem;
+  padding-bottom: 0.2rem;
+}
+
+
 .noisette-round {
   width: 48px;
   height: 48px;
@@ -124,15 +131,79 @@ footer {
 }
 
 @media (max-width: 600px) {
-  .noisette-container {
+  .coffee-container {
     flex-direction: column;
     text-align: center;
   }
 
+  .coffee-donation{
+    max-width: 450px;
+  }
+
   .noisette-img {
-    width: 80px;
+    width: 200px;
     margin-bottom: 1rem;
   }
+}
+
+
+.support-box {
+  background-color: #f5fdfc;
+  border: 1px solid #a96c44;
+  border-radius: 16px;
+  padding: 1rem 2rem;
+  display: inline-block;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.coffee-selection {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.coffee-icon {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  display: block;
+  transform: translateY(10px);
+}
+
+.coffee-x {
+  font-size: 1.5rem;
+  color: #a96c44;
+}
+
+.coffee-options {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.coffee-quantity {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #a6dad4;
+  color: #269d92;
+  text-align: center;
+  line-height: 42px;
+  font-weight: bold;
+  text-decoration: none;
+  background-color: white;
+  font-size: 1.1rem;
+  transition: all 0.2s;
+}
+
+.coffee-quantity:hover {
+  background-color: #d9f3f0;
+  transform: scale(1.05);
+}
+
+.coffee-quantity.selected {
+  background-color: #28b4a8;
+  color: white;
+  border-color: #28b4a8;
 }
   </style>
   <!-- Google tag (gtag.js) -->
@@ -181,19 +252,24 @@ footer {
     </nav>
   </header>
   <main>
-    <section class="noisette-donation">
-      <div class="noisette-container">
+    <section class="coffee-donation">
+      <div class="coffee-container">
         <img src="/android-chrome-512x512.png" alt="Le Zouffarceur" class="noisette-img">
         <div class="noisette-text">
-          <h3>Would you like to support me? ☕</h3>
-          <p>A small virtual coffee is a big encouragement to keep writing, illustrating… and dreaming!</p>
-          <p>How many coffees would you like to offer?</p>
-      <div class="noisette-buttons">
-        <a href="https://donate.stripe.com/6oE3fk8a18gY9kQeUZ?locale=en" class="noisette-round" target="_blank">1</a>
-        <a href="https://donate.stripe.com/9AQ7vAai98gYbsYeV0?locale=en" class="noisette-round" target="_blank">2</a>
-        <a href="https://donate.stripe.com/aEU17c61T2WEcx2cMT?locale=en" class="noisette-round" target="_blank">3</a>
-        <a href="https://donate.stripe.com/6oE4jo3TL0Ow7cIdQY?locale=en" class="noisette-round" target="_blank">4 +</a>
-      </div>
+          <p>If you'd like to support my work with a one off donation, you can buy me a coffee.</p>
+          <p>Thank you !</p>
+          <section class="support-box">
+            <div class="coffee-selection">
+              <img src="images/tasse.png" alt="Tasse de café" class="coffee-icon" />
+              <span class="coffee-x">x</span>
+              <div class="coffee-options">
+                <a href="https://donate.stripe.com/6oE3fk8a18gY9kQeUZ?locale=en" class="noisette-round" target="_blank">1</a>
+                <a href="https://donate.stripe.com/9AQ7vAai98gYbsYeV0?locale=en" class="noisette-round" target="_blank">2</a>
+                <a href="https://donate.stripe.com/aEU17c61T2WEcx2cMT?locale=en" class="noisette-round" target="_blank">3</a>
+                <a href="https://donate.stripe.com/6oE4jo3TL0Ow7cIdQY?locale=en" class="noisette-round" target="_blank">4 +</a>
+              </div>
+            </div>
+          </section>
         </div>
       </div>
     </section>
