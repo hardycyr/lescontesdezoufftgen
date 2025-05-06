@@ -152,7 +152,20 @@
 
   <section class="product-page">
     <div class="product-image">
-      <img src="/images/LaMaisonduPetitZouffarceur.webp" alt="La maison du petit zouffarceur - Couverture" class="main-img" id="main-image">
+      <picture>
+        <source 
+          srcset="/images/LaMaisonduPetitZouffarceur-mobile.webp" 
+          media="(max-width: 768px)" 
+          type="image/webp">
+        <source 
+          srcset="/images/LaMaisonduPetitZouffarceur.webp" 
+          type="image/webp">
+        <img 
+          src="/images/LaMaisonduPetitZouffarceur.webp" 
+          alt="La maison du petit zouffarceur - Couverture" 
+          class="main-img" 
+          id="main-image">
+      </picture>
 
       <div class="gallery">
         <img src="/images/LaMaisonduPetitZouffarceur.webp" alt="La maison du petit zouffarceur - Page intérieure 1" onclick="changerImage('/images/LaMaisonduPetitZouffarceur.webp')" loading="lazy">
