@@ -24,6 +24,13 @@
   <script src="/js/panier.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
   <link rel="preload" as="image" href="/images/LaMaisonduPetitZouffarceur.webp" type="image/webp">
+  <script>
+    function changerImage(src) {
+      const mainImage = document.getElementById('main-image');
+  mainImage.src = src;
+  mainImage.srcset = ""; // désactive le srcset pour forcer le changement d’image
+    }
+  </script>
   <style>
    
     .product-page {
@@ -42,7 +49,6 @@
       min-width: 300px;
     }
     .product-image img.main-img {
-      aspect-ratio: 1.02;
       width: 100%;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
@@ -153,21 +159,7 @@
 
   <section class="product-page">
     <div class="product-image">
-      <picture>
-        <source 
-          srcset="/images/LaMaisonduPetitZouffarceur-mobile.webp" 
-          media="(max-width: 768px)" 
-          type="image/webp">
-        <source 
-          srcset="/images/LaMaisonduPetitZouffarceur.webp" 
-          type="image/webp">
-        <img 
-          src="/images/LaMaisonduPetitZouffarceur.webp" 
-          alt="La maison du petit zouffarceur - Couverture" 
-          class="main-img" 
-          id="main-image"
-          width="800">
-      </picture>
+      <img  src="/images/LaMaisonduPetitZouffarceur.webp" srcset="/images/LaMaisonduPetitZouffarceur-mobile.webp 600w, /images/LaMaisonduPetitZouffarceur.webp 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="La maison du petit zouffarceur - Couverture" class="main-img" id="main-image" width="800" style="aspect-ratio: 1.02;">
 
       <div class="gallery">
         <img src="/images/LaMaisonduPetitZouffarceur.webp" alt="La maison du petit zouffarceur - Page intérieure 1" onclick="changerImage('/images/LaMaisonduPetitZouffarceur.webp')" loading="lazy">
@@ -210,10 +202,6 @@
     </a>
   </footer>
 
-  <script>
-    function changerImage(src) {
-      document.getElementById('main-image').src = src;
-    }
-  </script>
+  
 </body>
 </html>
