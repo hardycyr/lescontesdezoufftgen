@@ -25,6 +25,25 @@
   <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
   <script src="/js/panier-en.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuToggle = document.getElementById('menu-toggle');
+      const menuList = document.getElementById('menu-list');
+  
+      if (menuToggle && menuList) {
+        menuList.style.display = 'none';
+  
+        menuToggle.addEventListener('click', function() {
+          if (menuList.style.display === 'none' || menuList.style.display === '') {
+            menuList.style.display = 'block';
+          } else {
+            menuList.style.display = 'none';
+          }
+        });
+      }
+    });
+  </script>
+  
   <style>
 
     .product-page {
