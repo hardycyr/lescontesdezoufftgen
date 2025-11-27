@@ -141,7 +141,6 @@ app.post("/contact.html", async (req, res) => {
       .json({ success: false, message: "Champs manquants." });
   }
 
-
   // 🔍 Vérifie le captcha auprès de Google
   const captchaVerification = await fetch(
     "https://www.google.com/recaptcha/api/siteverify",
@@ -162,7 +161,6 @@ app.post("/contact.html", async (req, res) => {
       .json({ success: false, message: "Échec de la vérification reCAPTCHA." });
   }
 
-
   // ✅ Si tout est bon, envoyer le mail
   const mailOptions = {
     from: email,
@@ -173,17 +171,18 @@ app.post("/contact.html", async (req, res) => {
   };
 
   try {
-    await transporter.sendMail(mailOptions);
-    console.log("✅ E-mail envoyé avec succès");
+    const info = await transporter.sendMail(mailOptions);
+    console.log("✅ E-mail envoyé avec succès :", info && info.messageId);
     return res.json({
       success: true,
       message: "Votre message a bien été envoyé !",
     });
   } catch (error) {
-    console.error("Erreur d'envoi :", error);
+    console.error("Erreur d'envoi Nodemailer :", error);
     return res.status(500).json({
       success: false,
-      message: "Erreur lors de l'envoi du message.",
+      message:
+        "Erreur lors de l'envoi du message. Vous pouvez aussi écrire directement à helene.ag@hotmail.com.",
     });
   }
 });
