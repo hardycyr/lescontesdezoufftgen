@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       console.error('Erreur lors de l’envoi du formulaire :', error);
       responseMessage.textContent =
-        'Désolé, une erreur est survenue. Vous pouvez aussi m’écrire directement à helene.ag@hotmail.com.';
+        'Désolé, une erreur est survenue. Vous pouvez aussi m’écrire directement à lescontesdezoufftgen@gamil.com.';
       responseMessage.style.display = 'block';
       responseMessage.style.color = 'red';
     }
