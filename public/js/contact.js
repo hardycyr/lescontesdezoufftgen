@@ -7,16 +7,16 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // 👉 On pointe vers ton backend Render ET vers la bonne route
+  // 👉 URL de ton backend Render + bonne route
   const CONTACT_API_URL = 'https://lescontesdezoufftgen.onrender.com/contact.html';
 
   form.addEventListener('submit', async (event) => {
-    event.preventDefault(); // on bloque l’envoi classique HTML
+    // On intercepte pour gérer l'affichage, mais on garde action/method comme secours
+    event.preventDefault();
 
     responseMessage.style.display = 'none';
     responseMessage.textContent = '';
 
-    // 1) Vérifier les champs obligatoires rapidement
     const name = document.getElementById('name')?.value.trim();
     const email = document.getElementById('email')?.value.trim();
     const message = document.getElementById('message')?.value.trim();
@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    // 2) Vérifier le reCAPTCHA (v2)
+    // reCAPTCHA v2
     let recaptchaToken = null;
     try {
       if (typeof grecaptcha !== 'undefined') {
@@ -46,8 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn('Erreur lors de la récupération du token reCAPTCHA :', e);
     }
 
-    // 3) Préparer les données à envoyer au backend Node
-    //    👉 le backend attend : { name, email, message, recaptcha }
+    // Payload attendu par ton serveur : name, email, message, recaptcha
     const payload = {
       name,
       email,
@@ -55,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
       recaptcha: recaptchaToken,
     };
 
-    // 4) Appel à l’API Node
     try {
       const response = await fetch(CONTACT_API_URL, {
         method: 'POST',
@@ -83,10 +81,16 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (e) {}
     } catch (error) {
       console.error('Erreur lors de l’envoi du formulaire :', error);
-      responseMessage.textContent =
-        'Désolé, une erreur est survenue. Vous pouvez aussi m’écrire directement à lescontesdezoufftgen@gamil.com.';
-      responseMessage.style.display = 'block';
-      responseMessage.style.color = 'red';
+
+      // ⬇️ En cas d’erreur JS/fetch, on tente un submit classique en fallback
+      try {
+        form.submit();
+      } catch {
+        responseMessage.textContent =
+          'Désolé, une erreur est survenue. Vous pouvez aussi m’écrire directement à helene.ag@hotmail.com.';
+        responseMessage.style.display = 'block';
+        responseMessage.style.color = 'red';
+      }
     }
   });
 });
