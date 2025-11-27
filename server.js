@@ -22,14 +22,13 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
 const transporter = nodemailer.createTransport({
-  host: "smtp.gmail.com",
-  port: 587,
-  secure: false,        // STARTTLS
-  requireTLS: true,
+  host: process.env.SMTP_HOST,
+  port: Number(process.env.SMTP_PORT) || 587,
+  secure: false, // STARTTLS sur 587
   auth: {
-    user: "lescontesdezoufftgen@gmail.com",
-    pass: "autp bsid ntls irsr" // ton mot de passe d'application
-  }
+    user: process.env.SMTP_USER,
+    pass: process.env.SMTP_PASS,
+  },
 });
 
 
