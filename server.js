@@ -125,24 +125,36 @@ app.post("/create-checkout-session", async (req, res) => {
 
 app.post("/contact.html", async (req, res) => {
   console.log("📨 Requête contact reçue :", req.body);
-  const { name, email, message, recaptcha } = req.body;
+
+  const { name, email, message } = req.body;
+  // reCAPTCHA peut venir de "recaptcha" (JSON) ou "g-recaptcha-response" (form HTML)
+  const recaptcha = req.body.recaptcha || req.body["g-recaptcha-response"];
 
   if (!name || !email || !message || !recaptcha) {
     console.log("⛔ Champs manquants :", { name, email, message, recaptcha });
-    return res.status(400).json({ success: false, message: "Champs manquants." });
+    return res
+      .status(400)
+      .json({ success: false, message: "Champs manquants." });
   }
 
   // 🔍 Vérifie le captcha auprès de Google
-  const captchaVerification = await fetch("https://www.google.com/recaptcha/api/siteverify", {
-    method: "POST",
-    headers: { "Content-Type": "application/x-www-form-urlencoded" },
-    body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`
-  });
+  const captchaVerification = await fetch(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`,
+    }
+  );
 
   const captchaResult = await captchaVerification.json();
+  console.log("✅ Réponse reCAPTCHA :", captchaResult);
 
   if (!captchaResult.success) {
-    return res.status(400).json({ success: false, message: "Échec de la vérification reCAPTCHA." });
+    console.log("⛔ Échec reCAPTCHA :", captchaResult["error-codes"]);
+    return res
+      .status(400)
+      .json({ success: false, message: "Échec de la vérification reCAPTCHA." });
   }
 
   // ✅ Si tout est bon, envoyer le mail
@@ -151,24 +163,23 @@ app.post("/contact.html", async (req, res) => {
     to: "helene.ag@hotmail.com",
     replyTo: email,
     subject: "Nouveau message depuis le site lescontesdezoufftgen.fr !",
-    text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`
+    text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`,
   };
 
   try {
     await transporter.sendMail(mailOptions);
-    res.json({ success: true, message: "Votre message a bien été envoyé !" });
+    console.log("✅ E-mail envoyé avec succès");
+    return res.json({
+      success: true,
+      message: "Votre message a bien été envoyé !",
+    });
   } catch (error) {
     console.error("Erreur d'envoi :", error);
-    res.status(500).json({ success: false, message: "Erreur lors de l'envoi du message." });
+    return res.status(500).json({
+      success: false,
+      message: "Erreur lors de l'envoi du message.",
+    });
   }
-});
-
-app.get("/", (req, res) => {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
-});
-
-app.get("/ping", (req, res) => {
-    res.send("Pong! L'application est réveillée.");
 });
 
 

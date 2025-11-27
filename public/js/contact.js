@@ -7,12 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // 👉 URL de ton backend Render + bonne route
-  const CONTACT_API_URL = 'https://lescontesdezoufftgen.onrender.com/contact.html';
+  // On utilise l'URL définie dans l'attribut action du <form>
+  const CONTACT_API_URL = form.action || 'https://lescontesdezoufftgen.onrender.com/contact.html';
 
   form.addEventListener('submit', async (event) => {
-    // On intercepte pour gérer l'affichage, mais on garde action/method comme secours
-    event.preventDefault();
+    event.preventDefault(); // on bloque l’envoi classique HTML
 
     responseMessage.style.display = 'none';
     responseMessage.textContent = '';
@@ -46,7 +45,6 @@ document.addEventListener('DOMContentLoaded', () => {
       console.warn('Erreur lors de la récupération du token reCAPTCHA :', e);
     }
 
-    // Payload attendu par ton serveur : name, email, message, recaptcha
     const payload = {
       name,
       email,
@@ -81,16 +79,11 @@ document.addEventListener('DOMContentLoaded', () => {
       } catch (e) {}
     } catch (error) {
       console.error('Erreur lors de l’envoi du formulaire :', error);
-
-      // ⬇️ En cas d’erreur JS/fetch, on tente un submit classique en fallback
-      try {
-        form.submit();
-      } catch {
-        responseMessage.textContent =
-          'Désolé, une erreur est survenue. Vous pouvez aussi m’écrire directement à helene.ag@hotmail.com.';
-        responseMessage.style.display = 'block';
-        responseMessage.style.color = 'red';
-      }
+      responseMessage.textContent =
+        data?.message ||
+        'Désolé, une erreur est survenue. Vous pouvez aussi m’écrire directement à helene.ag@hotmail.com.';
+      responseMessage.style.display = 'block';
+      responseMessage.style.color = 'red';
     }
   });
 });
