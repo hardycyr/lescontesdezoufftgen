@@ -7,8 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
     return;
   }
 
-  // ⚠️ À adapter si ton backend a une autre URL
-  const CONTACT_API_URL = '/api/contact';
+  // 👉 On pointe vers ton backend Render ET vers la bonne route
+  const CONTACT_API_URL = 'https://lescontesdezoufftgen.onrender.com/contact.html';
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault(); // on bloque l’envoi classique HTML
@@ -47,11 +47,12 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 3) Préparer les données à envoyer au backend Node
+    //    👉 le backend attend : { name, email, message, recaptcha }
     const payload = {
       name,
       email,
       message,
-      recaptchaToken, // ton backend le vérifiera côté serveur
+      recaptcha: recaptchaToken,
     };
 
     // 4) Appel à l’API Node
@@ -64,14 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
         body: JSON.stringify(payload),
       });
 
-      if (!response.ok) {
-        throw new Error('Réponse non OK : ' + response.status);
+      const data = await response.json().catch(() => null);
+
+      if (!response.ok || !data?.success) {
+        throw new Error(data?.message || 'Réponse non OK : ' + response.status);
       }
 
-      // Optionnel : lire la réponse JSON ou texte
-      // const data = await response.json();
-
-      responseMessage.textContent = 'Merci ! Votre message a bien été envoyé.';
+      responseMessage.textContent = data.message || 'Merci ! Votre message a bien été envoyé.';
       responseMessage.style.display = 'block';
       responseMessage.style.color = 'green';
 
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', () => {
     } catch (error) {
       console.error('Erreur lors de l’envoi du formulaire :', error);
       responseMessage.textContent =
-        'Désolé, une erreur est survenue. Vous pouvez aussi m’écrire directement à votre adresse e-mail.';
+        'Désolé, une erreur est survenue. Vous pouvez aussi m’écrire directement à helene.ag@hotmail.com.';
       responseMessage.style.display = 'block';
       responseMessage.style.color = 'red';
     }
