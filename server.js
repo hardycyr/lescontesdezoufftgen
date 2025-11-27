@@ -22,12 +22,16 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
 const transporter = nodemailer.createTransport({
-    service: "gmail", 
-    auth: {
-        user: "lescontesdezoufftgen@gmail.com", 
-        pass: "autp bsid ntls irsr" 
-    }
+  host: "smtp.gmail.com",
+  port: 587,
+  secure: false,        // STARTTLS
+  requireTLS: true,
+  auth: {
+    user: "lescontesdezoufftgen@gmail.com",
+    pass: "autp bsid ntls irsr" // ton mot de passe d'application
+  }
 });
+
 
 app.post("/create-checkout-session", async (req, res) => {
     console.log("📦 Body reçu :", req.body);
@@ -137,8 +141,7 @@ app.post("/contact.html", async (req, res) => {
       .json({ success: false, message: "Champs manquants." });
   }
 
-  // 🚨 TEMPORAIRE : on désactive la vérification Google
-  /*
+
   // 🔍 Vérifie le captcha auprès de Google
   const captchaVerification = await fetch(
     "https://www.google.com/recaptcha/api/siteverify",
@@ -158,7 +161,7 @@ app.post("/contact.html", async (req, res) => {
       .status(400)
       .json({ success: false, message: "Échec de la vérification reCAPTCHA." });
   }
-      */
+
 
   // ✅ Si tout est bon, envoyer le mail
   const mailOptions = {
