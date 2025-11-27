@@ -1,55 +1,92 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const form = document.getElementById("contactForm");
-  const responseMessage = document.getElementById("responseMessage");
-  const submitBtn = form.querySelector("button[type='submit']");
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('contactForm');
+  const responseMessage = document.getElementById('responseMessage');
 
-  form.addEventListener("submit", async function(event) {
-    event.preventDefault();
-    submitBtn.disabled = true;
-    const recaptcha = grecaptcha.getResponse();
+  if (!form) {
+    console.error('Formulaire de contact introuvable (#contactForm)');
+    return;
+  }
 
-    const formData = {
-      name: document.getElementById("name").value,
-      email: document.getElementById("email").value,
-      message: document.getElementById("message").value,
-      recaptcha: recaptcha
-    };
+  // ⚠️ À adapter si ton backend a une autre URL
+  const CONTACT_API_URL = '/api/contact';
 
-    if (!formData.recaptcha) {
-      responseMessage.style.color = "red";
-      responseMessage.textContent = "Veuillez valider le reCAPTCHA.";
-      responseMessage.style.display = "block";
-      submitBtn.disabled = false;
+  form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // on bloque l’envoi classique HTML
+
+    responseMessage.style.display = 'none';
+    responseMessage.textContent = '';
+
+    // 1) Vérifier les champs obligatoires rapidement
+    const name = document.getElementById('name')?.value.trim();
+    const email = document.getElementById('email')?.value.trim();
+    const message = document.getElementById('message')?.value.trim();
+
+    if (!name || !email || !message) {
+      responseMessage.textContent = 'Merci de remplir tous les champs.';
+      responseMessage.style.display = 'block';
+      responseMessage.style.color = 'red';
       return;
     }
 
+    // 2) Vérifier le reCAPTCHA (v2)
+    let recaptchaToken = null;
     try {
-      const response = await fetch("/contact.html", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
-      });
-
-      const data = await response.json();
-      if (!data.success) {
-        throw new Error(data.message || 'Échec du traitement de la demande.');
-      }
-
-      if (data.success) {
-        responseMessage.style.color = "green";
-        responseMessage.textContent = data.message;
-        form.reset();
-        grecaptcha.reset();
+      if (typeof grecaptcha !== 'undefined') {
+        recaptchaToken = grecaptcha.getResponse();
+        if (!recaptchaToken) {
+          responseMessage.textContent = 'Merci de cocher la case « Je ne suis pas un robot ».';
+          responseMessage.style.display = 'block';
+          responseMessage.style.color = 'red';
+          return;
+        }
       } else {
-        responseMessage.style.color = "red";
-        responseMessage.textContent = data.message;
+        console.warn('grecaptcha non disponible');
       }
-    } catch (error) {
-      responseMessage.style.color = "red";
-      responseMessage.textContent = "Erreur de connexion avec le serveur.";
+    } catch (e) {
+      console.warn('Erreur lors de la récupération du token reCAPTCHA :', e);
     }
 
-    responseMessage.style.display = "block";
-    setTimeout(() => submitBtn.disabled = false, 3000);
+    // 3) Préparer les données à envoyer au backend Node
+    const payload = {
+      name,
+      email,
+      message,
+      recaptchaToken, // ton backend le vérifiera côté serveur
+    };
+
+    // 4) Appel à l’API Node
+    try {
+      const response = await fetch(CONTACT_API_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error('Réponse non OK : ' + response.status);
+      }
+
+      // Optionnel : lire la réponse JSON ou texte
+      // const data = await response.json();
+
+      responseMessage.textContent = 'Merci ! Votre message a bien été envoyé.';
+      responseMessage.style.display = 'block';
+      responseMessage.style.color = 'green';
+
+      form.reset();
+      try {
+        if (typeof grecaptcha !== 'undefined') {
+          grecaptcha.reset();
+        }
+      } catch (e) {}
+    } catch (error) {
+      console.error('Erreur lors de l’envoi du formulaire :', error);
+      responseMessage.textContent =
+        'Désolé, une erreur est survenue. Vous pouvez aussi m’écrire directement à votre adresse e-mail.';
+      responseMessage.style.display = 'block';
+      responseMessage.style.color = 'red';
+    }
   });
 });
