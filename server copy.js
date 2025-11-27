@@ -127,21 +127,40 @@ app.post("/contact.html", async (req, res) => {
   console.log("📨 Requête contact reçue :", req.body);
 
   const { name, email, message } = req.body;
+  // reCAPTCHA peut venir de "recaptcha" (JSON) ou "g-recaptcha-response" (form HTML)
+  const recaptcha = req.body.recaptcha || req.body["g-recaptcha-response"];
 
-  if (!name || !email || !message) {
-    console.log("⛔ Champs manquants :", { name, email, message });
-    return res.status(400).send(`
-      <!DOCTYPE html>
-      <html lang="fr">
-      <head><meta charset="UTF-8"><title>Erreur</title></head>
-      <body>
-        <p>Champs manquants. Merci de revenir en arrière et de vérifier le formulaire.</p>
-        <a href="https://www.lescontesdezoufftgen.com/contact.html">Retour au formulaire</a>
-      </body>
-      </html>
-    `);
+  if (!name || !email || !message || !recaptcha) {
+    console.log("⛔ Champs manquants :", { name, email, message, recaptcha });
+    return res
+      .status(400)
+      .json({ success: false, message: "Champs manquants." });
   }
 
+  // 🚨 TEMPORAIRE : on désactive la vérification Google
+  /*
+  // 🔍 Vérifie le captcha auprès de Google
+  const captchaVerification = await fetch(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`,
+    }
+  );
+
+  const captchaResult = await captchaVerification.json();
+  console.log("✅ Réponse reCAPTCHA :", captchaResult);
+
+  if (!captchaResult.success) {
+    console.log("⛔ Échec reCAPTCHA :", captchaResult["error-codes"]);
+    return res
+      .status(400)
+      .json({ success: false, message: "Échec de la vérification reCAPTCHA." });
+  }
+      */
+
+  // ✅ Si tout est bon, envoyer le mail
   const mailOptions = {
     from: email,
     to: "helene.ag@hotmail.com",
@@ -153,30 +172,40 @@ app.post("/contact.html", async (req, res) => {
   try {
     await transporter.sendMail(mailOptions);
     console.log("✅ E-mail envoyé avec succès");
-
-    return res.send(`
-      <!DOCTYPE html>
-      <html lang="fr">
-      <head><meta charset="UTF-8"><title>Merci !</title></head>
-      <body>
-        <p>Merci ! Votre message a bien été envoyé.</p>
-        <a href="https://www.lescontesdezoufftgen.com/index.html">Retour au site</a>
-      </body>
-      </html>
-    `);
+    return res.json({
+      success: true,
+      message: "Votre message a bien été envoyé !",
+    });
   } catch (error) {
     console.error("Erreur d'envoi :", error);
-    return res.status(500).send(`
-      <!DOCTYPE html>
-      <html lang="fr">
-      <head><meta charset="UTF-8"><title>Erreur d'envoi</title></head>
-      <body>
-        <p>Une erreur est survenue lors de l'envoi du message.</p>
-        <p>Vous pouvez aussi écrire directement à : helene.ag@hotmail.com</p>
-        <a href="https://www.lescontesdezoufftgen.com/contact.html">Retour au formulaire</a>
-      </body>
-      </html>
-    `);
+    return res.status(500).json({
+      success: false,
+      message: "Erreur lors de l'envoi du message.",
+    });
   }
 });
 
+
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Serveur en ligne sur le port ${PORT}`));
+
+async function envoyerEmailConfirmation(clientEmail, cart, country, total) {
+  const itemsList = cart.map(item => `- ${item.name} x ${item.quantity}`).join("<br>");
+
+  const mailOptions = {
+    from: `"Les Contes de Zoufftgen" <${process.env.EMAIL_USER}>`,
+    to: clientEmail,
+    subject: "Merci pour votre commande !",
+    html: `
+      <h2>🎉 Merci pour votre achat !</h2>
+      <p>Voici le récapitulatif de votre commande :</p>
+      <p>${itemsList}</p>
+      <p><strong>Pays de livraison :</strong> ${country}</p>
+      <p><strong>Total :</strong> ${(total / 100).toFixed(2)} €</p>
+      <br>
+      <p>Nous vous contacterons rapidement pour l'expédition !</p>
+    `
+  };
+
+  await transporter.sendMail(mailOptions);
+}
