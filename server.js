@@ -137,6 +137,8 @@ app.post("/contact.html", async (req, res) => {
       .json({ success: false, message: "Champs manquants." });
   }
 
+  // 🚨 TEMPORAIRE : on désactive la vérification Google
+  /*
   // 🔍 Vérifie le captcha auprès de Google
   const captchaVerification = await fetch(
     "https://www.google.com/recaptcha/api/siteverify",
@@ -156,6 +158,7 @@ app.post("/contact.html", async (req, res) => {
       .status(400)
       .json({ success: false, message: "Échec de la vérification reCAPTCHA." });
   }
+      */
 
   // ✅ Si tout est bon, envoyer le mail
   const mailOptions = {

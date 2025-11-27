@@ -8,7 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // On utilise l'URL définie dans l'attribut action du <form>
-  const CONTACT_API_URL = form.action || 'https://lescontesdezoufftgen.onrender.com/contact.html';
+  const CONTACT_API_URL =
+    form.action || 'https://lescontesdezoufftgen.onrender.com/contact.html';
 
   form.addEventListener('submit', async (event) => {
     event.preventDefault(); // on bloque l’envoi classique HTML
@@ -33,7 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
       if (typeof grecaptcha !== 'undefined') {
         recaptchaToken = grecaptcha.getResponse();
         if (!recaptchaToken) {
-          responseMessage.textContent = 'Merci de cocher la case « Je ne suis pas un robot ».';
+          responseMessage.textContent =
+            'Merci de cocher la case « Je ne suis pas un robot ».';
           responseMessage.style.display = 'block';
           responseMessage.style.color = 'red';
           return;
@@ -67,7 +69,8 @@ document.addEventListener('DOMContentLoaded', () => {
         throw new Error(data?.message || 'Réponse non OK : ' + response.status);
       }
 
-      responseMessage.textContent = data.message || 'Merci ! Votre message a bien été envoyé.';
+      responseMessage.textContent =
+        data.message || 'Merci ! Votre message a bien été envoyé.';
       responseMessage.style.display = 'block';
       responseMessage.style.color = 'green';
 
@@ -78,9 +81,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
       } catch (e) {}
     } catch (error) {
-      console.error('Erreur lors de l’envoi du formulaire :', error);
+      console.error("Erreur lors de l'envoi du formulaire :", error);
       responseMessage.textContent =
-        data?.message ||
+        error.message ||
         'Désolé, une erreur est survenue. Vous pouvez aussi m’écrire directement à helene.ag@hotmail.com.';
       responseMessage.style.display = 'block';
       responseMessage.style.color = 'red';
