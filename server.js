@@ -31,6 +31,15 @@ const transporter = nodemailer.createTransport({
   },
 });
 
+// 🔍 Test de la connexion SMTP Brevo au démarrage
+transporter.verify((error, success) => {
+  if (error) {
+    console.error("❌ Erreur de connexion SMTP Brevo :", error);
+  } else {
+    console.log("✅ Connexion SMTP Brevo OK :", success);
+  }
+});
+
 
 app.post("/create-checkout-session", async (req, res) => {
     console.log("📦 Body reçu :", req.body);
