@@ -183,14 +183,18 @@ app.post("/contact.html", async (req, res) => {
     // L’expéditeur doit être une adresse validée dans Brevo
     sendSmtpEmail.sender = {
       name: "Les Contes de Zoufftgen",
-      email: "lescontesdezoufftgen@gmail.com", // ⚠️ à adapter
+      email: "contact@lescontesdezoufftgen.com", 
     };
 
     // Destinataire : ton adresse perso
     sendSmtpEmail.to = [
       {
         email: "helene.ag@hotmail.com",
-        name: "Hélène Hardy",
+        name: "Helene Hardy",
+      },
+      {
+        email: "cyrille.hardy@gmail.com",
+        name: "Cyrille Hardy",
       },
     ];
 
