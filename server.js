@@ -6,140 +6,138 @@ import Stripe from "stripe";
 import fetch from "node-fetch";
 import path from "path";
 import { fileURLToPath } from "url";
-import nodemailer from "nodemailer";
+import * as Brevo from "@getbrevo/brevo"; // ✅ nouveau
 
 dotenv.config();
 
 const app = express();
 app.use(express.json());
-app.use(express.urlencoded({ extended: false })); // facultatif
+app.use(express.urlencoded({ extended: false }));
 app.use(cors());
-app.use(express.static("public")); // Met ton index.html dans /public
+app.use(express.static("public"));
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
-const transporter = nodemailer.createTransport({
-  host: process.env.SMTP_HOST,
-  port: Number(process.env.SMTP_PORT) || 587,
-  secure: false, // STARTTLS sur 587
-  auth: {
-    user: process.env.SMTP_USER,
-    pass: process.env.SMTP_PASS,
-  },
-});
+// ✅ Config Brevo API
+const brevoClient = Brevo.ApiClient.instance;
+const apiKeyAuth = brevoClient.authentications["apiKey"];
+apiKeyAuth.apiKey = process.env.BREVO_API_KEY;
 
-// 🔍 Test de la connexion SMTP Brevo au démarrage
-transporter.verify((error, success) => {
-  if (error) {
-    console.error("❌ Erreur de connexion SMTP Brevo :", error);
-  } else {
-    console.log("✅ Connexion SMTP Brevo OK :", success);
-  }
-});
+const brevoEmailApi = new Brevo.TransactionalEmailsApi();
 
+// expéditeur principal (doit exister/être validé dans Brevo)
+const BREVO_SENDER_EMAIL =
+  process.env.BREVO_SENDER_EMAIL || "contact@lescontesdezoufftgen.fr";
+const BREVO_SENDER_NAME =
+  process.env.BREVO_SENDER_NAME || "Les contes de Zoufftgen";
+
+// ====================== STRIPE ======================
 
 app.post("/create-checkout-session", async (req, res) => {
-    console.log("📦 Body reçu :", req.body);
+  console.log("📦 Body reçu :", req.body);
 
-    const { cart, country, note_personnelle } = req.body;
+  const { cart, country, note_personnelle } = req.body;
 
-    // Vérification que la note est bien reçue
-    console.log("Note personnelle reçue:", note_personnelle);  // Ajout d'un log pour la note
+  console.log("Note personnelle reçue:", note_personnelle);
 
-    if (!cart || !Array.isArray(cart)) {
-        console.error("❌ Cart invalide :", cart);
-        return res.status(400).json({ error: "Panier manquant ou invalide" });
-      }
+  if (!cart || !Array.isArray(cart)) {
+    console.error("❌ Cart invalide :", cart);
+    return res.status(400).json({ error: "Panier manquant ou invalide" });
+  }
 
-    try {
-        const line_items = cart.map(item => ({
-          price_data: {
-            currency: "eur",
-            product_data: {
-              name: item.name
-            },
-            unit_amount: item.price
-          },
-          quantity: Math.min(item.quantity, 5)
-        }));
+  try {
+    const line_items = cart.map((item) => ({
+      price_data: {
+        currency: "eur",
+        product_data: {
+          name: item.name,
+        },
+        unit_amount: item.price,
+      },
+      quantity: Math.min(item.quantity, 5),
+    }));
 
-        // 🧮 Calculer total d'articles
-        const totalQuantity = cart.reduce((sum, item) => sum + item.quantity, 0);
-    
-        let shippingCost = 0;
+    const totalQuantity = cart.reduce(
+      (sum, item) => sum + item.quantity,
+      0
+    );
 
-        if (country === "FR") {
-          shippingCost = totalQuantity <= 1 ? 900 : 1200; // 9€ ou 12€
-        } else if (["UE"].includes(country)) {
-          shippingCost = totalQuantity <= 1 ? 500 : 1000; // 5€ ou 10€
-        } else {
-            shippingCost = totalQuantity <= 1 ? 600 : 1200; // 6€ ou 12€ pour le reste du monde
-        }
+    let shippingCost = 0;
 
-        // ➕ Ajouter les frais de port comme un article
-        line_items.push({
-            price_data: {
-            currency: "eur",
-            product_data: { name: `Frais de port (${country})` },
-            unit_amount: shippingCost
-            },
-            quantity: 1
-        });
+    if (country === "FR") {
+      shippingCost = totalQuantity <= 1 ? 900 : 1200;
+    } else if (["UE"].includes(country)) {
+      shippingCost = totalQuantity <= 1 ? 500 : 1000;
+    } else {
+      shippingCost = totalQuantity <= 1 ? 600 : 1200;
+    }
 
-        const session = await stripe.checkout.sessions.create({
-          payment_method_types: ["card"],
-          line_items,
-          mode: "payment",  
-          customer_creation: "always", // ← ✅ ajoute ceci
-          shipping_address_collection: {
-            allowed_countries: ["AC", "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AQ", "AR", "AT", "AU", "AW", "AX", "AZ",
-  "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BR", "BS", "BT", "BV", "BW", "BY", "BZ",
-  "CA", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM", "CN", "CO", "CR", "CV", "CW", "CY", "CZ",
-  "DE", "DJ", "DK", "DM", "DO", "DZ",
-  "EC", "EE", "EG", "EH", "ER", "ES", "ET",
-  "FI", "FJ", "FK", "FO", "FR",
-  "GA", "GB", "GD", "GE", "GF", "GG", "GH", "GI", "GL", "GM", "GN", "GP", "GQ", "GR", "GS", "GT", "GU", "GW", "GY",
-  "HK", "HN", "HR", "HT", "HU",
-  "ID", "IE", "IL", "IM", "IN", "IO", "IQ", "IS", "IT",
-  "JE", "JM", "JO", "JP",
-  "KE", "KG", "KH", "KI", "KM", "KN", "KR", "KW", "KY", "KZ",
-  "LA", "LB", "LC", "LI", "LK", "LR", "LS", "LT", "LU", "LV", "LY",
-  "MA", "MC", "MD", "ME", "MF", "MG", "MK", "ML", "MM", "MN", "MO", "MQ", "MR", "MS", "MT", "MU", "MV", "MW", "MX", "MY", "MZ",
-  "NA", "NC", "NE", "NG", "NI", "NL", "NO", "NP", "NR", "NU", "NZ",
-  "OM", "PA", "PE", "PF", "PG", "PH", "PK", "PL", "PM", "PN", "PR", "PS", "PT", "PY",
-  "QA", "RE", "RO", "RS", "RU", "RW",
-  "SA", "SB", "SC", "SD", "SE", "SG", "SH", "SI", "SJ", "SK", "SL", "SM", "SN", "SO", "SR", "SS", "ST", "SV", "SX", "SZ",
-  "TC", "TD", "TF", "TG", "TH", "TJ", "TK", "TL", "TM", "TN", "TO", "TR", "TT", "TV", "TW", "TZ",
-  "UA", "UG", "US", "UY", "UZ",
-  "VA", "VC", "VE", "VG", "VN", "VU",
-  "WF", "WS", "XK", "YE", "YT", "ZA", "ZM", "ZW"]
-          },
-          success_url: "https://www.lescontesdezoufftgen.com/success.html",
-          cancel_url: "https://www.lescontesdezoufftgen.com/cancel.html",
-          metadata: {
-            note_personnelle: note_personnelle || "Aucune note", // Ajout des métadonnées
-            cart_items_count: cart.length // Par exemple, ajouter aussi le nombre d'articles pour tester
-          }
-        });
+    line_items.push({
+      price_data: {
+        currency: "eur",
+        product_data: { name: `Frais de port (${country})` },
+        unit_amount: shippingCost,
+      },
+      quantity: 1,
+    });
 
-        console.log("✅ Session Stripe créée :", session);  // Afficher la session pour déboguer
-        
-        res.json({ url: session.url });
+    const session = await stripe.checkout.sessions.create({
+      payment_method_types: ["card"],
+      line_items,
+      mode: "payment",
+      customer_creation: "always",
+      shipping_address_collection: {
+        allowed_countries: [
+          "AC","AD","AE","AF","AG","AI","AL","AM","AO","AQ","AR","AT","AU","AW","AX","AZ",
+          "BA","BB","BD","BE","BF","BG","BH","BI","BJ","BL","BM","BN","BO","BQ","BR","BS","BT","BV","BW","BY","BZ",
+          "CA","CD","CF","CG","CH","CI","CK","CL","CM","CN","CO","CR","CV","CW","CY","CZ",
+          "DE","DJ","DK","DM","DO","DZ",
+          "EC","EE","EG","EH","ER","ES","ET",
+          "FI","FJ","FK","FO","FR",
+          "GA","GB","GD","GE","GF","GG","GH","GI","GL","GM","GN","GP","GQ","GR","GS","GT","GU","GW","GY",
+          "HK","HN","HR","HT","HU",
+          "ID","IE","IL","IM","IN","IO","IQ","IS","IT",
+          "JE","JM","JO","JP",
+          "KE","KG","KH","KI","KM","KN","KR","KW","KY","KZ",
+          "LA","LB","LC","LI","LK","LR","LS","LT","LU","LV","LY",
+          "MA","MC","MD","ME","MF","MG","MK","ML","MM","MN","MO","MQ","MR","MS","MT","MU","MV","MW","MX","MY","MZ",
+          "NA","NC","NE","NG","NI","NL","NO","NP","NR","NU","NZ",
+          "OM","PA","PE","PF","PG","PH","PK","PL","PM","PN","PR","PS","PT","PY",
+          "QA","RE","RO","RS","RU","RW",
+          "SA","SB","SC","SD","SE","SG","SH","SI","SJ","SK","SL","SM","SN","SO","SR","SS","ST","SV","SX","SZ",
+          "TC","TD","TF","TG","TH","TJ","TK","TL","TM","TN","TO","TR","TT","TV","TW","TZ",
+          "UA","UG","US","UY","UZ",
+          "VA","VC","VE","VG","VN","VU",
+          "WF","WS","XK","YE","YT","ZA","ZM","ZW"
+        ],
+      },
+      success_url: "https://www.lescontesdezoufftgen.com/success.html",
+      cancel_url: "https://www.lescontesdezoufftgen.com/cancel.html",
+      metadata: {
+        note_personnelle: note_personnelle || "Aucune note",
+        cart_items_count: cart.length,
+      },
+    });
+
+    console.log("✅ Session Stripe créée :", session);
+
+    res.json({ url: session.url });
   } catch (error) {
     console.error("Erreur Stripe :", error.message);
     res.status(500).json({ error: "Échec de la création de la session." });
   }
 });
 
+// ====================== CONTACT ======================
 
 app.post("/contact.html", async (req, res) => {
   console.log("📨 Requête contact reçue :", req.body);
 
   const { name, email, message } = req.body;
-  // reCAPTCHA peut venir de "recaptcha" (JSON) ou "g-recaptcha-response" (form HTML)
   const recaptcha = req.body.recaptcha || req.body["g-recaptcha-response"];
 
   if (!name || !email || !message || !recaptcha) {
@@ -149,44 +147,71 @@ app.post("/contact.html", async (req, res) => {
       .json({ success: false, message: "Champs manquants." });
   }
 
-  // 🔍 Vérifie le captcha auprès de Google
-  const captchaVerification = await fetch(
-    "https://www.google.com/recaptcha/api/siteverify",
-    {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`,
+  // Vérification reCAPTCHA
+  try {
+    const captchaVerification = await fetch(
+      "https://www.google.com/recaptcha/api/siteverify",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `secret=${RECAPTCHA_SECRET_KEY}&response=${recaptcha}`,
+      }
+    );
+
+    const captchaResult = await captchaVerification.json();
+    console.log("✅ Réponse reCAPTCHA :", captchaResult);
+
+    if (!captchaResult.success) {
+      console.log("⛔ Échec reCAPTCHA :", captchaResult["error-codes"]);
+      return res.status(400).json({
+        success: false,
+        message: "Échec de la vérification reCAPTCHA.",
+      });
     }
-  );
-
-  const captchaResult = await captchaVerification.json();
-  console.log("✅ Réponse reCAPTCHA :", captchaResult);
-
-  if (!captchaResult.success) {
-    console.log("⛔ Échec reCAPTCHA :", captchaResult["error-codes"]);
-    return res
-      .status(400)
-      .json({ success: false, message: "Échec de la vérification reCAPTCHA." });
+  } catch (e) {
+    console.error("❌ Erreur lors de l'appel reCAPTCHA :", e);
+    return res.status(500).json({
+      success: false,
+      message: "Erreur lors de la vérification reCAPTCHA.",
+    });
   }
 
-  // ✅ Si tout est bon, envoyer le mail
-  const mailOptions = {
-    from: email,
-    to: "helene.ag@hotmail.com",
-    replyTo: email,
-    subject: "Nouveau message depuis le site lescontesdezoufftgen.fr !",
-    text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`,
-  };
-
+  // Envoi via Brevo API
   try {
-    const info = await transporter.sendMail(mailOptions);
-    console.log("✅ E-mail envoyé avec succès :", info && info.messageId);
+    const brevoResult = await brevoEmailApi.sendTransacEmail({
+      sender: {
+        email: BREVO_SENDER_EMAIL,
+        name: BREVO_SENDER_NAME,
+      },
+      to: [
+        {
+          email: "helene.ag@hotmail.com", // destinataire final
+          name: "Hélène Agostinis",
+        },
+      ],
+      replyTo: {
+        email,
+        name,
+      },
+      subject: "Nouveau message depuis le site lescontesdezoufftgen.fr",
+      textContent: `Nom: ${name}\nEmail: ${email}\nMessage:\n${message}`,
+      // Tu peux aussi ajouter htmlContent si tu veux un mail plus joli
+    });
+
+    console.log(
+      "✅ E-mail Brevo envoyé :",
+      brevoResult?.body?.messageId || brevoResult
+    );
+
     return res.json({
       success: true,
       message: "Votre message a bien été envoyé !",
     });
   } catch (error) {
-    console.error("Erreur d'envoi Nodemailer :", error);
+    console.error(
+      "Erreur d'envoi via Brevo :",
+      error?.response?.body || error
+    );
     return res.status(500).json({
       success: false,
       message:
@@ -195,27 +220,47 @@ app.post("/contact.html", async (req, res) => {
   }
 });
 
+// ====================== SERVEUR ======================
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`Serveur en ligne sur le port ${PORT}`));
+app.listen(PORT, () =>
+  console.log(`Serveur en ligne sur le port ${PORT}`)
+);
+
+// ====================== OPTIONNEL : confirmation commande ======================
 
 async function envoyerEmailConfirmation(clientEmail, cart, country, total) {
-  const itemsList = cart.map(item => `- ${item.name} x ${item.quantity}`).join("<br>");
+  const itemsList = cart
+    .map((item) => `- ${item.name} x ${item.quantity}`)
+    .join("<br>");
 
-  const mailOptions = {
-    from: `"Les Contes de Zoufftgen" <${process.env.EMAIL_USER}>`,
-    to: clientEmail,
-    subject: "Merci pour votre commande !",
-    html: `
-      <h2>🎉 Merci pour votre achat !</h2>
-      <p>Voici le récapitulatif de votre commande :</p>
-      <p>${itemsList}</p>
-      <p><strong>Pays de livraison :</strong> ${country}</p>
-      <p><strong>Total :</strong> ${(total / 100).toFixed(2)} €</p>
-      <br>
-      <p>Nous vous contacterons rapidement pour l'expédition !</p>
-    `
-  };
+  try {
+    const resBrevo = await brevoEmailApi.sendTransacEmail({
+      sender: {
+        email: BREVO_SENDER_EMAIL,
+        name: BREVO_SENDER_NAME,
+      },
+      to: [{ email: clientEmail }],
+      subject: "Merci pour votre commande !",
+      htmlContent: `
+        <h2>🎉 Merci pour votre achat !</h2>
+        <p>Voici le récapitulatif de votre commande :</p>
+        <p>${itemsList}</p>
+        <p><strong>Pays de livraison :</strong> ${country}</p>
+        <p><strong>Total :</strong> ${(total / 100).toFixed(2)} €</p>
+        <br>
+        <p>Nous vous contacterons rapidement pour l'expédition !</p>
+      `,
+    });
 
-  await transporter.sendMail(mailOptions);
+    console.log(
+      "✅ E-mail de confirmation envoyé :",
+      resBrevo?.body?.messageId || resBrevo
+    );
+  } catch (error) {
+    console.error(
+      "Erreur d'envoi de l'e-mail de confirmation via Brevo :",
+      error?.response?.body || error
+    );
+  }
 }
