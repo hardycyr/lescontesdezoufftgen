@@ -6,7 +6,7 @@ import Stripe from "stripe";
 import fetch from "node-fetch";
 import path from "path";
 import { fileURLToPath } from "url";
-import * as Brevo from "@getbrevo/brevo"; // ✅ nouveau
+import { TransactionalEmailsApi, SendSmtpEmail } from "@getbrevo/brevo";
 
 dotenv.config();
 
@@ -22,12 +22,11 @@ const __dirname = path.dirname(__filename);
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
-// ✅ Config Brevo API
-const brevoClient = Brevo.ApiClient.instance;
-const apiKeyAuth = brevoClient.authentications["apiKey"];
-apiKeyAuth.apiKey = process.env.BREVO_API_KEY;
+const brevoApiKey = process.env.BREVO_API_KEY;
 
-const brevoEmailApi = new Brevo.TransactionalEmailsApi();
+const brevoEmailApi = new TransactionalEmailsApi();
+// le SDK stocke la clé ici :
+brevoEmailApi.authentications.apiKey.apiKey = brevoApiKey;
 
 // expéditeur principal (doit exister/être validé dans Brevo)
 const BREVO_SENDER_EMAIL =
@@ -147,7 +146,7 @@ app.post("/contact.html", async (req, res) => {
       .json({ success: false, message: "Champs manquants." });
   }
 
-  // Vérification reCAPTCHA
+  // 🔍 Vérifie le captcha auprès de Google
   try {
     const captchaVerification = await fetch(
       "https://www.google.com/recaptcha/api/siteverify",
@@ -168,50 +167,60 @@ app.post("/contact.html", async (req, res) => {
         message: "Échec de la vérification reCAPTCHA.",
       });
     }
-  } catch (e) {
-    console.error("❌ Erreur lors de l'appel reCAPTCHA :", e);
+  } catch (err) {
+    console.error("Erreur lors de l'appel reCAPTCHA :", err);
     return res.status(500).json({
       success: false,
-      message: "Erreur lors de la vérification reCAPTCHA.",
+      message:
+        "Erreur lors de la vérification reCAPTCHA. Veuillez réessayer plus tard.",
     });
   }
 
-  // Envoi via Brevo API
+  // ✅ Construction du mail Brevo
   try {
-    const brevoResult = await brevoEmailApi.sendTransacEmail({
-      sender: {
-        email: BREVO_SENDER_EMAIL,
-        name: BREVO_SENDER_NAME,
-      },
-      to: [
-        {
-          email: "helene.ag@hotmail.com", // destinataire final
-          name: "Hélène Agostinis",
-        },
-      ],
-      replyTo: {
-        email,
-        name,
-      },
-      subject: "Nouveau message depuis le site lescontesdezoufftgen.fr",
-      textContent: `Nom: ${name}\nEmail: ${email}\nMessage:\n${message}`,
-      // Tu peux aussi ajouter htmlContent si tu veux un mail plus joli
-    });
+    const sendSmtpEmail = new SendSmtpEmail();
 
-    console.log(
-      "✅ E-mail Brevo envoyé :",
-      brevoResult?.body?.messageId || brevoResult
-    );
+    // L’expéditeur doit être une adresse validée dans Brevo
+    sendSmtpEmail.sender = {
+      name: "Les Contes de Zoufftgen",
+      email: "lescontesdezoufftgen@gmail.com", // ⚠️ à adapter
+    };
+
+    // Destinataire : ton adresse perso
+    sendSmtpEmail.to = [
+      {
+        email: "helene.ag@hotmail.com",
+        name: "Hélène Hardy",
+      },
+    ];
+
+    sendSmtpEmail.replyTo = {
+      email,
+      name,
+    };
+
+    sendSmtpEmail.subject = "Nouveau message depuis le site lescontesdezoufftgen.com";
+    sendSmtpEmail.htmlContent = `
+      <html>
+        <body>
+          <h2>Nouveau message depuis le formulaire de contact</h2>
+          <p><strong>Nom :</strong> ${name}</p>
+          <p><strong>Email :</strong> ${email}</p>
+          <p><strong>Message :</strong></p>
+          <p>${message.replace(/\n/g, "<br>")}</p>
+        </body>
+      </html>
+    `;
+
+    const brevoResponse = await brevoEmailApi.sendTransacEmail(sendSmtpEmail);
+    console.log("✅ E-mail envoyé avec succès via Brevo :", brevoResponse);
 
     return res.json({
       success: true,
       message: "Votre message a bien été envoyé !",
     });
   } catch (error) {
-    console.error(
-      "Erreur d'envoi via Brevo :",
-      error?.response?.body || error
-    );
+    console.error("Erreur d'envoi via Brevo :", error);
     return res.status(500).json({
       success: false,
       message:
@@ -219,6 +228,7 @@ app.post("/contact.html", async (req, res) => {
     });
   }
 });
+
 
 // ====================== SERVEUR ======================
 
