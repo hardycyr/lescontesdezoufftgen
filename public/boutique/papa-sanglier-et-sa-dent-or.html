@@ -3,36 +3,42 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>La maison du petit zouffarceur | Livre pour enfants de Hélène Hardy | Les contes de Zoufftgen</title>
-  <meta name="description" content="Découvrez 'La maison du petit zouffarceur', un livre enchanteur pour enfants écrit par Hélène Hardy. Une aventure captivante à ne pas manquer. Disponible en boutique.">
-  <meta property="og:title" content="La maison du petit zouffarceur | Livre pour enfants de Hélène Hardy">
-  <meta property="og:description" content="Offrez à vos enfants l'aventure magique de 'La maison du petit zouffarceur', un livre pour enfants signé Hélène Hardy. Découvrez-le dès maintenant dans notre boutique en ligne.">
-  <meta property="og:image" content="https://www.lescontesdezoufftgen.com/images/LaMaisonduPetitZouffarceur.png">
-  <meta property="og:url" content="https://www.lescontesdezoufftgen.com/boutique/la-maison-du-petit-zouffarceur.html">
+  <title>Papa Sanglier et sa dent en or | Livre pour enfants de Hélène Hardy | Les contes de Zoufftgen</title>
+  <meta name="description" content="Découvrez 'Papa Sanglier et sa dent en or', un livre enchanteur pour enfants écrit par Hélène Hardy. Une aventure captivante à ne pas manquer. Disponible en boutique.">
+  <meta property="og:title" content="Papa Sanglier et sa dent en or | Livre pour enfants de Hélène Hardy">
+  <meta property="og:description" content="Offrez à vos enfants l'aventure magique du 'Papa Sanglier et sa dent en or', un livre pour enfants signé Hélène Hardy. Découvrez-le dès maintenant dans notre boutique en ligne.">
+  <meta property="og:image" content="https://www.lescontesdezoufftgen.com/images/PapaSanglierEtSaDentEnOr1.webp">
+  <meta property="og:url" content="https://www.lescontesdezoufftgen.com/boutique/papa-sanglier-et-sa-dent-or.html">
   <meta property="og:type" content="product">
-  <meta name="twitter:title" content="La maison du petit zouffarceur | Livre pour enfants de Hélène Hardy">
-  <meta name="twitter:description" content="Plongez dans l'univers magique de 'La maison du petit zouffarceur', un livre pour enfants écrit par Hélène Hardy. À découvrir dans notre boutique en ligne.">
-  <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/LaMaisonduPetitZouffarceur.png">
+  <meta name="twitter:title" content="Papa Sanglier et sa dent en or | Livre pour enfants de Hélène Hardy">
+  <meta name="twitter:description" content="Plongez dans l'univers magique du 'Papa Sanglier et sa dent en or', un livre pour enfants écrit par Hélène Hardy. À découvrir dans notre boutique en ligne.">
+  <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/PapaSanglierEtSaDentEnOr1.webp">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="product:price:amount" content="18.00">
   <meta name="product:price:currency" content="EUR">
+
   <link rel="stylesheet" href="/styles.css" />
+  <link rel="preload" href="/images/PapaSanglierEtSaDentEnOr1.webp" as="image">
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
   <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
   <script src="/js/panier.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="preload" as="image" href="/images/LaMaisonduPetitZouffarceur.webp" type="image/webp">
   <script>
-    function changerImage(src) {
-      const mainImage = document.getElementById('main-image');
-  mainImage.src = src;
-  mainImage.srcset = ""; // désactive le srcset pour forcer le changement d’image
-    }
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu-list");
+  
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
+    });
   </script>
+  
+  
   <style>
-   
+
     .product-page {
       background-color: white;
       display: flex;
@@ -44,20 +50,24 @@
       margin: 0 auto;
       margin-top: 2rem;
     }
+
     .product-image {
       flex: 1 1 30%;
       min-width: 300px;
     }
+
     .product-image img.main-img {
       width: 100%;
       box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
     }
+
     .gallery {
       display: flex;
       flex-wrap: wrap;
       gap: 1rem;
       margin-top: 1rem;
     }
+
     .gallery img {
       width: 100px;
       height: auto;
@@ -65,19 +75,23 @@
       cursor: pointer;
       transition: transform 0.2s ease;
     }
+
     .gallery img:hover {
       transform: scale(1.1);
     }
+
     .product-details {
       flex: 1 1 65%;
       min-width: 280px;
     }
+
     .product-details h1 {
       font-family: 'Rastanty Cortez', cursive;
       font-size: 5rem;
       margin-bottom: 1rem;
       font-weight: normal;
     }
+
     .product-details p {
       font-family: 'Proxima Nova Rg', cursive;
       font-size: 1.1rem;
@@ -85,42 +99,82 @@
       margin-bottom: 0.5rem;
       font-weight: normal;
     }
+
     .product-price {
       font-size: 1.4rem;
       font-weight: bold;
       margin-bottom: 1rem;
     }
-    
+
     header h1 a {
       text-decoration: none;
       color: inherit;
     }
+
     @media (max-width: 768px) {
       .product-page {
         flex-direction: column;
         padding: 1rem;
       }
     }
-  </style>
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const toggle = document.getElementById("menu-toggle");
-      const menu = document.getElementById("menu-list");
-  
-      toggle.addEventListener("click", () => {
-        menu.classList.toggle("open");
-      });
-    });
-  </script>
-  <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
 
-  gtag('config', 'G-YF42H2CYXX');
-</script>
+    /* Style pour la vidéo en overlay */
+    .video-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+
+    #video-player {
+      max-width: 80%;
+      max-height: 80%;
+    }
+
+    .video-thumbnail {
+      position: relative;
+      cursor: pointer;
+      display: inline-block;
+    }
+
+    /* Style de l'image thumbnail */
+    .thumbnail {
+      width: 100px;
+      height: auto;
+      border-radius: 6px;
+      transition: transform 0.2s ease;
+    }
+
+    .thumbnail:hover {
+      transform: scale(1.1);
+    }
+
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 20px;
+      height: 20px;
+      opacity: 0.7;
+      pointer-events: none;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+      background-color: rgba(0, 0, 0, 0.2);
+      border-radius: 50%;
+      padding: 5px;
+    }
+
+    .thumbnail:hover .play-icon {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1.2);
+    }
+  </style>
 </head>
 <body>
   <div class="background-overlay"></div>
@@ -130,21 +184,21 @@
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
         <li><a href="/">Accueil</a></li>
-        <li><a href="/meslivres.html">Mes livres</a></li>
-        <li><a href="/monhistoire.html">Mon histoire</a></li>
-        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="../meslivres.html">Mes livres</a></li>
+        <li><a href="../monhistoire.html">Mon histoire</a></li>
+        <li><a href="../contact.html">Contact</a></li>
         <li><a href="/support.html">Me soutenir</a></li>
         <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
       </ul>
       <div class="language-switcher">
-        <a href="/boutique/la-maison-du-petit-zouffarceur.html"><img
+        <a href="/boutique/papa-sanglier-et-sa-dent-or.html"><img
           src="https://flagcdn.com/20x15/fr.png"
           srcset="https://flagcdn.com/40x30/fr.png 2x,
             https://flagcdn.com/60x45/fr.png 3x"
           width="20"
           height="15"
           alt="Français"></a>
-        <a href="/boutique/la-maison-du-petit-zouffarceur-en.html"><img
+        <a href="/boutique/papa-sanglier-et-sa-dent-or-en.html"><img
           src="https://flagcdn.com/20x15/gb.png"
           srcset="https://flagcdn.com/40x30/gb.png 2x,
             https://flagcdn.com/60x45/gb.png 3x"
@@ -157,33 +211,27 @@
 
   <section class="product-page">
     <div class="product-image">
-      <img  src="/images/LaMaisonduPetitZouffarceur.webp" srcset="/images/LaMaisonduPetitZouffarceur-mobile.webp 600w, /images/LaMaisonduPetitZouffarceur.webp 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="La maison du petit zouffarceur - Couverture" class="main-img" id="main-image" width="800" style="aspect-ratio: 1.02;">
-
+      <img src="/images/PapaSanglierEtSaDentEnOr1.webp" alt="Papa Sanglier et sa dent en or - Couverture" class="main-img" id="main-image" loading="lazy">
       <div class="gallery">
-        <img src="/images/LaMaisonduPetitZouffarceur.webp" alt="La maison du petit zouffarceur - Page intérieure 1" onclick="changerImage('/images/LaMaisonduPetitZouffarceur.webp')" loading="lazy">
-        <img 
-  src="/images/LaMaisonduPetitZouffarceur3.webp"
-  srcset="/images/LaMaisonduPetitZouffarceur3-mobile.webp 600w, /images/LaMaisonduPetitZouffarceur3.webp 1200w"
-  sizes="(max-width: 768px) 100vw, 600px"
-  alt="La maison du petit zouffarceur - Page intérieure 3"
-  loading="lazy"
-  width="600"
-  onclick="changerImage('/images/LaMaisonduPetitZouffarceur3.webp')">
-      </div>
-      <div class="gallery">
-        <iframe title="La maison du petit zouffarceur - Presentation YouTube" width="100%" src="https://www.youtube.com/embed/ELRFUnqozWo" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
-      </div>
+        <img src="/images/PapaSanglierEtSaDentEnOr1.webp" alt="Papa Sanglier et sa dent en or - Couverture" onclick="changerImage('/images/PapaSanglierEtSaDentEnOr1.webp')" loading="lazy">
+        <img src="/images/PapaSanglierEtSaDentEnOr2.webp" alt="Papa Sanglier et sa dent en or - Dernière de couverture" onclick="changerImage('/images/PapaSanglierEtSaDentEnOr2.webp')" loading="lazy">
+        <img src="/images/PapaSanglierEtSaDentEnOr3.webp" alt="Papa Sanglier et sa dent en or - Activités" onclick="changerImage('/images/PapaSanglierEtSaDentEnOr3.webp')" loading="lazy">
+       </div>
+      <!-- <div class="gallery">
+        <iframe width="100%" src="https://www.youtube-nocookie.com/embed/fWqenvXLS9U" title="Presentation Youtube" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen loading="lazy"></iframe>
+      </div> -->
     </div>
+
     <div class="product-details">
-      <h1>La maison du petit zouffarceur</h1>
-      <p>Livre rigide de 32 pages avec:</p>
+      <h1>Papa Sanglier et sa dent en or</h1>
+      <p>Livre rigide de 32 pages  avec:</p>
       <p>&nbsp;&nbsp;&nbsp;-&nbsp;dorure 3D sélectif sur la couverture</p>
       <p>&nbsp;&nbsp;&nbsp;-&nbsp;une histoire illustrée</p>
       <p>&nbsp;&nbsp;&nbsp;-&nbsp;des activités ludiques pour prolonger l'aventure</p>
-      <p>&nbsp;&nbsp;&nbsp;-&nbsp;une recette de cuisine à tester en famille</p>
-      <p>&nbsp;&nbsp;&nbsp;-&nbsp;une page historique sur le vieux chêne qui a réellement existé</p>
+      <p>&nbsp;&nbsp;&nbsp;-&nbsp;une page historique sur la vraie maison forestière de Zoufftgen qui existe depuis plus de 100 ans</p>
+      <p>&nbsp;&nbsp;&nbsp;-&nbsp;des pages ludiques sur le mode de vie des sangliers et leur dentition</p>
       <p class="product-price">Prix: 18,00 €</p>
-      <a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1800">➕ Ajouter au panier</a>
+      <a href="#" class="btn-panier" data-id="livre-1" data-nom="Papa Sanglier et sa dent en or" data-prix="1800">➕ Ajouter au panier</a>
       <p>Si vous souhaitez une dédicace, merci d'ajouter une note personnelle lors du paiement ou me contacter via la page de contact après votre paiement.</p>
     </div>
   </section>
@@ -203,6 +251,10 @@
     </a>
   </footer>
 
-  
+  <script>
+    function changerImage(src) {
+      document.getElementById('main-image').src = src;
+    }
+  </script>
 </body>
 </html>

@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Le petit zouffarceur | Livre pour enfants de Hélène Agostinis | Les contes de Zoufftgen</title>
-  <meta name="description" content="Découvrez 'Le Petit Zouffarceur', un livre enchanteur pour enfants écrit par Hélène Agostinis. Une aventure captivante à ne pas manquer. Disponible en boutique.">
-  <meta property="og:title" content="Le Petit Zouffarceur | Livre pour enfants de Hélène Agostinis">
-  <meta property="og:description" content="Offrez à vos enfants l'aventure magique de 'Le Petit Zouffarceur', un livre pour enfants signé Hélène Agostinis. Découvrez-le dès maintenant dans notre boutique en ligne.">
+  <title>Le petit zouffarceur | Livre pour enfants de Hélène Hardy | Les contes de Zoufftgen</title>
+  <meta name="description" content="Découvrez 'Le Petit Zouffarceur', un livre enchanteur pour enfants écrit par Hélène Hardy. Une aventure captivante à ne pas manquer. Disponible en boutique.">
+  <meta property="og:title" content="Le Petit Zouffarceur | Livre pour enfants de Hélène Hardy">
+  <meta property="og:description" content="Offrez à vos enfants l'aventure magique de 'Le Petit Zouffarceur', un livre pour enfants signé Hélène Hardy. Découvrez-le dès maintenant dans notre boutique en ligne.">
   <meta property="og:image" content="https://www.lescontesdezoufftgen.com/images/LePetitZouffarceur.jpg">
   <meta property="og:url" content="https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur.html">
   <meta property="og:type" content="product">
-  <meta name="twitter:title" content="Le Petit Zouffarceur | Livre pour enfants de Hélène Agostinis">
-  <meta name="twitter:description" content="Plongez dans l'univers magique de 'Le Petit Zouffarceur', un livre pour enfants écrit par Hélène Agostinis. À découvrir dans notre boutique en ligne.">
+  <meta name="twitter:title" content="Le Petit Zouffarceur | Livre pour enfants de Hélène Hardy">
+  <meta name="twitter:description" content="Plongez dans l'univers magique de 'Le Petit Zouffarceur', un livre pour enfants écrit par Hélène Hardy. À découvrir dans notre boutique en ligne.">
   <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/LePetitZouffarceur.jpg">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="product:price:amount" content="18.00">
@@ -26,21 +26,13 @@
   <script src="/js/panier.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600&display=swap" rel="stylesheet">
   <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuToggle = document.getElementById('menu-toggle');
-      const menuList = document.getElementById('menu-list');
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu-list");
   
-      if (menuToggle && menuList) {
-        menuList.style.display = 'none';
-  
-        menuToggle.addEventListener('click', function() {
-          if (menuList.style.display === 'none' || menuList.style.display === '') {
-            menuList.style.display = 'block';
-          } else {
-            menuList.style.display = 'none';
-          }
-        });
-      }
+      toggle.addEventListener("click", () => {
+        menu.classList.toggle("open");
+      });
     });
   </script>
   
