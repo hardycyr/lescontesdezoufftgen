@@ -68,11 +68,13 @@ app.post("/create-checkout-session", async (req, res) => {
     let shippingCost = 0;
 
     if (country === "FR") {
-      shippingCost = totalQuantity <= 1 ? 900 : 1200;
+      shippingCost = totalQuantity <= 1 ? 650 : 1000;
+    } else if (["LU"].includes(country)) {
+      shippingCost = totalQuantity <= 1 ? 400 : 700;
     } else if (["UE"].includes(country)) {
-      shippingCost = totalQuantity <= 1 ? 500 : 1000;
+      shippingCost = totalQuantity <= 1 ? 700 : 1300;
     } else {
-      shippingCost = totalQuantity <= 1 ? 600 : 1200;
+      shippingCost = totalQuantity <= 1 ? 900 : 4000;
     }
 
     line_items.push({
