@@ -128,9 +128,10 @@ function mettreAJourFraisEtTotal() {
 }
 
 function calculerFraisDePort(pays, quantite) {
-  if (pays === "FR") return quantite <= 1 ? 900 : 1200;
-  if (pays === "UE") return quantite <= 1 ? 500 : 1000;
-  return quantite <= 1 ? 600 : 1200;
+  if (pays === "FR") return quantite <= 1 ? 650 : 1000;
+  if (pays === "LU") return quantite <= 1 ? 400 : 700;
+  if (pays === "UE") return quantite <= 1 ? 700 : 1300;
+  return quantite <= 1 ? 900 : 4000;
 }
 
 // -------------------
