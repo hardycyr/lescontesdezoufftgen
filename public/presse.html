@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Meet Hélène Hardy, author of 'Tales of Zoufftgen'. Learn more about her background and the inspiration behind her children's books.">
-  <meta name="keywords" content="children's books, author, illustrator, stories, heritage, education, Zoufftgen">
-  <title>About the author - Hélène Hardy | Zoufftgen's tales</title>
-  <link rel="stylesheet" href="styles-en.css" />
+  <meta name="description" content="Rencontrez Hélène Hardy, l'autrice des 'Contes de Zoufftgen'. Apprenez-en plus sur son parcours et son inspiration derrière ses livres pour enfants.">
+  <meta name="keywords" content="livres jeunesse, autrice, illustratrice, contes, patrimoine, éducation, Zoufftgen">
+  <title>Presse - Hélène Hardy | Les contes de Zoufftgen</title>
+  <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
   <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
-  <script src="/js/panier-en.js" defer></script>
+  <script src="/js/panier.js" defer></script>
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
@@ -45,14 +45,14 @@
 
 .apropos-photo {
   float: left;
-  max-width: 400px;
+  max-width: 800px;
   margin: 0;
 }
 
 @media (max-width: 768px) {
   .apropos-photo {
     
-  max-width: 300px;
+  max-width: 500px;
     
   }
 }
@@ -92,12 +92,13 @@
 
 .apropos-legende {
   margin-bottom: 1rem;
+  margin-top: 1rem;
   font-family: 'Nunito', sans-serif;
-  font-size: 0.75rem;
+  font-size: 1.25rem;
   text-align: center;
 }
     .apropos-photo:hover {
-        transform: scale(1.02);
+        transform: scale(1.00);
     }
 
     .apropos-text {
@@ -147,27 +148,27 @@
   <div class="background-overlay"></div>
 
   <header>
-    <h1><a href="/index-en.html" class="logo-link">Zoufftgen's Tales</a></h1>
+    <h1><a href="/index.html" class="logo-link">Les contes de Zoufftgen</a></h1>
     <nav>
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
-        <li><a href="/index-en.html">Home</a></li>
-        <li><a href="/mybooks.html">My books</a></li>
-        <li><a href="/mystory.html">My story</a></li>
-        <li><a href="/press.html">Press</a></li>
-        <li><a href="/contact-en.html">Contact</a></li>
-        <li><a href="/support-en.html">Support me</a></li>
-        <li><a href="/boutique/panier-en.html">🛒 Cart <span id="panier-compteur"></span></a></li>
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/meslivres.html">Mes livres</a></li>
+        <li><a href="/monhistoire.html">Mon histoire</a></li>
+        <li><a href="/presse.html">Presse</a></li>
+        <li><a href="/contact.html">Contact</a></li>
+        <li><a href="/support.html">Me soutenir</a></li>
+        <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
       </ul>
       <div class="language-switcher">
-        <a href="/monhistoire.html"><img
+        <a href="/presse.html"><img
           src="https://flagcdn.com/20x15/fr.png"
           srcset="https://flagcdn.com/40x30/fr.png 2x,
             https://flagcdn.com/60x45/fr.png 3x"
           width="20"
           height="15"
           alt="Français"></a>
-        <a href="/mystory.html"><img
+        <a href="/press.html"><img
           src="https://flagcdn.com/20x15/gb.png"
           srcset="https://flagcdn.com/40x30/gb.png 2x,
             https://flagcdn.com/60x45/gb.png 3x"
@@ -179,36 +180,32 @@
   </header>
 
   <section id="monhistoire">
-    <h2 class="section-title">My Story</h2>
+    <h2 class="section-title">Presse</h2>
     <div class="apropos-content">
         <div class="apropos-text">
-        <p style="font-size: 24px;">Once upon a time... there were stories that were never meant to leave the children's room where they were born.</p>
-        <p>I have always been fascinated by beautiful books, stories and drawing. I grew up in a small country village, surrounded by the animals that inhabit our forests and gardens. Books by Beatrix Potter, Antoon Krings and Kenneth Grahame, in particular, fed my imagination and inspired me to create my own world.</p>
+        <p style="font-size: 24px;">Le Republicain-Lorrain (2025)</p>
         
         </div>
         <div class="apropos-colonne-photo">
-            <img src="https://lescontesdezoufftgen.onrender.com/images/Helene-Hardy-1.webp"
-                    alt="Photography of the Author - Hélène Hardy"
-                    class="apropos-photo" />
-            <div class="apropos-legende">© Hélène Hardy</div>
+            <img src="/images/Presse/Republicain-Lorrain-21-Decembre-2025.png"
+                    alt="Hélène Hardy - Républicain Lorrain du 21 décembre 2025"
+                    class="apropos-photo" loading="lazy" />
+            <div class="apropos-legende"><i>Hélène Hardy invente des contes en s'inspirant de son village.</i></div>
         </div>
         <div class="apropos-text">
-            <p>Fifteen years ago, I moved to Zoufftgen. It was here that I created my very first book, an illustrated story for my niece, in which she was the heroine. Then my son was born, and every day, whether in the car, while cooking or at bedtime, he would ask me tirelessly for stories. They took place exactly where we live, in the streets of Zoufftgen, in the heart of the surrounding forest, or near the rivers where we went for walks. He listened, captivated, and for the ones he particularly liked, I promised myself I would turn them into a book so that he could keep them forever, just for him.</p>
-            <p>But stories have a mind of their own, and some decide not to stay locked away... In 2023, while I was illustrating one of my stories for Christmas, St Nicholas and the Zoufftgen Town Hall decided to distribute it to all the children in the village. The local newspaper reported on the event and the book had to be reprinted to meet the new orders. The second book was published the following year, and the adventure continues...</p>
-            <h3>My work</h3>
-            <p>Whenever my son liked a story, I wrote it down and kept it, until I had accumulated about a hundred ideas. But a story only really comes to life when it is told, so I hope that they will all manage to escape from my drawer and find their way to you.</p>
-            <p>I like to draw and paint using different techniques: pencil, watercolour, felt-tip pens on glass, etc. The illustrations for my first books were created using Procreate, a digital tool that allowed me to bring my world to life while juggling my busy life as a working mum.</p>
-            <h3>My books</h3>
-            <p>To date, I have published my first two Zoufftgen stories. Each book in this series is a window onto the local heritage, which is an endless source of inspiration for me. The places illustrated in these stories really exist, and so do the characters. Don't believe me? Why not come and see for yourself?</p>
-            <h3>And now…</h3>
-            <p>Today, I'm working on the third story in the collection, which will introduce you to the animals that live in the forest of Zoufftgen and the adventures that take place there. In particular, those of a very old family of wild boars...</p>
-            <p>My dream? To continue to take my stories on a journey and offer a little poetry to the world around us.</p>
+            <p style="font-size: 24px;">Le Republicain-Lorrain (2023)</p>
+        </div>
+        <div class="apropos-colonne-photo">
+            <img src="/images/Presse/Republicain-Lorrain-2023.jpg"
+                    alt="Hélène Hardy - Républicain Lorrain 2023"
+                    class="apropos-photo" loading="lazy" />
+            <div class="apropos-legende"><i>"Le Petit Zouffarceur", un conte de Noël qui se passe à Zoufftgen.</i></div>
         </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025 Zoufftgen's Tales. © Hélène Hardy - All rights reserved.</p>
+    <p>&copy; 2025-2026 Les contes de Zoufftgen. Hélène Hardy - Tous droits réservés.rvés.</p>
     <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
         <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>
