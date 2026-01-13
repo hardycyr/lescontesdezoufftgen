@@ -48,6 +48,11 @@
   max-width: 800px;
   margin: 0;
 }
+.apropos-photo-2 {
+  float: left;
+  max-width: 500px;
+  margin: 0;
+}
 
 @media (max-width: 768px) {
   .apropos-photo {
@@ -97,38 +102,34 @@
   font-size: 1.25rem;
   text-align: center;
 }
-    .apropos-photo:hover {
-        transform: scale(1.00);
-    }
-
-    .apropos-text {
-      flex: 1;
-      min-width: 280px;
-      text-align: justify;
-    }
-
-    @media (max-width: 768px) {
-      .apropos-content {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .apropos-photo {
-    float: none;
-    display: block;
-    margin: 0 auto 1rem;
+.apropos-text {
+    flex: 1;
+    min-width: 280px;
+    text-align: justify;
   }
 
-        .apropos-text {
-        text-align: left;
-      }
+  @media (max-width: 768px) {
+    .apropos-content {
+      flex-direction: column;
+      align-items: center;
     }
 
-    .apropos-colonne-photo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
+    .apropos-photo {
+      float: none;
+      display: block;
+      margin: 0 auto 1rem;
+    }
+
+      .apropos-text {
+      text-align: left;
+    }
+  }
+
+  .apropos-colonne-photo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 
 
 </style>
@@ -156,6 +157,7 @@
         <li><a href="/meslivres.html">Mes livres</a></li>
         <li><a href="/monhistoire.html">Mon histoire</a></li>
         <li><a href="/presse.html">Presse</a></li>
+        <li><a href="/lectures.html">Lectures & rencontres</a></li>
         <li><a href="/contact.html">Contact</a></li>
         <li><a href="/support.html">Me soutenir</a></li>
         <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
@@ -183,7 +185,7 @@
     <h2 class="section-title">Presse</h2>
     <div class="apropos-content">
         <div class="apropos-text">
-        <p style="font-size: 24px;">Le Republicain-Lorrain (2025)</p>
+        <p style="font-size: 24px;">Le Républicain Lorrain (2025)</p>
         
         </div>
         <div class="apropos-colonne-photo">
@@ -193,12 +195,12 @@
             <div class="apropos-legende"><i>Hélène Hardy invente des contes en s'inspirant de son village.</i></div>
         </div>
         <div class="apropos-text">
-            <p style="font-size: 24px;">Le Republicain-Lorrain (2023)</p>
+            <p style="font-size: 24px;">Le Républicain Lorrain (2023)</p>
         </div>
         <div class="apropos-colonne-photo">
             <img src="/images/Presse/Republicain-Lorrain-2023.jpg"
                     alt="Hélène Hardy - Républicain Lorrain 2023"
-                    class="apropos-photo" loading="lazy" />
+                    class="apropos-photo-2" loading="lazy" />
             <div class="apropos-legende"><i>"Le Petit Zouffarceur", un conte de Noël qui se passe à Zoufftgen.</i></div>
         </div>
     </div>

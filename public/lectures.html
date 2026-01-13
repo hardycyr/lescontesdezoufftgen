@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Rencontrez Hélène Hardy, l'autrice des 'Contes de Zoufftgen'. Apprenez-en plus sur son parcours et son inspiration derrière ses livres pour enfants.">
   <meta name="keywords" content="livres jeunesse, autrice, illustratrice, contes, patrimoine, éducation, Zoufftgen">
-  <title>À propos de l'auteur - Hélène Hardy | Les contes de Zoufftgen</title>
+  <title>Lectures et rencontres - Hélène Hardy | Les contes de Zoufftgen</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -129,6 +129,57 @@
   align-items: center;
 }
 
+/* Listes alignées avec le texte narratif */
+.liste-decalee {
+  margin-top: 0.5rem;
+  margin-left: 2rem;          /* décalage harmonieux */
+  padding-left: 1rem;         /* espace puce / texte */
+  list-style-position: outside;
+}
+
+.liste-decalee li {
+  margin-bottom: 0.4rem;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .liste-decalee {
+    margin-left: 1rem;
+    padding-left: 1rem;
+  }
+}
+
+/* Galerie de fin de page */
+.galerie-fin {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.galerie-fin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Léger souffle au survol (cohérent avec tes images auteur) */
+.galerie-fin img:hover {
+  transform: scale(1.02);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .galerie-fin {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
 
 </style>
 
@@ -161,14 +212,14 @@
         <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
       </ul>
       <div class="language-switcher">
-        <a href="/monhistoire.html"><img
+        <a href="/lectures.html"><img
           src="https://flagcdn.com/20x15/fr.png"
           srcset="https://flagcdn.com/40x30/fr.png 2x,
             https://flagcdn.com/60x45/fr.png 3x"
           width="20"
           height="15"
           alt="Français"></a>
-        <a href="/mystory.html"><img
+        <a href="/lectures-en.html"><img
           src="https://flagcdn.com/20x15/gb.png"
           srcset="https://flagcdn.com/40x30/gb.png 2x,
             https://flagcdn.com/60x45/gb.png 3x"
@@ -180,33 +231,53 @@
   </header>
 
   <section id="monhistoire">
-    <h2 class="section-title">Mon histoire</h2>
+    <h2 class="section-title">Lectures et rencontres</h2>
     <div class="apropos-content">
         <div class="apropos-text">
-        <p style="font-size: 24px;">Il était une fois… des histoires qui n’étaient pas destinées à quitter la chambre d’enfant où elles sont nées.</p>
-        <p>Depuis toujours, je suis fascinée par les beaux livres, les contes et le dessin. J’ai grandi dans un petit village de campagne, entourée des animaux qui peuplent nos forêts et nos jardins. Les livres de Beatrix Potter, d’Antoon Krings ou de Kenneth Grahame ont nourri mon imaginaire et m’ont donné, très tôt, l’envie de créer mon propre univers.</p>
-        
+          <p>Je propose ponctuellement des temps de lecture et de rencontre autour des Contes de Zoufftgen, à destination des enfants et des familles.</p>
+          <p>Ces moments sont pensés comme des parenthèses calmes et poétiques, propices à l’écoute, à l’imaginaire et à la découverte des histoires, des illustrations et du monde qui les entoure. Ils s’inscrivent dans la continuité de mon travail d’autrice-illustratrice, ancré dans la nature, le territoire et la transmission.</p>
+          <h3>🌿 Formats proposés</h3>
+          <h4>Temps de lecture et d’échange</h4>
+          <p>Lecture d’un conte suivie d’un échange avec les enfants autour de l’histoire, des personnages, de la forêt, des animaux ou du métier d’autrice-illustratrice.<br/>Durée indicative : 60 minutes.</p>
+          <h4>Rencontre autour de l’imaginaire et de la nature</h4>
+          <p>Selon le contexte, la lecture peut être prolongée par un temps de discussion ou de création simple (imaginer ce qui habite un arbre, un animal, un lieu…), adapté à l’âge des enfants.</p>
+          <p>Les formats sont ajustés en fonction du public, du lieu et du cadre d’accueil.</p>
+          <h3>👧🧒 Public concerné</h3>
+          <ul class="liste-decalee">
+            <li>écoles (maternelle, élémentaire)</li>
+            <li>bibliothèques et médiathèques</li>
+            <li>périscolaires</li>
+            <li>événements communaux</li>
+            <li>temps dédiés aux familles</li>
+          </ul>
+          <h3>🕊️ Cadre</h3>
+          <p>Les lectures et rencontres sont proposées :</p>
+          <ul class="liste-decalee">
+            <li>en langue française</li>
+            <li>dans un esprit d’écoute et de calme</li>
+            <li>pour des groupes à taille adaptée</li>
+            <li>en intérieur ou en extérieur, selon les possibilités</li>
+          </ul>
+          <h3>🤍 Conditions</h3>
+          <p>Ces interventions sont proposées dans un cadre professionnel et rémunéré, selon des modalités définies en amont avec la structure d’accueil.</p>
+          <p>Pour toute question ou demande d’information, vous pouvez me contacter directement.</p>
         </div>
-        <div class="apropos-colonne-photo">
-            <img src="https://lescontesdezoufftgen.onrender.com/images/Helene-Hardy-1.webp"
-                    alt="Photo de l'auteur - Hélène Hardy"
-                    class="apropos-photo" loading="lazy" />
-            <div class="apropos-legende">© Hélène Hardy</div>
-        </div>
-        <div class="apropos-text">
-            <p>Il y a quinze ans, je me suis installée à Zoufftgen. C’est ici qu’est né mon premier livre : une histoire illustrée écrite pour ma nièce, dont elle était l’héroïne. Puis mon fils est né, et avec lui, le rituel quotidien des histoires. En voiture, en cuisinant, au moment du coucher, il me les réclamait sans cesse.</p>
-            <p>Ces récits se déroulaient là où nous vivions : dans les rues de Zoufftgen, au cœur de la forêt alentour, près des rivières où nous nous promenions. Lorsqu’une histoire lui plaisait particulièrement, je me promettais de la transformer un jour en livre, pour qu’il en garde une trace, rien que pour lui.</p>
-            <p>Mais les histoires ont parfois leur propre volonté, et certaines décident de ne pas rester enfermées.</p>
-            <p>En 2023, alors que j’illustrais l’un de mes contes pour Noël, Saint-Nicolas et la mairie de Zoufftgen ont choisi de le distribuer à tous les enfants du village. Le journal régional a relayé l’événement, et le livre a dû être réimprimé pour répondre à de nouvelles demandes. Un second conte a vu le jour l’année suivante, et depuis, l’aventure continue.</p>
-            <h3>Mon travail</h3>
-            <p>Chaque fois qu’une histoire a fait naître des étoiles dans les yeux de mon fils, je l’ai notée et conservée. Au fil du temps, ces récits se sont accumulés, jusqu’à former un vaste univers en devenir.<br/>Une histoire ne vit vraiment que lorsqu’elle est racontée, et j’espère que toutes celles qui dorment encore dans mes carnets réussiront, elles aussi, à s’échapper pour voyager jusqu’à vous.</p>
-            <p>J’aime dessiner et peindre en explorant différentes techniques : crayon, aquarelle, feutres sur vitres… Les illustrations de mes premiers livres ont été réalisées sur Procreate, un outil numérique qui m’a permis de donner vie à mon univers tout en jonglant avec mon quotidien de maman active.</p>
-            <h3>Mes livres</h3>
-            <p>À ce jour, j’ai publié trois contes de Zoufftgen. Chacun d’eux est une porte ouverte sur le patrimoine local, qui constitue pour moi une source d’inspiration infinie.<br/>Les lieux illustrés dans ces histoires existent réellement… et les personnages aussi. Vous ne me croyez pas ? Il ne vous reste plus qu’à venir faire un tour à Zoufftgen pour vérifier par vous-même.</p>
-            <h3>Et maintenant…</h3>
-            <p>L’univers des Contes de Zoufftgen continue de s’étoffer. À travers de nouveaux récits, des illustrations et des objets narratifs, je poursuis l’exploration de ce village, de sa forêt et des êtres qui l’habitent.</p>
-            <p>Chaque projet s’inscrit dans la continuité des précédents, comme autant de fragments d’un même monde, transmis au fil des saisons.</p>
-            <p>Mon souhait ? Continuer à faire voyager mes histoires et offrir un peu de poésie au monde qui nous entoure.</p>
+        <div class="galerie-fin">
+          <img
+            src="/images/Lectures/Lecture-1.jpg"
+            alt="Lecture des Contes de Zoufftgen auprès d’enfants"
+            loading="lazy"
+          />
+          <img
+            src="/images/Lectures/Lecture-2.jpg"
+            alt="Rencontre autour des contes en bibliothèque"
+            loading="lazy"
+          />
+          <img
+            src="/images/Lectures/Lecture-3.jpg"
+            alt="Temps de lecture et d’échange en famille"
+            loading="lazy"
+          />
         </div>
     </div>
   </section>

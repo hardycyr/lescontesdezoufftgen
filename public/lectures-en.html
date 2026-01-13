@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Découvrez les livres d'Hélène Hardy, dont les célèbres 'Le petit zouffarceur' et 'La maison du petit zouffarceur'. Une lecture enchanteresse pour les enfants.">
-  <meta name="keywords" content="livres jeunesse, autrice, illustratrice, contes, patrimoine, éducation, Zoufftgen">
-  
-  <title>Les livres d'Hélène Hardy | Les contes de Zoufftgen</title>
+  <meta name="description" content="Meet Hélène Hardy, author of the ‘Contes de Zoufftgen’ series. Learn more about her background and the inspiration behind her children's books.">
+  <meta name="keywords" content="children's books, author, illustrator, stories, heritage, education, Zoufftgen">
+  <title>Readings & meetings - Hélène Hardy | Les contes de Zoufftgen</title>
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -50,20 +49,19 @@
   margin: 0;
 }
 
+@media (max-width: 768px) {
+  .apropos-photo {
+    
+  max-width: 300px;
+    
+  }
+}
 .apropos-text h3 {
     font-family: 'Nunito', sans-serif;
     font-size: 24px;
     margin-top: 1.5rem;
     color: black;
     font-weight: normal;
-}
-
-.apropos-content em {
-    color: black;
-    font-size: 16pt;
-    font-family: 'Nunito', sans-serif;
-    margin-bottom: 1rem;
-    line-height: 1.7;
 }
 
 .section-title {
@@ -131,26 +129,60 @@
   align-items: center;
 }
 
-.livres {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  padding: 1rem 0;
+/* Listes alignées avec le texte narratif */
+.liste-decalee {
+  margin-top: 0.5rem;
+  margin-left: 2rem;          /* décalage harmonieux */
+  padding-left: 1rem;         /* espace puce / texte */
+  list-style-position: outside;
 }
 
-.livre {
-  background-color: transparent;
+.liste-decalee li {
+  margin-bottom: 0.4rem;
   font-family: 'Nunito', sans-serif;
-  padding: 1rem;
-  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
-.livre img {
-  width: 100%;
-  height: auto;
+@media (max-width: 768px) {
+  .liste-decalee {
+    margin-left: 1rem;
+    padding-left: 1rem;
+  }
 }
+
+/* Galerie de fin de page */
+.galerie-fin {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.galerie-fin img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+/* Léger souffle au survol (cohérent avec tes images auteur) */
+.galerie-fin img:hover {
+  transform: scale(1.02);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .galerie-fin {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
 
 </style>
+
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
 <script>
@@ -160,36 +192,34 @@
 
   gtag('config', 'G-YF42H2CYXX');
 </script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-
 </head>
 <body>
 
   <div class="background-overlay"></div>
 
   <header>
-    <h1><a href="/index.html" class="logo-link">Les contes de Zoufftgen</a></h1>
+    <h1><a href="/index-en.html" class="logo-link">Zoufftgen's Tales</a></h1>
     <nav>
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
-        <li><a href="/">Accueil</a></li>
-        <li><a href="/meslivres.html">Mes livres</a></li>
-        <li><a href="/monhistoire.html">Mon histoire</a></li>
-        <li><a href="/presse.html">Presse</a></li>
-        <li><a href="/lectures.html">Lectures & rencontres</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-        <li><a href="/support.html">Me soutenir</a></li>
-        <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
+        <li><a href="/index-en.html">Home</a></li>
+        <li><a href="/mybooks.html">My books</a></li>
+        <li><a href="/mystory.html">My story</a></li>
+        <li><a href="/press.html">Press</a></li>
+        <li><a href="/lectures-en.html">Readings & meetings</a></li>
+        <li><a href="/contact-en.html">Contact</a></li>
+        <li><a href="/support-en.html">Support me</a></li>
+        <li><a href="/boutique/panier-en.html">🛒 Cart <span id="panier-compteur"></span></a></li>
       </ul>
       <div class="language-switcher">
-        <a href="/meslivres.html"><img
+        <a href="/lectures.html"><img
           src="https://flagcdn.com/20x15/fr.png"
           srcset="https://flagcdn.com/40x30/fr.png 2x,
             https://flagcdn.com/60x45/fr.png 3x"
           width="20"
           height="15"
           alt="Français"></a>
-        <a href="/mybooks.html"><img
+        <a href="/lectures-en.html"><img
           src="https://flagcdn.com/20x15/gb.png"
           srcset="https://flagcdn.com/40x30/gb.png 2x,
             https://flagcdn.com/60x45/gb.png 3x"
@@ -200,45 +230,60 @@
     </nav>
   </header>
 
-  <section id="boutique">
-    <h2 class="section-title">Mes Livres</h2>
-    <div class="section-annotation">
-      <p><b>Comment obtenir vos livres?</b> Vous avez plusieurs possibilités :</p>
-      <p style="padding-top: 1em;">
-        <ul style="padding-left:2em">
-          <li><b>Commande en ligne</b> livrée par La Poste (frais de port en supplément)</li>
-          <li><b>Retrait à Zoufftgen</b> sur RDV (via la page de <a href="contact.html">Contact</a>) sans frais de livraison</li>
-          <li><b>Directement en vente</b> dans la charmante boutique de créateurs <a href="https://www.facebook.com/artisanarts57" target="_blank">Artisan'Arts</a> de Volmerange-Les-Mines</li>
-        </ul>
-      </p>
-    </div>
-    <div class="livres">
-      <div class="livre">
-        <a href="/boutique/le-petit-zouffarceur.html"><img src="images/LePetitZouffarceur.jpg" alt="Le petit zouffarceur - Couverture"></a>
-        <h3>Le petit zouffarceur</h3>
-        <p>Il se passe des choses étranges à Zoufftgen la nuit du 24 décembre...</p>
-        <!--<a href="#" class="btn-panier" data-id="livre-1" data-nom="Le petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>-->
-        <a href="/boutique/le-petit-zouffarceur.html" class="btn-more">Voir plus</a>
-      </div>
-      <div class="livre">
-        <a href="/boutique/la-maison-du-petit-zouffarceur.html"><img src="images/LaMaisonduPetitZouffarceur.png" alt="La maison du petit zouffarceur - Couverture"></a>
-        <h3>La maison du petit zouffarceur</h3>
-        <p>Depuis quelques temps, les Zoufftgenois s'inquiètent. Plus personne ne vient manger les noisettes qu'ils déposent sur les rebords de leurs fenêtres...</p>
-        <!--<a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>-->
-        <a href="/boutique/la-maison-du-petit-zouffarceur.html" class="btn-more">Voir plus</a>
-      </div>
-      <div class="livre">
-        <a href="/boutique/papa-sanglier-et-sa-dent-or.html"><img src="images/PapaSanglierEtSaDentEnOr1.webp" alt="Papa Sanglier et sa dent en or - Couverture"></a>
-        <h3>Papa Sanglier et sa dent en or</h3>
-        <p>Dans la forêt de Zoufftgen, Papa Sanglier n'imaginait pas qu'une simple promenade se transformerait en une telle aventure...</p>
-        <!--<a href="#" class="btn-panier" data-id="livre-2" data-nom="La maison du petit zouffarceur" data-prix="1400">➕ Ajouter au panier</a>-->
-        <a href="/boutique/papa-sanglier-et-sa-dent-or.html" class="btn-more">Voir plus</a>
-      </div>
+  <section id="monhistoire">
+    <h2 class="section-title">Meetings and readings</h2>
+    <div class="apropos-content">
+        <div class="apropos-text">
+          <p>I occasionally offer reading sessions and meetings based on the Tales of Zoufftgen, aimed at children and families.</p>
+          <p>These moments are designed to be calm and poetic interludes, conducive to listening, imagination, and discovering stories, illustrations, and the world around them. They are a continuation of my work as an author and illustrator, rooted in nature, the land, and the passing on of knowledge.</p>
+          <h3>🌿 Available formats</h3>
+          <h4>Time for reading and discussion</h4>
+          <p>Reading of a story followed by a discussion with the children about the story, the characters, the forest, the animals, or the profession of author-illustrator.<br/>Approximate duration: 60 minutes.</p>
+          <h4>A gathering around imagination and nature</h4>
+          <p>Depending on the context, reading can be followed by a discussion or simple creative activity (imagining what lives in a tree, an animal, a place, etc.), adapted to the children's age.</p>
+          <p>Formats are adjusted according to the audience, venue, and setting.</p>
+          <h3>👧🧒 Target audience</h3>
+          <ul class="liste-decalee">
+            <li>schools (preschool, elementary)</li>
+            <li>libraries and media libraries</li>
+            <li>after-school</li>
+            <li>community events</li>
+            <li>family time</li>
+          </ul>
+          <h3>🕊️ Frame</h3>
+          <p>Readings and meetings are offered:</p>
+          <ul class="liste-decalee">
+            <li>in the French language</li>
+            <li>in a spirit of listening and calm</li>
+            <li>for groups of an appropriate size</li>
+            <li>indoors or outdoors, depending on the possibilities</li>
+          </ul>
+          <h3>🤍 Conditions</h3>
+          <p>These interventions are offered in a professional and paid setting, according to terms defined in advance with the host organization.</p>
+          <p>If you have any questions or require further information, please feel free to contact me directly.</p>
+        </div>
+        <div class="galerie-fin">
+          <img
+            src="/images/Lectures/Lecture-1.jpg"
+            alt="Reading Zoufftgen's Tales to Children"
+            loading="lazy"
+          />
+          <img
+            src="/images/Lectures/Lecture-2.jpg"
+            alt="Storytelling gathering at the library"
+            loading="lazy"
+          />
+          <img
+            src="/images/Lectures/Lecture-3.jpg"
+            alt="Time for reading and family discussion"
+            loading="lazy"
+          />
+        </div>
     </div>
   </section>
 
   <footer>
-    <p>&copy; 2025-2026 Les contes de Zoufftgen. Hélène Hardy - Tous droits réservés.rvés.</p>
+    <p>&copy; 2025-2026 Zoufftgen's Tales. © Hélène Hardy - All rights reserved.</p>
     <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
         <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>
