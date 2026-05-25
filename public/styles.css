@@ -1,6 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap');
 
 /* Reset */
 * {
@@ -25,17 +27,322 @@
   font-display: swap;
   }
   
+main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Hero accueil : titre + texte + bouton positionnes sur la moitie droite ─── */
+/* On annule le padding du <main> sur la page d'accueil pour que le bloc
+   puisse aller jusqu'au bord droit de l'ecran. */
+main:has(.hero-accueil),
+.page-accueil main {
+  padding: 0;
+  margin: 0;
+}
+
+.page-accueil body,
+.page-accueil html {
+  margin: 0;
+  padding: 0;
+}
+
+.hero-accueil {
+  width: 100%;
+  min-height: calc(100vh - 200px);
+  position: relative;
+  /* Pas de degrade — image de fond visible entierement */
+}
+
+.hero-accueil-content {
+  /* Positionnement fixe par rapport au viewport - garanti d'aller au bord */
+  position: fixed;
+  right: 1.5rem;
+  /* Centrage vertical avec leger decalage vers le bas pour eviter le menu */
+  top: 50%;
+  transform: translateY(-50%) translateY(2vh);
+  /* Bloc dimensionne pour que "Zoufftgen" tienne en grand sans deborder */
+  width: 520px;
+  max-width: 32vw;
+  min-width: 400px;
+  padding: 0 0.5rem;
+  text-align: center;
+  color: #F8F0DE;
+  z-index: 2;
+  /* Text-shadow renforce pour garder de la lisibilite */
+  text-shadow:
+    0 1px 3px rgba(0, 0, 0, 0.9),
+    0 0 12px rgba(0, 0, 0, 0.5);
+}
+
+/* Sur mobile et tablette, on remet le bloc en plein largeur centre */
+@media (max-width: 900px) {
+  .hero-accueil-content {
+    position: static;
+    transform: none;
+    margin: 4rem auto;
+    max-width: 90vw;
+    width: auto;
+    padding: 0 1rem;
+  }
+}
+
+.hero-titre {
+  font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+  font-weight: 500;
+  color: #F8F0DE;
+  margin: 0 0 1.3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.05;
+}
+
+.hero-titre-petit {
+  font-size: clamp(2.4rem, 4.8vw, 3.6rem);
+  font-weight: 500;
+  letter-spacing: 0.015em;
+  margin-bottom: 0.3rem;
+}
+
+.hero-titre-grand {
+  font-size: clamp(3.6rem, 7vw, 5.8rem);
+  font-weight: 700;
+  letter-spacing: 0.005em;
+  line-height: 1;
+}
+
+.hero-separateur {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 0.8rem 0 2rem 0;
+}
+
+/* Trait fin doré à gauche et à droite de la feuille */
+.hero-trait {
+  display: block;
+  width: 80px;
+  height: 1px;
+  background: #C9A35A;
+}
+
+.hero-feuille {
+  width: 42px;
+  height: auto;
+  display: block;
+}
+
+.hero-paragraphe {
+  font-family: 'Libre Baskerville', 'Baskerville', serif;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  font-weight: 400;
+  color: #D5C49C;
+  margin: 0 0 1.1rem 0;
+}
+
+.hero-signature {
+  font-family: 'Libre Baskerville', 'Baskerville', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  color: #E0B05A;
+  margin: 1rem 0 2rem 0;
+}
+
+.hero-bouton {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.85rem 1.4rem;
+  border: 1px solid #D4A857;
+  border-radius: 4px;
+  background: transparent;
+  color: #F2E9D4;
+  font-family: 'Libre Baskerville', 'Baskerville', serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-decoration: none;
+  text-transform: uppercase;
+  white-space: nowrap;
+  transition: background 0.25s, color 0.25s, border-color 0.25s;
+}
+
+.hero-bouton:hover {
+  background: rgba(212, 168, 87, 0.15);
+  border-color: #E8C875;
+  color: #F5EFE0;
+}
+
+.hero-bouton-icone {
+  width: 22px;
+  height: auto;
+  display: block;
+}
+
+/* Mobile : centrer au lieu de mettre a droite */
+@media (max-width: 900px) {
+  .hero-accueil {
+    justify-content: center;
+    padding: 1.5rem;
+  }
+  .hero-titre {
+    font-size: clamp(2.2rem, 9vw, 3.4rem);
+  }
+}
+
+#collection-page {
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 2rem;
+  background-color: white;
+  border-radius: 12px;
+  color: black;
+}
+
+.collection-intro,
+.collection-bottom-text {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.collection-text {
+  font-family: 'Nunito', sans-serif;
+  line-height: 1.8;
+  font-size: 1.05rem;
+}
+
+.collection-text h3 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.7rem;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  text-align: left;
+}
+
+.collection-text p {
+  margin-bottom: 1.2rem;
+}
+
+.collection-text ul {
+  margin: 0 0 1.5rem 1.2rem;
+  padding-left: 1.2rem;
+}
+
+.collection-text li {
+  margin-bottom: 0.5rem;
+}
+
+.collection-text hr {
+  border: none;
+  border-top: 1px solid rgba(0,0,0,0.12);
+  margin: 2rem 0;
+}
+
+.section-title {
+  font-family: 'Rastanty Cortez', cursive;
+  font-size: 12rem;
+  text-align: center;
+  color: black;
+  margin-bottom: 1rem;
+  line-height: 1;
+  font-weight: normal;
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 5rem;
+  }
+}
+
+.livres {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.livre {
+  background-color: transparent;
+  font-family: 'Nunito', sans-serif;
+  padding: 1rem;
+  text-align: center;
+}
+
+.livre img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.livre img:hover {
+  transform: scale(1.02);
+}
+
+.livre h3 {
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  font-size: 1.4rem;
+}
+
+.livre-tome {
+  font-style: italic;
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+.btn-more {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  background: #000;
+  color: white;
+  transition: opacity 0.3s ease;
+}
+
+.btn-more:hover {
+  opacity: 0.85;
+}
+
   /* Image de fond */
   .background-overlay {
-    background-image: url("/images/Back.webp");
-    background-size: cover;
+    background-image: url("/images/Fond-LesContesdeZoufftgen.png");
+    background-size: contain;
+    background-repeat: no-repeat;
     background-position: center;
+    background-color: #1a1410;
     position: fixed;
     top: 0; left: 0;
     width: 100%;
     height: 100%;
     z-index: -2;
     filter: brightness(1);
+  }
+
+  /* Mobile / tablette : adaptation du fond pour faire ressortir les livres */
+  @media (max-width: 900px) {
+    .background-overlay {
+      /* Recentre l'image sur la partie gauche (les livres) */
+      background-position: 30% center;
+    }
+  }
+
+  /* Image de fond sur mobile (meme image que desktop pour l'instant) */
+  @media (max-width: 900px) {
+    .background-overlay {
+      background-image: url("/images/Fond-LesContesdeZoufftgen.png");
+    }
   }
 
   @font-face {
@@ -46,33 +353,105 @@
     font-display: swap;
   }
   
-  /* Menu */
+  /* Menu : reste visible quand on scroll (sticky header).
+     Le fond semi-transparent + flou donne un effet "frosted glass"
+     qui reste lisible aussi bien sur l'image de fond que sur les
+     cartes blanches du contenu. */
   header {
-    background: rgba(0, 0, 0, 0.3);
-    padding: 1rem;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(20, 14, 10, 0.72);
+    backdrop-filter: blur(12px) saturate(140%);
+    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    padding: 1.2rem 1rem 0.9rem;
     text-align: center;
+    border-bottom: 1px solid rgba(201, 163, 90, 0.18);
+    transition: background 0.25s, padding 0.25s;
   }
-  
-  header h1 {
-    font-size: 3rem;
-    color: #ffeebb;
+
+  /* Quand le header est sticky (scrolle), on peut detecter ca
+     visuellement avec un peu moins de padding pour gagner de la place. */
+  @supports (animation-timeline: scroll()) {
+    header {
+      animation: header-shrink linear both;
+      animation-timeline: scroll(root);
+      animation-range: 0 100px;
+    }
+    @keyframes header-shrink {
+      to {
+        padding-top: 0.7rem;
+        padding-bottom: 0.6rem;
+        background: rgba(20, 14, 10, 0.88);
+      }
+    }
   }
-  
+
+  header h1,
+  header .site-logo {
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-size: clamp(2.2rem, 4vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: #F8F0DE;
+    margin: 0 0 0.5rem 0;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+    line-height: 1.1;
+  }
+
+  header h1 .logo-link,
+  header h1 a,
+  header .site-logo .logo-link,
+  header .site-logo a {
+    color: #F8F0DE;
+    text-decoration: none;
+  }
+
   nav ul {
     list-style: none;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     margin-top: 0.5rem;
-    gap: 1rem;
+    gap: 1.4rem;
+    padding: 0;
   }
-  
+
   nav a {
-    color: white;
+    font-family: 'Libre Baskerville', 'Baskerville', serif;
+    color: #F2E9D4;
     text-decoration: none;
-    font-weight: normal;
+    font-weight: 400;
+    font-size: 0.82rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.25s;
   }
-  
+
+  nav a:hover {
+    color: #E0B05A;
+  }
+
+  /* Icones du menu (enveloppe contact, panier) :
+     sans espacement de lettres ni majuscules forcees. */
+  nav a.menu-icon {
+    font-size: 1.15rem;
+    letter-spacing: 0;
+    text-transform: none;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  /* SVG icones du menu (enveloppe, panier) : heritent de la couleur du
+     texte (currentColor) -> changent au hover en meme temps que les liens. */
+  nav a.menu-icon .icon-envelope,
+  nav a.menu-icon .icon-cart {
+    display: block;
+    vertical-align: middle;
+  }
+
   /* Sections */
   section {
     padding: 3rem 2rem;
@@ -275,9 +654,10 @@
 
   .logo-link {
     text-decoration: none;
-    color: white;
-    font-family: 'Nunito', sans-serif;
-    font-weight: normal;
+    color: #F8F0DE;
+    font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+    font-weight: 600;
+    letter-spacing: 0.02em;
   }
   
   .logo-link:hover {

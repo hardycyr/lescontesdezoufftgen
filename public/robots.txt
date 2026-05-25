@@ -1,0 +1,25 @@
+User-agent: *
+Allow: /
+
+# Pages transactionnelles : pas d'interet a etre indexees
+Disallow: /success.html
+Disallow: /success-en.html
+Disallow: /cancel.html
+Disallow: /cancel-en.html
+Disallow: /boutique/panier.html
+Disallow: /boutique/panier-en.html
+
+# Anciennes URLs decommissionnees : meme si supprimees physiquement,
+# elles peuvent encore etre indexees ; on les declare Disallow pour
+# accelerer leur desindexation par les crawlers.
+Disallow: /meslivres.html
+Disallow: /monhistoire.html
+Disallow: /mystory.html
+Disallow: /presse.html
+Disallow: /press.html
+Disallow: /lectures.html
+Disallow: /lectures-en.html
+Disallow: /support.html
+Disallow: /support-en.html
+
+Sitemap: https://www.lescontesdezoufftgen.com/sitemap.xml

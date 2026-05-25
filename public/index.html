@@ -5,18 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Découvrez l'univers magique des 'Contes de Zoufftgen', une serie de livres pour enfants écrite et illustrée par Hélène Hardy qui se passe à Zouffgen, un village à la frontière luxembourgeoise situé entre Volmerange-Les-Mines et Hettange-Grande, non loin de Thionville et Dudelange.">
   <meta name="keywords" content="livres jeunesse, zouffarceur, autrice, illustratrice, contes, patrimoine, éducation, Zoufftgen, Volmerange-Les-Mines, Hettange-Grande, Thionville, Dudelange">
-  <meta property="og:title" content="Les contes de Zoufftgen | Livre pour enfants par Hélène Hardy">
+  <meta property="og:title" content="Les Contes de Zoufftgen | Livre pour enfants par Hélène Hardy">
   <meta property="og:description" content="Découvrez l'univers magique des 'Contes de Zoufftgen', une serie de livres pour enfants écrite et illustrée par Hélène Hardy qui se passe à Zouffgen, un village à la frontière luxembourgeoise situé entre Volmerange-Les-Mines et Hettange-Grande, non loin de Thionville et Dudelange.">
-  <meta property="og:image" content="https://www.lescontesdezoufftgen.com/images/Fond.png">
+  <meta property="og:image" content="https://www.lescontesdezoufftgen.com/images/accueil.png">
   <meta property="og:url" content="https://www.lescontesdezoufftgen.com">
   <meta property="og:type" content="website">
 
-  <meta name="twitter:title" content="Les contes de Zoufftgen | Livre pour enfants par Hélène Hardy">
+  <meta name="twitter:title" content="Les Contes de Zoufftgen | Livre pour enfants par Hélène Hardy">
   <meta name="twitter:description" content="Découvrez l'univers magique des 'Contes de Zoufftgen', une serie de livres pour enfants écrite et illustrée par Hélène Hardy qui se passe à Zouffgen, un village à la frontière luxembourgeoise situé entre Volmerange-Les-Mines et Hettange-Grande, non loin de Thionville et Dudelange.">
   <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/Fond.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <title>Les contes de Zoufftgen | Livre pour enfants par Hélène Hardy</title>
+  <title>Les Contes de Zoufftgen | Livre pour enfants par Hélène Hardy</title>
 
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
@@ -68,23 +68,29 @@ footer {
 </script>
 <link rel="canonical" href="https://www.lescontesdezoufftgen.com/index.html" />
 </head>
-<body>
+<body class="page-accueil">
 
   <div class="background-overlay"></div>
 
   <header>
-    <h1><a href="/index.html" class="logo-link">Les contes de Zoufftgen</a></h1>
+    <p class="site-logo"><a href="/index.html" class="logo-link">Les Contes de Zoufftgen</a></p>
     <nav>
       <button id="menu-toggle">☰</button>
       <ul id="menu-list">
         <li><a href="/">Accueil</a></li>
-        <li><a href="/meslivres.html">Mes livres</a></li>
-        <li><a href="/monhistoire.html">Mon histoire</a></li>
+        <li><a href="/collection.html">La collection</a></li>
+        <li><a href="/objetsnarratifs.html">Objets narratifs</a></li>
+        <li><a href="/interventions.html">Interventions</a></li>
+        <li><a href="/univers.html">L'univers</a></li>
+        <li><a href="/parutions.html">Parutions & Rencontres</a></li>
+        <li><a href="/apropos.html">A propos</a></li>
+        <li><a href="/contact.html" class="menu-icon" aria-label="Contact" title="Contact"><svg class="icon-envelope" width="20" height="15" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="22" height="16" rx="2"/><path d="M2 4l10 7 10-7"/></svg></a></li>
+        <!-- <li><a href="/monhistoire.html">Mon histoire</a></li> 
         <li><a href="/presse.html">Presse</a></li>
         <li><a href="/lectures.html">Lectures & rencontres</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-        <li><a href="/support.html">Me soutenir</a></li>
-        <li><a href="/boutique/panier.html">🛒 Panier <span id="panier-compteur"></span></a></li>
+        <li><a href="/contact.html">Contact</a></li>-->
+        
+        <li><a href="/boutique/panier.html" class="menu-icon" aria-label="Panier" title="Panier"><svg class="icon-cart" width="20" height="18" viewBox="0 0 24 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1h3l2.5 13.2a2 2 0 002 1.6h9.4a2 2 0 002-1.6L22 6.5H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg> <span id="panier-compteur"></span></a></li>
       </ul>
       <div class="language-switcher">
         <a href="/index.html"><img
@@ -105,10 +111,40 @@ footer {
     </nav>
   </header>
   <main>
-  </main>
+  <section class="hero-accueil">
+    <div class="hero-accueil-content">
+      <h1 class="hero-titre">
+        <span class="hero-titre-petit">Les Contes de</span>
+        <span class="hero-titre-grand">Zoufftgen</span>
+      </h1>
+      <div class="hero-separateur" aria-hidden="true">
+        <span class="hero-trait"></span>
+        <img class="hero-feuille" src="/images/feuille-separateur.png" alt="" />
+        <span class="hero-trait"></span>
+      </div>
+      <p class="hero-paragraphe">
+        Une collection de livres jeunesse et d’objets,
+        imaginée et illustrée par Hélène Hardy,
+        ancrée dans un village réel, où se mêlent
+        nature, mémoire et transmission.
+      </p>
+      <p class="hero-paragraphe">
+        Chaque livre et chaque objet sont conçus
+        avec le même soin.
+      </p>
+      <p class="hero-signature">
+        Un univers à lire… et à transmettre.
+      </p>
+      <a href="/collection.html" class="hero-bouton">
+        DÉCOUVRIR LA COLLECTION
+        <img class="hero-bouton-icone" src="/images/feuille-separateur.png" alt="" />
+      </a>
+    </div>
+  </section>
+</main>
 
   <footer>
-    <p>&copy; 2025-2026 Les contes de Zoufftgen. Hélène Hardy - Tous droits réservés.</p>
+    <p>&copy; 2025-2026 Les Contes de Zoufftgen. Hélène Hardy - Tous droits réservés.</p>
     <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
         <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>

@@ -1,37 +1,39 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Discover the magical world of 'Zoufftgen's Tales', a series of children's books written and illustrated by Hélène Hardy who is taking place in Zoufftgen, a small village at the luxembourg border between Volmerange-Les-Mines and Hettange-Grande, close to Thionville and Dudelange.">
-  <meta name="keywords" content="children's books, Zouffarceur, author, illustrator, stories, heritage, education, Zoufftgen, Volmerange-Les-Mines, Hettange-Grande, Thionville, Dudelange">
-  <meta property="og:title" content="Zoufftgen's Tales | Children's Book by Hélène Hardy">
-  <meta property="og:description" content="Discover the magical world of 'Zoufftgen's Tales', a series of children's books written and illustrated by Hélène Hardy who is taking place in Zoufftgen, a small village at the luxembourg border between Volmerange-Les-Mines and Hettange-Grande, close to Thionville and Dudelange">
-  <meta property="og:image" content="https://www.lescontesdezoufftgen.com/images/Back-en.png">
-  <meta property="og:url" content="https://www.lescontesdezoufftgen.com">
+  <meta name="description" content="Discover the magical world of 'The Tales of Zoufftgen', a series of children's books written and illustrated by Hélène Hardy, set in Zoufftgen, a small village on the French-Luxembourg border between Volmerange-les-Mines and Hettange-Grande, near Thionville and Dudelange.">
+  <meta name="keywords" content="children's books, Zouffarceur, author, illustrator, tales, heritage, education, Zoufftgen, Volmerange-Les-Mines, Hettange-Grande, Thionville, Dudelange">
+  <meta property="og:title" content="The Tales of Zoufftgen | Children's books by Hélène Hardy">
+  <meta property="og:description" content="Discover the magical world of 'The Tales of Zoufftgen', a series of children's books written and illustrated by Hélène Hardy, set in a real village on the French-Luxembourg border.">
+  <meta property="og:image" content="https://www.lescontesdezoufftgen.com/images/accueil.png">
+  <meta property="og:url" content="https://www.lescontesdezoufftgen.com/index-en.html">
   <meta property="og:type" content="website">
 
-  <meta name="twitter:title" content="Zoufftgen's Tales | Children's Book by Hélène Hardy">
-  <meta name="twitter:description" content="Discover the magical world of 'Zoufftgen's Tales', a series of children's books written and illustrated by Hélène Hardy who is taking place in Zoufftgen, a small village at the luxembourg border between Volmerange-Les-Mines and Hettange-Grande, close to Thionville and Dudelange">
-  <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/Back-en.png">
+  <meta name="twitter:title" content="The Tales of Zoufftgen | Children's books by Hélène Hardy">
+  <meta name="twitter:description" content="Discover the magical world of 'The Tales of Zoufftgen', a series of children's books written and illustrated by Hélène Hardy.">
+  <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/Fond.png">
   <meta name="twitter:card" content="summary_large_image">
 
-  <title>Zoufftgen's Tales | Children's Book by Hélène Hardy</title>
+  <title>The Tales of Zoufftgen | Children's books by Hélène Hardy</title>
 
-  <link rel="stylesheet" href="styles-en.css" />
+  <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
   <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png">
   <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png">
-  <script src="/js/panier-en.js" defer></script>
+  <script src="/js/panier.js" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const toggle = document.getElementById("menu-toggle");
       const menu = document.getElementById("menu-list");
-  
-      toggle.addEventListener("click", () => {
-        menu.classList.toggle("open");
-      });
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("open");
+        });
+      }
     });
   </script>
     <style>
@@ -44,7 +46,7 @@ html, body {
 }
 
 main {
-  flex: 1; /* pousse le footer en bas */
+  flex: 1;
 }
 
 footer {
@@ -55,6 +57,7 @@ footer {
   z-index: 1;
   position: relative;
 }
+
   </style>
   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
@@ -65,60 +68,92 @@ footer {
 
   gtag('config', 'G-YF42H2CYXX');
 </script>
-
 <link rel="canonical" href="https://www.lescontesdezoufftgen.com/index-en.html" />
 </head>
-<body>
+<body class="page-accueil">
 
   <div class="background-overlay"></div>
 
   <header>
-    <h1><a href="/index-en.html" class="logo-link">Zoufftgen's Tales</a></h1>
+    <p class="site-logo"><a href="/index-en.html" class="logo-link">The Tales of Zoufftgen</a></p>
     <nav>
-      <button id="menu-toggle">☰</button>
+      <button id="menu-toggle" aria-label="Open menu">☰</button>
       <ul id="menu-list">
         <li><a href="/index-en.html">Home</a></li>
-        <li><a href="/mybooks.html">My books</a></li>
-        <li><a href="/mystory.html">My story</a></li>
-        <li><a href="/press.html">Press</a></li>
-        <li><a href="/lectures-en.html">Readings & meetings</a></li>
-        <li><a href="/contact-en.html">Contact</a></li>
-        <li><a href="/support-en.html">Support me</a></li>
-        <li><a href="/boutique/panier-en.html">🛒 Cart <span id="panier-compteur"></span></a></li>
+        <li><a href="/mybooks.html">The collection</a></li>
+        <li><a href="/narrative-objects.html">Narrative objects</a></li>
+        <li><a href="/author-visits.html">Author visits</a></li>
+        <li><a href="/universe.html">The world</a></li>
+        <li><a href="/news-and-events.html">News &amp; events</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact-en.html" class="menu-icon" aria-label="Contact" title="Contact"><svg class="icon-envelope" width="20" height="15" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="22" height="16" rx="2"/><path d="M2 4l10 7 10-7"/></svg></a></li>
+        <li><a href="/boutique/panier-en.html" class="menu-icon" aria-label="Cart" title="Cart"><svg class="icon-cart" width="20" height="18" viewBox="0 0 24 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1h3l2.5 13.2a2 2 0 002 1.6h9.4a2 2 0 002-1.6L22 6.5H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg> <span id="panier-compteur"></span></a></li>
       </ul>
+      <div class="language-switcher">
+        <a href="/index.html"><img
+          src="https://flagcdn.com/20x15/fr.png"
+          srcset="https://flagcdn.com/40x30/fr.png 2x,
+            https://flagcdn.com/60x45/fr.png 3x"
+          width="20"
+          height="15"
+          alt="Français"></a>
+        <a href="/index-en.html"><img
+          src="https://flagcdn.com/20x15/gb.png"
+          srcset="https://flagcdn.com/40x30/gb.png 2x,
+            https://flagcdn.com/60x45/gb.png 3x"
+          width="20"
+          height="15"
+          alt="English"></a>
+      </div>
     </nav>
-    <div class="language-switcher">
-      <a href="/index.html"><img
-        src="https://flagcdn.com/20x15/fr.png"
-        srcset="https://flagcdn.com/40x30/fr.png 2x,
-          https://flagcdn.com/60x45/fr.png 3x"
-        width="20"
-        height="15"
-        alt="France"></a>
-      <a href="/index-en.html"><img
-        src="https://flagcdn.com/20x15/gb.png"
-        srcset="https://flagcdn.com/40x30/gb.png 2x,
-          https://flagcdn.com/60x45/gb.png 3x"
-        width="20"
-        height="15"
-        alt="English"></a>
-    </div>
   </header>
-  <main></main>
+  <main>
+  <section class="hero-accueil">
+    <div class="hero-accueil-content">
+      <h1 class="hero-titre">
+        <span class="hero-titre-petit">The Tales of</span>
+        <span class="hero-titre-grand">Zoufftgen</span>
+      </h1>
+      <div class="hero-separateur" aria-hidden="true">
+        <span class="hero-trait"></span>
+        <img class="hero-feuille" src="/images/feuille-separateur.png" alt="" />
+        <span class="hero-trait"></span>
+      </div>
+      <p class="hero-paragraphe">
+        A collection of children’s books and objects,
+        imagined and illustrated by Hélène Hardy,
+        rooted in a real village where nature,
+        memory and transmission come together.
+      </p>
+      <p class="hero-paragraphe">
+        Every book and every object is crafted
+        with the same care.
+      </p>
+      <p class="hero-signature">
+        A world to read… and to pass on.
+      </p>
+      <a href="/mybooks.html" class="hero-bouton">
+        DISCOVER THE COLLECTION
+        <img class="hero-bouton-icone" src="/images/feuille-separateur.png" alt="" />
+      </a>
+    </div>
+  </section>
+</main>
 
   <footer>
-    <p>&copy; 2025-2026 Zoufftgen's Tales. © Hélène Hardy - All rights reserved. </p>
+    <p>&copy; 2025-2026 The Tales of Zoufftgen. Hélène Hardy - All rights reserved.</p>
     <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
         <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>
       </svg>
     </a>
-    <a href="https://www.youtube.com/@LesContesdeZoufftgen" target="_blank" aria-label="YouTube" class="facebook-icon">
+    <a href="https://www.youtube.com/@LesContesdeZoufftgen" target="_blank" rel="noopener" aria-label="YouTube" class="facebook-icon">
       <img alt="YouTube" width="28" height="28" src="/images/logos/youtube.png" />
     </a>
-    <a href="https://www.instagram.com/lescontesdezoufftgen/" target="_blank" rel="noopener" class="facebook-icon" aria-label="Instagram">
-      <img src="/images/logo_instagram_blanc.png" alt="Instagram" width="28" height="28" />
-    </a>
+<a href="https://www.instagram.com/lescontesdezoufftgen/" target="_blank" rel="noopener" class="facebook-icon" aria-label="Instagram">
+  <img src="/images/logo_instagram_blanc.png" alt="Instagram" width="28" height="28" />
+</a>
+
   </footer>
 
 </body>

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>La collection | Les Contes de Zoufftgen</title>
+
+  <meta
+    name="description"
+    content="Découvrez la collection des Contes de Zoufftgen, livres jeunesse écrits et illustrés par Hélène Hardy, entre imaginaire, mémoire et ancrage dans le réel."
+  />
+  <meta
+    name="keywords"
+    content="livres jeunesse, autrice, illustratrice, contes, patrimoine, éducation, Zoufftgen, Hélène Hardy"
+  />
+  <meta property="og:title" content="La collection | Les Contes de Zoufftgen" />
+  <meta
+    property="og:description"
+    content="Une collection de livres jeunesse écrits et illustrés par Hélène Hardy, ancrée dans un village réel, entre mémoire et imaginaire."
+  />
+  <meta property="og:image" content="https://www.lescontesdezoufftgen.com/images/Fond.png" />
+  <meta property="og:url" content="https://www.lescontesdezoufftgen.com/collection.html" />
+  <meta property="og:type" content="website" />
+
+  <link rel="canonical" href="https://www.lescontesdezoufftgen.com/collection.html" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <script src="/js/panier.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu-list");
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("open");
+        });
+      }
+    });
+  </script>
+
+  <style>
+    #collection-page {
+      max-width: 1100px;
+      margin: 2rem auto;
+      padding: 3rem 2rem;
+      background-color: white;
+      border-radius: 12px;
+      color: black;
+    }
+
+    .collection-intro,
+    .collection-bottom-text {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .collection-text {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.98rem;
+      line-height: 1.75;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .collection-text h3 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 1.4rem 0 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      text-align: left;
+    }
+
+    .collection-text p {
+      margin: 0 0 0.8rem;
+    }
+
+    .collection-text ul {
+      margin: 0 0 1rem 1.25rem;
+      padding-left: 1rem;
+      text-align: left;
+    }
+
+    .collection-text li {
+      margin-bottom: 0.35rem;
+    }
+
+    .collection-text a {
+      color: black;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 4.2rem;
+      text-align: center;
+      color: black;
+      margin: 0 0 1.5rem;
+      line-height: 1.05;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+    }
+
+    /* Separateur decoratif : trait + feuille + trait */
+    .leaf-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      margin: 1.5rem 0;
+    }
+
+    /* Equilibrage : on neutralise les marges des elements adjacents
+       pour que le separateur soit symetriquement centre. */
+    .collection-text *:has(+ .leaf-separator) {
+      margin-bottom: 0 !important;
+    }
+    .collection-text .leaf-separator + * {
+      margin-top: 0 !important;
+    }
+
+    .leaf-separator-line {
+      display: block;
+      width: 80px;
+      height: 1px;
+      background: #C9A35A;
+    }
+
+    .leaf-separator-icon {
+      width: 36px;
+      height: auto;
+      display: block;
+    }
+
+    .livres {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      padding: 1.5rem 0;
+    }
+
+    .livre {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      text-align: center;
+      padding: 0.5rem;
+      color: black;
+    }
+
+    .livre img {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .livre img:hover {
+      transform: scale(1.02);
+    }
+
+    .livre h3 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      margin: 0.7rem 0 0.3rem;
+    }
+
+    .livre p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 0 0 0.5rem;
+    }
+
+    .livre-tome {
+      font-style: italic;
+      color: #5a5a5a;
+      margin-bottom: 0.7rem !important;
+    }
+
+    .btn-more {
+      display: inline-block;
+      margin-top: 0.6rem;
+      padding: 0.55rem 1.2rem;
+      border: 1px solid #C9A35A;
+      border-radius: 4px;
+      background: transparent;
+      color: black;
+      text-decoration: none;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+    }
+
+    .btn-more:hover {
+      background: rgba(201, 163, 90, 0.12);
+      border-color: #D4A857;
+    }
+
+    @media (max-width: 768px) {
+      #collection-page {
+        margin: 1rem;
+        padding: 2rem 1.25rem;
+      }
+
+      .section-title {
+        font-size: 3rem;
+      }
+
+      .collection-text h3 {
+        font-size: 1.6rem;
+      }
+
+      .collection-text {
+        font-size: 0.95rem;
+        line-height: 1.85;
+      }
+
+      .livre h3 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-YF42H2CYXX');
+  </script>
+</head>
+<body>
+
+  <div class="background-overlay"></div>
+
+  <header>
+    <p class="site-logo"><a href="/index.html" class="logo-link">Les Contes de Zoufftgen</a></p>
+    <nav>
+      <button id="menu-toggle" aria-label="Ouvrir le menu">☰</button>
+
+      <ul id="menu-list">
+        <li><a href="/">Accueil</a></li>
+        <li><a href="/collection.html">La collection</a></li>
+        <li><a href="/objetsnarratifs.html">Objets narratifs</a></li>
+        <li><a href="/interventions.html">Interventions</a></li>
+        <li><a href="/univers.html">L'univers</a></li>
+        <li><a href="/parutions.html">Parutions &amp; Rencontres</a></li>
+        <li><a href="/apropos.html">À propos</a></li>
+        <li><a href="/contact.html" class="menu-icon" aria-label="Contact" title="Contact"><svg class="icon-envelope" width="20" height="15" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="22" height="16" rx="2"/><path d="M2 4l10 7 10-7"/></svg></a></li>
+        <li><a href="/boutique/panier.html" class="menu-icon" aria-label="Panier" title="Panier"><svg class="icon-cart" width="20" height="18" viewBox="0 0 24 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1h3l2.5 13.2a2 2 0 002 1.6h9.4a2 2 0 002-1.6L22 6.5H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg> <span id="panier-compteur"></span></a></li>
+      </ul>
+
+      <div class="language-switcher">
+        <a href="/collection.html">
+          <img
+            src="https://flagcdn.com/20x15/fr.png"
+            srcset="https://flagcdn.com/40x30/fr.png 2x, https://flagcdn.com/60x45/fr.png 3x"
+            width="20"
+            height="15"
+            alt="Français"
+          />
+        </a>
+        <a href="/mybooks.html">
+          <img
+            src="https://flagcdn.com/20x15/gb.png"
+            srcset="https://flagcdn.com/40x30/gb.png 2x, https://flagcdn.com/60x45/gb.png 3x"
+            width="20"
+            height="15"
+            alt="English"
+          />
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section id="collection-page">
+      <div class="collection-intro">
+        <h1 class="section-title">La collection</h1>
+
+        <div class="collection-text">
+          <h3>Une collection ancrée dans le réel</h3>
+          <p>
+            Les <em>Contes de Zoufftgen</em> forment une collection de livres jeunesse,
+            écrits et illustrés par Hélène Hardy. Chaque histoire prend racine dans un
+            lieu réel du village, entre mémoire et imaginaire.
+          </p>
+
+          <div class="leaf-separator" aria-hidden="true">
+            <span class="leaf-separator-line"></span>
+            <img class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+            <span class="leaf-separator-line"></span>
+          </div>
+
+          <h3>Une édition soignée</h3>
+          <p>Les ouvrages de la collection sont conçus avec un soin particulier :</p>
+          <ul>
+            <li>couverture rigide</li>
+            <li>papier intérieur épais au toucher mat</li>
+            <li>finitions délicates (vernis sélectif, dorure)</li>
+          </ul>
+          <p>
+            Chaque livre est pensé comme un objet à part entière, destiné à être conservé,
+            offert et transmis.
+          </p>
+
+          <div class="leaf-separator" aria-hidden="true">
+            <span class="leaf-separator-line"></span>
+            <img class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+            <span class="leaf-separator-line"></span>
+          </div>
+
+          <h3>Les ouvrages</h3>
+        </div>
+      </div>
+
+      <div class="livres">
+        <article class="livre">
+          <a href="/boutique/le-petit-zouffarceur.html">
+            <img src="/images/tome-1.png" alt="Le petit zouffarceur — tome 1 de la collection" />
+          </a>
+          <h3>Le petit zouffarceur</h3>
+          <p class="livre-tome">— Tome 1 de la collection</p>
+          <p>Une nuit de Noël à Zoufftgen, des événements étranges viennent troubler le village…</p>
+          <a href="/boutique/le-petit-zouffarceur.html" class="btn-more">Voir le livre</a>
+        </article>
+
+        <article class="livre">
+          <a href="/boutique/la-maison-du-petit-zouffarceur.html">
+            <img src="/images/tome-2.png" alt="La maison du petit zouffarceur — tome 2 de la collection" />
+          </a>
+          <h3>La maison du petit zouffarceur</h3>
+          <p class="livre-tome">— Tome 2 de la collection</p>
+          <p>Les habitants s’inquiètent : les noisettes déposées aux fenêtres ne disparaissent plus…</p>
+          <a href="/boutique/la-maison-du-petit-zouffarceur.html" class="btn-more">Voir le livre</a>
+        </article>
+
+        <article class="livre">
+          <a href="/boutique/papa-sanglier-et-sa-dent-or.html">
+            <img src="/images/tome-3.png" alt="Papa Sanglier et sa dent en or — tome 3 de la collection" />
+          </a>
+          <h3>Papa Sanglier et sa dent en or</h3>
+          <p class="livre-tome">— Tome 3 de la collection</p>
+          <p>Dans la forêt de Zoufftgen, une simple promenade devient une aventure inattendue.</p>
+          <a href="/boutique/papa-sanglier-et-sa-dent-or.html" class="btn-more">Voir le livre</a>
+        </article>
+      </div>
+
+      <div class="collection-text collection-bottom-text">
+        <p>
+          Chaque conte prolonge un même univers, où les lieux existent réellement,
+          où les histoires s’ancrent dans le village, et où les livres deviennent
+          des objets de mémoire.
+        </p>
+
+        <div class="leaf-separator" aria-hidden="true">
+          <span class="leaf-separator-line"></span>
+          <img class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+          <span class="leaf-separator-line"></span>
+        </div>
+
+        <h3>Obtenir les ouvrages</h3>
+        <p>Les livres sont disponibles :</p>
+        <ul>
+          <li>en commande en ligne (livraison par La Poste)</li>
+          <li>en retrait à Zoufftgen, sur rendez-vous</li>
+          <li>
+            dans la boutique de créateurs
+            <a href="https://www.facebook.com/artisanarts57" target="_blank" rel="noopener">Artisan'Arts</a>
+            de Volmerange-les-Mines
+          </li>
+        </ul>
+
+        <div class="leaf-separator" aria-hidden="true">
+          <span class="leaf-separator-line"></span>
+          <img class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+          <span class="leaf-separator-line"></span>
+        </div>
+
+        <h3>Une collection en devenir</h3>
+        <p>
+          L’univers des <em>Contes de Zoufftgen</em> continue de s’enrichir.
+          De nouveaux récits viendront prolonger la collection, ainsi que des
+          objets inspirés des contes, réalisés en petites séries.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025-2026 Les Contes de Zoufftgen. Hélène Hardy - Tous droits réservés.</p>
+
+    <a
+      href="https://www.facebook.com/profile.php?id=61573926592041"
+      target="_blank"
+      rel="noopener"
+      class="facebook-icon"
+      aria-label="Facebook"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
+        <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>
+      </svg>
+    </a>
+
+    <a
+      href="https://www.youtube.com/@LesContesdeZoufftgen"
+      target="_blank"
+      rel="noopener"
+      aria-label="YouTube"
+      class="facebook-icon"
+    >
+      <img alt="YouTube" width="28" height="28" src="/images/logos/youtube.png" />
+    </a>
+
+    <a
+      href="https://www.instagram.com/lescontesdezoufftgen/"
+      target="_blank"
+      rel="noopener"
+      class="facebook-icon"
+      aria-label="Instagram"
+    >
+      <img src="/images/logo_instagram_blanc.png" alt="Instagram" width="28" height="28" />
+    </a>
+  </footer>
+
+</body>
+</html>

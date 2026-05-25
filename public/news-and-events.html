@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>News &amp; events | The Tales of Zoufftgen</title>
+
+  <meta
+    name="description"
+    content="Discover the encounters, readings and press appearances around The Tales of Zoufftgen, throughout places and seasons."
+  />
+  <meta
+    property="og:title"
+    content="News &amp; events | The Tales of Zoufftgen"
+  />
+  <meta
+    property="og:description"
+    content="The Tales of Zoufftgen comes alive through encounters, readings and exchanges, throughout places and seasons."
+  />
+  <meta property="og:image" content="https://www.lescontesdezoufftgen.com/images/Fond.png" />
+  <meta property="og:url" content="https://www.lescontesdezoufftgen.com/news-and-events.html" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:title" content="News &amp; events | The Tales of Zoufftgen" />
+  <meta name="twitter:description" content="Encounters, readings and press appearances around The Tales of Zoufftgen." />
+  <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/Fond.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="canonical" href="https://www.lescontesdezoufftgen.com/news-and-events.html" />
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <script src="/js/panier.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu-list");
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("open");
+        });
+      }
+
+      // Lightbox for press articles
+      const modal = document.getElementById("article-modal");
+      const modalImg = document.getElementById("article-modal-img");
+      const closeBtn = document.getElementById("article-modal-close");
+
+      if (modal && modalImg) {
+        document.querySelectorAll(".parution-image img").forEach((img) => {
+          img.addEventListener("click", () => {
+            modalImg.src = img.src;
+            modalImg.alt = img.alt;
+            modal.classList.add("open");
+            document.body.style.overflow = "hidden";
+          });
+        });
+
+        const closeModal = () => {
+          modal.classList.remove("open");
+          modalImg.src = "";
+          document.body.style.overflow = "";
+        };
+
+        modal.addEventListener("click", (e) => {
+          if (e.target === modal) closeModal();
+        });
+        if (closeBtn) closeBtn.addEventListener("click", closeModal);
+
+        document.addEventListener("keydown", (e) => {
+          if (e.key === "Escape" && modal.classList.contains("open")) {
+            closeModal();
+          }
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .parutions-page {
+      display: block !important;
+      max-width: 1100px;
+      margin: 2rem auto;
+      background: white;
+      color: black;
+      border-radius: 12px;
+      padding: 3rem 2rem;
+    }
+
+    .parutions-header {
+      max-width: 820px;
+      margin: 0 auto 2rem;
+      text-align: center;
+    }
+
+    .parutions-title {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 4.2rem;
+      line-height: 1.05;
+      margin: 0 0 1rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: black;
+    }
+
+    .parutions-intro {
+      max-width: 760px;
+      margin: 0 auto;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 2;
+      color: black;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .parutions-content {
+      max-width: 760px;
+      margin: 0 auto;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.98rem;
+      line-height: 1.75;
+      color: black;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .parutions-content section {
+      display: block !important;
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 0 1rem 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+    }
+
+    .parutions-content section + section {
+      margin-top: 1rem !important;
+    }
+
+    .parutions-content h2 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 2rem;
+      line-height: 1.2;
+      margin: 0 0 0.9rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: black;
+      text-align: left;
+    }
+
+    .parutions-content h3 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.4rem;
+      line-height: 1.25;
+      margin: 0 0 0.5rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: black;
+      text-align: left;
+    }
+
+    .parutions-content p {
+      margin: 0 0 0.8rem;
+      color: black;
+    }
+
+    .parutions-content a {
+      color: black;
+      font-weight: 700;
+      text-decoration: underline;
+    }
+
+    .leaf-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      margin: 1.5rem 0;
+    }
+
+    .parutions-content section:has(+ .leaf-separator),
+    .parutions-content section:has(+ .leaf-separator) > *:last-child {
+      margin-bottom: 0 !important;
+    }
+    .leaf-separator + section,
+    .leaf-separator + section > *:first-child {
+      margin-top: 0 !important;
+    }
+
+    .leaf-separator-line {
+      display: block;
+      width: 80px;
+      height: 1px;
+      background: #C9A35A;
+    }
+
+    .leaf-separator-icon {
+      width: 36px;
+      height: auto;
+      display: block;
+    }
+
+    .rencontre-entry,
+    .parution-entry {
+      margin-bottom: 2rem;
+    }
+
+    .rencontre-entry:last-child,
+    .parution-entry:last-child {
+      margin-bottom: 0;
+    }
+
+    .rencontre-image,
+    .parution-image {
+      margin-bottom: 0.9rem;
+    }
+
+    .rencontre-image img,
+    .parution-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    .parution-image {
+      max-width: 380px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .parution-image img {
+      cursor: zoom-in;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .parution-image img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .article-modal {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      background: rgba(0, 0, 0, 0.88);
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      cursor: zoom-out;
+    }
+
+    .article-modal.open {
+      display: flex;
+    }
+
+    .article-modal img {
+      max-width: 92vw;
+      max-height: 92vh;
+      width: auto;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+      cursor: default;
+    }
+
+    .article-modal-close {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      color: white;
+      font-size: 1.6rem;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      line-height: 1;
+      padding: 0;
+      transition: background 0.2s;
+    }
+
+    .article-modal-close:hover {
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .rencontre-lieu {
+      color: #666;
+      font-size: 0.98rem;
+      margin-bottom: 0.45rem;
+      font-style: italic;
+    }
+
+    .parution-extrait {
+      font-style: italic;
+      color: #444;
+      text-align: center;
+      max-width: 580px;
+      margin: 0 auto 0.5rem !important;
+    }
+
+    /* Gallery: 3 photos side by side, main one larger in the middle */
+    .rencontre-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr 1fr;
+      gap: 0.5rem;
+      align-items: center;
+      width: 100%;
+      margin: 1.2rem 0;
+    }
+
+    .rencontre-gallery img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .rencontre-gallery-main img {
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+    }
+
+    .rencontre-gallery-thumb img {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 600px) {
+      .rencontre-gallery {
+        grid-template-columns: 1fr;
+        max-width: 280px;
+        margin: 1.2rem auto;
+      }
+    }
+
+    /* Single centered photo */
+    .rencontre-image-solo {
+      max-width: 360px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* 2 photos side by side */
+    .rencontre-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+      align-items: center;
+      max-width: 600px;
+      margin: 1rem auto 0.9rem;
+    }
+
+    .rencontre-pair img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+    }
+
+    @media (max-width: 600px) {
+      .rencontre-pair {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .parutions-page {
+        margin: 1rem;
+        padding: 2rem 1.2rem;
+      }
+
+      .parutions-title {
+        font-size: 3rem;
+      }
+
+      .parutions-intro {
+        font-size: 1rem;
+        line-height: 1.85;
+      }
+
+      .parutions-content {
+        font-size: 0.95rem;
+        line-height: 1.85;
+      }
+
+      .parutions-content h2 {
+        font-size: 1.6rem;
+      }
+
+      .parutions-content h3 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background-overlay"></div>
+
+  <header>
+    <p class="site-logo"><a href="/index-en.html" class="logo-link">The Tales of Zoufftgen</a></p>
+    <nav>
+      <button id="menu-toggle" aria-label="Open menu">☰</button>
+      <ul id="menu-list">
+        <li><a href="/index-en.html">Home</a></li>
+        <li><a href="/mybooks.html">The collection</a></li>
+        <li><a href="/narrative-objects.html">Narrative objects</a></li>
+        <li><a href="/author-visits.html">Author visits</a></li>
+        <li><a href="/universe.html">The world</a></li>
+        <li><a href="/news-and-events.html">News &amp; events</a></li>
+        <li><a href="/about.html">About</a></li>
+        <li><a href="/contact-en.html" class="menu-icon" aria-label="Contact" title="Contact"><svg class="icon-envelope" width="20" height="15" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="22" height="16" rx="2"/><path d="M2 4l10 7 10-7"/></svg></a></li>
+        <li><a href="/boutique/panier-en.html" class="menu-icon" aria-label="Cart" title="Cart"><svg class="icon-cart" width="20" height="18" viewBox="0 0 24 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1h3l2.5 13.2a2 2 0 002 1.6h9.4a2 2 0 002-1.6L22 6.5H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg> <span id="panier-compteur"></span></a></li>
+      </ul>
+
+      <div class="language-switcher">
+        <a href="/parutions.html">
+          <img
+            src="https://flagcdn.com/20x15/fr.png"
+            srcset="https://flagcdn.com/40x30/fr.png 2x, https://flagcdn.com/60x45/fr.png 3x"
+            width="20"
+            height="15"
+            alt="Français"
+          />
+        </a>
+        <a href="/news-and-events.html">
+          <img
+            src="https://flagcdn.com/20x15/gb.png"
+            srcset="https://flagcdn.com/40x30/gb.png 2x, https://flagcdn.com/60x45/gb.png 3x"
+            width="20"
+            height="15"
+            alt="English"
+          />
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="parutions-page">
+    <div class="parutions-header">
+      <h1 class="parutions-title">News &amp; events</h1>
+      <p class="parutions-intro">
+        The world of <em>The Tales of Zoufftgen</em> comes alive through
+        readings, encounters and exchanges with children, families and
+        cultural venues of the region.
+      </p>
+      <p class="parutions-intro">
+        Through these moments, the stories slowly leave the pages to join
+        the places, the voices, and the memories.
+      </p>
+    </div>
+
+    <div class="parutions-content">
+      <section>
+        <h2>Events &amp; readings</h2>
+
+        <div class="rencontre-entry">
+          <h3>Library of Dudelange — Luxembourg</h3>
+          <p>
+            Reading of the two tales of <em>Le Petit Zouffarceur</em>,
+            followed by a time of exchange and a drawing workshop around
+            the characters of the story.
+          </p>
+          <div class="rencontre-gallery">
+            <div class="rencontre-gallery-thumb">
+              <img src="/images/rencontres/dudelange-2.jpg" alt="Drawing workshop with the children at the Library of Dudelange" />
+            </div>
+            <div class="rencontre-gallery-main">
+              <img src="/images/rencontres/dudelange-1.jpg" alt="Reading the two tales of Le Petit Zouffarceur at the Library of Dudelange" />
+            </div>
+            <div class="rencontre-gallery-thumb">
+              <img src="/images/rencontres/dudelange-3.jpg" alt="Immersive reading at the Library of Dudelange" />
+            </div>
+          </div>
+        </div>
+
+        <div class="rencontre-entry">
+          <h3>School readings &amp; after-school venues</h3>
+          <p>
+            Times of reading, exchange and discovery around the tales,
+            nature, and local heritage.
+          </p>
+          <div class="rencontre-pair">
+            <img src="/images/rencontres/periscolaire-1.png" alt="School reading in Zoufftgen" />
+            <img src="/images/rencontres/periscolaire-2.jpeg" alt="Reading in an after-school venue, children gathered around the author" />
+          </div>
+        </div>
+
+        <div class="rencontre-entry">
+          <h3>Meet-and-greets &amp; book signings</h3>
+          <p>
+            Moments of exchange with readers, during local meet-and-greets
+            and book signing sessions.
+          </p>
+          <div class="rencontre-image rencontre-image-solo">
+            <img src="/images/rencontres/dedicaces-volmerange-1.jpeg" alt="Book signing at the artisans' shop Artisan'Arts in Volmerange-les-Mines" />
+          </div>
+        </div>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+
+      <section>
+        <h2>Press</h2>
+        <h3>Local &amp; regional press</h3>
+        <p>
+          <em>The Tales of Zoufftgen</em> have also been the subject of
+          several articles devoted to the genesis of the project, its local
+          roots and its world.
+        </p>
+
+        <div class="parution-entry">
+          <div class="parution-image">
+            <img src="/images/Presse/Republicain-Lorrain-21-Decembre-2025.png" alt="Le Républicain Lorrain article (21 December 2025) about Hélène Hardy and her tales" />
+          </div>
+          <p class="parution-extrait">
+            <strong>Le Républicain Lorrain — 21 December 2025.</strong>
+            « Hélène Hardy creates tales inspired by her village. »
+          </p>
+        </div>
+
+        <div class="parution-entry">
+          <div class="parution-image">
+            <img src="/images/Presse/Republicain-Lorrain-2023.jpg" alt="Le Républicain Lorrain article (2023) about the release of Le Petit Zouffarceur" />
+          </div>
+          <p class="parution-extrait">
+            <strong>Le Républicain Lorrain — 2023.</strong>
+            « <em>Le Petit Zouffarceur</em>, a Christmas tale set in Zoufftgen. »
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Lightbox modal for press articles -->
+  <div id="article-modal" class="article-modal" aria-hidden="true" role="dialog">
+    <button id="article-modal-close" class="article-modal-close" aria-label="Close">×</button>
+    <img id="article-modal-img" src="" alt="" />
+  </div>
+
+  <footer>
+    <p>&copy; 2025-2026 The Tales of Zoufftgen. Hélène Hardy - All rights reserved.</p>
+
+    <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
+        <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>
+      </svg>
+    </a>
+
+    <a href="https://www.youtube.com/@LesContesdeZoufftgen" target="_blank" rel="noopener" aria-label="YouTube" class="facebook-icon">
+      <img alt="YouTube" width="28" height="28" src="/images/logos/youtube.png" />
+    </a>
+
+    <a href="https://www.instagram.com/lescontesdezoufftgen/" target="_blank" rel="noopener" class="facebook-icon" aria-label="Instagram">
+      <img src="/images/logo_instagram_blanc.png" alt="Instagram" width="28" height="28" />
+    </a>
+  </footer>
+</body>
+</html>
