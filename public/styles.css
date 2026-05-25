@@ -362,17 +362,17 @@ main:has(.hero-accueil),
     position: sticky;
     top: 0;
     z-index: 100;
-    background: rgba(20, 14, 10, 0.72);
-    backdrop-filter: blur(12px) saturate(140%);
-    -webkit-backdrop-filter: blur(12px) saturate(140%);
+    background: rgba(20, 14, 10, 0.10);
+    backdrop-filter: blur(10px) saturate(140%);
+    -webkit-backdrop-filter: blur(10px) saturate(140%);
     padding: 1.2rem 1rem 0.9rem;
     text-align: center;
-    border-bottom: 1px solid rgba(201, 163, 90, 0.18);
+    border-bottom: 1px solid rgba(201, 163, 90, 0.15);
     transition: background 0.25s, padding 0.25s;
   }
 
-  /* Quand le header est sticky (scrolle), on peut detecter ca
-     visuellement avec un peu moins de padding pour gagner de la place. */
+  /* Quand on scrolle, le header devient plus opaque pour rester lisible
+     au-dessus du contenu des cartes blanches. */
   @supports (animation-timeline: scroll()) {
     header {
       animation: header-shrink linear both;
@@ -383,7 +383,7 @@ main:has(.hero-accueil),
       to {
         padding-top: 0.7rem;
         padding-bottom: 0.6rem;
-        background: rgba(20, 14, 10, 0.88);
+        background: rgba(20, 14, 10, 0.30);
       }
     }
   }
@@ -508,20 +508,32 @@ main:has(.hero-accueil),
   }
   
   @media (max-width: 768px) {
+    /* Layout 2 rangees :
+       - Rangee 1 (compacte) : drapeaux a gauche, hamburger a droite
+       - Rangee 2 : logo centre (titre du site)
+       On utilise du padding-top pour reserver la place de la rangee 1. */
+    header {
+      padding: 3rem 1rem 0.9rem;
+    }
+
     nav ul {
       flex-direction: column;
       gap: 0.8rem;
     }
 
-    
-  
     #menu-toggle {
       display: block;
       background: none;
       border: none;
       font-size: 1.8rem;
       color: white;
-      margin-bottom: 1rem;
+      cursor: pointer;
+      padding: 0;
+      line-height: 1;
+      position: absolute;
+      top: 0.8rem;
+      right: 1rem;
+      margin: 0;
     }
   }
   
@@ -642,15 +654,6 @@ main:has(.hero-accueil),
     #menu-list.open {
       display: flex;
     }
-  
-    #menu-toggle {
-      display: block;
-      background: none;
-      border: none;
-      font-size: 2rem;
-      color: white;
-      cursor: pointer;
-    }
   }
 
   .logo-link {
@@ -694,10 +697,18 @@ main:has(.hero-accueil),
   }
 
   @media (max-width: 768px) {
+    /* Sur mobile : drapeaux en haut a gauche, alignes avec le hamburger a droite */
     .language-switcher {
-      position: static;
-      margin-top: 10px;
-      justify-content: center;
+      position: absolute;
+      top: 0.9rem;
+      left: 1rem;
+      right: auto;
+      margin: 0;
+      gap: 0.3rem;
+    }
+
+    .language-switcher a {
+      font-size: 1rem;
     }
   }
   
