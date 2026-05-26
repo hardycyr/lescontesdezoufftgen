@@ -318,7 +318,7 @@ main:has(.hero-accueil),
 
   /* Image de fond */
   .background-overlay {
-    background-image: url("/images/Fond-LesContesdeZoufftgen.png");
+    background-image: url("/images/Fond-LesContesdeZoufftgen.webp");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -342,7 +342,7 @@ main:has(.hero-accueil),
   /* Image de fond sur mobile (meme image que desktop pour l'instant) */
   @media (max-width: 900px) {
     .background-overlay {
-      background-image: url("/images/Fond-LesContesdeZoufftgen.png");
+      background-image: url("/images/Fond-LesContesdeZoufftgen.webp");
     }
   }
 
