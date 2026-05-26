@@ -22,6 +22,13 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/mybooks.html" />
   </url>
 
+  <!-- Landing page SEO ciblee : requetes commerciales "livre jeunesse Lorraine/Moselle" -->
+  <url>
+    <loc>https://www.lescontesdezoufftgen.com/livres-jeunesse-lorraine.html</loc>
+    <lastmod>2026-05-26</lastmod>
+    <priority>0.95</priority>
+  </url>
+
   <url>
     <loc>https://www.lescontesdezoufftgen.com/objetsnarratifs.html</loc>
     <lastmod>2026-05-26</lastmod>
