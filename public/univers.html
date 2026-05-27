@@ -197,6 +197,47 @@
       display: block;
     }
 
+    /* Blocs de comparaison : photo reelle + illustration cote a cote */
+    .universe-blocs {
+      max-width: 820px;
+      margin: 1.5rem auto;
+      display: grid;
+      gap: 1.6rem;
+    }
+
+    .universe-bloc {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.7rem;
+      align-items: center;
+    }
+
+    .universe-bloc img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    }
+
+    .universe-bloc-caption {
+      grid-column: 1 / -1;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.95rem;
+      font-style: italic;
+      color: #555;
+      text-align: center;
+      line-height: 1.6;
+      margin: 0.4rem auto 0;
+      max-width: 580px;
+    }
+
+    @media (max-width: 600px) {
+      .universe-bloc {
+        grid-template-columns: 1fr;
+      }
+    }
+
     @media (max-width: 768px) {
       .universe-page {
         margin: 1rem;
@@ -263,74 +304,48 @@
   <main class="universe-page">
     <div class="universe-header">
       <h1 class="universe-title">L’univers</h1>
+      <p class="universe-intro" style="font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif; font-size: 1.05rem; line-height: 1.75; color: #333; font-style: italic; max-width: 600px; margin: 0 auto;">
+        Les <em>Contes de Zoufftgen</em> prennent place dans un village existant.
+        Les lieux évoqués dans les histoires — un arbre, une maison, un chemin —
+        peuvent être vus, parcourus, reconnus.
+        Cette proximité crée un lien particulier entre fiction et réalité,
+        et invite à regarder autrement ce qui nous entoure.
+      </p>
     </div>
 
-    <div class="universe-content">
-      <section>
-        <h2>Zoufftgen, un village à la frontière</h2>
-        <p>
-          Zoufftgen est un petit village mosellan en Lorraine, posé à la
-          frontière franco-luxembourgeoise entre
-          <strong>Volmerange-les-Mines</strong> et
-          <strong>Hettange-Grande</strong>, à quelques kilomètres de Thionville
-          et de Dudelange. Une commune rurale tournée vers la forêt,
-          traversée par des chemins anciens et des sentiers que les habitants
-          empruntent depuis des générations.
-        </p>
-        <p>
-          C’est là que prennent racine <em>Les Contes de Zoufftgen</em> :
-          dans ces paysages familiers, dans les fermes, dans la mémoire
-          d’une vieille maison forestière, sous un grand chêne qui a vraiment
-          poussé, dans une rue principale que l’on peut encore parcourir.
-        </p>
-      </section>
+    <!-- Blocs de comparaison : photo reelle <-> illustration du conte -->
+    <div class="universe-blocs">
 
-      <section>
-        <h2>Des lieux que l’on peut visiter</h2>
-        <p>
-          Chaque conte cite — ou évoque — un lieu précis du village.
-          La rue principale, la ferme du Vogelsang, le chêne du chemin,
-          la maison forestière qui a plus de cent ans : autant de points
-          d’ancrage que les enfants et leurs familles peuvent venir voir
-          « pour de vrai ».
+      <div class="universe-bloc">
+        <img src="/images/univers/chene-reel.jpg" alt="Le vieux chêne du chemin du Vogelsang, à Zoufftgen" />
+        <img src="/images/univers/chene-illustration.jpg" alt="Le vieux chêne tel qu'illustré dans les Contes de Zoufftgen" />
+        <p class="universe-bloc-caption">
+          Le vieux chêne du chemin du Vogelsang existe réellement. Depuis
+          des générations, les habitants passent devant lui sans toujours
+          imaginer les histoires qu’il pourrait raconter.
         </p>
-        <p>
-          Cette correspondance entre le réel et l’imaginaire transforme
-          la lecture en une petite enquête. On reconnaît un détail, on
-          retrouve une silhouette, on découvre que la forêt qu’on traverse
-          le dimanche est aussi celle d’une histoire.
-        </p>
-      </section>
+      </div>
 
-      <section>
-        <h2>Une nature présente</h2>
-        <p>
-          Les sangliers, les écureuils, les rouges-gorges, les noisettes,
-          les glands, les feuilles d’automne et la neige de Noël ne sont
-          pas des décors : ce sont les personnages secondaires des contes.
-          Les saisons rythment les récits, et chaque livre porte la couleur
-          du moment où il a été imaginé.
+      <div class="universe-bloc">
+        <img src="/images/univers/maison-forestiere-reelle.jpg" alt="La maison forestière de Zoufftgen, au bord de la forêt depuis plus d'un siècle" />
+        <img src="/images/univers/maison-forestiere-illustration.jpg" alt="La maison forestière dans l'univers illustré des Contes de Zoufftgen" />
+        <p class="universe-bloc-caption">
+          La maison forestière apparaît dans plusieurs contes.
+          Elle se trouve au bord de la forêt depuis plus d’un siècle.
         </p>
-        <p>
-          C’est aussi une manière, pour les jeunes lecteurs, de regarder
-          autrement les arbres, les chemins, les animaux croisés en
-          promenade — ces choses ordinaires qui prennent un autre sens
-          quand on sait qu’elles ont leur place dans une histoire.
-        </p>
-      </section>
+      </div>
 
-      <section>
-        <h2>Entre France, Luxembourg et au-delà</h2>
-        <p>
-          La frontière toute proche fait partie de l’univers. Les rencontres
-          en bibliothèque à Dudelange, au Luxembourg, ou dans les écoles
-          françaises voisines, permettent aux <em>Contes de Zoufftgen</em>
-          de circuler dans une région où l’on grandit souvent en parlant
-          plusieurs langues, et où les contes franchissent naturellement
-          les frontières.
+      <div class="universe-bloc">
+        <img src="/images/univers/parc-papillons-reel.jpg" alt="Le parc aux papillons de Zoufftgen" />
+        <img src="/images/univers/parc-papillons-illustration.jpg" alt="Le parc aux papillons tel qu'il apparaît dans les illustrations des Contes de Zoufftgen" />
+        <p class="universe-bloc-caption">
+          Le parc aux papillons de Zoufftgen est un lieu bien réel du
+          village, qui inspire à son tour l’univers des contes.
         </p>
-      </section>
+      </div>
+
     </div>
+
   </main>
 
   <footer>
