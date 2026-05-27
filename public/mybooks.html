@@ -53,6 +53,14 @@
   </script>
 
   <style>
+    /* Le <main> global a padding: 2rem qui se cumule avec le padding de
+       cette section. On le neutralise pour que la largeur disponible soit
+       la meme que sur les autres pages (ex: narrative-objects) qui mettent
+       leur classe directement sur le <main>. */
+    main:has(#collection-page) {
+      padding: 0;
+    }
+
     #collection-page {
       max-width: 1100px;
       margin: 2rem auto;
@@ -216,7 +224,7 @@
     @media (max-width: 768px) {
       #collection-page {
         margin: 1rem;
-        padding: 2rem 1.25rem;
+        padding: 2rem 1.2rem;
       }
 
       .section-title {
@@ -406,7 +414,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025-2026 The Tales of Zoufftgen. Hélène Hardy - All rights reserved.</p>
+    <p>&copy; 2025-2026 Hélène Hardy. All rights reserved.</p>
 
     <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
