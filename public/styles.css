@@ -551,16 +551,19 @@ main:has(.hero-accueil),
     transition: transform 0.3s ease;
   }
 
-  /* Sur petit ecran, on remet en colonne pour eviter que le texte
-     et les icones ne se chevauchent. */
+  /* Sur petit ecran : le texte prend toute la largeur (flex-basis 100%)
+     et les icones se rangent automatiquement sur la ligne suivante en row. */
   @media (max-width: 600px) {
     footer {
-      flex-direction: column;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
       text-align: center;
       padding: 1rem;
-      gap: 0.6rem;
+      gap: 0.8rem 1.4rem;
     }
     footer p {
+      flex-basis: 100%;
       margin-right: 0;
     }
   }
