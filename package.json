@@ -18,5 +18,8 @@
     "license": "UNLICENSED",
     "scripts": {
         "start": "node server.js"
+    },
+    "devDependencies": {
+        "sharp": "^0.34.5"
     }
 }

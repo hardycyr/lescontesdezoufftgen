@@ -87,6 +87,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
 
   <script src="/js/panier.js" defer></script>
+  <script src="/js/image-modal.js" defer></script>
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const toggle = document.getElementById("menu-toggle");
@@ -214,7 +215,8 @@
 
     .universe-bloc img {
       width: 100%;
-      height: auto;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
       display: block;
       border-radius: 8px;
       box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
@@ -317,8 +319,8 @@
     <div class="universe-blocs">
 
       <div class="universe-bloc">
-        <img src="/images/univers/chene-reel.jpg" alt="Le vieux chêne du chemin du Vogelsang, à Zoufftgen" />
-        <img src="/images/univers/chene-illustration.jpg" alt="Le vieux chêne tel qu'illustré dans les Contes de Zoufftgen" />
+        <img src="/images/univers/chene-reel.webp" alt="Le vieux chêne du chemin du Vogelsang, à Zoufftgen" />
+        <img src="/images/univers/chene-illustration.webp" alt="Le vieux chêne tel qu'illustré dans les Contes de Zoufftgen" />
         <p class="universe-bloc-caption">
           Le vieux chêne du chemin du Vogelsang existe réellement. Depuis
           des générations, les habitants passent devant lui sans toujours
@@ -327,8 +329,8 @@
       </div>
 
       <div class="universe-bloc">
-        <img src="/images/univers/maison-forestiere-reelle.jpg" alt="La maison forestière de Zoufftgen, au bord de la forêt depuis plus d'un siècle" />
-        <img src="/images/univers/maison-forestiere-illustration.jpg" alt="La maison forestière dans l'univers illustré des Contes de Zoufftgen" />
+        <img src="/images/univers/maison-forestiere-reelle.webp" alt="La maison forestière de Zoufftgen, au bord de la forêt depuis plus d'un siècle" />
+        <img src="/images/univers/maison-forestiere-illustration.webp" alt="La maison forestière dans l'univers illustré des Contes de Zoufftgen" />
         <p class="universe-bloc-caption">
           La maison forestière apparaît dans plusieurs contes.
           Elle se trouve au bord de la forêt depuis plus d’un siècle.
@@ -336,8 +338,28 @@
       </div>
 
       <div class="universe-bloc">
-        <img src="/images/univers/parc-papillons-reel.jpg" alt="Le parc aux papillons de Zoufftgen" />
-        <img src="/images/univers/parc-papillons-illustration.jpg" alt="Le parc aux papillons tel qu'il apparaît dans les illustrations des Contes de Zoufftgen" />
+        <img src="/images/univers/rue-principale-reelle.webp" alt="La rue principale de Zoufftgen" />
+        <img src="/images/univers/rue-principale-illustration.webp" alt="La rue principale telle qu'illustrée dans les Contes de Zoufftgen" />
+        <p class="universe-bloc-caption">
+          La rue principale du village traverse Zoufftgen depuis toujours.
+          On la reconnaît dans plusieurs contes, où elle relie les lieux
+          familiers du quotidien.
+        </p>
+      </div>
+
+      <div class="universe-bloc">
+        <img src="/images/univers/ferme-vogelsang-reelle.webp" alt="La ferme du Vogelsang à Zoufftgen" />
+        <img src="/images/univers/ferme-vogelsang-illustration.webp" alt="La ferme du Vogelsang telle qu'illustrée dans les Contes de Zoufftgen" />
+        <p class="universe-bloc-caption">
+          La ferme du Vogelsang, posée à l’écart du village, fait partie
+          du paysage depuis des générations. Elle apparaît dans les contes
+          comme un repère du chemin.
+        </p>
+      </div>
+
+      <div class="universe-bloc">
+        <img src="/images/univers/parc-papillons-reel.webp" alt="Le parc aux papillons de Zoufftgen" />
+        <img src="/images/univers/parc-papillons-illustration.webp" alt="Le parc aux papillons tel qu'il apparaît dans les illustrations des Contes de Zoufftgen" />
         <p class="universe-bloc-caption">
           Le parc aux papillons de Zoufftgen est un lieu bien réel du
           village, qui inspire à son tour l’univers des contes.
