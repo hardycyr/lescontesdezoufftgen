@@ -12,6 +12,13 @@
   }
   
   /* Base */
+  html, body {
+    /* Garde-fou : empeche tout scroll horizontal accidentel cause par
+       un element qui deborderait (image, bloc trop large, etc.) */
+    overflow-x: hidden;
+    max-width: 100%;
+  }
+
   body {
     font-family: 'Nunito', sans-serif;
     font-size: 13.5pt; /* ou 18px si tu préfères un peu plus fin */
@@ -81,7 +88,9 @@ main:has(.hero-accueil),
     0 0 12px rgba(0, 0, 0, 0.5);
 }
 
-/* Sur mobile et tablette, on remet le bloc en plein largeur centre */
+/* Sur mobile et tablette, on remet le bloc en plein largeur centre.
+   Important : on annule min-width sinon les petits ecrans (< 400px)
+   debordent et provoquent un scroll horizontal. */
 @media (max-width: 900px) {
   .hero-accueil-content {
     position: static;
@@ -89,6 +98,7 @@ main:has(.hero-accueil),
     margin: 4rem auto;
     max-width: 90vw;
     width: auto;
+    min-width: 0;
     padding: 0 1rem;
   }
 }
