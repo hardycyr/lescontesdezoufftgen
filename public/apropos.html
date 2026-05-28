@@ -216,22 +216,30 @@
       margin: 0 0 0.5rem;
     }
 
+    /* Grande photo centree sous le titre, respirante. */
     .about-portrait {
-      float: right;
-      width: 260px;
-      max-width: 40%;
-      margin: 0 0 1.2rem 1.8rem;
-      border-radius: 8px;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
       display: block;
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    /* Petite photo decorative remplacant un separateur. */
+    .about-photo {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 2.5rem auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
     }
 
     @media (max-width: 768px) {
       .about-portrait {
-        float: none;
-        width: 220px;
-        max-width: 80%;
-        margin: 0 auto 1.5rem;
+        max-width: 85%;
+        margin: 0 auto 2rem;
       }
     }
 
@@ -314,53 +322,45 @@
       <h1 class="about-title">À propos</h1>
     </div>
 
+    <img loading="lazy"
+      class="about-portrait"
+      src="/images/portrait-Helene-Hardy.png"
+      alt="Hélène Hardy, autrice et illustratrice des Contes de Zoufftgen"
+    />
+
     <div class="about-content">
       <section>
-        <img loading="lazy"
-          class="about-portrait"
-          src="/images/portrait-Helene-Hardy.png"
-          alt="Hélène Hardy, autrice et illustratrice des Contes de Zoufftgen"
-        />
         <p>
-          L’aventure des <em>Contes de Zoufftgen</em> est née d’un lien profond
-          avec les paysages de mon village, à la frontière franco-luxembourgeoise.
-          Une forêt, un vieux chêne, un chemin de terre ou une ferme deviennent
-          le point de départ d’histoires où le merveilleux s’invite doucement
-          dans le réel.
+          Hélène Hardy est autrice et illustratrice des
+          <em>Contes de Zoufftgen</em>. À travers des histoires ancrées
+          dans un village réel, elle développe un univers mêlant nature,
+          mémoire et imaginaire.
         </p>
         <p>
-          À travers mes récits, j’essaie de redonner une place à l’émerveillement,
-          à la mémoire des lieux et à cette part d’imaginaire qui transforme
-          le regard des enfants sur ce qui les entoure.
+          Les histoires sont nées simplement. Le soir, elles commençaient
+          souvent par un lieu réel : un arbre, un chemin, une vieille ferme
+          aperçue au loin. Puis les saisons, les souvenirs et l’imaginaire
+          ont peu à peu transformé ces lieux familiers en contes.
+        </p>
+      </section>
+
+      <img loading="lazy"
+        class="about-photo"
+        src="/images/apropos-livre-ouvert.webp"
+        alt="Un album des Contes de Zoufftgen ouvert, illustration d'un soir d'hiver avec un rouge-gorge et un écureuil"
+      />
+
+      <section>
+        <p>
+          Les <em>Contes de Zoufftgen</em> sont profondément liés au village
+          dont ils portent le nom. Les paysages, les atmosphères et les détails
+          qui traversent les histoires viennent du réel : des promenades,
+          des forêts, des silences et des souvenirs d’enfance.
         </p>
         <p>
-          Mes premières histoires sont nées le soir, pour mon fils.
-          Des récits racontés à voix basse pour terminer la journée,
-          qui se sont peu à peu déposés sur le papier au fil des saisons.
-        </p>
-        <p>
-          Chaque album est pensé comme un ensemble vivant, mêlant récit,
-          illustration et découverte. Les histoires se prolongent naturellement
-          à la fin de l’ouvrage à travers des pages consacrées au patrimoine
-          local, à la nature, au dessin ou à de petits moments de transmission
-          à partager ensemble.
-        </p>
-        <p>
-          Dans mes livres, le texte et l’image avancent ensemble.
-          J’écris et j’illustre chaque histoire dans le même mouvement,
-          en laissant toujours une place à l’imagination, à l’observation et au rêve.
-        </p>
-        <p>
-          Parce que je crois que les belles histoires méritent de durer,
-          je conçois mes ouvrages avec le même soin que mes récits :
-          couverture rigide, papier épais, finitions délicates…
-          Des livres pensés pour être gardés, relus et transmis.
-        </p>
-        <p>
-          Aujourd’hui, cet univers voyage de part et d’autre de la frontière
-          à travers des lectures dans les écoles et les bibliothèques,
-          où les enfants découvrent parfois avec surprise que les lieux
-          des contes existent réellement.
+          Aujourd’hui, les <em>Contes de Zoufftgen</em> donnent lieu à des
+          lectures, rencontres et interventions culturelles dans les écoles,
+          les bibliothèques et les événements de la Grande Région.
         </p>
       </section>
 
@@ -371,8 +371,7 @@
       </div>
 
       <section class="about-coda">
-        <p>Les histoires que l’on raconte le soir ne disparaissent jamais tout à fait.</p>
-        <p>Elles restent, quelque part, comme une présence douce.</p>
+        <p>Un univers à lire et à transmettre.</p>
       </section>
     </div>
   </main>

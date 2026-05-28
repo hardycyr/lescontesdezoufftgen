@@ -216,22 +216,30 @@
       margin: 0 0 0.5rem;
     }
 
+    /* Grande photo centree sous le titre, respirante. */
     .about-portrait {
-      float: right;
-      width: 260px;
-      max-width: 40%;
-      margin: 0 0 1.2rem 1.8rem;
-      border-radius: 8px;
-      box-shadow: 0 6px 22px rgba(0, 0, 0, 0.18);
       display: block;
+      width: 100%;
+      max-width: 460px;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    /* Petite photo decorative remplacant un separateur. */
+    .about-photo {
+      display: block;
+      width: 100%;
+      max-width: 320px;
+      margin: 2.5rem auto;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
     }
 
     @media (max-width: 768px) {
       .about-portrait {
-        float: none;
-        width: 220px;
-        max-width: 80%;
-        margin: 0 auto 1.5rem;
+        max-width: 85%;
+        margin: 0 auto 2rem;
       }
     }
 
@@ -314,49 +322,44 @@
       <h1 class="about-title">About</h1>
     </div>
 
+    <img loading="lazy"
+      class="about-portrait"
+      src="/images/portrait-Helene-Hardy.png"
+      alt="Hélène Hardy, author and illustrator of The Tales of Zoufftgen"
+    />
+
     <div class="about-content">
       <section>
-        <img loading="lazy"
-          class="about-portrait"
-          src="/images/portrait-Helene-Hardy.png"
-          alt="Hélène Hardy, author and illustrator of The Tales of Zoufftgen"
-        />
         <p>
-          The adventure of <em>The Tales of Zoufftgen</em> was born out of a deep
-          connection to the landscapes of my village, on the French-Luxembourg
-          border. A forest, an old oak, a dirt path or a farm become the starting
-          point of stories where the wondrous gently slips into the real.
+          Hélène Hardy is the author and illustrator of
+          <em>The Tales of Zoufftgen</em>. Through stories rooted in a real
+          village, she develops a world blending nature, memory and imagination.
         </p>
         <p>
-          Through my tales, I try to give wonder its place again — alongside the
-          memory of places and that part of imagination which transforms the way
-          children look at what surrounds them.
+          The stories began simply. In the evening, they often started from a
+          real place: a tree, a path, an old farm glimpsed in the distance.
+          Then the seasons, memories and imagination gradually turned these
+          familiar places into tales.
+        </p>
+      </section>
+
+      <img loading="lazy"
+        class="about-photo"
+        src="/images/apropos-livre-ouvert.webp"
+        alt="An open book from The Tales of Zoufftgen, a winter evening illustration with a robin and a squirrel"
+      />
+
+      <section>
+        <p>
+          <em>The Tales of Zoufftgen</em> are deeply tied to the village whose
+          name they bear. The landscapes, the atmospheres and the details running
+          through the stories come from real life: walks, forests, silences and
+          childhood memories.
         </p>
         <p>
-          My first stories were born in the evening, for my son. Tales told in a
-          low voice to bring the day to a close, which slowly settled onto paper
-          season after season.
-        </p>
-        <p>
-          Each book is conceived as a living whole, weaving together story,
-          illustration and discovery. The tales extend naturally beyond their
-          ending through pages devoted to local heritage, nature, drawing, or
-          small moments of transmission to share together.
-        </p>
-        <p>
-          In my books, text and image move together. I write and illustrate each
-          story in the same breath, always leaving room for imagination,
-          observation and dreams.
-        </p>
-        <p>
-          Because I believe that beautiful stories deserve to last, I design my
-          books with the same care as the stories themselves: hardcover, thick
-          paper, delicate finishes… Books meant to be kept, reread and passed on.
-        </p>
-        <p>
-          Today, this world travels on both sides of the border through readings
-          in schools and libraries, where children sometimes discover with
-          surprise that the places in the tales actually exist.
+          Today, <em>The Tales of Zoufftgen</em> give rise to readings, encounters
+          and cultural events in schools, libraries and events across the
+          Greater Region.
         </p>
       </section>
 
@@ -367,8 +370,7 @@
       </div>
 
       <section class="about-coda">
-        <p>The stories we tell in the evening never quite disappear.</p>
-        <p>They remain, somewhere, like a gentle presence.</p>
+        <p>A world to read and to pass on.</p>
       </section>
     </div>
   </main>
