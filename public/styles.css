@@ -70,9 +70,8 @@ main:has(.hero-accueil),
   /* Positionnement fixe par rapport au viewport - garanti d'aller au bord */
   position: fixed;
   right: 1.5rem;
-  /* Centrage vertical en tenant compte du header sticky (~90px) :
-     on decale le point de pivot vers le bas pour eviter d'etre colle au menu. */
-  top: calc(50% + 50px);
+  /* Centrage vertical, legerement remonte pour un meilleur equilibre visuel. */
+  top: calc(50% - 20px);
   transform: translateY(-50%);
   /* Bloc dimensionne pour que "Zoufftgen" tienne en grand sans deborder */
   width: 520px;
@@ -95,7 +94,7 @@ main:has(.hero-accueil),
   .hero-accueil-content {
     position: static;
     transform: none;
-    margin: 4rem auto;
+    margin: 2rem auto;
     max-width: 90vw;
     width: auto;
     min-width: 0;
@@ -196,6 +195,17 @@ main:has(.hero-accueil),
   width: 22px;
   height: auto;
   display: block;
+}
+
+.hero-tags {
+  margin: 1.3rem 0 0;
+  font-family: 'Libre Baskerville', 'Baskerville', serif;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #C9BC9A;
+  opacity: 0.85;
+  line-height: 1.6;
 }
 
 /* Mobile : centrer au lieu de mettre a droite */
