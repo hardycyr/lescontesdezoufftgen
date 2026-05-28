@@ -206,12 +206,19 @@ main:has(.hero-accueil),
 .hero-tags {
   margin: 1.3rem 0 0;
   font-family: 'Libre Baskerville', 'Baskerville', serif;
-  font-size: 0.72rem;
+  font-size: 0.66rem;
   font-weight: 400;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
   color: #C9BC9A;
   opacity: 0.85;
   line-height: 1.6;
+  /* Force une seule ligne ; le bloc peut deborder legerement sa colonne,
+     c'est volontaire pour garder la mention sur une ligne. */
+  white-space: nowrap;
+  width: max-content;
+  max-width: 92vw;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Mobile : centrer au lieu de mettre a droite */
@@ -232,6 +239,10 @@ main:has(.hero-accueil),
   .hero-tags {
     font-size: 0.64rem;
     letter-spacing: 0.03em;
+    /* Sur petit ecran on autorise le retour a la ligne : impossible de
+       tout tenir sur une ligne sans rendre le texte illisible. */
+    white-space: normal;
+    width: auto;
   }
 }
 
