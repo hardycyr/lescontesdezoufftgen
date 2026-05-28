@@ -17,6 +17,12 @@
        un element qui deborderait (image, bloc trop large, etc.) */
     overflow-x: hidden;
     max-width: 100%;
+    /* Empeche le "font boosting" automatique des navigateurs mobiles
+       (Chrome Android / Safari iOS) qui agrandit le texte et casse la
+       coherence avec le rendu desktop. */
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   body {
