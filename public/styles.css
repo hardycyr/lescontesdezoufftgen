@@ -220,8 +220,18 @@ main:has(.hero-accueil),
     justify-content: center;
     padding: 1.5rem;
   }
-  .hero-titre {
-    font-size: clamp(2.2rem, 9vw, 3.4rem);
+  /* On cible les spans : ils portent leur propre font-size, donc agir
+     sur .hero-titre seul n'avait aucun effet (titre restait enorme sur
+     petit ecran). */
+  .hero-titre-petit {
+    font-size: clamp(1.6rem, 6vw, 2.6rem);
+  }
+  .hero-titre-grand {
+    font-size: clamp(2.4rem, 10vw, 4rem);
+  }
+  .hero-tags {
+    font-size: 0.64rem;
+    letter-spacing: 0.03em;
   }
 }
 
