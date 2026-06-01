@@ -247,6 +247,179 @@
         font-size: 1.4rem;
       }
     }
+
+    /* === Nouvelle structure : header, qualite, atelier, outro ============ */
+
+    .collection-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 3.5rem;
+    }
+
+    .collection-subtitle {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 500;
+      color: #555;
+      margin: -0.4rem 0 1.6rem;
+      line-height: 1.35;
+    }
+
+    .collection-lead {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 1.02rem;
+      line-height: 1.85;
+      color: black;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .section-h2 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 2.4rem;
+      line-height: 1.2;
+      text-align: center;
+      margin: 4rem 0 1rem;
+      font-weight: 600;
+      color: black;
+    }
+
+    .section-lead {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      color: black;
+      max-width: 720px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+
+    /* Bloc qualite : 3 pictos en ligne */
+    .quality-section {
+      max-width: 820px;
+      margin: 4rem auto 0;
+      text-align: center;
+    }
+
+    .quality-pictos {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+
+    .quality-picto {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.7rem;
+      color: #444;
+    }
+
+    .quality-picto svg {
+      width: 42px;
+      height: 42px;
+      color: #C9A35A;
+    }
+
+    .quality-picto span {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.92rem;
+      letter-spacing: 0.04em;
+    }
+
+    /* Bloc conte-atelier : 3 cartes */
+    .atelier-section {
+      max-width: 1000px;
+      margin: 4rem auto 0;
+      text-align: center;
+    }
+
+    .atelier-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+
+    .atelier-card {
+      background: rgba(201, 163, 90, 0.06);
+      border: 1px solid rgba(201, 163, 90, 0.28);
+      border-radius: 10px;
+      padding: 2rem 1.4rem;
+      text-align: center;
+    }
+
+    .atelier-card svg {
+      width: 36px;
+      height: 36px;
+      color: #C9A35A;
+      margin-bottom: 0.7rem;
+    }
+
+    .atelier-card h3 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.6rem;
+      line-height: 1.2;
+      margin: 0 0 0.5rem;
+      font-weight: 600;
+      color: black;
+    }
+
+    .atelier-card p {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      color: #555;
+      margin: 0;
+    }
+
+    /* Outro */
+    .collection-outro {
+      text-align: center;
+      max-width: 760px;
+      margin: 4.5rem auto 1rem;
+    }
+
+    .collection-outro p {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 1.05rem;
+      line-height: 1.85;
+      font-style: italic;
+      color: #444;
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      padding: 0.95rem 1.7rem;
+      border: 1px solid #C9A35A;
+      border-radius: 4px;
+      background: transparent;
+      color: black;
+      text-decoration: none;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.82rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      transition: background 0.25s, border-color 0.25s;
+    }
+
+    .cta-button:hover {
+      background: rgba(201, 163, 90, 0.12);
+      border-color: #D4A857;
+    }
+
+    @media (max-width: 700px) {
+      .quality-pictos { grid-template-columns: 1fr; gap: 1.4rem; }
+      .atelier-cards { grid-template-columns: 1fr; gap: 1rem; }
+      .section-h2 { font-size: 2rem; margin: 3rem 0 1rem; }
+      .collection-subtitle { font-size: 1.25rem; }
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -314,119 +487,136 @@
 
   <main>
     <section id="collection-page">
-      <div class="collection-intro">
+
+      <!-- 1. Titre + sous-titre + intro -->
+      <header class="collection-header">
         <h1 class="section-title">La collection</h1>
+        <p class="collection-subtitle">Des albums jeunesse à lire, à garder et à transmettre.</p>
+        <p class="collection-lead">
+          Les <em>Contes de Zoufftgen</em> sont une collection d’albums jeunesse
+          écrits et illustrés par Hélène Hardy. Chaque livre s’ancre dans un lieu
+          réel du village et prolonge l’histoire à travers le dessin, la découverte
+          et la transmission.
+        </p>
+      </header>
 
-        <div class="collection-text">
-          <h3>Une collection ancrée dans le réel</h3>
-          <p>
-            Les <em>Contes de Zoufftgen</em> forment une collection de livres jeunesse,
-            écrits et illustrés par Hélène Hardy. Chaque histoire prend racine dans un
-            lieu réel du village, entre mémoire et imaginaire.
-          </p>
+      <!-- 2. Bloc "Les albums" -->
+      <section class="albums-section">
+        <h2 class="section-h2">Les albums</h2>
 
-          <div class="leaf-separator" aria-hidden="true">
-            <span class="leaf-separator-line"></span>
-            <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
-            <span class="leaf-separator-line"></span>
+        <div class="livres">
+          <article class="livre">
+            <a href="/boutique/le-petit-zouffarceur.html">
+              <img loading="lazy" src="/images/tome-1.webp" alt="Le Petit Zouffarceur — tome 1 de la collection" />
+            </a>
+            <h3>Le Petit Zouffarceur</h3>
+            <p class="livre-tome">Tome 1 de la collection</p>
+            <p>La rencontre avec le petit gardien malicieux de la forêt de Zoufftgen.</p>
+            <a href="/boutique/le-petit-zouffarceur.html" class="btn-more">Découvrir le livre</a>
+          </article>
+
+          <article class="livre">
+            <a href="/boutique/la-maison-du-petit-zouffarceur.html">
+              <img loading="lazy" src="/images/tome-2.webp" alt="La Maison du Petit Zouffarceur — tome 2 de la collection" />
+            </a>
+            <h3>La Maison du Petit Zouffarceur</h3>
+            <p class="livre-tome">Tome 2 de la collection</p>
+            <p>Une aventure au cœur du vieux chêne du Vogelsang.</p>
+            <a href="/boutique/la-maison-du-petit-zouffarceur.html" class="btn-more">Découvrir le livre</a>
+          </article>
+
+          <article class="livre">
+            <a href="/boutique/papa-sanglier-et-sa-dent-or.html">
+              <img loading="lazy" src="/images/tome-3.webp" alt="Papa Sanglier et sa dent en or — tome 3 de la collection" />
+            </a>
+            <h3>Papa Sanglier et sa dent en or</h3>
+            <p class="livre-tome">Tome 3 de la collection</p>
+            <p>Une histoire tendre et drôle autour d’un sanglier bien connu du village.</p>
+            <a href="/boutique/papa-sanglier-et-sa-dent-or.html" class="btn-more">Découvrir le livre</a>
+          </article>
+        </div>
+      </section>
+
+      <!-- 3. Bloc qualite des livres -->
+      <section class="quality-section">
+        <h2 class="section-h2">Des livres pensés comme des objets</h2>
+        <p class="section-lead">
+          Chaque album est conçu avec soin : format carré 21 × 21 cm, couverture
+          rigide, papier épais, finitions délicates. Des livres pensés pour être
+          relus, offerts et gardés.
+        </p>
+        <div class="quality-pictos">
+          <div class="quality-picto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="4" y="3" width="16" height="18" rx="1.5"/>
+              <line x1="7.5" y1="3" x2="7.5" y2="21"/>
+            </svg>
+            <span>Couverture rigide</span>
           </div>
-
-          <h3>Une édition soignée</h3>
-          <p>Les ouvrages de la collection sont conçus avec un soin particulier :</p>
-          <ul>
-            <li>couverture rigide</li>
-            <li>papier intérieur épais au toucher mat</li>
-            <li>finitions délicates (vernis sélectif, dorure)</li>
-          </ul>
-          <p>
-            Chaque livre est pensé comme un objet à part entière, destiné à être conservé,
-            offert et transmis.
-          </p>
-
-          <div class="leaf-separator" aria-hidden="true">
-            <span class="leaf-separator-line"></span>
-            <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
-            <span class="leaf-separator-line"></span>
+          <div class="quality-picto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="5" y="7" width="13" height="14" rx="1"/>
+              <path d="M8 4h12a1 1 0 0 1 1 1v13"/>
+            </svg>
+            <span>Papier épais</span>
           </div>
-
-          <h3>Les ouvrages</h3>
+          <div class="quality-picto">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3l2.4 6.2L21 12l-6.6 2.8L12 21l-2.4-6.2L3 12l6.6-2.8z"/>
+            </svg>
+            <span>Finitions soignées</span>
+          </div>
         </div>
-      </div>
+      </section>
 
-      <div class="livres">
-        <article class="livre">
-          <a href="/boutique/le-petit-zouffarceur.html">
-            <img loading="lazy" src="/images/tome-1.webp" alt="Le petit zouffarceur — tome 1 de la collection" />
-          </a>
-          <h3>Le petit zouffarceur</h3>
-          <p class="livre-tome">— Tome 1 de la collection</p>
-          <p>Une nuit de Noël à Zoufftgen, des événements étranges viennent troubler le village…</p>
-          <a href="/boutique/le-petit-zouffarceur.html" class="btn-more">Voir le livre</a>
-        </article>
+      <!-- 4. Bloc conte-atelier -->
+      <section class="atelier-section">
+        <h2 class="section-h2">Un conte-atelier à partager</h2>
+        <p class="section-lead">
+          Au-delà du récit illustré, chaque livre invite l’enfant à prolonger
+          l’histoire : apprendre à dessiner un personnage, découvrir un lieu
+          réel, observer la nature ou partager une recette inspirée du conte.
+        </p>
+        <div class="atelier-cards">
+          <article class="atelier-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M17 3l4 4L8 20l-4 1 1-4z"/>
+              <line x1="14" y1="6" x2="18" y2="10"/>
+            </svg>
+            <h3>Dessiner</h3>
+            <p>Un pas-à-pas pour s’approprier les personnages.</p>
+          </article>
+          <article class="atelier-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="11" cy="11" r="7"/>
+              <line x1="16" y1="16" x2="21" y2="21"/>
+            </svg>
+            <h3>Découvrir</h3>
+            <p>Un lien avec un lieu réel ou un élément de nature.</p>
+          </article>
+          <article class="atelier-card">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 0 0 0-7.78z"/>
+            </svg>
+            <h3>Partager</h3>
+            <p>Une recette, un geste ou un moment à vivre ensemble.</p>
+          </article>
+        </div>
+      </section>
 
-        <article class="livre">
-          <a href="/boutique/la-maison-du-petit-zouffarceur.html">
-            <img loading="lazy" src="/images/tome-2.webp" alt="La maison du petit zouffarceur — tome 2 de la collection" />
-          </a>
-          <h3>La maison du petit zouffarceur</h3>
-          <p class="livre-tome">— Tome 2 de la collection</p>
-          <p>Les habitants s’inquiètent : les noisettes déposées aux fenêtres ne disparaissent plus…</p>
-          <a href="/boutique/la-maison-du-petit-zouffarceur.html" class="btn-more">Voir le livre</a>
-        </article>
-
-        <article class="livre">
-          <a href="/boutique/papa-sanglier-et-sa-dent-or.html">
-            <img loading="lazy" src="/images/tome-3.webp" alt="Papa Sanglier et sa dent en or — tome 3 de la collection" />
-          </a>
-          <h3>Papa Sanglier et sa dent en or</h3>
-          <p class="livre-tome">— Tome 3 de la collection</p>
-          <p>Dans la forêt de Zoufftgen, une simple promenade devient une aventure inattendue.</p>
-          <a href="/boutique/papa-sanglier-et-sa-dent-or.html" class="btn-more">Voir le livre</a>
-        </article>
-      </div>
-
-      <div class="collection-text collection-bottom-text">
+      <!-- 5. Fin de page -->
+      <section class="collection-outro">
         <p>
-          Chaque conte prolonge un même univers, où les lieux existent réellement,
-          où les histoires s’ancrent dans le village, et où les livres deviennent
-          des objets de mémoire.
+          Livre après livre, les <em>Contes de Zoufftgen</em> tissent un univers
+          commun où les lieux réels du village deviennent le point de départ
+          de nouvelles histoires.
         </p>
+        <a href="/univers.html" class="cta-button">
+          Découvrir l’univers
+          <img loading="lazy" src="/images/feuille-separateur.png" alt="" style="width: 22px; height: auto;" />
+        </a>
+      </section>
 
-        <div class="leaf-separator" aria-hidden="true">
-          <span class="leaf-separator-line"></span>
-          <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
-          <span class="leaf-separator-line"></span>
-        </div>
-
-        <h3>Obtenir les ouvrages</h3>
-        <p>Les livres sont disponibles :</p>
-        <ul>
-          <li>en commande en ligne (livraison par La Poste)</li>
-          <li>en retrait à Zoufftgen, sur rendez-vous</li>
-          <li>
-            dans la boutique de créateurs
-            <a href="https://www.facebook.com/artisanarts57" target="_blank" rel="noopener">Artisan'Arts</a>
-            de Volmerange-les-Mines
-          </li>
-        </ul>
-
-        <div class="leaf-separator" aria-hidden="true">
-          <span class="leaf-separator-line"></span>
-          <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
-          <span class="leaf-separator-line"></span>
-        </div>
-
-        <h3>Une collection en devenir</h3>
-        <p>
-          L’univers des <em>Contes de Zoufftgen</em> continue de s’enrichir.
-          De nouveaux récits viendront prolonger la collection, ainsi que des
-          objets inspirés des contes, réalisés en petites séries.
-        </p>
-        <p style="margin-top: 1.2rem; font-size: 0.92rem; color: #555;">
-          En savoir plus sur ces <a href="/livres-jeunesse-lorraine.html">livres jeunesse en Lorraine et Moselle</a>,
-          écrits par une autrice de la région.
-        </p>
-      </div>
     </section>
   </main>
 
