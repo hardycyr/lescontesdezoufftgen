@@ -99,7 +99,6 @@
     }
 
     .book-page > * {
-      display: block !important;
       width: 100%;
     }
 
@@ -355,6 +354,48 @@
       box-sizing: border-box;
       text-align: center;
       line-height: 1.4;
+      align-self: stretch;
+      /* Hauteur uniforme garantie sur les 3 boutons (sinon le 1er,
+         avec .btn-panier, peut etre plus haut a cause de styles parents). */
+      padding-top: 0.7rem;
+      padding-bottom: 0.7rem;
+    }
+
+    /* Le 1er bouton a aussi la classe .btn-panier (pour l'ajout au panier
+       via JS), mais styles.css applique un style "bouton vert" different.
+       On force l'apparence "btn-more" avec !important pour annuler
+       completement la cascade de styles.css. */
+    .find-buttons .btn-more.btn-panier {
+      display: block !important;
+      width: 100% !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      color: black !important;
+      border: 1px solid #C9A35A !important;
+      border-radius: 4px !important;
+      padding-top: 0.7rem !important;
+      padding-bottom: 0.7rem !important;
+      padding-left: 1.2rem !important;
+      padding-right: 1.2rem !important;
+      margin: 0 !important;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif !important;
+      font-size: 0.78rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      gap: 0 !important;
+      align-items: stretch !important;
+      align-self: stretch !important;
+      text-align: center !important;
+      line-height: 1.4 !important;
+      box-sizing: border-box !important;
+    }
+    .find-buttons .btn-more.btn-panier:hover {
+      background: rgba(201, 163, 90, 0.12) !important;
+      background-color: rgba(201, 163, 90, 0.12) !important;
+      border-color: #D4A857 !important;
+      color: black !important;
+      transform: none !important;
     }
     /* Sur petit ecran, on empile pour rester lisible. */
     @media (max-width: 600px) {
@@ -552,10 +593,12 @@
         data-nom="Le Petit Zouffarceur"
         data-prix="1800"
       >
-        Commander<br />en ligne
+        <span style="display:block; white-space:nowrap;">Commander</span>
+        <span style="display:block; white-space:nowrap;">en ligne</span>
       </a>
       <a href="/contact.html" class="btn-more">
-        Retrait à Zoufftgen<br />sur rendez-vous
+        <span style="display:block; white-space:nowrap;">Retrait à Zoufftgen</span>
+        <span style="display:block; white-space:nowrap;">sur rendez-vous</span>
       </a>
       <a
         href="https://www.facebook.com/artisanarts57"
@@ -563,7 +606,8 @@
         rel="noopener"
         class="btn-more"
       >
-        En boutique<br />chez Artisan’Arts
+        <span style="display:block; white-space:nowrap;">En boutique</span>
+        <span style="display:block; white-space:nowrap;">chez Artisan’Arts</span>
       </a>
     </div>
 
@@ -600,6 +644,8 @@
           <li>des activités pour prolonger la lecture</li>
           <li>une recette à faire en famille</li>
           <li>couverture rigide, vernis 3D, format carré 21 × 21 cm, 32 pages</li>
+          <li>lecture accompagnée dès 3 ans</li>
+          <li>lecture autonome à partir de 6-7 ans</li>
         </ul>
       </section>
     </div>

@@ -99,7 +99,6 @@
     }
 
     .book-page > * {
-      display: block !important;
       width: 100%;
     }
 
@@ -317,6 +316,85 @@
       border-color: #D4A857;
     }
 
+    /* Trio de boutons "Commander / Retrait / En boutique" (meme style que collection.html). */
+    .btn-more {
+      display: inline-block;
+      padding: 0.55rem 1.2rem;
+      border: 1px solid #C9A35A;
+      border-radius: 4px;
+      background: transparent;
+      color: black;
+      text-decoration: none;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      cursor: pointer;
+    }
+    .btn-more:hover {
+      background: rgba(201, 163, 90, 0.12);
+      border-color: #D4A857;
+    }
+
+    .book-page > .find-buttons {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      max-width: 720px;
+      margin: 1.5rem auto 2rem;
+      box-sizing: border-box;
+    }
+    .find-buttons .btn-more {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 1.4;
+      align-self: stretch;
+      padding-top: 0.7rem;
+      padding-bottom: 0.7rem;
+    }
+    .find-buttons .btn-more.btn-panier {
+      display: block !important;
+      width: 100% !important;
+      background: transparent !important;
+      background-color: transparent !important;
+      color: black !important;
+      border: 1px solid #C9A35A !important;
+      border-radius: 4px !important;
+      padding-top: 0.7rem !important;
+      padding-bottom: 0.7rem !important;
+      padding-left: 1.2rem !important;
+      padding-right: 1.2rem !important;
+      margin: 0 !important;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif !important;
+      font-size: 0.78rem !important;
+      font-weight: 500 !important;
+      letter-spacing: 0.12em !important;
+      text-transform: uppercase !important;
+      gap: 0 !important;
+      align-items: stretch !important;
+      align-self: stretch !important;
+      text-align: center !important;
+      line-height: 1.4 !important;
+      box-sizing: border-box !important;
+    }
+    .find-buttons .btn-more.btn-panier:hover {
+      background: rgba(201, 163, 90, 0.12) !important;
+      background-color: rgba(201, 163, 90, 0.12) !important;
+      border-color: #D4A857 !important;
+      color: black !important;
+      transform: none !important;
+    }
+    @media (max-width: 600px) {
+      .book-page > .find-buttons {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+      }
+    }
+
     .book-video {
       display: block !important;
       max-width: 760px;
@@ -432,85 +510,65 @@
 
       <div class="book-intro">
         <p>
-          Dans la forêt de Zoufftgen, une simple promenade devient une aventure
-          inattendue. Un conte au cœur des bois, entre observation de la nature
-          et part de mystère.
+          Dans la forêt de Zoufftgen, Papa Sanglier n’imaginait pas qu’une
+          simple promenade se transformerait en une telle aventure…
+          De dentiste en ophtalmologue, ce papa grognon ressort transformé…
+          et très, très fier de sa nouvelle allure dorée !
         </p>
       </div>
     </section>
 
-    <div class="book-content">
-      <section>
-        <h2>Une aventure dans la forêt</h2>
-        <p>
-          Ce troisième tome emmène les lecteurs hors du village, à la lisière
-          des bois, là où la nature reprend ses droits. Une rencontre inattendue
-          va transformer une journée ordinaire en souvenir mémorable.
-        </p>
-        <p>
-          Un conte qui invite à observer la forêt autrement, à prêter attention
-          aux détails qui passent souvent inaperçus.
-        </p>
-      </section>
-
-      <section>
-        <h2>Un livre pensé comme un objet</h2>
-        <p>Cet ouvrage est conçu avec soin :</p>
-        <ul>
-          <li>32 pages, couverture rigide</li>
-          <li>dorure 3D et vernis sélectif sur la couverture</li>
-          <li>papier intérieur épais au toucher mat</li>
-          <li>format : 21 × 21 cm</li>
-        </ul>
-        <p>Un livre à lire, à offrir, et à transmettre.</p>
-      </section>
-    </div>
-
-    <div class="interior-image">
-      <img
-        src="/images/PapaSanglierEtSaDentEnOr2.webp"
-        alt="Double page intérieure du livre Papa Sanglier et sa dent en or"
-        loading="lazy"
-      />
-    </div>
-
-    <div class="book-content">
-      <section>
-        <h2>Dans le livre</h2>
-        <ul>
-          <li>une histoire illustrée</li>
-          <li>des activités ludiques pour prolonger l’aventure</li>
-          <li>une page historique sur la vraie maison forestière de Zoufftgen, qui existe depuis plus de 100 ans</li>
-          <li>des pages ludiques sur le mode de vie des sangliers et leur dentition</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Informations</h2>
-        <ul>
-          <li>Âge conseillé : à partir de 3 ans</li>
-          <li>Prix : 18 €</li>
-          <li>Disponible en livraison ou en retrait à Zoufftgen</li>
-        </ul>
-      </section>
-    </div>
-
-    <div class="purchase-box">
-      <p class="product-price">Prix : 18 €</p>
+    <div class="find-buttons">
       <a
         href="#"
-        class="btn-panier"
+        class="btn-more btn-panier"
         data-id="livre-3"
         data-nom="Papa Sanglier et sa dent en or"
         data-prix="1800"
       >
-        Ajouter au panier
+        <span style="display:block; white-space:nowrap;">Commander</span>
+        <span style="display:block; white-space:nowrap;">en ligne</span>
       </a>
-      <p>
-        Une dédicace peut être ajoutée sur simple demande, lors de votre commande
-        ou via la page de contact.
-      </p>
+      <a href="/contact.html" class="btn-more">
+        <span style="display:block; white-space:nowrap;">Retrait à Zoufftgen</span>
+        <span style="display:block; white-space:nowrap;">sur rendez-vous</span>
+      </a>
+      <a
+        href="https://www.facebook.com/artisanarts57"
+        target="_blank"
+        rel="noopener"
+        class="btn-more"
+      >
+        <span style="display:block; white-space:nowrap;">En boutique</span>
+        <span style="display:block; white-space:nowrap;">chez Artisan’Arts</span>
+      </a>
     </div>
+
+    <div class="book-content">
+      <section>
+        <h2>Inspiré d’un lieu réel</h2>
+        <p>
+          Ce conte vous fera découvrir la maison forestière de Zoufftgen,
+          un lieu qui existe depuis la fin du XIX<sup>e</sup> siècle.
+        </p>
+      </section>
+    </div>
+
+    <div class="book-content">
+      <section>
+        <h2>Dans cet album :</h2>
+        <ul>
+          <li>une histoire illustrée</li>
+          <li>une page inspirée d’un lieu réel de Zoufftgen</li>
+          <li>des activités pour prolonger la lecture</li>
+          <li>une page d’informations sur les sangliers</li>
+          <li>couverture rigide, vernis 3D, format carré 21 × 21 cm, 32 pages</li>
+          <li>lecture accompagnée dès 3 ans</li>
+          <li>lecture autonome à partir de 6-7 ans</li>
+        </ul>
+      </section>
+    </div>
+
   </main>
 
   <footer>
