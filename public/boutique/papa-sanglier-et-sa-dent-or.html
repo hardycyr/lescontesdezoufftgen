@@ -395,6 +395,29 @@
       }
     }
 
+    /* Duo de photos cote a cote (ex: photo reelle + illustration).
+       Hauteur fixe pour aligner, largeur auto pour preserver les ratios. */
+    .duo-photos {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 0.8rem;
+      margin: 1.5rem auto;
+      justify-content: center;
+      align-items: center;
+    }
+    .duo-photos img {
+      height: 240px;
+      width: auto;
+      max-width: 100%;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    @media (max-width: 600px) {
+      .duo-photos img { height: 180px; }
+    }
+
     .book-video {
       display: block !important;
       max-width: 760px;
@@ -554,6 +577,19 @@
       </section>
     </div>
 
+    <div class="duo-photos">
+      <img
+        loading="lazy"
+        src="/images/univers/maison-forestiere-reelle.webp"
+        alt="La maison forestière de Zoufftgen, un lieu réel qui a inspiré le conte"
+      />
+      <img
+        loading="lazy"
+        src="/images/univers/maison-forestiere-illustration.webp"
+        alt="La maison forestière telle qu’illustrée dans Papa Sanglier et sa dent en or"
+      />
+    </div>
+
     <div class="book-content">
       <section>
         <h2>Dans cet album :</h2>
@@ -562,11 +598,24 @@
           <li>une page inspirée d’un lieu réel de Zoufftgen</li>
           <li>des activités pour prolonger la lecture</li>
           <li>une page d’informations sur les sangliers</li>
-          <li>couverture rigide, vernis 3D, format carré 21 × 21 cm, 32 pages</li>
+          <li>couverture rigide, dorure 3D, format carré 21 × 21 cm, 32 pages</li>
           <li>lecture accompagnée dès 3 ans</li>
           <li>lecture autonome à partir de 6-7 ans</li>
         </ul>
       </section>
+    </div>
+
+    <div class="duo-photos">
+      <img
+        loading="lazy"
+        src="/images/papa sanglier/dessinchampi.webp"
+        alt="Dessin pas à pas d’un champignon extrait de Papa Sanglier et sa dent en or"
+      />
+      <img
+        loading="lazy"
+        src="/images/papa sanglier/page-historique.webp"
+        alt="Page historique sur la maison forestière de Zoufftgen extraite de l’album"
+      />
     </div>
 
   </main>
