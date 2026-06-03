@@ -24,7 +24,10 @@ function updatePanierCompteur() {
 // ➕ Ajout depuis page accueil / boutique
 // -------------------
 function initialiserBoutonsAjouter() {
-  const boutons = document.querySelectorAll(".btn-panier");
+  // .btn-panier : classe historique (pages produit avec gros bouton vert)
+  // .btn-cart : nouvelle classe utilisee dans les .find-buttons pour
+  //             eviter les conflits CSS avec le style .btn-panier global.
+  const boutons = document.querySelectorAll(".btn-panier, .btn-cart");
   if (!boutons.length) return;
 
   boutons.forEach(bouton => {
