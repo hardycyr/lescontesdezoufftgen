@@ -259,6 +259,111 @@
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
     }
 
+    /* Duo de photos cote a cote (ex: dessin + recette).
+       Hauteur fixe pour aligner verticalement, largeur auto pour preserver
+       les ratios naturels de chaque image. */
+    .duo-photos {
+      display: flex !important;
+      flex-direction: row !important;
+      flex-wrap: nowrap !important;
+      gap: 0.8rem;
+      margin: 1.5rem auto;
+      justify-content: center;
+      align-items: center;
+    }
+    .duo-photos img {
+      height: 240px;
+      width: auto;
+      max-width: 100%;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    @media (max-width: 600px) {
+      .duo-photos img { height: 180px; }
+    }
+
+    /* Bloc "tome suivant" : couverture cliquable + titre en dessous. */
+    .next-book {
+      display: block;
+      max-width: 240px;
+      margin: 1.5rem auto;
+      text-align: center;
+    }
+    .next-book a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .next-book img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      transition: transform 0.25s ease;
+    }
+    .next-book a:hover img {
+      transform: scale(1.03);
+    }
+    .next-book-title {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 500;
+      color: black;
+      margin: 0.8rem 0 0;
+      line-height: 1.3;
+    }
+
+    /* Trio de boutons "Commander / Retrait / En boutique" (meme style que collection.html). */
+    .btn-more {
+      display: inline-block;
+      padding: 0.55rem 1.2rem;
+      border: 1px solid #C9A35A;
+      border-radius: 4px;
+      background: transparent;
+      color: black;
+      text-decoration: none;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.25s, color 0.25s, border-color 0.25s;
+      cursor: pointer;
+    }
+    .btn-more:hover {
+      background: rgba(201, 163, 90, 0.12);
+      border-color: #D4A857;
+    }
+
+    /* Grid 3 colonnes egales et centre garanti.
+       Note : on doit forcer "display: grid" car .book-page > *
+       impose un "display: block !important" qui ecrase sinon. */
+    .book-page > .find-buttons {
+      display: grid !important;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1rem;
+      max-width: 720px;
+      margin: 1.5rem auto 2rem;
+      box-sizing: border-box;
+    }
+    .find-buttons .btn-more {
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      text-align: center;
+      line-height: 1.4;
+    }
+    /* Sur petit ecran, on empile pour rester lisible. */
+    @media (max-width: 600px) {
+      .book-page > .find-buttons {
+        grid-template-columns: 1fr;
+        max-width: 320px;
+      }
+    }
+
     .purchase-box {
       display: block !important;
       max-width: 760px;
@@ -418,7 +523,7 @@
   <main class="book-page">
     <div class="book-header">
       <h1>Le Petit Zouffarceur</h1>
-      <p class="book-subtitle">Tome 1 de la collection Les Contes de Zoufftgen</p>
+      <p class="book-subtitle">Un conte illustré de Hélène Hardy, né au cœur de la forêt de Zoufftgen.</p>
     </div>
 
     <section class="book-hero">
@@ -432,82 +537,110 @@
 
       <div class="book-intro">
         <p>
-          Un premier conte ancré dans le village, où les lieux familiers semblent soudain
-          receler une présence discrète, à la lisière du réel et de l’imaginaire.
+          Il se passe des choses étranges à Zoufftgen la nuit du 24 décembre.<br />
+          Le Père Noël a-t-il perdu la tête ? Qui a bien pu mettre un tel bazar dans les cadeaux ?
+          Les Zoufftgenois vont découvrir que depuis bien longtemps, leur village compte un habitant secret…
         </p>
       </div>
     </section>
 
+    <div class="find-buttons">
+      <a
+        href="#"
+        class="btn-more btn-panier"
+        data-id="livre-1"
+        data-nom="Le Petit Zouffarceur"
+        data-prix="1800"
+      >
+        Commander<br />en ligne
+      </a>
+      <a href="/contact.html" class="btn-more">
+        Retrait à Zoufftgen<br />sur rendez-vous
+      </a>
+      <a
+        href="https://www.facebook.com/artisanarts57"
+        target="_blank"
+        rel="noopener"
+        class="btn-more"
+      >
+        En boutique<br />chez Artisan’Arts
+      </a>
+    </div>
+
     <div class="book-content">
       <section>
-        <h2>Un conte ancré dans le village</h2>
+        <h2>Inspiré d’un lieu réel</h2>
         <p>
-          À Zoufftgen, certains lieux semblent ordinaires… jusqu’à ce que l’on prenne le temps
-          de les regarder autrement.
+          Cette histoire trouve son origine dans un lieu bien réel de Zoufftgen :
+          le Vogelsang. Entre forêt, sentiers et souvenirs d’enfance, ce paysage
+          a donné naissance au personnage du Petit Zouffarceur.
         </p>
-        <p>
-          Dans ce premier conte, une présence discrète semble veiller sur le village,
-          et rappelle que les histoires naissent souvent là où l’on ne les attend pas.
-        </p>
-      </section>
-
-      <section>
-        <h2>Un livre pensé comme un objet</h2>
-        <p>Cet ouvrage est conçu avec soin :</p>
-        <ul>
-          <li>format : 21 × 21 cm</li>
-          <li>couverture rigide</li>
-          <li>papier intérieur épais au toucher mat</li>
-          <li>finitions délicates (vernis sélectif / dorure)</li>
-        </ul>
-        <p>Un livre à lire, à offrir, et à transmettre.</p>
       </section>
     </div>
 
-    <div class="interior-image">
+    <div class="duo-photos">
       <img
-        src="/images/LePetitZouffarceur1.webp"
-        alt="Double page intérieure du livre Le Petit Zouffarceur"
         loading="lazy"
+        src="/images/LePetitZouffarceur/ferme-vogelsang-reelle.webp"
+        alt="La ferme du Vogelsang à Zoufftgen, lieu réel qui a inspiré Le Petit Zouffarceur"
+      />
+      <img
+        loading="lazy"
+        src="/images/LePetitZouffarceur/ferme-vogelsang-illustration.webp"
+        alt="La ferme du Vogelsang illustrée dans Le Petit Zouffarceur"
       />
     </div>
 
     <div class="book-content">
       <section>
-        <h2>Dans le livre</h2>
+        <h2>Dans cet album :</h2>
         <ul>
           <li>une histoire illustrée</li>
-          <li>des pages complémentaires (dessin, découverte, transmission)</li>
-          <li>un lien avec un lieu réel du village</li>
+          <li>une page inspirée d’un lieu réel de Zoufftgen</li>
+          <li>des activités pour prolonger la lecture</li>
+          <li>une recette à faire en famille</li>
+          <li>couverture rigide, vernis 3D, format carré 21 × 21 cm, 32 pages</li>
         </ul>
       </section>
+    </div>
 
+    <div class="duo-photos">
+      <img
+        loading="lazy"
+        src="/images/LePetitZouffarceur/dessin.webp"
+        alt="Dessin pas à pas extrait de l’album Le Petit Zouffarceur"
+      />
+      <img
+        loading="lazy"
+        src="/images/LePetitZouffarceur/recette1.webp"
+        alt="Recette à faire en famille extraite de l’album Le Petit Zouffarceur"
+      />
+    </div>
+
+    <div class="book-content">
       <section>
-        <h2>Informations</h2>
-        <ul>
-          <li>Âge conseillé : à partir de 3 ans</li>
-          <li>Prix : 18 €</li>
-          <li>Disponible en livraison ou en retrait à Zoufftgen</li>
-        </ul>
+        <h2>L’histoire continue…</h2>
+        <p>
+          Ce premier conte permet de faire connaissance avec le Petit
+          Zouffarceur. Mais où habite-t-il ? À quoi ressemble sa maison ?
+        </p>
+        <p>
+          Ces questions ont donné naissance à un deuxième album,
+          <em>La maison du Petit Zouffarceur</em>.
+        </p>
       </section>
     </div>
 
-    <div class="purchase-box">
-      <p class="product-price">Prix : 18 €</p>
-      <a
-        href="#"
-        class="btn-panier"
-        data-id="livre-1"
-        data-nom="Le petit zouffarceur"
-        data-prix="1800"
-      >
-        Ajouter au panier
+    <div class="next-book">
+      <a href="/boutique/la-maison-du-petit-zouffarceur.html">
+        <img
+          loading="lazy"
+          src="/images/tome-2.webp"
+          alt="La maison du Petit Zouffarceur — tome 2 de la collection Les Contes de Zoufftgen"
+        />
       </a>
-      <p>
-        Une dédicace peut être ajoutée sur simple demande, lors de votre commande
-        ou via la page de contact.
-      </p>
     </div>
+
 
     <div class="book-video">
       <iframe
