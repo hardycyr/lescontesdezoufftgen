@@ -14,6 +14,28 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
+// URLs decommissionnees : on retourne un statut HTTP 410 (Gone) au lieu
+// du 404 par defaut. Google desindexe plus vite avec un 410 (signifie
+// "supprime definitivement") qu'avec un 404 (qu'il considere parfois
+// comme temporaire). A declarer AVANT express.static pour intercepter
+// la requete avant qu'elle ne tombe dans le 404 statique.
+const goneUrls = [
+  "/support.html",
+  "/support-en.html",
+  "/meslivres.html",
+  "/monhistoire.html",
+  "/mystory.html",
+  "/presse.html",
+  "/press.html",
+  "/lectures.html",
+  "/lectures-en.html",
+];
+goneUrls.forEach((url) => {
+  app.get(url, (req, res) => {
+    res.status(410).type("text/plain").send("410 Gone — cette page a été supprimée.");
+  });
+});
+
 app.use(express.static("public"));
 
 const __filename = fileURLToPath(import.meta.url);
