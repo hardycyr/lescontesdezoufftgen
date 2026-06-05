@@ -463,6 +463,39 @@
       border-color: #D4A857;
     }
 
+    /* Specs + bouton "Commander l'album" sous la photo du livre. */
+    .book-buy {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    .book-buy-specs {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.95rem;
+      color: #555;
+      margin: 0 0 1rem;
+      letter-spacing: 0.02em;
+    }
+    .book-buy-btn {
+      display: inline-block;
+      padding: 0.75rem 1.8rem;
+      border: 1px solid #C9A35A;
+      border-radius: 4px;
+      background: transparent;
+      color: black;
+      text-decoration: none;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.25s, border-color 0.25s;
+      cursor: pointer;
+    }
+    .book-buy-btn:hover {
+      background: rgba(201, 163, 90, 0.12);
+      border-color: #D4A857;
+    }
+
     .book-video {
       display: block !important;
       max-width: 760px;
@@ -574,6 +607,16 @@
           alt="Le Petit Zouffarceur — tome 1 de la collection Les Contes de Zoufftgen"
           loading="eager"
         />
+        <div class="book-buy">
+          <p class="book-buy-specs">Album illustré · Couverture rigide · 19 €</p>
+          <a
+            href="#"
+            class="book-buy-btn btn-cart"
+            data-id="livre-1"
+            data-nom="Le Petit Zouffarceur"
+            data-prix="1900"
+          >Commander l’album</a>
+        </div>
       </div>
 
       <div class="book-intro">
@@ -591,7 +634,7 @@
         class="btn-more btn-cart"
         data-id="livre-1"
         data-nom="Le Petit Zouffarceur"
-        data-prix="1800"
+        data-prix="1900"
       >
         <span style="display:block; white-space:nowrap;">Commander</span>
         <span style="display:block; white-space:nowrap;">en ligne</span>
