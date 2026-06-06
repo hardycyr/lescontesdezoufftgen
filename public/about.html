@@ -216,6 +216,53 @@
       margin: 0 0 0.5rem;
     }
 
+    /* Encadre dore presentant Helene Hardy sous le titre. */
+    .about-box {
+      max-width: 700px;
+      margin: 0 auto 2.5rem;
+      padding: 2rem 2.5rem;
+      border: 1px solid #C9A35A;
+      border-radius: 8px;
+      background: rgba(201, 163, 90, 0.04);
+    }
+    .about-box-name {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin: 0 0 1.2rem;
+      text-align: center;
+      color: black;
+      letter-spacing: 0.01em;
+    }
+    .about-box p {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.85;
+      margin: 0 0 1rem;
+      color: black;
+      text-align: center;
+    }
+    .about-box p:last-child {
+      margin-bottom: 0;
+    }
+    @media (max-width: 600px) {
+      .about-box { padding: 1.5rem 1.4rem; }
+      .about-box-name { font-size: 1.8rem; }
+      .about-box p { font-size: 0.95rem; }
+    }
+
+    /* Petit tagline italique gris discret sous l'encadre. */
+    .about-tagline {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.9rem;
+      font-style: italic;
+      color: #555;
+      text-align: center;
+      max-width: 700px;
+      margin: -1.9rem auto 2.5rem;
+      line-height: 1.5;
+    }
+
     /* Grande photo centree sous le titre, respirante. */
     .about-portrait {
       display: block;
@@ -321,6 +368,24 @@
     <div class="about-header">
       <h1 class="about-title">About</h1>
     </div>
+
+    <div class="about-box">
+      <h2 class="about-box-name">Hélène Hardy</h2>
+      <p>Author, illustrator and cultural workshop leader.</p>
+      <p>
+        Based in Zoufftgen, she writes and illustrates stories inspired
+        by the landscapes, the nature and the heritage that surround her.
+      </p>
+      <p>
+        <em>The Tales of Zoufftgen</em> were born from stories told to her
+        son, before becoming a collection of books rooted in the real places
+        of the village.
+      </p>
+    </div>
+
+    <p class="about-tagline">
+      Readings in schools, libraries and cultural events across the Greater Region.
+    </p>
 
     <img loading="lazy"
       class="about-portrait"

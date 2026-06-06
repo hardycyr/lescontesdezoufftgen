@@ -27,7 +27,7 @@
   <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/tome-1.webp" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <meta name="product:price:amount" content="18.00" />
+  <meta name="product:price:amount" content="19.00" />
   <meta name="product:price:currency" content="EUR" />
 
   <!-- Schema.org structured data for Google rich results -->
@@ -49,7 +49,7 @@
     "audience": { "@type": "PeopleAudience", "suggestedMinAge": 3 },
     "offers": {
       "@type": "Offer",
-      "price": "18.00",
+      "price": "19.00",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "url": "https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur-en.html"
@@ -293,6 +293,71 @@
       border-color: #D4A857;
     }
 
+    /* Specs + "Order the book" button under the cover. */
+    .book-buy { text-align: center; margin-top: 1.5rem; }
+    .book-buy-specs {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.95rem; color: #555; margin: 0 0 1rem; letter-spacing: 0.02em;
+    }
+    .book-buy-btn {
+      display: inline-block; padding: 0.75rem 1.8rem;
+      border: 1px solid #C9A35A; border-radius: 4px; background: transparent;
+      color: black; text-decoration: none;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; transition: background 0.25s, border-color 0.25s; cursor: pointer;
+    }
+    .book-buy-btn:hover { background: rgba(201, 163, 90, 0.12); border-color: #D4A857; }
+
+    /* "Order online / Pickup / In store" trio of buttons. */
+    .btn-more {
+      display: inline-block; padding: 0.55rem 1.2rem;
+      border: 1px solid #C9A35A; border-radius: 4px; background: transparent;
+      color: black; text-decoration: none;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+      text-transform: uppercase; transition: background 0.25s, color 0.25s, border-color 0.25s; cursor: pointer;
+    }
+    .btn-more:hover { background: rgba(201, 163, 90, 0.12); border-color: #D4A857; }
+
+    .book-page > .find-buttons {
+      display: grid !important; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;
+      max-width: 720px; margin: 1.5rem auto 2rem; box-sizing: border-box;
+    }
+    .find-buttons .btn-more {
+      display: block; width: 100%; box-sizing: border-box;
+      text-align: center; line-height: 1.4; align-self: stretch;
+      padding-top: 0.7rem; padding-bottom: 0.7rem;
+    }
+    @media (max-width: 600px) {
+      .book-page > .find-buttons { grid-template-columns: 1fr; max-width: 320px; }
+    }
+
+    /* Pair of photos side by side. */
+    .duo-photos {
+      display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important;
+      gap: 0.8rem; margin: 1.5rem auto; justify-content: center; align-items: center;
+    }
+    .duo-photos img {
+      height: 240px; width: auto; max-width: 100%; display: block;
+      border-radius: 8px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    @media (max-width: 600px) { .duo-photos img { height: 180px; } }
+
+    /* "Next book" : clickable cover + title under it. */
+    .next-book { display: block; max-width: 240px; margin: 1.5rem auto; text-align: center; }
+    .next-book a { display: block; text-decoration: none; color: inherit; }
+    .next-book img {
+      width: 100%; height: auto; display: block; border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18); transition: transform 0.25s ease;
+    }
+    .next-book a:hover img { transform: scale(1.03); }
+    .next-book-title {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.4rem; font-style: italic; font-weight: 500;
+      color: black; margin: 0.8rem 0 0; line-height: 1.3;
+    }
+
     .book-video {
       display: block !important;
       max-width: 760px;
@@ -394,7 +459,7 @@
   <main class="book-page">
     <div class="book-header">
       <h1>Le Petit Zouffarceur</h1>
-      <p class="book-subtitle">Volume 1 of the collection The Tales of Zoufftgen</p>
+      <p class="book-subtitle">An illustrated tale by Hélène Hardy, born in the heart of the forest of Zoufftgen.</p>
     </div>
 
     <section class="book-hero">
@@ -404,86 +469,99 @@
           alt="Le Petit Zouffarceur — Volume 1 of the collection The Tales of Zoufftgen"
           loading="eager"
         />
+        <div class="book-buy">
+          <p class="book-buy-specs">Illustrated picture book · Hardcover · €19</p>
+          <a href="#" class="book-buy-btn btn-cart"
+             data-id="livre-1" data-nom="Le Petit Zouffarceur" data-prix="1900">Order the book</a>
+        </div>
       </div>
 
       <div class="book-intro">
         <p>
-          A first tale rooted in the village, where familiar places suddenly
-          seem to hold a quiet presence, on the edge of reality and imagination.
+          Strange things are happening in Zoufftgen on the night of December 24th.<br />
+          Has Santa lost his mind? Who could have made such a mess in the presents?
+          The villagers of Zoufftgen are about to discover that for a very long time,
+          their village has had a secret resident…
         </p>
       </div>
     </section>
 
+    <div class="find-buttons">
+      <a href="#" class="btn-more btn-cart"
+         data-id="livre-1" data-nom="Le Petit Zouffarceur" data-prix="1900">
+        <span style="display:block; white-space:nowrap;">Order</span>
+        <span style="display:block; white-space:nowrap;">online</span>
+      </a>
+      <a href="/contact-en.html" class="btn-more">
+        <span style="display:block; white-space:nowrap;">Pickup in Zoufftgen</span>
+        <span style="display:block; white-space:nowrap;">by appointment</span>
+      </a>
+      <a href="https://www.facebook.com/artisanarts57" target="_blank" rel="noopener" class="btn-more">
+        <span style="display:block; white-space:nowrap;">In store</span>
+        <span style="display:block; white-space:nowrap;">at Artisan’Arts</span>
+      </a>
+    </div>
+
     <div class="book-content">
       <section>
-        <h2>A tale rooted in the village</h2>
+        <h2>Inspired by a real place</h2>
         <p>
-          In Zoufftgen, some places seem ordinary… until you take the time
-          to look at them differently.
+          This story finds its origin in a real place of Zoufftgen:
+          the Vogelsang. Between forest, paths and childhood memories,
+          this landscape gave birth to the character of the Petit Zouffarceur.
         </p>
-        <p>
-          In this first tale, a quiet presence seems to watch over the village,
-          reminding us that stories often grow where we least expect them.
-        </p>
-      </section>
-
-      <section>
-        <h2>A book conceived as an object</h2>
-        <p>This book is crafted with care:</p>
-        <ul>
-          <li>format: 21 × 21 cm</li>
-          <li>hardcover</li>
-          <li>thick, matte-finish interior paper</li>
-          <li>delicate finishes (selective varnish / gilding)</li>
-        </ul>
-        <p>A book to read, to give, and to pass on.</p>
       </section>
     </div>
 
     <div class="interior-image">
       <img
-        src="/images/LePetitZouffarceur1.webp"
-        alt="Double-page spread from the book Le Petit Zouffarceur"
         loading="lazy"
+        src="/images/LePetitZouffarceur/ferme-vogelsang-reelle.webp"
+        alt="The Vogelsang farm in Zoufftgen, a real place that inspired Le Petit Zouffarceur"
       />
     </div>
 
     <div class="book-content">
       <section>
-        <h2>Inside the book</h2>
+        <h2>In this album:</h2>
         <ul>
           <li>an illustrated story</li>
-          <li>complementary pages (drawing, discovery, transmission)</li>
-          <li>a link to a real place in the village</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Information</h2>
-        <ul>
-          <li>Recommended age: from 3 years old</li>
-          <li>Price: €18</li>
-          <li>Available by delivery or pickup in Zoufftgen</li>
+          <li>a page inspired by a real place in Zoufftgen</li>
+          <li>activities to extend the reading</li>
+          <li>a recipe to make as a family</li>
+          <li>hardcover, 3D gilding, square format 21 × 21 cm, 32 pages</li>
+          <li>read-aloud from age 3</li>
+          <li>independent reading from age 6-7</li>
         </ul>
       </section>
     </div>
 
-    <div class="purchase-box">
-      <h2>Get the book</h2>
-      <p class="product-price">Price: €18</p>
-      <a
-        href="#"
-        class="btn-panier"
-        data-id="livre-1"
-        data-nom="Le Petit Zouffarceur"
-        data-prix="1800"
-      >
-        Add to cart
+    <div class="duo-photos">
+      <img loading="lazy" src="/images/LePetitZouffarceur/dessin.webp"
+           alt="Step-by-step drawing from Le Petit Zouffarceur" />
+      <img loading="lazy" src="/images/LePetitZouffarceur/recette1.webp"
+           alt="Family recipe from Le Petit Zouffarceur" />
+    </div>
+
+    <div class="book-content">
+      <section>
+        <h2>The story continues…</h2>
+        <p>
+          This first tale introduces the Petit Zouffarceur.
+          But where does he live? What does his house look like?
+        </p>
+        <p>
+          These questions gave birth to a second album,
+          <em>La maison du Petit Zouffarceur</em>.
+        </p>
+      </section>
+    </div>
+
+    <div class="next-book">
+      <a href="/boutique/la-maison-du-petit-zouffarceur-en.html">
+        <img loading="lazy" src="/images/tome-2.webp"
+             alt="La maison du Petit Zouffarceur — Volume 2 of the collection The Tales of Zoufftgen" />
       </a>
-      <p>
-        A signed dedication can be added on request, either during checkout
-        or via the contact page.
-      </p>
     </div>
 
     <div class="book-video">

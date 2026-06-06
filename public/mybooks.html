@@ -221,6 +221,68 @@
       border-color: #D4A857;
     }
 
+    .collection-subtitle {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.4rem; font-style: italic; font-weight: 500;
+      color: black; text-align: center; margin: 0 0 2rem; line-height: 1.35;
+    }
+    .collection-hero-photo {
+      display: block; width: 100%; max-width: 820px;
+      margin: 2.5rem auto; border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+    }
+    .collection-duo-photos {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;
+      max-width: 820px; margin: 1.5rem auto;
+    }
+    .collection-duo-photos img {
+      width: 100%; height: auto; display: block;
+      border-radius: 10px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    }
+    @media (max-width: 600px) {
+      .collection-duo-photos { grid-template-columns: 1fr; }
+    }
+
+    .livre { display: flex; flex-direction: column; padding: 0.5rem 0.5rem 0; }
+    .livre .btn-more { margin-top: auto; align-self: center; }
+    .livres { padding: 1.5rem 0 0; }
+    .livres + .collection-bottom-text > .leaf-separator:first-child { margin-top: 0; }
+
+    /* 3-column simple blocks ("Draw / Discover / Share" and "Where to find"). */
+    .atelier-steps, .find-options {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 2.5rem;
+      max-width: 820px; margin: 1.5rem auto 0; text-align: center;
+    }
+    .atelier-steps h4, .find-options h4 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.5rem; line-height: 1.2; margin: 0 0 0.5rem;
+      font-weight: 600; color: black;
+    }
+    .atelier-steps p, .find-options p {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.93rem; line-height: 1.65; color: #444; margin: 0;
+    }
+    @media (max-width: 700px) {
+      .atelier-steps, .find-options { grid-template-columns: 1fr; gap: 1.5rem; }
+    }
+
+    /* "Order / Pickup / In store" row of buttons (same as collection.html FR). */
+    .find-buttons {
+      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;
+      max-width: 720px; margin: 1.5rem auto 2rem;
+    }
+    .find-buttons .btn-more {
+      display: block; width: 100%; box-sizing: border-box;
+      text-align: center; line-height: 1.4; padding-top: 0.7rem; padding-bottom: 0.7rem;
+    }
+    @media (max-width: 600px) {
+      .find-buttons { grid-template-columns: 1fr; max-width: 320px; }
+    }
+
+    .collection-text a:not(.btn-more) {
+      color: black; font-weight: 700; text-decoration: underline;
+    }
+
     @media (max-width: 768px) {
       #collection-page {
         margin: 1rem;
@@ -313,32 +375,21 @@
     <section id="collection-page">
       <div class="collection-intro">
         <h1 class="section-title">The collection</h1>
+        <p class="collection-subtitle">Illustrated tales to read, to keep and to pass on.</p>
 
         <div class="collection-text">
-          <h3>A collection rooted in real places</h3>
           <p>
-            <em>The Tales of Zoufftgen</em> form a collection of children's books,
-            written and illustrated by Hélène Hardy. Each story takes root in a
-            real place of the village, between memory and imagination.
+            <em>The Tales of Zoufftgen</em> are a collection of illustrated tales
+            written and illustrated by Hélène Hardy.
+          </p>
+          <p>
+            Each story takes root in a place, a season, a tree or a memory of
+            Zoufftgen, before setting off on the path of imagination.
           </p>
 
-          <div class="leaf-separator" aria-hidden="true">
-            <span class="leaf-separator-line"></span>
-            <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
-            <span class="leaf-separator-line"></span>
-          </div>
-
-          <h3>A carefully crafted edition</h3>
-          <p>The books in the collection are designed with particular care:</p>
-          <ul>
-            <li>hardcover</li>
-            <li>thick, matte-finish interior paper</li>
-            <li>delicate finishes (selective varnish, gilding)</li>
-          </ul>
-          <p>
-            Each book is conceived as an object in its own right, meant to be kept,
-            given, and passed on.
-          </p>
+          <img loading="lazy" class="collection-hero-photo"
+               src="/images/La-collection/panoramique3contes.webp"
+               alt="Panoramic view of the three Tales of Zoufftgen aligned" />
 
           <div class="leaf-separator" aria-hidden="true">
             <span class="leaf-separator-line"></span>
@@ -350,25 +401,25 @@
         </div>
       </div>
 
-      <div class="livres">
+      <div class="livres" id="albums">
         <article class="livre">
           <a href="/boutique/le-petit-zouffarceur-en.html">
             <img loading="lazy" src="/images/tome-1.webp" alt="Le Petit Zouffarceur — Volume 1 of the collection" />
           </a>
           <h3>Le Petit Zouffarceur</h3>
-          <p class="livre-tome">— Volume 1 of the collection</p>
-          <p>One Christmas night in Zoufftgen, strange events disturb the village…</p>
-          <a href="/boutique/le-petit-zouffarceur-en.html" class="btn-more">See the book</a>
+          <p class="livre-tome">Volume 1 of the collection</p>
+          <p>A first encounter with the mischievous spirit watching over Zoufftgen.</p>
+          <a href="/boutique/le-petit-zouffarceur-en.html" class="btn-more">Discover the book</a>
         </article>
 
         <article class="livre">
           <a href="/boutique/la-maison-du-petit-zouffarceur-en.html">
-            <img loading="lazy" src="/images/tome-2.webp" alt="La maison du petit zouffarceur — Volume 2 of the collection" />
+            <img loading="lazy" src="/images/tome-2.webp" alt="La maison du Petit Zouffarceur — Volume 2 of the collection" />
           </a>
-          <h3>La maison du petit zouffarceur</h3>
-          <p class="livre-tome">— Volume 2 of the collection</p>
-          <p>Villagers grow worried: the hazelnuts left on windowsills are no longer disappearing…</p>
-          <a href="/boutique/la-maison-du-petit-zouffarceur-en.html" class="btn-more">See the book</a>
+          <h3>La maison du Petit Zouffarceur</h3>
+          <p class="livre-tome">Volume 2 of the collection — sequel to Volume 1</p>
+          <p>An adventure in the heart of the old Vogelsang oak.</p>
+          <a href="/boutique/la-maison-du-petit-zouffarceur-en.html" class="btn-more">Discover the book</a>
         </article>
 
         <article class="livre">
@@ -376,18 +427,13 @@
             <img loading="lazy" src="/images/tome-3.webp" alt="Papa Sanglier et sa dent en or — Volume 3 of the collection" />
           </a>
           <h3>Papa Sanglier et sa dent en or</h3>
-          <p class="livre-tome">— Volume 3 of the collection</p>
-          <p>In the forest of Zoufftgen, a simple walk turns into an unexpected adventure.</p>
-          <a href="/boutique/papa-sanglier-et-sa-dent-or-en.html" class="btn-more">See the book</a>
+          <p class="livre-tome">Volume 3 of the collection</p>
+          <p>A tender and funny story about a wild boar well known in the village.</p>
+          <a href="/boutique/papa-sanglier-et-sa-dent-or-en.html" class="btn-more">Discover the book</a>
         </article>
       </div>
 
       <div class="collection-text collection-bottom-text">
-        <p>
-          Each tale extends the same world, where the places truly exist, where
-          the stories take root in the village, and where the books become
-          objects of memory.
-        </p>
 
         <div class="leaf-separator" aria-hidden="true">
           <span class="leaf-separator-line"></span>
@@ -395,17 +441,28 @@
           <span class="leaf-separator-line"></span>
         </div>
 
-        <h3>Where to get the books</h3>
-        <p>The books are available:</p>
-        <ul>
-          <li>by online order (postal delivery)</li>
-          <li>by pickup in Zoufftgen, by appointment</li>
-          <li>
-            at the artisans' shop
-            <a href="https://www.facebook.com/artisanarts57" target="_blank" rel="noopener">Artisan'Arts</a>
-            in Volmerange-les-Mines
-          </li>
-        </ul>
+        <h3>More than a story</h3>
+
+        <div class="collection-duo-photos">
+          <img loading="lazy" src="/images/La-collection/enfantquidessine.webp"
+               alt="A child drawing, inspired by The Tales of Zoufftgen" />
+          <img loading="lazy" src="/images/La-collection/pagehistorique.webp"
+               alt="A heritage page from a Tale of Zoufftgen" />
+        </div>
+
+        <p>Each album is designed as a workshop-tale.</p>
+        <p>
+          Alongside the illustrated story come activities to extend the reading
+          as a family: step-by-step drawings, recipes, nature observations and
+          discoveries inspired by the story.
+        </p>
+        <p>
+          Each tale is also linked to a place, a character or an event that
+          really existed in Zoufftgen. A documentary page lets young readers
+          discover the heritage and the stories of the village that inspired
+          the adventure.
+        </p>
+        <p>Imagination thus extends into the real, long after the last page.</p>
 
         <div class="leaf-separator" aria-hidden="true">
           <span class="leaf-separator-line"></span>
@@ -413,12 +470,67 @@
           <span class="leaf-separator-line"></span>
         </div>
 
-        <h3>A growing collection</h3>
+        <h3>Stories to read and to pass on</h3>
         <p>
-          The world of <em>The Tales of Zoufftgen</em> continues to grow.
-          New tales will join the collection, alongside objects inspired by the
-          stories, made in small batches.
+          Designed as true keepsake books, <em>The Tales of Zoufftgen</em> rely
+          on durable materials and careful finishes: hardcover, thick matte paper
+          and gilded details that accompany the reading without ever overshadowing
+          the story.
         </p>
+        <p>
+          Books designed to travel through the years and to be passed on from
+          generation to generation.
+        </p>
+
+        <div class="collection-duo-photos">
+          <img loading="lazy" src="/images/La-collection/cadragedorure.webp"
+               alt="Close-up on the gilding of a Tale of Zoufftgen album" />
+          <img loading="lazy" src="/images/La-collection/infosanglier.webp"
+               alt="Documentary page about wild boars from a Tale of Zoufftgen album" />
+        </div>
+
+        <div class="leaf-separator" aria-hidden="true">
+          <span class="leaf-separator-line"></span>
+          <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+          <span class="leaf-separator-line"></span>
+        </div>
+
+        <h3>A world built book after book</h3>
+        <p>
+          Some tales respond to each other and extend the adventures of
+          characters already met, while others explore new stories inspired
+          by the village.
+        </p>
+        <p>
+          All take root in the same world, between nature, memory and imagination.
+        </p>
+
+        <img loading="lazy" class="collection-hero-photo"
+             src="/images/La-collection/univers.webp"
+             alt="The world of The Tales of Zoufftgen, between nature, memory and imagination" />
+
+        <div class="leaf-separator" aria-hidden="true">
+          <span class="leaf-separator-line"></span>
+          <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+          <span class="leaf-separator-line"></span>
+        </div>
+
+        <h3>Where to find the books?</h3>
+
+        <div class="find-buttons">
+          <a href="#albums" class="btn-more">
+            <span style="display:block; white-space:nowrap;">Order</span>
+            <span style="display:block; white-space:nowrap;">online</span>
+          </a>
+          <a href="/contact-en.html" class="btn-more">
+            <span style="display:block; white-space:nowrap;">Pickup in Zoufftgen</span>
+            <span style="display:block; white-space:nowrap;">by appointment</span>
+          </a>
+          <a href="https://www.facebook.com/artisanarts57" target="_blank" rel="noopener" class="btn-more">
+            <span style="display:block; white-space:nowrap;">In store</span>
+            <span style="display:block; white-space:nowrap;">at Artisan’Arts</span>
+          </a>
+        </div>
       </div>
     </section>
   </main>

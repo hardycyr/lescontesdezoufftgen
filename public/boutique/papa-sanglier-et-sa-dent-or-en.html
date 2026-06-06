@@ -27,7 +27,7 @@
   <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/tome-3.webp" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <meta name="product:price:amount" content="18.00" />
+  <meta name="product:price:amount" content="19.00" />
   <meta name="product:price:currency" content="EUR" />
 
   <!-- Schema.org structured data for Google rich results -->
@@ -49,7 +49,7 @@
     "audience": { "@type": "PeopleAudience", "suggestedMinAge": 3 },
     "offers": {
       "@type": "Offer",
-      "price": "18.00",
+      "price": "19.00",
       "priceCurrency": "EUR",
       "availability": "https://schema.org/InStock",
       "url": "https://www.lescontesdezoufftgen.com/boutique/papa-sanglier-et-sa-dent-or-en.html"
@@ -113,6 +113,25 @@
     .product-price { font-family: 'Cormorant Garamond', 'Times New Roman', serif !important; font-size: 1.6rem !important; font-weight: 600 !important; letter-spacing: 0.02em; margin-bottom: 1rem; color: black; }
     .btn-panier { display: inline-block !important; margin-top: 0.5rem; padding: 0.7rem 1.6rem; border: 1px solid #C9A35A; border-radius: 4px; background: transparent; color: black; text-decoration: none; font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.25s, border-color 0.25s; }
     .btn-panier:hover { background: rgba(201, 163, 90, 0.12); border-color: #D4A857; }
+
+    /* Specs + "Order the book" button under the cover. */
+    .book-buy { text-align: center; margin-top: 1.5rem; }
+    .book-buy-specs { font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif; font-size: 0.95rem; color: #555; margin: 0 0 1rem; letter-spacing: 0.02em; }
+    .book-buy-btn { display: inline-block; padding: 0.75rem 1.8rem; border: 1px solid #C9A35A; border-radius: 4px; background: transparent; color: black; text-decoration: none; font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.25s, border-color 0.25s; cursor: pointer; }
+    .book-buy-btn:hover { background: rgba(201, 163, 90, 0.12); border-color: #D4A857; }
+
+    /* "Order online / Pickup / In store" trio. */
+    .btn-more { display: inline-block; padding: 0.55rem 1.2rem; border: 1px solid #C9A35A; border-radius: 4px; background: transparent; color: black; text-decoration: none; font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; transition: background 0.25s, color 0.25s, border-color 0.25s; cursor: pointer; }
+    .btn-more:hover { background: rgba(201, 163, 90, 0.12); border-color: #D4A857; }
+    .book-page > .find-buttons { display: grid !important; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; max-width: 720px; margin: 1.5rem auto 2rem; box-sizing: border-box; }
+    .find-buttons .btn-more { display: block; width: 100%; box-sizing: border-box; text-align: center; line-height: 1.4; align-self: stretch; padding-top: 0.7rem; padding-bottom: 0.7rem; }
+    @media (max-width: 600px) { .book-page > .find-buttons { grid-template-columns: 1fr; max-width: 320px; } }
+
+    /* Pair of photos side by side. */
+    .duo-photos { display: flex !important; flex-direction: row !important; flex-wrap: nowrap !important; gap: 0.8rem; margin: 1.5rem auto; justify-content: center; align-items: center; }
+    .duo-photos img { height: 240px; width: auto; max-width: 100%; display: block; border-radius: 8px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15); }
+    @media (max-width: 600px) { .duo-photos img { height: 180px; } }
+
     @media (max-width: 768px) {
       .book-page { margin: 1rem; padding: 2rem 1.2rem; }
       .book-header h1 { font-size: 3rem; }
@@ -167,83 +186,81 @@
   <main class="book-page">
     <div class="book-header">
       <h1>Papa Sanglier et sa dent en or</h1>
-      <p class="book-subtitle">Volume 3 of the collection The Tales of Zoufftgen</p>
+      <p class="book-subtitle">An illustrated tale by Hélène Hardy, born in the heart of the forest of Zoufftgen.</p>
     </div>
 
     <section class="book-hero">
       <div class="book-cover">
         <img src="/images/tome-3.webp" alt="Papa Sanglier et sa dent en or — Volume 3 of the collection The Tales of Zoufftgen" loading="eager" />
+        <div class="book-buy">
+          <p class="book-buy-specs">Illustrated picture book · Hardcover · €19</p>
+          <a href="#" class="book-buy-btn btn-cart"
+             data-id="livre-3" data-nom="Papa Sanglier et sa dent en or" data-prix="1900">Order the book</a>
+        </div>
       </div>
       <div class="book-intro">
         <p>
-          In the forest of Zoufftgen, a simple walk turns into an unexpected
-          adventure. A tale at the heart of the woods, between observation of
-          nature and a touch of mystery.
+          In the forest of Zoufftgen, Papa Sanglier never imagined that a simple
+          walk would turn into such an adventure… From dentist to ophthalmologist,
+          this grumpy dad comes back transformed… and very, very proud of his
+          new golden look!
         </p>
       </div>
     </section>
 
-    <div class="book-content">
-      <section>
-        <h2>An adventure in the forest</h2>
-        <p>
-          This third volume takes readers beyond the village, to the edge of
-          the woods, where nature takes back its place. An unexpected encounter
-          will turn an ordinary day into an unforgettable memory.
-        </p>
-        <p>
-          A tale that invites us to look at the forest differently, to pay
-          attention to the details that often go unnoticed.
-        </p>
-      </section>
-
-      <section>
-        <h2>A book conceived as an object</h2>
-        <p>This book is crafted with care:</p>
-        <ul>
-          <li>32 pages, hardcover</li>
-          <li>3D gilding and selective varnish on the cover</li>
-          <li>thick, matte-finish interior paper</li>
-          <li>format: 21 × 21 cm</li>
-        </ul>
-        <p>A book to read, to give, and to pass on.</p>
-      </section>
-    </div>
-
-    <div class="interior-image">
-      <img src="/images/PapaSanglierEtSaDentEnOr2.webp" alt="Double-page spread from the book Papa Sanglier et sa dent en or" loading="lazy" />
+    <div class="find-buttons">
+      <a href="#" class="btn-more btn-cart"
+         data-id="livre-3" data-nom="Papa Sanglier et sa dent en or" data-prix="1900">
+        <span style="display:block; white-space:nowrap;">Order</span>
+        <span style="display:block; white-space:nowrap;">online</span>
+      </a>
+      <a href="/contact-en.html" class="btn-more">
+        <span style="display:block; white-space:nowrap;">Pickup in Zoufftgen</span>
+        <span style="display:block; white-space:nowrap;">by appointment</span>
+      </a>
+      <a href="https://www.facebook.com/artisanarts57" target="_blank" rel="noopener" class="btn-more">
+        <span style="display:block; white-space:nowrap;">In store</span>
+        <span style="display:block; white-space:nowrap;">at Artisan’Arts</span>
+      </a>
     </div>
 
     <div class="book-content">
       <section>
-        <h2>Inside the book</h2>
+        <h2>Inspired by a real place</h2>
+        <p>
+          This tale will let you discover the forester’s house of Zoufftgen,
+          a place that has existed since the end of the 19<sup>th</sup> century.
+        </p>
+      </section>
+    </div>
+
+    <div class="duo-photos">
+      <img loading="lazy" src="/images/univers/maison-forestiere-reelle.webp"
+           alt="The forester's house of Zoufftgen, a real place that inspired the tale" />
+      <img loading="lazy" src="/images/univers/maison-forestiere-illustration.webp"
+           alt="The forester's house as illustrated in Papa Sanglier et sa dent en or" />
+    </div>
+
+    <div class="book-content">
+      <section>
+        <h2>In this album:</h2>
         <ul>
           <li>an illustrated story</li>
-          <li>playful activities to extend the adventure</li>
-          <li>a heritage page about the real forester's house of Zoufftgen, which has stood for more than 100 years</li>
-          <li>playful pages about the way of life of wild boars and their dentition</li>
-        </ul>
-      </section>
-
-      <section>
-        <h2>Information</h2>
-        <ul>
-          <li>Recommended age: from 3 years old</li>
-          <li>Price: €18</li>
-          <li>Available by delivery or pickup in Zoufftgen</li>
+          <li>a page inspired by a real place in Zoufftgen</li>
+          <li>activities to extend the reading</li>
+          <li>an information page about wild boars</li>
+          <li>hardcover, 3D gilding, square format 21 × 21 cm, 32 pages</li>
+          <li>read-aloud from age 3</li>
+          <li>independent reading from age 6-7</li>
         </ul>
       </section>
     </div>
 
-    <div class="interior-image">
-      <img src="/images/PapaSanglierEtSaDentEnOr3.webp" alt="Activity pages from the book Papa Sanglier et sa dent en or" loading="lazy" />
-    </div>
-
-    <div class="purchase-box">
-      <h2>Get the book</h2>
-      <p class="product-price">Price: €18</p>
-      <a href="#" class="btn-panier" data-id="livre-3" data-nom="Papa Sanglier et sa dent en or" data-prix="1800">Add to cart</a>
-      <p>A signed dedication can be added on request, either during checkout or via the contact page.</p>
+    <div class="duo-photos">
+      <img loading="lazy" src="/images/papa sanglier/dessinchampi.webp"
+           alt="Step-by-step drawing of a mushroom from Papa Sanglier et sa dent en or" />
+      <img loading="lazy" src="/images/papa sanglier/page-historique.webp"
+           alt="Heritage page about the forester's house of Zoufftgen" />
     </div>
   </main>
 
