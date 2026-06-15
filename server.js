@@ -40,7 +40,23 @@ goneUrls.forEach((url) => {
 // A declarer AVANT express.static. Un 301 transmet le referencement
 // (link equity) de l'ancienne page vers la nouvelle et evite les liens casses.
 const redirects301 = {
-  "/narrative-objects.html": "/story-objects.html",
+  // Ancienne page renommee (pointe directement vers la cible finale)
+  "/narrative-objects.html": "/en/story-objects.html",
+  // Migration des pages EN vers le sous-dossier /en/
+  "/index-en.html": "/en/index.html",
+  "/universe.html": "/en/universe.html",
+  "/about.html": "/en/about.html",
+  "/author-visits.html": "/en/author-visits.html",
+  "/mybooks.html": "/en/mybooks.html",
+  "/story-objects.html": "/en/story-objects.html",
+  "/news-and-events.html": "/en/news-and-events.html",
+  "/contact-en.html": "/en/contact.html",
+  "/cancel-en.html": "/en/cancel.html",
+  "/success-en.html": "/en/success.html",
+  "/boutique/le-petit-zouffarceur-en.html": "/en/boutique/le-petit-zouffarceur.html",
+  "/boutique/la-maison-du-petit-zouffarceur-en.html": "/en/boutique/la-maison-du-petit-zouffarceur.html",
+  "/boutique/papa-sanglier-et-sa-dent-or-en.html": "/en/boutique/papa-sanglier-et-sa-dent-or.html",
+  "/boutique/panier-en.html": "/en/boutique/panier.html",
 };
 Object.entries(redirects301).forEach(([from, to]) => {
   app.get(from, (req, res) => res.redirect(301, to));

@@ -3,11 +3,14 @@ Allow: /
 
 # Pages transactionnelles : pas d'interet a etre indexees
 Disallow: /success.html
-Disallow: /success-en.html
+Disallow: /en/success.html
+Disallow: /lu/success.html
 Disallow: /cancel.html
-Disallow: /cancel-en.html
+Disallow: /en/cancel.html
+Disallow: /lu/cancel.html
 Disallow: /boutique/panier.html
-Disallow: /boutique/panier-en.html
+Disallow: /en/boutique/panier.html
+Disallow: /lu/boutique/panier.html
 
 # Anciennes URLs decommissionnees : meme si supprimees physiquement,
 # elles peuvent encore etre indexees ; on les declare Disallow pour

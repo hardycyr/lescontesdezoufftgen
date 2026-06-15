@@ -24,7 +24,10 @@ function updatePanierCompteur() {
 // ➕ Ajout depuis page accueil / boutique
 // -------------------
 function initialiserBoutonsAjouter() {
-  const boutons = document.querySelectorAll(".btn-panier");
+  // .btn-panier : classe historique (pages produit avec gros bouton vert)
+  // .btn-cart : nouvelle classe utilisee dans les .find-buttons pour
+  //             eviter les conflits CSS avec le style .btn-panier global.
+  const boutons = document.querySelectorAll(".btn-panier, .btn-cart");
   if (!boutons.length) return;
 
   boutons.forEach(bouton => {
@@ -47,8 +50,10 @@ function initialiserBoutonsAjouter() {
       savePanier(panier);
       updatePanierCompteur();
       setTimeout(() => {
-        window.location.href = "/boutique/panier-en.html";
+        window.location.href = "/lu/boutique/panier.html";
       }, 1000);
+      //window.location.href = "/lu/boutique/panier.html";
+      //alert(`✅ "${name}" ajouté au panier.`);
     });
   });
 }
@@ -67,7 +72,7 @@ function afficherPanier() {
   let totalGeneral = 0;
 
   if (panier.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="5">Your cart is empty</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5">Äre Wuerekuerf ass eidel.</td></tr>`;
     boutonPayer.style.display = "none";
     return;
   }
@@ -78,11 +83,11 @@ function afficherPanier() {
     totalGeneral += total;
 
     ligne.innerHTML = `
-  <td data-label="Product">${item.name}</td>
-  <td data-label="Unit price">${(item.price / 100).toFixed(2)} €</td>
-  <td data-label="Quantity"><input type="number" min="1" value="${item.quantity}" onchange="changerQuantite(${index}, this.value)" /></td>
+  <td data-label="Produkt">${item.name}</td>
+  <td data-label="Eenheetspräis">${(item.price / 100).toFixed(2)} €</td>
+  <td data-label="Quantitéit"><input type="number" min="1" value="${item.quantity}" onchange="changerQuantite(${index}, this.value)" /></td>
   <td data-label="Total">${(total / 100).toFixed(2)} €</td>
-  <td data-label="Actions"><button class="btn-supprimer" onclick="supprimerArticle(${index})">❌</button></td>
+  <td data-label="Aktiounen"><button class="btn-supprimer" onclick="supprimerArticle(${index})">❌</button></td>
 `;
     tbody.appendChild(ligne);
   });
@@ -181,7 +186,7 @@ function initialiserPaiement() {
     if (data.url) {
       window.location.href = data.url;
     } else {
-      alert("Error while directing to payment. Contact me via my contact page. Thank you.");
+      alert("Feeler bei der Weiderleedung op Stripe. Kontaktéiert mech wgl. iwwer meng Kontaktsäit. Merci.");
     }
   });
 }
@@ -194,7 +199,7 @@ function initialiserViderPanier() {
   if (!bouton) return;
 
   bouton.addEventListener("click", () => {
-    if (confirm("Empty your cart?")) {
+    if (confirm("Wuerekuerf eidel maachen?")) {
       localStorage.removeItem("panier");
       updatePanierCompteur();
       location.reload();
