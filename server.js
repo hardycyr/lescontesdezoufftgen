@@ -214,12 +214,16 @@ app.post("/contact.html", async (req, res) => {
     sendSmtpEmail.to = [
       {
         email: "helene.ag@hotmail.com",
-        name: "Helene Hardy",
+        name: "Hélène Hardy",
       },
       {
         email: "cyrille.hardy@gmail.com",
         name: "Cyrille Hardy",
       },
+      {
+        email: "lescontesdezoufftgen@gmail.com",
+        name: "Les Contes de Zoufftgen",
+      }
     ];
 
     sendSmtpEmail.replyTo = {

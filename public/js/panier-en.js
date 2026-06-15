@@ -78,9 +78,9 @@ function afficherPanier() {
     totalGeneral += total;
 
     ligne.innerHTML = `
-  <td data-label="Produit">${item.name}</td>
-  <td data-label="Prix unitaire">${(item.price / 100).toFixed(2)} €</td>
-  <td data-label="Quantité"><input type="number" min="1" value="${item.quantity}" onchange="changerQuantite(${index}, this.value)" /></td>
+  <td data-label="Product">${item.name}</td>
+  <td data-label="Unit price">${(item.price / 100).toFixed(2)} €</td>
+  <td data-label="Quantity"><input type="number" min="1" value="${item.quantity}" onchange="changerQuantite(${index}, this.value)" /></td>
   <td data-label="Total">${(total / 100).toFixed(2)} €</td>
   <td data-label="Actions"><button class="btn-supprimer" onclick="supprimerArticle(${index})">❌</button></td>
 `;
@@ -194,7 +194,7 @@ function initialiserViderPanier() {
   if (!bouton) return;
 
   bouton.addEventListener("click", () => {
-    if (confirm("Empty cart ?")) {
+    if (confirm("Empty your cart?")) {
       localStorage.removeItem("panier");
       updatePanierCompteur();
       location.reload();
