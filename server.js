@@ -36,6 +36,16 @@ goneUrls.forEach((url) => {
   });
 });
 
+// Redirections 301 (permanentes) : anciennes URLs renommees -> nouvelle URL.
+// A declarer AVANT express.static. Un 301 transmet le referencement
+// (link equity) de l'ancienne page vers la nouvelle et evite les liens casses.
+const redirects301 = {
+  "/narrative-objects.html": "/story-objects.html",
+};
+Object.entries(redirects301).forEach(([from, to]) => {
+  app.get(from, (req, res) => res.redirect(301, to));
+});
+
 app.use(express.static("public"));
 
 const __filename = fileURLToPath(import.meta.url);
