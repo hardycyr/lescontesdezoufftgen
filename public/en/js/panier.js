@@ -174,7 +174,7 @@ function initialiserPaiement() {
     const response = await fetch("/create-checkout-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ cart: panier, country: pays, note_personnelle: note })
+      body: JSON.stringify({ cart: panier, country: pays, note_personnelle: note, lang: "en" })
     });
 
     const data = await response.json();
