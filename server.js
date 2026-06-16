@@ -90,6 +90,8 @@ app.post("/create-checkout-session", async (req, res) => {
   const { cart, country, note_personnelle, lang } = req.body;
   // Prefixe de langue pour les pages de retour Stripe (success/cancel)
   const langPrefix = lang === "lu" ? "/lu" : lang === "en" ? "/en" : "";
+  // Origine reelle de la requete (preview OU prod) -> retours Stripe sur le bon domaine
+  const origin = req.headers.origin || `https://${req.headers.host}`;
 
   console.log("Note personnelle reçue:", note_personnelle);
 
@@ -166,8 +168,8 @@ app.post("/create-checkout-session", async (req, res) => {
           "WF","WS","XK","YE","YT","ZA","ZM","ZW"
         ],
       },
-      success_url: `https://www.lescontesdezoufftgen.com${langPrefix}/success.html`,
-      cancel_url: `https://www.lescontesdezoufftgen.com${langPrefix}/cancel.html`,
+      success_url: `${origin}${langPrefix}/success.html`,
+      cancel_url: `${origin}${langPrefix}/cancel.html`,
       metadata: {
         note_personnelle: note_personnelle || "Aucune note",
         cart_items_count: cart.length,
