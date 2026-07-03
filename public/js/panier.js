@@ -1,4 +1,33 @@
 // -------------------
+// 🌐 Langue de la page (FR par defaut, EN si <html lang="en">)
+// -------------------
+const EST_EN = (document.documentElement.lang || "").toLowerCase().startsWith("en");
+
+const T = EST_EN
+  ? {
+      panierUrl: "/boutique/panier-en.html",
+      vide: "Your cart is empty.",
+      produit: "Product",
+      prixUnitaire: "Unit price",
+      quantite: "Quantity",
+      total: "Total",
+      actions: "Actions",
+      confirmerVider: "Empty the cart?",
+      erreurStripe: "Something went wrong while redirecting to Stripe. Please contact me via my contact page. Thank you.",
+    }
+  : {
+      panierUrl: "/boutique/panier.html",
+      vide: "Votre panier est vide.",
+      produit: "Produit",
+      prixUnitaire: "Prix unitaire",
+      quantite: "Quantité",
+      total: "Total",
+      actions: "Actions",
+      confirmerVider: "Vider le panier ?",
+      erreurStripe: "Erreur lors de la redirection vers Stripe. Veuillez me contacter via ma page de contact. Merci.",
+    };
+
+// -------------------
 // 🧠 Fonctions utilitaires
 // -------------------
 function getPanier() {
@@ -50,7 +79,7 @@ function initialiserBoutonsAjouter() {
       savePanier(panier);
       updatePanierCompteur();
       setTimeout(() => {
-        window.location.href = "/boutique/panier.html";
+        window.location.href = T.panierUrl;
       }, 1000);
       //window.location.href = "/boutique/panier.html";
       //alert(`✅ "${name}" ajouté au panier.`);
@@ -72,7 +101,7 @@ function afficherPanier() {
   let totalGeneral = 0;
 
   if (panier.length === 0) {
-    tbody.innerHTML = `<tr><td colspan="5">Votre panier est vide.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="5">${T.vide}</td></tr>`;
     boutonPayer.style.display = "none";
     return;
   }
@@ -83,11 +112,11 @@ function afficherPanier() {
     totalGeneral += total;
 
     ligne.innerHTML = `
-  <td data-label="Produit">${item.name}</td>
-  <td data-label="Prix unitaire">${(item.price / 100).toFixed(2)} €</td>
-  <td data-label="Quantité"><input type="number" min="1" value="${item.quantity}" onchange="changerQuantite(${index}, this.value)" /></td>
-  <td data-label="Total">${(total / 100).toFixed(2)} €</td>
-  <td data-label="Actions"><button class="btn-supprimer" onclick="supprimerArticle(${index})">❌</button></td>
+  <td data-label="${T.produit}">${item.name}</td>
+  <td data-label="${T.prixUnitaire}">${(item.price / 100).toFixed(2)} €</td>
+  <td data-label="${T.quantite}"><input type="number" min="1" value="${item.quantity}" onchange="changerQuantite(${index}, this.value)" /></td>
+  <td data-label="${T.total}">${(total / 100).toFixed(2)} €</td>
+  <td data-label="${T.actions}"><button class="btn-supprimer" onclick="supprimerArticle(${index})">❌</button></td>
 `;
     tbody.appendChild(ligne);
   });
@@ -179,14 +208,14 @@ function initialiserPaiement() {
     const response = await fetch("/create-checkout-session", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ cart: panier, country: pays, note_personnelle: note })
+      body: JSON.stringify({ cart: panier, country: pays, note_personnelle: note, lang: EST_EN ? "en" : "fr" })
     });
 
     const data = await response.json();
     if (data.url) {
       window.location.href = data.url;
     } else {
-      alert("Erreur lors de la redirection vers Stripe. Veuillez me contacter via ma page de contact. Merci.");
+      alert(T.erreurStripe);
     }
   });
 }
@@ -199,7 +228,7 @@ function initialiserViderPanier() {
   if (!bouton) return;
 
   bouton.addEventListener("click", () => {
-    if (confirm("Vider le panier ?")) {
+    if (confirm(T.confirmerVider)) {
       localStorage.removeItem("panier");
       updatePanierCompteur();
       location.reload();

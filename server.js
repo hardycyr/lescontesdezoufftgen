@@ -71,7 +71,7 @@ const BREVO_SENDER_NAME =
 app.post("/create-checkout-session", async (req, res) => {
   console.log("📦 Body reçu :", req.body);
 
-  const { cart, country, note_personnelle } = req.body;
+  const { cart, country, note_personnelle, lang } = req.body;
 
   console.log("Note personnelle reçue:", note_personnelle);
 
@@ -118,6 +118,9 @@ app.post("/create-checkout-session", async (req, res) => {
       quantity: 1,
     });
 
+    const isEn = lang === "en";
+    const baseUrl = "https://www.lescontesdezoufftgen.com";
+
     const session = await stripe.checkout.sessions.create({
       payment_method_types: ["card"],
       line_items,
@@ -148,8 +151,9 @@ app.post("/create-checkout-session", async (req, res) => {
           "WF","WS","XK","YE","YT","ZA","ZM","ZW"
         ],
       },
-      success_url: "https://www.lescontesdezoufftgen.com/success.html",
-      cancel_url: "https://www.lescontesdezoufftgen.com/cancel.html",
+      locale: isEn ? "en" : "fr",
+      success_url: isEn ? `${baseUrl}/success-en.html` : `${baseUrl}/success.html`,
+      cancel_url: isEn ? `${baseUrl}/cancel-en.html` : `${baseUrl}/cancel.html`,
       metadata: {
         note_personnelle: note_personnelle || "Aucune note",
         cart_items_count: cart.length,
