@@ -50,7 +50,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/univers.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-07-04</lastmod>
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/univers.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/universe.html" />
@@ -67,8 +67,17 @@
   </url>
 
   <url>
+    <loc>https://www.lescontesdezoufftgen.com/projet.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.80</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/projet.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/the-project.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/projet.html" />
+  </url>
+
+  <url>
     <loc>https://www.lescontesdezoufftgen.com/apropos.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-07-04</lastmod>
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/apropos.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/about.html" />
@@ -165,6 +174,15 @@
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/parutions.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/news-and-events.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/parutions.html" />
+  </url>
+
+  <url>
+    <loc>https://www.lescontesdezoufftgen.com/the-project.html</loc>
+    <lastmod>2026-07-04</lastmod>
+    <priority>0.70</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/projet.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/the-project.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/projet.html" />
   </url>
 
   <url>
