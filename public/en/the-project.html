@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>The project | The Tales of Zoufftgen</title>
+
+  <meta
+    name="description"
+    content="The project behind the Tales of Zoufftgen: growing a world of imagination rooted in a very real land, through children’s books, readings and local heritage."
+  />
+  <meta property="og:title" content="The project | The Tales of Zoufftgen" />
+  <meta
+    property="og:description"
+    content="Growing a world of imagination rooted in a very real land: the collection, the readings, the story objects and what comes next."
+  />
+  <meta
+    property="og:image"
+    content="https://www.lescontesdezoufftgen.com/images/Fond.png"
+  />
+  <meta property="og:url" content="https://www.lescontesdezoufftgen.com/en/the-project.html" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:title" content="The project | The Tales of Zoufftgen" />
+  <meta
+    name="twitter:description"
+    content="The project behind the Tales of Zoufftgen: a world of imagination rooted in the village of Zoufftgen."
+  />
+  <meta
+    name="twitter:image"
+    content="https://www.lescontesdezoufftgen.com/images/Fond.png"
+  />
+  <meta name="twitter:card" content="summary_large_image" />
+
+  <link rel="canonical" href="https://www.lescontesdezoufftgen.com/en/the-project.html" />
+  <link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/projet.html" />
+  <link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/en/the-project.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/projet.html" />
+
+  <link rel="stylesheet" href="/styles.css" />
+  <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <link rel="icon" sizes="192x192" href="/android-chrome-192x192.png" />
+  <link rel="icon" sizes="512x512" href="/android-chrome-512x512.png" />
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap" rel="stylesheet" />
+
+  <script src="/js/panier.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const toggle = document.getElementById("menu-toggle");
+      const menu = document.getElementById("menu-list");
+
+      if (toggle && menu) {
+        toggle.addEventListener("click", () => {
+          menu.classList.toggle("open");
+        });
+      }
+    });
+  </script>
+
+  <style>
+    .projet-page {
+      display: block !important;
+      max-width: 1100px;
+      margin: 2rem auto;
+      background: white;
+      color: black;
+      border-radius: 12px;
+      padding: 3rem 2rem;
+    }
+
+    /* Titre centre en haut de page, jamais sur une photo. */
+    .projet-header {
+      max-width: 820px;
+      margin: 0 auto 2.5rem;
+      text-align: center;
+    }
+    .projet-title {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 4.2rem;
+      line-height: 1.05;
+      margin: 0 0 1.2rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: black;
+    }
+    .projet-subtitle {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 1.15rem;
+      font-style: italic;
+      line-height: 1.6;
+      margin: 0 auto;
+      max-width: 620px;
+      color: #555;
+    }
+
+    /* Grande photo panoramique sous le titre, sans texte en surimpression. */
+    .projet-banner {
+      display: block;
+      width: 100%;
+      margin: 0 auto 3rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.22);
+    }
+
+    .projet-content {
+      max-width: 760px;
+      margin: 0 auto;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.98rem;
+      line-height: 2.1;
+      color: black;
+      text-align: justify;
+      hyphens: auto;
+    }
+
+    .projet-content section {
+      display: block !important;
+      width: 100% !important;
+      max-width: none !important;
+      margin: 0 0 2.4rem 0 !important;
+      padding: 0 !important;
+      background: transparent !important;
+      border-radius: 0 !important;
+    }
+
+    .projet-content h2 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 2.1rem;
+      line-height: 1.2;
+      margin: 0 0 1rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      color: black;
+      text-align: left;
+    }
+
+    .projet-content p {
+      margin: 0 0 1.2rem;
+      color: black;
+    }
+
+    .projet-content ul {
+      margin: 0 0 1.2rem;
+      padding-left: 1.4rem;
+    }
+    .projet-content li {
+      margin: 0 0 0.5rem;
+    }
+
+    /* Photo decorative pleine largeur du bloc. */
+    .projet-photo {
+      display: block;
+      width: 100%;
+      max-width: 620px;
+      margin: 0 auto 2.6rem;
+      border-radius: 10px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+    }
+
+    .leaf-separator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      margin: 2.5rem 0;
+    }
+    .leaf-separator-line {
+      display: block;
+      width: 80px;
+      height: 1px;
+      background: #C9A35A;
+    }
+    .leaf-separator-icon {
+      width: 36px;
+      height: auto;
+      display: block;
+    }
+
+    /* Encadre dore recapitulatif en fin de page. */
+    .projet-summary {
+      max-width: 760px;
+      margin: 1rem auto 0;
+      padding: 2.4rem 2.5rem;
+      border: 1px solid #C9A35A;
+      border-radius: 8px;
+      background: rgba(201, 163, 90, 0.05);
+      text-align: center;
+    }
+    .projet-summary h2 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 2.2rem;
+      font-weight: 600;
+      margin: 0 0 1.4rem;
+      color: black;
+      letter-spacing: 0.01em;
+    }
+    .projet-summary ul {
+      list-style: none;
+      margin: 0 auto 2rem;
+      padding: 0;
+      max-width: 560px;
+      text-align: left;
+    }
+    .projet-summary li {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 0 0 0.9rem;
+      padding-left: 1.9rem;
+      position: relative;
+      color: black;
+    }
+    .projet-summary li::before {
+      content: "\2714";
+      position: absolute;
+      left: 0;
+      top: 0;
+      color: #C9A35A;
+      font-weight: 700;
+    }
+    /* Bouton editorial du site (identique aux autres pages). */
+    .cta-button-wrapper {
+      text-align: center;
+      margin: 2rem 0 0.5rem;
+    }
+    .cta-button {
+      display: inline-block;
+      padding: 0.8rem 1.8rem;
+      border: 1px solid #C9A35A;
+      border-radius: 4px;
+      background: transparent;
+      color: black;
+      text-decoration: none;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.88rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: background 0.25s, border-color 0.25s;
+    }
+    .cta-button:hover {
+      background: rgba(201, 163, 90, 0.12);
+      border-color: #D4A857;
+    }
+
+    @media (max-width: 768px) {
+      .projet-page {
+        margin: 1rem;
+        padding: 2rem 1.2rem;
+      }
+      .projet-title {
+        font-size: 3rem;
+      }
+      .projet-subtitle {
+        font-size: 1.05rem;
+      }
+      .projet-content {
+        font-size: 1rem;
+      }
+      .projet-content h2 {
+        font-size: 1.7rem;
+      }
+      .projet-summary {
+        padding: 1.8rem 1.4rem;
+      }
+    }
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.lescontesdezoufftgen.com/en/index.html"},
+      {"@type": "ListItem", "position": 2, "name": "The project", "item": "https://www.lescontesdezoufftgen.com/en/the-project.html"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="background-overlay"></div>
+
+  <header>
+    <p class="site-logo"><a href="/en/index.html" class="logo-link"><img loading="lazy" class="logo-leaf-top" src="/images/feuille-separateur.png" alt="" /><span class="logo-petit">The Tales of</span><span class="logo-grand">Zoufftgen</span></a></p>
+    <nav>
+      <button id="menu-toggle" aria-label="Open menu">☰</button>
+      <ul id="menu-list">
+        <li><a href="/en/index.html">Home</a></li>
+        <li><a href="/en/mybooks.html">The collection</a></li>
+        <li><a href="/en/story-objects.html">Story objects</a></li>
+        <li><a href="/en/author-visits.html">Author visits</a></li>
+        <li><a href="/en/universe.html">The world</a></li>
+        <li><a href="/en/news-and-events.html">News &amp; events</a></li>
+        <li><a href="/en/the-project.html">The project</a></li>
+        <li><a href="/en/about.html">About</a></li>
+        <li><a href="/en/contact.html" class="menu-icon" aria-label="Contact" title="Contact"><svg class="icon-envelope" width="20" height="15" viewBox="0 0 24 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><rect x="1" y="1" width="22" height="16" rx="2"/><path d="M2 4l10 7 10-7"/></svg></a></li>
+        <li><a href="/en/boutique/panier.html" class="menu-icon" aria-label="Cart" title="Cart"><svg class="icon-cart" width="20" height="18" viewBox="0 0 24 22" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M1 1h3l2.5 13.2a2 2 0 002 1.6h9.4a2 2 0 002-1.6L22 6.5H6"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg> <span id="panier-compteur"></span></a></li>
+      </ul>
+
+      <div class="language-switcher">
+        <a href="/projet.html">
+          <img loading="lazy"
+            src="https://flagcdn.com/20x15/fr.png"
+            srcset="https://flagcdn.com/40x30/fr.png 2x, https://flagcdn.com/60x45/fr.png 3x"
+            width="20"
+            height="15"
+            alt="Français"
+          />
+        </a>
+        <a href="/en/the-project.html">
+          <img loading="lazy"
+            src="https://flagcdn.com/20x15/gb.png"
+            srcset="https://flagcdn.com/40x30/gb.png 2x, https://flagcdn.com/60x45/gb.png 3x"
+            width="20"
+            height="15"
+            alt="English"
+          />
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="projet-page">
+    <div class="projet-header">
+      <h1 class="projet-title">The project</h1>
+      <p class="projet-subtitle">
+        Growing a world of imagination at the heart of a very real land.
+      </p>
+    </div>
+
+    <img loading="lazy"
+      class="projet-banner"
+      src="/images/Le%20projet/Photo%20village%20drone.png"
+      alt="Aerial view of the village of Zoufftgen"
+    />
+
+    <div class="projet-content">
+      <section>
+        <h2>It all began with a bedtime story…</h2>
+        <p>
+          The <em>Tales of Zoufftgen</em> were born from a very simple moment:
+          the stories I told my son before he fell asleep.
+        </p>
+        <p>
+          Very soon, a little character appeared in my imagination. He lived
+          in the forests of Zoufftgen, the village I am deeply attached to.
+          Then came the other characters, the animals, the legends, the paths,
+          the old trees…
+        </p>
+        <p>
+          Without my realising it, these stories began to bring the village
+          to life in a new way.
+        </p>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+
+      <img loading="lazy"
+        class="projet-photo"
+        src="/images/Le%20projet/panoramique3contes.png"
+        alt="The first three books in the Tales of Zoufftgen collection"
+      />
+
+      <section>
+        <h2>A collection rooted in the land</h2>
+        <p>
+          Each tale draws on places that really exist. Children can set off
+          in search of the forester’s house, the old oak, the paths and the
+          landscapes they meet in the stories.
+        </p>
+        <p>
+          Book after book, the <em>Tales of Zoufftgen</em> invite families to
+          look at their surroundings with fresh eyes and to build shared
+          memories around local heritage.
+        </p>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+
+      <img loading="lazy"
+        class="projet-photo"
+        src="/images/Le%20projet/dudelange-3.jpg"
+        alt="Hélène Hardy reading a tale during a library storytelling session"
+      />
+
+      <section>
+        <h2>Much more than children’s books</h2>
+        <p>
+          Through her encounters with children, the project has grown quite
+          naturally. Today it unfolds across several complementary dimensions:
+        </p>
+        <ul>
+          <li>a collection of illustrated tales;</li>
+          <li>storytelling readings in schools, libraries and childcare settings;</li>
+          <li>story objects that let children carry the stories on at home;</li>
+          <li>activities that invite children to explore nature and the places featured in the tales.</li>
+        </ul>
+        <p>
+          The aim remains the same: to pass on to the youngest the joy of
+          stories, while reconnecting them with the land around them.
+        </p>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+
+      <img loading="lazy"
+        class="projet-photo"
+        src="/images/Le%20projet/chene-reel.jpg"
+        alt="The old oak of Vogelsang, in Zoufftgen"
+      />
+
+      <section>
+        <h2>A project that keeps growing</h2>
+        <p>
+          The <em>Tales of Zoufftgen</em> continue to develop today. The fourth
+          book is currently in preparation.
+        </p>
+        <p>
+          Alongside this, a project to translate the tales into Luxembourgish
+          and to create audio versions is being explored as part of the twinning
+          between Zoufftgen and Roeser, with the ambition of letting children on
+          both sides of the border share the same stories in their own language.
+        </p>
+        <p>
+          New cultural partnerships are also under consideration, to support the
+          project as it grows.
+        </p>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+
+      <section>
+        <h2>A long-term vision</h2>
+        <p>
+          The <em>Tales of Zoufftgen</em> set out to create an imaginative
+          heritage deeply rooted in a very real land.
+        </p>
+        <p>
+          Through the books, the encounters, the story objects and the project’s
+          future developments, the goal is to help children discover, love and,
+          in turn, pass on the landscapes, stories and memories that make their
+          region so rich.
+        </p>
+        <p>
+          Because a story becomes even more precious when it lives on long after
+          the book is closed.
+        </p>
+      </section>
+    </div>
+
+    <div class="projet-summary">
+      <h2>The project in a few words</h2>
+      <ul>
+        <li>A collection of illustrated tales.</li>
+        <li>A world inspired by the natural and historical heritage of Zoufftgen.</li>
+        <li>Readings in schools, libraries and childcare settings.</li>
+        <li>Story objects that extend the tales.</li>
+        <li>A Luxembourgish translation and audio versions (in development).</li>
+        <li>Growing cross-border cultural partnerships.</li>
+      </ul>
+      <div class="cta-button-wrapper">
+        <a href="/en/mybooks.html" class="cta-button">Discover the collection</a>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025-2026 Hélène Hardy. All rights reserved.</p>
+
+    <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
+      <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">
+        <path d="M22 12.073C22 6.486 17.523 2 12 2S2 6.486 2 12.073c0 4.991 3.657 9.128 8.438 9.878v-6.987H7.898v-2.89h2.54V9.845c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.772-1.63 1.562v1.875h2.773l-.443 2.89h-2.33v6.987C18.343 21.2 22 17.063 22 12.073z"/>
+      </svg>
+    </a>
+
+    <a href="https://www.youtube.com/@LesContesdeZoufftgen" target="_blank" rel="noopener" aria-label="YouTube" class="facebook-icon">
+      <img loading="lazy" alt="YouTube" width="28" height="28" src="/images/logos/youtube.png" />
+    </a>
+
+    <a href="https://www.instagram.com/lescontesdezoufftgen/" target="_blank" rel="noopener" class="facebook-icon" aria-label="Instagram">
+      <img loading="lazy" src="/images/logo_instagram_blanc.png" alt="Instagram" width="28" height="28" />
+    </a>
+  </footer>
+</body>
+</html>
