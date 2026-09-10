@@ -47,7 +47,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Hélène Hardy",
+    "name": "Hélène Hardy", "alternateName": "Hélène Agostinis",
     "jobTitle": "Autrice et illustratrice jeunesse",
     "description": "Hélène Hardy est autrice et illustratrice de la collection Les Contes de Zoufftgen, une série de livres jeunesse ancrée dans le village de Zoufftgen, à la frontière franco-luxembourgeoise.",
     "image": "https://www.lescontesdezoufftgen.com/images/portrait-Helene-Hardy.png",
@@ -204,6 +204,15 @@
       color: #555;
     }
 
+      .about-note {
+        margin-top: 2.75rem;
+        text-align: center;
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: #8f8f8f;
+        font-style: normal;
+      }
+
     .leaf-separator {
       display: flex;
       align-items: center;
@@ -335,6 +344,15 @@
   ]
 }
 </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YF42H2CYXX');
+  </script>
 </head>
 <body>
   <div class="background-overlay"></div>
@@ -467,11 +485,17 @@
           pleinement trouvé leur raison d’être.
         </p>
       </section>
+
+      <p class="about-note">
+        Les premiers albums de la collection ont initialement paru sous le nom
+        d’Hélène Agostinis.
+      </p>
     </div>
   </main>
 
   <footer>
     <p>&copy; 2023-2026 Hélène Hardy. Tous droits réservés.</p>
+    <p><a href="/livres-jeunesse-lorraine.html" style="color:inherit;opacity:.75;">Livres jeunesse en Lorraine &amp; Moselle</a></p>
 
     <a href="https://www.facebook.com/profile.php?id=61573926592041" target="_blank" rel="noopener" class="facebook-icon" aria-label="Facebook">
       <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="#FFFFFF">

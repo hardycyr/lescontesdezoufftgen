@@ -47,7 +47,7 @@
   {
     "@context": "https://schema.org",
     "@type": "Person",
-    "name": "Hélène Hardy",
+    "name": "Hélène Hardy", "alternateName": "Hélène Agostinis",
     "jobTitle": "Children's book author and illustrator",
     "description": "Hélène Hardy is the author and illustrator of The Tales of Zoufftgen, a series of children's books set in the village of Zoufftgen, on the French-Luxembourg border.",
     "image": "https://www.lescontesdezoufftgen.com/images/portrait-Helene-Hardy.png",
@@ -191,6 +191,15 @@
       color: #555;
     }
 
+      .about-note {
+        margin-top: 2.75rem;
+        text-align: center;
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: #8f8f8f;
+        font-style: normal;
+      }
+
     .leaf-separator {
       display: flex;
       align-items: center;
@@ -321,6 +330,15 @@
   ]
 }
 </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-YF42H2CYXX');
+  </script>
 </head>
 <body>
   <div class="background-overlay"></div>
@@ -438,6 +456,11 @@
       <section class="about-coda">
         <p>A world to read and to pass on.</p>
       </section>
+
+      <p class="about-note">
+        The first titles in the collection were originally published under the
+        name Hélène Agostinis.
+      </p>
     </div>
   </main>
 
