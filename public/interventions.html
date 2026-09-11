@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <title>Interventions d’autrice &amp; parcours pédagogiques | Les Contes de Zoufftgen</title>
+  <title>Interventions en école et bibliothèque — Écoles &amp; collectivités | Les Contes de Zoufftgen</title>
 
   <meta
     name="description"
@@ -262,6 +262,111 @@
         font-size: 1.6rem;
       }
     }
+
+    /* Bloc de reperes : l'essentiel sans avoir a faire defiler la page. */
+    .interventions-content .reperes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: 0.9rem 1.6rem;
+      margin: 1.6rem 0 0.4rem;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid #C9A35A;
+      border-radius: 6px;
+      text-align: left;
+    }
+    .interventions-content .reperes div { margin: 0; }
+    .interventions-content .reperes dt {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 0 0 0.15rem;
+      color: black;
+    }
+    .interventions-content .reperes dd {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: black;
+    }
+
+    /* Grille tarifaire : libelle a gauche, montant cale a droite. */
+    .interventions-content .tarifs {
+      list-style: none;
+      margin: 0.6rem 0 1rem;
+      padding: 0;
+    }
+    .interventions-content .tarifs li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      text-align: left;
+    }
+    .interventions-content .tarifs .montant {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .interventions-content .note {
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: #575757;
+      font-style: italic;
+    }
+
+    /* Les trois contes : couverture a gauche, texte a droite. */
+    .interventions-content .conte {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.4rem;
+      align-items: start;
+      margin: 0 0 1.6rem;
+      text-align: left;
+    }
+    .interventions-content .conte img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .interventions-content .conte h3 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin: 0 0 0.4rem;
+      color: black;
+    }
+    .interventions-content .conte p { margin: 0 0 0.5rem; }
+    .interventions-content .conte .kit {
+      font-size: 0.86rem;
+      font-style: italic;
+      color: #575757;
+    }
+    @media (max-width: 560px) {
+      .interventions-content .conte { grid-template-columns: 1fr; }
+      .interventions-content .conte img { max-width: 150px; }
+    }
+
+    /* Lien de telechargement de la plaquette. */
+    .interventions-content .doc-plaquette {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 0.6rem 0 0.4rem;
+      padding: 0.75rem 1.4rem;
+      border: 1px solid #C9A35A;
+      border-radius: 4px;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: black;
+      transition: background 0.25s;
+    }
+    .interventions-content .doc-plaquette:hover { background: rgba(201, 163, 90, 0.14); }
   </style>
 <script type="application/ld+json">
 {
@@ -294,7 +399,7 @@
         <li><a href="/">Accueil</a></li>
         <li><a href="/collection.html">La collection</a></li>
         <li><a href="/objetsnarratifs.html">Objets narratifs</a></li>
-        <li><a href="/interventions.html">Interventions</a></li>
+        <li><a href="/interventions.html">Écoles &amp; collectivités</a></li>
         <li><a href="/univers.html">L'univers</a></li>
         <li><a href="/parutions.html">Parutions &amp; Rencontres</a></li>
         <li><a href="/projet.html">Le projet</a></li>
@@ -328,24 +433,47 @@
 
   <main class="interventions-page">
     <div class="interventions-header">
-      <h1 class="interventions-title">Interventions d’autrice<br />&amp; parcours pédagogiques</h1>
+      <h1 class="interventions-title">Faire entrer un conte<br />dans votre classe</h1>
       <p class="interventions-subtitle">
-        Autour du récit, du réel et de l’imaginaire
+        Interventions en écoles, bibliothèques et structures périscolaires
       </p>
     </div>
 
     <div class="interventions-content">
       <section>
         <p>
-          À travers les <em>Contes de Zoufftgen</em>, je propose des interventions
-          dans les écoles (maternelles et élémentaires), les bibliothèques ainsi
-          que les structures culturelles ou périscolaires.
+          À travers les <em>Contes de Zoufftgen</em>, je propose des rencontres
+          contées dans les écoles, les bibliothèques et les structures
+          périscolaires de Lorraine et du Luxembourg.
         </p>
         <p>
-          Ces rencontres prennent la forme de lectures, d’échanges et de moments
-          de transmission autour des histoires, de la nature et du regard que
-          l’on porte sur les lieux qui nous entourent.
+          Mes histoires se passent dans un village qui existe vraiment, à la
+          frontière. Les enfants découvrent que le vieux chêne, la maison
+          forestière et les chemins du conte sont à quelques kilomètres de leur
+          école — et repartent avec l’envie de regarder autrement les arbres
+          qu’ils croisent tous les jours.
         </p>
+
+        <dl class="reperes">
+          <div>
+            <dt>Pour qui</dt>
+            <dd>De la moyenne section au CM2, 10 à 20 enfants par groupe.</dd>
+          </div>
+          <div>
+            <dt>Deux formats</dt>
+            <dd>La lecture contée, 45 min à 1 h. L’atelier, 1 h 30 à 2 h.</dd>
+          </div>
+          <div>
+            <dt>Tarif</dt>
+            <dd>310,47 € la demi-journée, une ou deux rencontres. Déplacements
+            inclus dans un rayon de 25 km.</dd>
+          </div>
+          <div>
+            <dt>Chaque enfant repart avec</dt>
+            <dd>Un kit de l’univers du conte. Et un livre dédicacé pour la
+            structure.</dd>
+          </div>
+        </dl>
 
         <img
           loading="lazy"
@@ -363,13 +491,12 @@
         <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
         <span class="leaf-separator-line"></span>
       </div>
-
       <section>
         <h2>Une approche singulière</h2>
-        <p>Les histoires se déroulent à Zoufftgen, un village bien réel.</p>
         <p>
+          Les histoires se déroulent à Zoufftgen, un village bien réel.
           Lors des rencontres, les enfants découvrent que les lieux évoqués
-          dans les contes existent réellement : un vieil arbre, une maison
+          dans les contes existent réellement&nbsp;: un vieil arbre, une maison
           forestière, un chemin de terre ou un coin de forêt.
         </p>
         <p>
@@ -385,21 +512,28 @@
         <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
         <span class="leaf-separator-line"></span>
       </div>
-
       <section>
-        <h2>Déroulement et formats</h2>
+        <h2>Deux formats</h2>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;margin:1rem 0 0.1rem;text-align:left;">La lecture contée</h3>
+        <p class="note" style="margin:0 0 0.6rem;">45 min à 1 h&nbsp;·&nbsp;de la moyenne section au CE2</p>
         <p>
-          Chaque rencontre est pensée en fonction de l’âge des enfants et du
-          projet de la structure. Qu’il s’agisse d’une séance unique, d’une
-          demi-journée ou d’un parcours sur plusieurs rencontres, l’intervention
-          s’articule généralement autour de plusieurs temps :
+          Un conte raconté et adapté à l’âge des enfants, un temps d’échange
+          autour du personnage et de son univers, un rituel de clôture. Chaque
+          enfant repart avec un kit de l’univers du conte. Deux groupes peuvent
+          se succéder dans la même demi-journée, sans supplément.
         </p>
-        <ul>
-          <li>Une lecture à voix haute, vivante et immersive.</li>
-          <li>Un temps d’échange autour de l’histoire et de ses secrets.</li>
-          <li>Une découverte du lien entre le conte et les lieux réels de la forêt.</li>
-          <li>Une activité complémentaire autour du dessin, de l’observation ou de l’imaginaire.</li>
-        </ul>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-weight:600;margin:1.4rem 0 0.1rem;text-align:left;">L’atelier</h3>
+        <p class="note" style="margin:0 0 0.6rem;">1 h 30 à 2 h&nbsp;·&nbsp;du CP au CM2</p>
+        <p>
+          La lecture, prolongée par une activité créative&nbsp;: dessiner, fabriquer,
+          observer, écrire. Le matériel est fourni. Un temps plus long, pour des
+          enfants qui savent déjà faire de leurs mains.
+        </p>
+        <p class="note">
+          Les deux formats sont au même tarif&nbsp;: la grille de la profession ne
+          distingue pas la rencontre de l’atelier. Vous choisissez celui qui
+          convient à votre groupe.
+        </p>
       </section>
 
       <div class="leaf-separator" aria-hidden="true">
@@ -407,13 +541,85 @@
         <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
         <span class="leaf-separator-line"></span>
       </div>
+      <section>
+        <h2>Trois rencontres, trois contes</h2>
 
+        <div class="conte">
+          <img loading="lazy" src="/images/tome-1.webp" alt="Le Petit Zouffarceur, tome 1 de la collection" />
+          <div>
+            <h3>Faire connaissance avec le Petit Zouffarceur</h3>
+            <p>
+              Le conte du lutin qui vit dans la forêt de Zoufftgen, un échange
+              autour du personnage et la découverte de son univers.
+            </p>
+            <p class="kit">
+              Chaque enfant repart avec le kit «&nbsp;rituel des noisettes&nbsp;»&nbsp;: une
+              carte illustrée et un petit pochon de noisettes à déposer sur sa
+              fenêtre pour inviter le Petit Zouffarceur à venir lui rendre visite.
+            </p>
+          </div>
+        </div>
+
+        <div class="conte">
+          <img loading="lazy" src="/images/tome-2.webp" alt="La maison du petit zouffarceur, tome 2 de la collection" />
+          <div>
+            <h3>La maison du Petit Zouffarceur</h3>
+            <p>
+              Le vieux chêne du Vogelsang, la nature, le temps long et
+              l’habitat&nbsp;: où vivent ceux qu’on ne voit pas&nbsp;?
+            </p>
+            <p class="kit">
+              Chaque enfant repart avec le kit «&nbsp;une maison à planter&nbsp;»&nbsp;: une
+              carte illustrée accompagnée d’un véritable gland, que l’enfant
+              peut planter chez lui.
+            </p>
+          </div>
+        </div>
+
+        <div class="conte">
+          <img loading="lazy" src="/images/tome-3.webp" alt="Papa Sanglier et sa dent en or, tome 3 de la collection" />
+          <div>
+            <h3>Papa Sanglier et sa dent en or</h3>
+            <p>
+              Le vocabulaire du sanglier, l’observation d’une véritable défense,
+              et un échange sur le vivant et le respect de la forêt.
+            </p>
+            <p class="kit">
+              Chaque enfant repart avec le kit «&nbsp;empreintes de la forêt&nbsp;»&nbsp;: une
+              carte illustrée présentant une empreinte de sanglier, à
+              reconnaître ensuite en promenade.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+      <section>
+        <h2>Les mots de la frontière</h2>
+        <p>
+          Chaque conte comporte une page bilingue français-luxembourgeois. En
+          fin de rencontre, les enfants découvrent huit mots dans la langue du
+          pays voisin — sanglier, forêt, hiver, chêne — et repartent avec. Une
+          ouverture toute simple sur l’autre côté de la frontière, à quelques
+          kilomètres de leur école.
+        </p>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
       <section>
         <h2>Une expérience sensible</h2>
         <p>
           Les histoires prennent souvent naissance dans des moments simples,
           comme les récits que l’on raconte le soir à voix basse. Lors des
-          rencontres, je veille à préserver cette dimension : une voix, un temps
+          rencontres, je veille à préserver cette dimension&nbsp;: une voix, un temps
           calme, une attention partagée.
         </p>
         <p>
@@ -427,15 +633,55 @@
         <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
         <span class="leaf-separator-line"></span>
       </div>
-
       <section>
-        <h2>Informations pratiques</h2>
-        <p>
-          Ces interventions sont imaginées sur mesure, selon les projets
-          pédagogiques, culturels ou artistiques des structures qui les accueillent.
+        <h2>Tarifs et modalités</h2>
+        <ul class="tarifs">
+          <li><span>Demi-journée — une ou deux rencontres</span><span class="montant">310,47 €</span></li>
+          <li><span>Journée complète — jusqu’à trois rencontres</span><span class="montant">514,64 €</span></li>
+          <li><span>Cycle de trois demi-journées étalées dans l’année</span><span class="montant">931,41 €</span></li>
+        </ul>
+        <p class="note">
+          Tarifs 2026 recommandés par La Charte des auteurs et illustrateurs
+          jeunesse, appliqués sans majoration. Kit remis à chaque enfant et
+          livre dédicacé pour la structure&nbsp;: offerts. Déplacements offerts dans
+          un rayon de 25 km autour de Zoufftgen — la grille les met à la charge
+          de l’organisateur&nbsp;; au-delà, devis sur demande. TVA non applicable,
+          article 293 B du CGI.
         </p>
         <p>
-          Pour imaginer une rencontre ou échanger autour d’un projet :
+          <a class="doc-plaquette" href="/documents/Les-Contes-de-Zoufftgen-Ecoles-et-collectivites-2026.pdf" download>
+            Télécharger la plaquette (PDF)
+          </a>
+        </p>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+      <section>
+        <h2>Ils m’ont accueillie</h2>
+        <p>
+          Bibliothèque de Dudelange (Luxembourg)&nbsp;· Périscolaire de Soetrich
+          (Hettange-Grande)&nbsp;· Volmerange-les-Mines&nbsp;· Zoufftgen&nbsp;·
+          <em>Le Républicain Lorrain</em>, décembre 2025.
+        </p>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+      <section>
+        <h2>Organiser une rencontre</h2>
+        <p>
+          Les dates se calent au rythme de votre projet, et l’intervention
+          s’adapte à l’âge du groupe comme au fonctionnement de la structure.
+        </p>
+        <p>
+          Pour imaginer une rencontre ou échanger autour d’un projet&nbsp;:
           <a href="/contact.html">contactez-moi</a>.
         </p>
       </section>
