@@ -51,6 +51,29 @@ app.use(express.static("public"));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// Destinations des QR codes imprimes dans les albums 2026. Ces adresses seront
+// gravees dans des milliers d'exemplaires pour des annees : elles ne doivent
+// JAMAIS changer. Si une page est renommee un jour, garder ici une redirection
+// plutot que de casser le QR.
+//
+// On sert le fichier sans son extension .html pour que l'adresse imprimee sous
+// le QR reste courte et tapable a la main, par exemple :
+//   lescontesdezoufftgen.com/livre/papa-sanglier
+const LIVRES_QR = [
+  "petit-zouffarceur",
+  "la-maison",
+  "papa-sanglier",
+  "la-sorciere",
+];
+app.get("/livre/:nom", (req, res, next) => {
+  // liste blanche : aucun nom hors de cette liste n'atteint le disque
+  if (!LIVRES_QR.includes(req.params.nom)) return next();
+  res.sendFile(path.join(__dirname, "public", "livre", `${req.params.nom}.html`));
+});
+app.get("/audios", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "audios.html"));
+});
+
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
 const RECAPTCHA_SECRET_KEY = process.env.RECAPTCHA_SECRET_KEY;
 
