@@ -51,14 +51,35 @@ app.use(express.static("public"));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Destinations des QR codes imprimes dans les albums 2026. Ces adresses seront
-// gravees dans des milliers d'exemplaires pour des annees : elles ne doivent
-// JAMAIS changer. Si une page est renommee un jour, garder ici une redirection
-// plutot que de casser le QR.
+// ---------------------------------------------------------------------------
+// DESTINATIONS DES QR CODES IMPRIMES DANS LES ALBUMS 2026
 //
-// On sert le fichier sans son extension .html pour que l'adresse imprimee sous
-// le QR reste courte et tapable a la main, par exemple :
-//   lescontesdezoufftgen.com/livre/papa-sanglier
+// Ces adresses seront gravees dans des milliers d'exemplaires pour des annees.
+// ELLES NE DOIVENT JAMAIS CHANGER. Si une page est renommee un jour, garder ici
+// une redirection plutot que de casser le QR : un livre imprime ne se corrige
+// pas.
+//
+// Un seul mot apres le nom du site : l'adresse est imprimee EN TOUTES LETTRES
+// sous chaque QR (un code ne se lit pas quand la page est abimee, mal eclairee,
+// ou quand le lecteur n'a pas de smartphone), et une adresse courte s'y pose
+// sans enlaidir la page.
+// ---------------------------------------------------------------------------
+const QR_IMPRIMES = {
+  "/zouffarceur": "livre/petit-zouffarceur.html",
+  "/maison": "livre/la-maison.html",
+  "/sanglier": "livre/papa-sanglier.html",
+  "/sorciere": "livre/la-sorciere.html",
+  "/gland": "gland.html", // le modele a imprimer de « La Maison du Petit Zouffarceur »
+  "/audios": "audios.html",
+};
+Object.entries(QR_IMPRIMES).forEach(([url, fichier]) => {
+  app.get(url, (req, res) => {
+    res.sendFile(path.join(__dirname, "public", ...fichier.split("/")));
+  });
+});
+
+// Anciennes adresses longues, conservees : elles ne sont imprimees nulle part,
+// mais elles ont circule pendant la mise au point et ne coutent rien a garder.
 const LIVRES_QR = [
   "petit-zouffarceur",
   "la-maison",
@@ -69,9 +90,6 @@ app.get("/livre/:nom", (req, res, next) => {
   // liste blanche : aucun nom hors de cette liste n'atteint le disque
   if (!LIVRES_QR.includes(req.params.nom)) return next();
   res.sendFile(path.join(__dirname, "public", "livre", `${req.params.nom}.html`));
-});
-app.get("/audios", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "audios.html"));
 });
 
 const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
