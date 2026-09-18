@@ -162,6 +162,13 @@
       color: black;
     }
 
+    .interventions-divider {
+      border: none;
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+      margin: 2rem 0;
+    }
+
+    /* Separateur decoratif: trait + feuille + trait */
     .leaf-separator {
       display: flex;
       align-items: center;
@@ -170,6 +177,8 @@
       margin: 1.5rem 0;
     }
 
+    /* Equilibrage: on neutralise les marges des elements adjacents
+       pour que le separateur soit symetriquement centre. */
     .interventions-content section:has(+ .leaf-separator),
     .interventions-content section:has(+ .leaf-separator) > *:last-child {
       margin-bottom: 0 !important;
@@ -207,6 +216,28 @@
       text-decoration: underline;
     }
 
+    /* Photo illustrative + caption italique discret. */
+    .intervention-photo {
+      display: block;
+      max-width: 560px;
+      width: 100%;
+      margin: 1.5rem auto 0.6rem;
+      border-radius: 8px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.18);
+    }
+    .interventions-content .intervention-photo-caption {
+      display: block !important;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.88rem;
+      font-style: italic;
+      color: #555;
+      text-align: center !important;
+      width: 100% !important;
+      max-width: 560px !important;
+      margin: 0 auto 1.5rem !important;
+      line-height: 1.5;
+    }
+
     @media (max-width: 768px) {
       .interventions-page {
         margin: 1rem;
@@ -231,6 +262,111 @@
         font-size: 1.6rem;
       }
     }
+
+    /* Bloc de reperes: l'essentiel sans avoir a faire defiler la page. */
+    .interventions-content .reperes {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+      gap: 0.9rem 1.6rem;
+      margin: 1.6rem 0 0.4rem;
+      padding: 1.4rem 1.6rem;
+      border: 1px solid #C9A35A;
+      border-radius: 6px;
+      text-align: left;
+    }
+    .interventions-content .reperes div { margin: 0; }
+    .interventions-content .reperes dt {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin: 0 0 0.15rem;
+      color: black;
+    }
+    .interventions-content .reperes dd {
+      margin: 0;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      color: black;
+    }
+
+    /* Grille tarifaire: libelle a gauche, montant cale a droite. */
+    .interventions-content .tarifs {
+      list-style: none;
+      margin: 0.6rem 0 1rem;
+      padding: 0;
+    }
+    .interventions-content .tarifs li {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      padding: 0.45rem 0;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+      text-align: left;
+    }
+    .interventions-content .tarifs .montant {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+    .interventions-content .note {
+      font-size: 0.84rem;
+      line-height: 1.6;
+      color: #575757;
+      font-style: italic;
+    }
+
+    /* Les trois contes: couverture a gauche, texte a droite. */
+    .interventions-content .conte {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 1.4rem;
+      align-items: start;
+      margin: 0 0 1.6rem;
+      text-align: left;
+    }
+    .interventions-content .conte img {
+      width: 100%;
+      height: auto;
+      border-radius: 4px;
+    }
+    .interventions-content .conte h3 {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.45rem;
+      font-weight: 600;
+      margin: 0 0 0.4rem;
+      color: black;
+    }
+    .interventions-content .conte p { margin: 0 0 0.5rem; }
+    .interventions-content .conte .kit {
+      font-size: 0.86rem;
+      font-style: italic;
+      color: #575757;
+    }
+    @media (max-width: 560px) {
+      .interventions-content .conte { grid-template-columns: 1fr; }
+      .interventions-content .conte img { max-width: 150px; }
+    }
+
+    /* Lien de telechargement de la plaquette. */
+    .interventions-content .doc-plaquette {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin: 0.6rem 0 0.4rem;
+      padding: 0.75rem 1.4rem;
+      border: 1px solid #C9A35A;
+      border-radius: 4px;
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: black;
+      transition: background 0.25s;
+    }
+    .interventions-content .doc-plaquette:hover { background: rgba(201, 163, 90, 0.14); }
   </style>
 <script type="application/ld+json">
 {
@@ -297,24 +433,57 @@
 
   <main class="interventions-page">
     <div class="interventions-header">
-      <h1 class="interventions-title">Author visits<br />&amp; educational programmes</h1>
+      <h1 class="interventions-title">Bring a tale<br />into your classroom</h1>
       <p class="interventions-subtitle">
-        At the crossroads of storytelling, nature and imagination.
+        Visits to schools, libraries and after-school centres
       </p>
     </div>
 
     <div class="interventions-content">
       <section>
+        <img
+          loading="lazy"
+          class="intervention-photo"
+          src="/images/rencontres/dudelange-1.webp"
+          alt="Storytelling session at Dudelange library"
+        />
+        <p class="intervention-photo-caption">
+          Storytelling session at Dudelange library
+        </p>
+
         <p>
-          Through <em>The Tales of Zoufftgen</em>, I offer author visits in
-          schools (kindergarten and primary), libraries, as well as cultural
-          and after-school venues.
+          Through <em>The Tales of Zoufftgen</em>, I offer storytelling visits
+          to schools, libraries and after-school centres across Lorraine and
+          Luxembourg.
         </p>
         <p>
-          These encounters take the form of live readings, exchanges and
-          moments of transmission around storytelling, nature, and the link
-          between fiction and reality.
+          My stories take place in a village that really exists, right on the
+          border. Children discover that the old oak, the forester’s house and
+          the paths of the tale are only a few kilometres from their school —
+          and they leave wanting to look differently at the trees they walk
+          past every day.
         </p>
+
+        <dl class="reperes">
+          <div>
+            <dt>Who it is for</dt>
+            <dd>A whole class, up to 30 children, from age 4 to 11.</dd>
+          </div>
+          <div>
+            <dt>Two formats</dt>
+            <dd>The storytelling session, 45 min to 1 hour. The workshops, 2 to
+            2½ hours.</dd>
+          </div>
+          <div>
+            <dt>Travel</dt>
+            <dd>Included within 30 km of Zoufftgen, at no extra cost.</dd>
+          </div>
+          <div>
+            <dt>Every child leaves with</dt>
+            <dd>A kit from the world of the tale. The signed book and a poem
+            stay with the teacher.</dd>
+          </div>
+        </dl>
       </section>
 
       <div class="leaf-separator" aria-hidden="true">
@@ -326,15 +495,16 @@
       <section>
         <h2>A singular approach</h2>
         <p>
-          My stories take place in Zoufftgen, a real village. During visits,
-          children discover that the places mentioned in the tales actually
-          exist: an old tree, a house, a dirt path…
+          The stories take place in Zoufftgen, a real village. During a visit,
+          children discover that the places named in the tales genuinely
+          exist: an old tree, a forester’s house, a dirt path, a corner
+          of the forest.
         </p>
         <p>
-          This connection between imagination and a real place lets us anchor
-          stories in something tangible, and opens a new way of looking at
-          what surrounds us — the trees, the paths, the familiar places we
-          sometimes stop seeing.
+          This link between imagination and local heritage anchors the stories
+          in something tangible, and invites everyone to look afresh at the
+          nature, the landscapes and the familiar places we sometimes stop
+          seeing altogether.
         </p>
       </section>
 
@@ -345,19 +515,113 @@
       </div>
 
       <section>
-        <h2>Format &amp; flow</h2>
+        <h2>Two formats</h2>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;margin:1.2rem 0 0.1rem;text-align:left;">The storytelling session</h3>
+        <p class="note" style="margin:0 0 0.4rem;">45 min to 1 hour&nbsp;·&nbsp;from age 4 to 10</p>
         <p>
-          Each encounter is designed around the age of the children and the
-          venue's project. Whether it's a single session, a half-day, or a
-          programme spread over several visits, the experience generally
-          unfolds in several moments:
+          A visit is far more than a reading. The tale itself lasts ten to
+          fifteen minutes; for the rest of the hour we look at
+          photographs of the places that really exist, we work through the
+          <strong>step-by-step drawing</strong> the book offers, and we talk
+          about the animals of the forest and the words for naming them.
         </p>
-        <ul>
-          <li>A live, immersive reading aloud.</li>
-          <li>A time for exchange around the story and its secrets.</li>
-          <li>A discovery of the link between the tale and the real places in the forest.</li>
-          <li>A complementary activity around drawing, observation, or imagination.</li>
-        </ul>
+        <p>
+          The children leave with a kit; the teacher keeps the signed
+          book and a poem, which the class can learn over the following days.
+          Two groups can follow one another within the same half-day.
+        </p>
+        <h3 style="font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:600;margin:1.2rem 0 0.1rem;text-align:left;">The workshop</h3>
+        <p class="note" style="margin:0 0 0.4rem;">2 to 2½ hours&nbsp;·&nbsp;from age 6 to 11</p>
+        <p>
+          The reading, extended by a time for making. Each tale has its
+          own: they are described below, with the book they belong to.
+        </p>
+        <p class="note">
+          The full outline of a visit is available on request.
+        </p>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+
+      <section>
+        <h2>Three tales, three visits</h2>
+
+        <div class="conte">
+          <img loading="lazy" src="/images/tome-1.webp" alt="Le Petit Zouffarceur, volume 1 of the collection" />
+          <div>
+            <h3>Meeting the Petit Zouffarceur</h3>
+            <p>
+              The tale of the little creature who lives in the forest of
+              Zoufftgen, a conversation about the character, and the discovery
+              of his world.
+            </p>
+            <p class="kit">
+              Every child leaves with the “hazelnut ritual” kit: an
+              illustrated card and a small pouch of hazelnuts to place on the
+              windowsill, inviting the Petit Zouffarceur to pay a visit.
+            </p>
+            <p class="kit"><strong>Workshop “How is a book made?”</strong>&nbsp;— the journey of a picture book, from the first idea to the printed
+              copy: the writing, the drawings, the layout, the printing.</p>
+          </div>
+        </div>
+
+        <div class="conte">
+          <img loading="lazy" src="/images/tome-2.webp" alt="La Maison du Petit Zouffarceur, volume 2 of the collection" />
+          <div>
+            <h3>La Maison du Petit Zouffarceur</h3>
+            <p>
+              The old oak of the Vogelsang farm, nature, slow time and
+              shelter: where do those we never see actually live?
+            </p>
+            <p class="kit">
+              Every child leaves with the “a house to plant” kit: an
+              illustrated card together with a real acorn, which the child can
+              plant at home.
+            </p>
+            <p class="kit"><strong>Workshop “Make a mini-book”</strong>&nbsp;— each child cuts and folds a pre-printed sheet into a real little book,
+              finds a title for it, then writes and illustrates a story across
+              three or four pages.</p>
+          </div>
+        </div>
+
+        <div class="conte">
+          <img loading="lazy" src="/images/tome-3.webp" alt="Papa Sanglier et sa dent en or, volume 3 of the collection" />
+          <div>
+            <h3>Papa Sanglier et sa dent en or</h3>
+            <p>
+              How wild boar live and the words to talk about them — the sow,
+              the piglet, the den, the tusk —, a look at a real tusk, and a
+              conversation about wildlife and respect for the forest.
+            </p>
+            <p class="kit">
+              Every child leaves with the “tracks of the forest” kit: an
+              illustrated card showing a boar’s footprint, to be recognised
+              later on a walk.
+            </p>
+            <p class="kit"><strong>Workshop “Become an illustrator”</strong>&nbsp;— building a character and placing it in its setting, with the
+              illustrator’s own gestures and tools.</p>
+          </div>
+        </div>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+
+      <section>
+        <h2>The Words of the Border</h2>
+        <p>
+          At the end of a visit, the children discover eight key words from the
+          story in the language of the neighbouring country. A very simple
+          opening onto the other side of the border, a few kilometres from
+          their school.
+        </p>
       </section>
 
       <div class="leaf-separator" aria-hidden="true">
@@ -369,13 +633,25 @@
       <section>
         <h2>A sensitive experience</h2>
         <p>
-          The stories often grow from simple moments — like the tales we tell
-          in a quiet voice at bedtime. During visits, I try to preserve that
-          quality: one voice, a calm moment, shared attention.
+          The stories often grow out of simple moments, like the ones we tell
+          in a quiet voice at bedtime. During a visit I take care to preserve
+          that quality: one voice, a calm moment, shared attention.
         </p>
         <p>
-          A space where we listen, imagine, and where the stories take their
-          time to exist.
+          A space where we listen, where we imagine, and where stories are
+          given the time to exist.
+        </p>
+      </section>
+
+      <section>
+        <h2>They have welcomed me</h2>
+        <p>
+          Dudelange library (Luxembourg)&nbsp;· Soetrich after-school centre
+          (Hettange-Grande)&nbsp;· Volmerange-les-Mines&nbsp;· Zoufftgen.
+        </p>
+        <p>
+          In the press: <em>Le Républicain Lorrain</em> — an article in
+          December 2023, and a front page in December 2025.
         </p>
       </section>
 
@@ -386,13 +662,16 @@
       </div>
 
       <section>
-        <h2>Practical information</h2>
+        <h2>Arranging a visit</h2>
         <p>
-          Each visit is designed around the educational, cultural or artistic
-          project of the venue that hosts it.
+          Dates are set to suit your own project, and the visit adapts both to
+          the age of the group and to the way your school or venue works.
         </p>
         <p>
-          To imagine a visit or discuss a project:
+          Formats, group sizes and fees are available on request.
+        </p>
+        <p>
+          To imagine a visit or talk through a project:
           <a href="/contact-en.html">get in touch</a>.
         </p>
       </section>

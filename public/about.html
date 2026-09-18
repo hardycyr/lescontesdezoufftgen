@@ -126,6 +126,19 @@
       color: black;
     }
 
+    /* Sous-titre italique sous le titre, comme sur les autres pages. */
+    .about-subtitle {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      font-weight: 500;
+      line-height: 1.35;
+      color: black;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
     .about-intro {
       max-width: 760px;
       margin: 0 auto;
@@ -260,7 +273,8 @@
       .about-box p { font-size: 0.95rem; }
     }
 
-    /* Petit tagline italique gris discret sous l'encadre. */
+    /* Petit tagline italique gris discret sous l'encadre.
+       margin-top tres negatif pour le coller pres du cadre (~10px d'ecart). */
     .about-tagline {
       font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
       font-size: 0.9rem;
@@ -386,25 +400,8 @@
   <main class="about-page">
     <div class="about-header">
       <h1 class="about-title">About</h1>
+      <p class="about-subtitle">Stories born of a village… and of a voice that tells them</p>
     </div>
-
-    <div class="about-box">
-      <h2 class="about-box-name">Hélène Hardy</h2>
-      <p>Author, illustrator and storyteller.</p>
-      <p>
-        Based in Zoufftgen, she writes and illustrates stories inspired
-        by the landscapes, the nature and the heritage that surround her.
-      </p>
-      <p>
-        <em>The Tales of Zoufftgen</em> were born from stories told to her
-        son, before becoming a collection of books rooted in the real places
-        of the village.
-      </p>
-    </div>
-
-    <p class="about-tagline">
-      She regularly leads readings and workshops in schools, libraries and cultural venues across the Greater Region.
-    </p>
 
     <img loading="lazy"
       class="about-portrait"
@@ -415,15 +412,23 @@
     <div class="about-content">
       <section>
         <p>
-          Hélène Hardy is the author and illustrator of
-          <em>The Tales of Zoufftgen</em>. Through stories rooted in a real
-          village, she develops a world blending nature, memory and imagination.
+          My name is Hélène Hardy, and I live in Zoufftgen, a small village on
+          the border between France and Luxembourg.
         </p>
         <p>
-          The stories began simply. In the evening, they often started from a
-          real place: a tree, a path, an old farm glimpsed in the distance.
-          Then the seasons, memories and imagination gradually turned these
-          familiar places into tales.
+          <em>The Tales of Zoufftgen</em> came about almost by accident,
+          through the stories I made up each evening for my son before he fell
+          asleep.
+        </p>
+        <p>
+          They soon filled with the landscapes that have always surrounded me:
+          the forests, the paths, the animals, the old trees… Then a small
+          character appeared, and many others after him. Little by little a
+          whole world took shape, deeply rooted in this place I love so much.
+        </p>
+        <p>
+          Today, each of my tales invites children to carry the story on into
+          real life, by setting out to find the places that inspired it.
         </p>
       </section>
 
@@ -435,15 +440,29 @@
 
       <section>
         <p>
-          <em>The Tales of Zoufftgen</em> are deeply tied to the village whose
-          name they bear. The landscapes, the atmospheres and the details running
-          through the stories come from real life: walks, forests, silences and
-          childhood memories.
+          I am convinced that stories take on a particular quality when they
+          let us look differently at the world around us. I like the thought
+          that a simple forest path, an old oak or a forester’s house might now
+          belong to the childhood memories of those who read my books.
         </p>
         <p>
-          Today, <em>The Tales of Zoufftgen</em> give rise to readings, encounters
-          and cultural events in schools, libraries and events across the
-          Greater Region.
+          Over the years, <em>The Tales of Zoufftgen</em> have also led me to
+          meet a great many children, at storytelling sessions in schools,
+          libraries and after-school centres. Those moments of exchange have
+          become an essential part of my work. Seeing the stories go on living
+          in children’s eyes is probably the finest reward an author can
+          receive.
+        </p>
+        <p>
+          I also take great pleasure in imagining the illustrations, the
+          documentary pages that extend each book, and the story objects that
+          let families bring a little magic into their everyday lives.
+        </p>
+        <p>
+          I hope these stories will stay with the children who are discovering
+          them today, and that one day, grown up, they will want to tell them
+          in their turn. Because in the end, the finest stories are perhaps
+          those that go on living long after the book has been closed.
         </p>
       </section>
 
@@ -454,7 +473,12 @@
       </div>
 
       <section class="about-coda">
-        <p>A world to read and to pass on.</p>
+        <p>
+          If my stories can give children the wish to look up at a tree, to
+          listen to the stories of their elders, or to see their own village
+          with a little more curiosity, then they will have fully found their
+          reason to exist.
+        </p>
       </section>
 
       <p class="about-note">
