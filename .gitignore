@@ -1,1 +1,4 @@
 .env
+
+# sauvegardes de travail, hors du dossier servi
+_sauvegardes hors ligne/
