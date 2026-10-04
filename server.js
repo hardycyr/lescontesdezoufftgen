@@ -78,6 +78,15 @@ Object.entries(QR_IMPRIMES).forEach(([url, fichier]) => {
   });
 });
 
+// Filet de securite : l'adresse imprimee sous le QR est « /sorciere », sans
+// accent, parce qu'une URL accentuee devient « sorci%C3%A8re » des qu'on la
+// copie et se tape mal selon les claviers. Mais le conte s'appelle « La
+// Sorciere de la frontiere » : taper l'accent est le reflexe naturel. On
+// accepte donc la forme accentuee en silence. Elle n'est imprimee nulle part.
+app.get("/sorcière", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "livre", "la-sorciere.html"));
+});
+
 // Anciennes adresses longues, conservees : elles ne sont imprimees nulle part,
 // mais elles ont circule pendant la mise au point et ne coutent rien a garder.
 const LIVRES_QR = [
