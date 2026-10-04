@@ -70,6 +70,7 @@ const QR_IMPRIMES = {
   "/sanglier": "livre/papa-sanglier.html",
   "/sorciere": "livre/la-sorciere.html",
   "/gland": "gland.html", // le modele a imprimer de « La Maison du Petit Zouffarceur »
+  "/potion": "potion.html", // l'activite « invente ta potion » de « La Sorciere de la frontiere »
   "/audios": "audios.html",
 };
 Object.entries(QR_IMPRIMES).forEach(([url, fichier]) => {
