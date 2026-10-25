@@ -64,15 +64,29 @@ const __dirname = path.dirname(__filename);
 // ou quand le lecteur n'a pas de smartphone), et une adresse courte s'y pose
 // sans enlaidir la page.
 // ---------------------------------------------------------------------------
+// La page d'impression de chaque adresse a ete relevee en decodant les QR
+// codes des quatre blocs envoyes a l'imprimeur. Cette liste est exhaustive :
+// aucune autre adresse n'est gravee.
 const QR_IMPRIMES = {
-  "/zouffarceur": "livre/petit-zouffarceur.html",
-  "/maison": "livre/la-maison.html",
-  "/sanglier": "livre/papa-sanglier.html",
-  "/sorciere": "livre/la-sorciere.html",
-  "/gland": "gland.html", // le modele a imprimer de « La Maison du Petit Zouffarceur »
-  "/audios": "audios.html",
+  "/zouffarceur": "livre/petit-zouffarceur.html", // Le Petit Zouffarceur, p. 25
+  "/maison": "livre/la-maison.html", // La Maison du Petit Zouffarceur, p. 25
+  "/sanglier": "livre/papa-sanglier.html", // Papa Sanglier, p. 25
+  "/sorciere": "livre/la-sorciere.html", // La Sorciere de la frontiere, p. 27
+  "/gland": "gland.html", // La Maison du Petit Zouffarceur, p. 28 — le modele a imprimer
 };
 Object.entries(QR_IMPRIMES).forEach(([url, fichier]) => {
+  app.get(url, (req, res) => {
+    res.sendFile(path.join(__dirname, "public", ...fichier.split("/")));
+  });
+});
+
+// Adresses courtes de confort, qui ne sont imprimees NULLE PART. Celles-ci
+// peuvent etre renommees ou supprimees sans casser un livre : c'est toute la
+// difference avec la table ci-dessus, et c'est pour cela qu'elles en sortent.
+const RACCOURCIS = {
+  "/audios": "audios.html",
+};
+Object.entries(RACCOURCIS).forEach(([url, fichier]) => {
   app.get(url, (req, res) => {
     res.sendFile(path.join(__dirname, "public", ...fichier.split("/")));
   });
