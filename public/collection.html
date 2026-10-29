@@ -70,6 +70,12 @@
       color: black;
     }
 
+    /* Quatre albums tiennent sur une ligne dans les 1100 px de la carte ;
+       sous 1040 px, la grille auto-fit reprend la main toute seule. */
+    @media (min-width: 1040px) {
+      #albums { grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
+    }
+
     .collection-intro,
     .collection-bottom-text {
       max-width: 820px;
@@ -486,6 +492,16 @@
           <p class="livre-tome">Tome 3 de la collection</p>
           <p>Une histoire tendre et drôle autour d’un sanglier bien connu du village.</p>
           <a href="/boutique/papa-sanglier-et-sa-dent-or.html" class="btn-more">Découvrir le livre</a>
+        </article>
+
+        <article class="livre">
+          <a href="/boutique/la-sorciere-de-la-frontiere.html">
+            <img loading="lazy" src="/images/tome-4.webp" alt="La Sorcière de la frontière — tome 4 de la collection" />
+          </a>
+          <h3>La Sorcière de la frontière</h3>
+          <p class="livre-tome">Tome 4 — parution fin novembre</p>
+          <p>Une sorcière bâtit sa cabane sur la borne des quatre seigneurs, au fond de la forêt.</p>
+          <a href="/boutique/la-sorciere-de-la-frontiere.html" class="btn-more">Découvrir le livre</a>
         </article>
       </div>
 
