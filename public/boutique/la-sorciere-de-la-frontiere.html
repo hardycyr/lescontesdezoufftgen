@@ -148,6 +148,18 @@
       font-style: italic;
     }
 
+    /* Le teaser tient maintenant en cinq temps : il lui faut de l'air entre
+       chaque, et une accroche qui ne soit pas noyee dans l'italique. */
+    .book-intro p + p { margin-top: 1.05rem !important; }
+
+    .book-intro .accroche {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-style: normal;
+      font-size: 1.45rem;
+      line-height: 1.35;
+      margin-bottom: 1.5rem !important;
+    }
+
     .book-content {
       display: block !important;
       max-width: 760px;
@@ -561,14 +573,14 @@
       </div>
 
       <div class="book-intro">
+        <p class="accroche">Et si quelqu’un décidait de s’installer sur la Borne des Quatre Seigneurs ?</p>
         <p>
           Quelque part dans la forêt, à la frontière entre Zoufftgen et Roeser,
           se trouve une très vieille pierre : la Borne des Quatre Seigneurs.
-          On raconte qu’autrefois, une méchante sorcière décida de s’installer
-          exactement à cet endroit.<br />
-          Un jour, elle eut une idée extraordinairement mauvaise.<br />
-          Mais cette fois, les enfants de Zoufftgen n’allaient pas se laisser faire…
         </p>
+        <p>On raconte qu’autrefois, une méchante sorcière décida de s’y installer…</p>
+        <p>Un jour, elle eut une idée extraordinairement mauvaise.</p>
+        <p>Mais cette fois, les enfants de Zoufftgen n’allaient pas se laisser faire…</p>
       </div>
     </section>
   </main>
