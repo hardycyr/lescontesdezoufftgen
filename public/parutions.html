@@ -180,7 +180,32 @@
 
     .prochaines h2 { margin-top: 0 !important; }
 
-    .prochaines .rencontre-entry h3 { margin-bottom: 0.3rem; }
+    /* Un rendez-vous se lit en trois temps : quand, où, quoi. La date passe
+       devant, en petites capitales ; le lieu reste le titre mais descend
+       nettement sous celui de la section, qui lui garde sa taille. */
+    .prochaines .rdv + .rdv {
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+      margin-top: 1.3rem;
+      padding-top: 1.3rem;
+    }
+
+    .prochaines .rdv-date {
+      font-family: 'Libre Baskerville', Baskerville, Georgia, serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #237148;
+      margin: 0 0 0.25rem !important;
+      text-align: left;
+    }
+
+    .prochaines .rdv h3 {
+      font-size: 1.5rem !important;
+      line-height: 1.22;
+      margin: 0 0 0.45rem !important;
+    }
+
+    .prochaines .rdv p { margin: 0 !important; }
 
     .parutions-content h2 {
       font-family: 'Cormorant Garamond', 'Times New Roman', serif;
@@ -535,16 +560,18 @@
       <section class="prochaines">
         <h2>Prochaines rencontres</h2>
 
-        <div class="rencontre-entry">
-          <h3>Dimanche 6 décembre — Marchés de Noël de Roussy-le-Village et de Zoufftgen</h3>
+        <div class="rdv">
+          <p class="rdv-date">Dimanche 6 décembre</p>
+          <h3>Marchés de Noël de Roussy-le-Village et de Zoufftgen</h3>
           <p>
             Deux marchés le même jour, en Moselle, pour la Saint-Nicolas.
             Les albums sont dédicacés sur place.
           </p>
         </div>
 
-        <div class="rencontre-entry">
-          <h3>Jeudi 10, vendredi 11 et samedi 12 décembre — Marché de Noël de Peppange</h3>
+        <div class="rdv">
+          <p class="rdv-date">Jeudi 10, vendredi 11 et samedi 12 décembre</p>
+          <h3>Marché de Noël de Peppange</h3>
           <p>
             Trois jours au Luxembourg, dans la commune de Roeser — celle-là même
             dont parle <em>La Sorcière de la frontière</em>, dont la cabane est bâtie
