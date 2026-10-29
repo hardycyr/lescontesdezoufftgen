@@ -76,6 +76,13 @@
       #albums { grid-template-columns: repeat(4, 1fr); gap: 1.4rem; }
     }
 
+    /* Les titres et les lignes « Tome N » font une ou deux lignes selon leur
+       longueur, et les resumes se retrouvaient a quatre hauteurs differentes.
+       On reserve deux lignes a chacun : les quatre resumes, et les boutons
+       qui suivent, tombent alors exactement au meme niveau. */
+    #albums .livre h3 { min-height: 2.4em; }
+    #albums .livre .livre-tome { min-height: 3em; }
+
     .collection-intro,
     .collection-bottom-text {
       max-width: 820px;
