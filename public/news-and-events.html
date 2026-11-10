@@ -415,6 +415,43 @@
         font-size: 1.2rem;
       }
     }
+    .parutions-content section.prochaines {
+      background: #F2E9D4 !important;
+      border: 1px solid #E0B05A;
+      border-radius: 10px;
+      padding: 1.6rem 1.8rem 1.2rem;
+      margin-bottom: 2.4rem !important;
+    }
+
+    .prochaines h2 { margin-top: 0 !important; }
+
+    /* Un rendez-vous se lit en trois temps : quand, où, quoi. La date passe
+       devant, en petites capitales ; le lieu reste le titre mais descend
+       nettement sous celui de la section, qui lui garde sa taille. */
+    .prochaines .rdv + .rdv {
+      border-top: 1px solid rgba(0, 0, 0, 0.12);
+      margin-top: 1.3rem;
+      padding-top: 1.3rem;
+    }
+
+    .prochaines .rdv-date {
+      font-family: 'Libre Baskerville', Baskerville, Georgia, serif;
+      font-size: 0.74rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: #237148;
+      margin: 0 0 0.25rem !important;
+      text-align: left;
+    }
+
+    .prochaines .rdv h3 {
+      font-size: 1.5rem !important;
+      line-height: 1.22;
+      margin: 0 0 0.45rem !important;
+    }
+
+    .prochaines .rdv p { margin: 0 !important; }
+
   </style>
 <script type="application/ld+json">
 {
@@ -495,6 +532,39 @@
     </div>
 
     <div class="parutions-content">
+      <section class="prochaines">
+        <h2>Upcoming events</h2>
+
+        <div class="rdv">
+          <p class="rdv-date">Saturday 28 November, 2 pm to 5 pm</p>
+          <h3>Christmas market of the parents’ association — Volmerange-les-Mines</h3>
+          <p>
+            The Christmas market of the school parents’ association, in the
+            neighbouring village. All four tales will be there, in their new
+            editions.
+          </p>
+        </div>
+
+        <div class="rdv">
+          <p class="rdv-date">Sunday 6 December</p>
+          <h3>Christmas markets of Roussy-le-Village and Zoufftgen</h3>
+          <p>
+            Two markets on the same day, in Moselle, for Saint Nicholas’ Day.
+            The books are signed on the spot.
+          </p>
+        </div>
+
+        <div class="rdv">
+          <p class="rdv-date">Thursday 10, Friday 11 and Saturday 12 December</p>
+          <h3>Christmas market of Peppange</h3>
+          <p>
+            Three days in Luxembourg, in the commune of Roeser — the very one
+            <em>La Sorcière de la frontière</em> tells of, whose witch’s hut
+            stands on the boundary stone that separates the two villages.
+          </p>
+        </div>
+      </section>
+
       <section>
         <h2>Events &amp; readings</h2>
 
