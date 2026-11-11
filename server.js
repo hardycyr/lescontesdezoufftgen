@@ -201,6 +201,21 @@ const BREVO_SENDER_EMAIL =
 const BREVO_SENDER_NAME =
   process.env.BREVO_SENDER_NAME || "Les contes de Zoufftgen";
 
+// ====================== LE CATALOGUE, COTE SERVEUR ======================
+//
+// C'est ICI que vivent les prix reels. Les « data-prix » des pages ne servent
+// plus qu'a remplir le panier affiche ; ils ne decident plus de rien.
+//
+// POUR CHANGER UN PRIX : le changer ici ET dans les pages. Si les deux
+// divergent, la commande passe quand meme (au prix de cette table) mais un
+// avertissement est ecrit dans le journal du serveur, pour que l'oubli se
+// voie.
+const CATALOGUE = {
+  "livre-1": { nom: "Le Petit Zouffarceur", prix: 1900 },
+  "livre-2": { nom: "La Maison du Petit Zouffarceur", prix: 1900 },
+  "livre-3": { nom: "Papa Sanglier et sa dent en or", prix: 1900 },
+};
+
 // ====================== STRIPE ======================
 
 app.post("/create-checkout-session", async (req, res) => {
@@ -215,22 +230,53 @@ app.post("/create-checkout-session", async (req, res) => {
     return res.status(400).json({ error: "Panier manquant ou invalide" });
   }
 
-  try {
-    const line_items = cart.map((item) => ({
-      price_data: {
-        currency: "eur",
-        product_data: {
-          name: item.name,
-        },
-        unit_amount: item.price,
-      },
-      quantity: Math.min(item.quantity, 5),
-    }));
+  if (cart.length === 0) {
+    return res.status(400).json({ error: "Panier vide" });
+  }
 
-    const totalQuantity = cart.reduce(
-      (sum, item) => sum + item.quantity,
-      0
-    );
+  try {
+    // Le panier dit QUOI et COMBIEN. Le catalogue dit le nom et le prix.
+    const line_items = [];
+    let totalQuantity = 0;
+
+    for (const item of cart) {
+      // hasOwnProperty, et pas CATALOGUE[id] directement : un identifiant
+      // comme « constructor » ou « __proto__ » existe sur tout objet et
+      // renverrait quelque chose de non nul, donc un article sans prix.
+      const connu =
+        item && typeof item.id === "string" &&
+        Object.prototype.hasOwnProperty.call(CATALOGUE, item.id);
+      const article = connu ? CATALOGUE[item.id] : null;
+      if (!article) {
+        console.error("\u274c Article inconnu :", item && item.id);
+        return res.status(400).json({ error: "Article inconnu dans le panier" });
+      }
+
+      // Un ecart entre la page et le catalogue n'arrete pas la vente, mais il
+      // ne doit pas passer inapercu : c'est presque toujours un prix change
+      // d'un seul cote.
+      if (item.price !== undefined && item.price !== article.prix) {
+        console.warn(
+          `\u26a0\ufe0f ${item.id} : la page annonce ${item.price}, le catalogue ${article.prix}`
+        );
+      }
+
+      // 1 au minimum, 5 au maximum, et jamais une quantite fantaisiste.
+      const quantite = Math.min(
+        Math.max(parseInt(item.quantity, 10) || 1, 1),
+        5
+      );
+      totalQuantity += quantite;
+
+      line_items.push({
+        price_data: {
+          currency: "eur",
+          product_data: { name: article.nom },
+          unit_amount: article.prix,
+        },
+        quantity: quantite,
+      });
+    }
 
     let shippingCost = 0;
 
