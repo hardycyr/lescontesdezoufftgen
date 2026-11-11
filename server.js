@@ -51,7 +51,7 @@ app.use(express.static("public"));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// ====================== LES MOTS DE LA FRONTIERE ======================
+// ================= LES ENREGISTREMENTS A ECOUTER =====================
 //
 // Les enregistrements ne sont PAS dans public/ : tout ce qui s'y trouve est
 // servi tel quel par express.static, et aucune condition ne serait possible.
@@ -66,17 +66,44 @@ const __dirname = path.dirname(__filename);
 //
 // Ce qu'on ne peut pas faire : empecher le telechargement. Un navigateur qui
 // joue un son l'a recu. On decourage le geste facile, on ne l'interdit pas.
-const MOTS_FRONTIERE = {
-  zouffarceur: "mf-zouffarceur.m4a",
-  maison: "mf-maison.m4a",
-  sanglier: "mf-sanglier.m4a",
-  sorciere: "mf-sorciere.m4a",
+// Deux familles d'enregistrements, une seule porte. Les regles sont les
+// memes pour les deux ; les dupliquer, c'est se condamner a n'en corriger
+// qu'une le jour ou il faudra les changer.
+const ENREGISTREMENTS = {
+  // les huit mots-cles de chaque conte, francais puis luxembourgeois (53 s)
+  mots: {
+    dossier: "mots",
+    pistes: {
+      zouffarceur: "mf-zouffarceur.m4a",
+      maison: "mf-maison.m4a",
+      sanglier: "mf-sanglier.m4a",
+      sorciere: "mf-sorciere.m4a",
+    },
+  },
+  // les contes entiers lus a voix haute, en francais (6 a 8 minutes)
+  conte: {
+    dossier: "contes",
+    pistes: {
+      zouffarceur: "conte-zouffarceur.m4a",
+      maison: "conte-maison.m4a",
+      sanglier: "conte-sanglier.m4a",
+      sorciere: "conte-sorciere.m4a",
+    },
+  },
 };
 
 const ecoutes = Object.create(null);
 
-app.get("/ecoute/mots/:conte", (req, res) => {
-  const fichier = MOTS_FRONTIERE[req.params.conte];
+app.get("/ecoute/:famille/:conte", (req, res) => {
+  const fam = Object.prototype.hasOwnProperty.call(
+    ENREGISTREMENTS, req.params.famille)
+    ? ENREGISTREMENTS[req.params.famille]
+    : null;
+  if (!fam) return res.status(404).end();
+  const fichier = Object.prototype.hasOwnProperty.call(
+    fam.pistes, req.params.conte)
+    ? fam.pistes[req.params.conte]
+    : null;
   if (!fichier) return res.status(404).end();
 
   // Sec-Fetch-Site vaut "same-origin" quand une page du site demande le
@@ -99,7 +126,8 @@ app.get("/ecoute/mots/:conte", (req, res) => {
   // fichier par tranches, et chaque tranche n'est pas une ecoute.
   const plage = req.get("Range");
   if (!plage || /bytes=0-/.test(plage)) {
-    ecoutes[req.params.conte] = (ecoutes[req.params.conte] || 0) + 1;
+    const cle = `${req.params.famille}/${req.params.conte}`;
+    ecoutes[cle] = (ecoutes[cle] || 0) + 1;
   }
 
   // Jamais de cache : le jour ou un enregistrement est refait, personne ne
@@ -110,7 +138,7 @@ app.get("/ecoute/mots/:conte", (req, res) => {
     "X-Content-Type-Options": "nosniff",
     "Content-Type": "audio/mp4",
   });
-  res.sendFile(path.join(__dirname, "medias", "mots", fichier));
+  res.sendFile(path.join(__dirname, "medias", fam.dossier, fichier));
 });
 
 // Le compteur, lisible seulement depuis le serveur lui-meme.
