@@ -51,6 +51,77 @@ app.use(express.static("public"));
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+// ====================== LES MOTS DE LA FRONTIERE ======================
+//
+// Les enregistrements ne sont PAS dans public/ : tout ce qui s'y trouve est
+// servi tel quel par express.static, et aucune condition ne serait possible.
+// Ils vivent dans medias/, que seul ce fichier sait lire.
+//
+// Ce qu'on peut faire, et qu'on fait :
+//   - refuser une requete qui ne vient pas d'une page du site, pour qu'une
+//     adresse collee dans un navigateur ou partagee ne donne rien ;
+//   - interdire toute mise en cache, pour qu'une version amelioree remplace
+//     vraiment l'ancienne chez tout le monde, des le lendemain ;
+//   - compter les ecoutes, sans cookie et sans adresse IP.
+//
+// Ce qu'on ne peut pas faire : empecher le telechargement. Un navigateur qui
+// joue un son l'a recu. On decourage le geste facile, on ne l'interdit pas.
+const MOTS_FRONTIERE = {
+  zouffarceur: "mf-zouffarceur.m4a",
+  maison: "mf-maison.m4a",
+  sanglier: "mf-sanglier.m4a",
+  sorciere: "mf-sorciere.m4a",
+};
+
+const ecoutes = Object.create(null);
+
+app.get("/ecoute/mots/:conte", (req, res) => {
+  const fichier = MOTS_FRONTIERE[req.params.conte];
+  if (!fichier) return res.status(404).end();
+
+  // Sec-Fetch-Site vaut "same-origin" quand une page du site demande le
+  // media. Il vaut "none" quand l'adresse est tapee ou collee directement.
+  // Les navigateurs anciens ne l'envoient pas : on retombe alors sur le
+  // Referer, moins sur mais mieux que rien.
+  const site = req.get("Sec-Fetch-Site");
+  const ref = req.get("Referer") || "";
+  const interne = site
+    ? site === "same-origin" || site === "same-site"
+    : ref.includes("lescontesdezoufftgen") || ref.includes("localhost");
+  if (!interne) {
+    return res
+      .status(403)
+      .type("text/plain")
+      .send("403 — ces enregistrements s'ecoutent sur lescontesdezoufftgen.com");
+  }
+
+  // On ne compte qu'au premier morceau demande : un navigateur redemande le
+  // fichier par tranches, et chaque tranche n'est pas une ecoute.
+  const plage = req.get("Range");
+  if (!plage || /bytes=0-/.test(plage)) {
+    ecoutes[req.params.conte] = (ecoutes[req.params.conte] || 0) + 1;
+  }
+
+  // Jamais de cache : le jour ou un enregistrement est refait, personne ne
+  // reste sur l'ancien.
+  res.set({
+    "Cache-Control": "no-store, no-cache, must-revalidate, max-age=0",
+    "Content-Disposition": "inline",
+    "X-Content-Type-Options": "nosniff",
+    "Content-Type": "audio/mp4",
+  });
+  res.sendFile(path.join(__dirname, "medias", "mots", fichier));
+});
+
+// Le compteur, lisible seulement depuis le serveur lui-meme.
+app.get("/ecoute/compteur", (req, res) => {
+  const site = req.get("Sec-Fetch-Site");
+  if (site && site !== "same-origin") return res.status(404).end();
+  res.json(ecoutes);
+});
+
+
+
 // ---------------------------------------------------------------------------
 // DESTINATIONS DES QR CODES IMPRIMES DANS LES ALBUMS 2026
 //
