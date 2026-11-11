@@ -214,7 +214,6 @@ const CATALOGUE = {
   "livre-1": { nom: "Le Petit Zouffarceur", prix: 1900 },
   "livre-2": { nom: "La Maison du Petit Zouffarceur", prix: 1900 },
   "livre-3": { nom: "Papa Sanglier et sa dent en or", prix: 1900 },
-  "livre-4": { nom: "La Sorcière de la frontière", prix: 2500 },
 };
 
 // ====================== STRIPE ======================
