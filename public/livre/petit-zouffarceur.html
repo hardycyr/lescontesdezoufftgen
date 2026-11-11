@@ -188,6 +188,18 @@
       .livre-couverture { width: 140px; }
     }
   
+    /* La piste des Mots de la Frontière, sous celles de l'histoire. Deux
+       drapeaux : c'est un seul enregistrement bilingue, pas deux versions. */
+    .piste-mots .drapeaux { display: inline-flex; gap: 3px; flex: 0 0 auto; }
+    .piste-mots audio { height: 34px; }
+
+    .mots-note {
+      margin: 0.8rem 0 0;
+      font-size: 0.86rem;
+      line-height: 1.6;
+      color: #4a4a4a;
+    }
+
     /* Bloc d'achat sous la couverture. */
     .livre-achat { text-align: center; margin: -0.2rem auto 1.9rem; }
     .livre-prix { margin: 0; font-size: 1.1rem; }
@@ -247,6 +259,23 @@
           <span class="langue">Lauschtert d’Geschicht</span>
           <span class="a-venir">Opnam a Virbereedung</span>
         </div>
+        <div class="piste piste-mots">
+          <span class="drapeaux">
+            <img class="drapeau" src="https://flagcdn.com/20x15/fr.png"
+                 srcset="https://flagcdn.com/40x30/fr.png 2x" width="20" height="15" alt="" />
+            <img class="drapeau" src="https://flagcdn.com/20x15/lu.png"
+                 srcset="https://flagcdn.com/40x30/lu.png 2x" width="20" height="15" alt="" />
+          </span>
+          <span class="langue">Les mots de la frontière</span>
+          <audio controls preload="none" controlsList="nodownload"
+                 oncontextmenu="return false"
+                 src="/ecoute/mots/zouffarceur"></audio>
+        </div>
+        <p class="mots-note">
+          Huit mots-clés du conte, dits en français puis en luxembourgeois.
+          Cinquante-trois secondes : de quoi s’entraîner à les prononcer avant
+          de jouer au memory, qui est à imprimer plus bas.
+        </p>
       </div>
 
       <h2>Prolonger l’histoire</h2>
@@ -262,13 +291,6 @@
           <h3>Le rituel des noisettes</h3>
           <p>Une carte illustrée et un pochon de noisettes à déposer sur la fenêtre, pour inviter le Petit Zouffarceur à passer.</p>
           <span class="suite">Découvrir les kits →</span>
-        </a>
-
-        <a class="carte" href="/audios">
-          <h3>Les Mots de la Frontière</h3>
-          <p>Huit mots-clés de l’histoire dans la langue du pays voisin, à dire et à
-             réécouter. Le memory à découper est plus bas sur cette page.</p>
-          <span class="suite">Écouter →</span>
         </a>
 
         <a class="carte" href="/collection.html">

@@ -211,6 +211,38 @@
       margin-top: 0.7rem;
     }
 
+    /* Le sommaire : des cartes cliquables, dans la mise en page des pistes
+       qu'elles remplacent. Pas de soulignement, c'est un bloc entier. */
+    .conte-lien {
+      text-decoration: none;
+      color: inherit;
+      border-radius: 10px;
+      padding: 1.3rem 0.9rem;
+      margin-left: -0.9rem;
+      margin-right: -0.9rem;
+      transition: background .18s ease;
+    }
+
+    .conte-lien:hover { background: rgba(204, 153, 0, 0.07); }
+
+    .etat {
+      margin: 0 0 0.25rem;
+      font-size: 0.88rem;
+      color: #6b6b6b;
+    }
+
+    /* Ce qui existe se distingue de ce qui est annonce, sans fanfare. */
+    .etat-en-ligne { color: #2f2f2f; font-weight: 700; }
+
+    .conte-lien .suite {
+      display: inline-block;
+      margin-top: 0.45rem;
+      font-size: 0.82rem;
+      color: #cc9900;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
     @media (max-width: 620px) {
       .audios-title { font-size: 2.8rem; }
       .conte-audio { gap: 1rem; }
@@ -247,163 +279,72 @@
     <div class="audios-header">
       <h1 class="audios-title">Les contes à écouter</h1>
       <p class="audios-subtitle">
-        Les histoires lues à voix haute, en français et en luxembourgeois.
+        Une page par conte, en français et en luxembourgeois.
       </p>
     </div>
 
     <div class="audios-content">
       <p>
-        Chaque conte des Contes de Zoufftgen est enregistré dans les deux langues de la
-        frontière. On peut les écouter en suivant les images du livre, dans la voiture sur
-        la route de l’école, ou le soir quand plus personne n’a la force de lire.
+        Chaque conte a sa page : on y écoute ses enregistrements, on y retrouve
+        les lieux réels de l’histoire et les jeux à imprimer. C’est aussi la page
+        qu’ouvre le QR code imprimé dans l’album.
       </p>
       <p>
-        L’écoute est libre et gratuite, pour tout le monde&nbsp;: il n’y a rien à créer,
+        L’écoute est libre et gratuite, pour tout le monde : il n’y a rien à créer,
         rien à installer.
       </p>
 
-      <h2>Les Mots de la Frontière</h2>
-      <p>
-        Huit mots-clés de chaque conte, dits en français puis en luxembourgeois.
-        Cinquante-trois secondes par album : de quoi s’entraîner à les prononcer
-        avant de jouer au memory.
-      </p>
-
-      <div class="conte-audio">
+      <a class="conte-audio conte-lien" href="/zouffarceur">
         <img loading="lazy" src="/images/tome-1.webp" alt="Le Petit Zouffarceur" />
         <div>
           <h3>Le Petit Zouffarceur</h3>
-          <p class="duree">53 secondes</p>
-          <div class="piste">
-            <span class="langue">FR&nbsp;/&nbsp;Lëtzebuergesch</span>
-            <audio controls preload="none" controlsList="nodownload"
-                   oncontextmenu="return false"
-                   src="/ecoute/mots/zouffarceur"></audio>
-          </div>
+          <p class="duree">Tome 1</p>
+          <p class="etat etat-en-ligne">Les mots de la frontière · 53 secondes</p>
+          <p class="etat">L’histoire entière · à écouter avant Noël</p>
+          <span class="suite">Ouvrir la page du conte →</span>
         </div>
-      </div>
+      </a>
 
-      <div class="conte-audio">
+      <a class="conte-audio conte-lien" href="/maison">
         <img loading="lazy" src="/images/tome-2.webp" alt="La Maison du Petit Zouffarceur" />
         <div>
           <h3>La Maison du Petit Zouffarceur</h3>
-          <p class="duree">53 secondes</p>
-          <div class="piste">
-            <span class="langue">FR&nbsp;/&nbsp;Lëtzebuergesch</span>
-            <audio controls preload="none" controlsList="nodownload"
-                   oncontextmenu="return false"
-                   src="/ecoute/mots/maison"></audio>
-          </div>
+          <p class="duree">Tome 2</p>
+          <p class="etat etat-en-ligne">Les mots de la frontière · 53 secondes</p>
+          <p class="etat">L’histoire entière · à écouter avant Noël</p>
+          <span class="suite">Ouvrir la page du conte →</span>
         </div>
-      </div>
+      </a>
 
-      <div class="conte-audio">
+      <a class="conte-audio conte-lien" href="/sanglier">
         <img loading="lazy" src="/images/tome-3.webp" alt="Papa Sanglier et sa dent en or" />
         <div>
           <h3>Papa Sanglier et sa dent en or</h3>
-          <p class="duree">53 secondes</p>
-          <div class="piste">
-            <span class="langue">FR&nbsp;/&nbsp;Lëtzebuergesch</span>
-            <audio controls preload="none" controlsList="nodownload"
-                   oncontextmenu="return false"
-                   src="/ecoute/mots/sanglier"></audio>
-          </div>
+          <p class="duree">Tome 3</p>
+          <p class="etat etat-en-ligne">Les mots de la frontière · 53 secondes</p>
+          <p class="etat">L’histoire entière · à écouter avant Noël</p>
+          <span class="suite">Ouvrir la page du conte →</span>
         </div>
-      </div>
+      </a>
 
-      <div class="conte-audio">
+      <a class="conte-audio conte-lien" href="/sorciere">
         <img loading="lazy" src="/images/tome-4.webp" alt="La Sorcière de la frontière" />
         <div>
           <h3>La Sorcière de la frontière</h3>
-          <p class="duree">53 secondes</p>
-          <div class="piste">
-            <span class="langue">FR&nbsp;/&nbsp;Lëtzebuergesch</span>
-            <audio controls preload="none" controlsList="nodownload"
-                   oncontextmenu="return false"
-                   src="/ecoute/mots/sorciere"></audio>
-          </div>
-        </div>
-      </div>
-
-      <h2>Les quatre contes</h2>
-
-      <div class="conte-audio">
-        <img loading="lazy" src="/images/tome-1.webp" alt="Le Petit Zouffarceur, tome 1 de la collection" />
-        <div>
-          <h3>Le Petit Zouffarceur</h3>
-          <p class="duree">Tome 1</p>
-          <div class="piste">
-            <span class="langue">Français</span>
-            <span class="a-venir">à écouter avant Noël</span>
-          </div>
-          <div class="piste">
-            <span class="langue">Lëtzebuergesch</span>
-            <span class="a-venir">à écouter avant Noël</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="conte-audio">
-        <img loading="lazy" src="/images/tome-2.webp" alt="La Maison du Petit Zouffarceur, tome 2 de la collection" />
-        <div>
-          <h3>La Maison du Petit Zouffarceur</h3>
-          <p class="duree">Tome 2</p>
-          <div class="piste">
-            <span class="langue">Français</span>
-            <span class="a-venir">à écouter avant Noël</span>
-          </div>
-          <div class="piste">
-            <span class="langue">Lëtzebuergesch</span>
-            <span class="a-venir">à écouter avant Noël</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="conte-audio">
-        <img loading="lazy" src="/images/tome-3.webp" alt="Papa Sanglier et sa dent en or, tome 3 de la collection" />
-        <div>
-          <h3>Papa Sanglier et sa dent en or</h3>
-          <p class="duree">Tome 3</p>
-          <div class="piste">
-            <span class="langue">Français</span>
-            <span class="a-venir">à écouter avant Noël</span>
-          </div>
-          <div class="piste">
-            <span class="langue">Lëtzebuergesch</span>
-            <span class="a-venir">à écouter avant Noël</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="conte-audio">
-        <div class="conte-audio-vide">à paraître</div>
-        <div>
-          <h3>La Sorcière de la frontière</h3>
           <p class="duree">Tome 4</p>
-          <div class="piste">
-            <span class="langue">Français</span>
-            <span class="a-venir">à écouter avant Noël</span>
-          </div>
-          <div class="piste">
-            <span class="langue">Lëtzebuergesch</span>
-            <span class="a-venir">à écouter avant Noël</span>
-          </div>
+          <p class="etat etat-en-ligne">Les mots de la frontière · 53 secondes</p>
+          <p class="etat">L’histoire entière · à écouter avant Noël</p>
+          <span class="suite">Ouvrir la page du conte →</span>
         </div>
-      </div>
+      </a>
 
       <div class="encadre">
         <p>
-          <strong>Vous avez déjà un album&nbsp;?</strong> Les enregistrements sont offerts à
+          <strong>Vous avez déjà un album ?</strong> Les enregistrements sont offerts à
           tous les lecteurs, quelle que soit l’édition que vous avez entre les mains. Il n’y
-          a pas de code à saisir&nbsp;: cette page suffit.
+          a pas de code à saisir : ces pages suffisent.
         </p>
       </div>
-
-      <h2>Des activités à imprimer</h2>
-      <p>
-        Les fiches à imprimer pour la maison ou pour la classe arrivent sur cette page&nbsp;:
-        les dessins pas à pas, les poésies et les mots de la frontière.
-      </p>
     </div>
   </main>
 
