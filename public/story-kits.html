@@ -239,14 +239,19 @@
       border-radius: 10px;
     }
     /* La fiche de kit : la photo d'un cote, le texte de l'autre, et
-       l'alternance pour que la page ne devienne pas une colonne. */
-    .kit-fiche {
-      display: flex;
+       l'alternance pour que la page ne devienne pas une colonne.
+       Les !important sont obliges : `.objects-content section` impose
+       display:block !important a toutes les sections de la page. */
+    .objects-content .kit-fiche {
+      display: flex !important;
+      flex-direction: row !important;
       gap: 2rem;
       align-items: center;
-      margin: 2.4rem 0;
+      margin: 2.4rem 0 !important;
     }
-    .kit-fiche:nth-of-type(even) { flex-direction: row-reverse; }
+    .objects-content .kit-fiche:nth-of-type(even) {
+      flex-direction: row-reverse !important;
+    }
     .kit-photo {
       flex: 0 0 38%;
       max-width: 300px;
@@ -257,8 +262,10 @@
     }
     .kit-corps { flex: 1; text-align: center; }
     @media (max-width: 760px) {
-      .kit-fiche,
-      .kit-fiche:nth-of-type(even) { flex-direction: column; }
+      .objects-content .kit-fiche,
+      .objects-content .kit-fiche:nth-of-type(even) {
+        flex-direction: column !important;
+      }
       .kit-photo { max-width: 260px; margin: 0 auto; }
     }
     .kit-livre { font-size: 0.95rem; opacity: 0.8; margin-top: -0.4rem; }
