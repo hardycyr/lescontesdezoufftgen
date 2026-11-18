@@ -73,7 +73,16 @@
       .panier-table td::before { content: attr(data-label); font-family: 'Cormorant Garamond', 'Times New Roman', serif; font-weight: 600; color: #333; flex: 1; text-align: left; }
       .panier-table td input, .panier-table td button { flex: 1; text-align: right; }
     }
-  </style>
+      /* Le reste du monde est sorti du paiement en ligne : la zone 5
+       de POST coute 85 EUR le colis. Discret, mais visible juste
+       sous le selecteur, la ou la question se pose. */
+    .hors-europe {
+      margin: 0.55rem 0 0;
+      font-size: 0.88rem;
+      opacity: 0.75;
+    }
+    .hors-europe a { color: inherit; }
+</style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
@@ -146,8 +155,8 @@
         <option value="FR">France</option>
         <option value="LU">Luxembourg</option>
         <option value="UE">European Union (excluding France and Luxembourg), United Kingdom and Switzerland</option>
-        <option value="WORLD">Rest of the world (outside European Union, United Kingdom and Switzerland)</option>
       </select>
+      <p class="hors-europe">Outside Europe? <a href="/contact-en.html">Write to me</a> and I’ll send you a shipping quote.</p>
 
       <p style="visibility: hidden;"><strong>Selected country:</strong> <span id="pays-label">France</span></p>
       <p><strong>Books price:</strong> <span id="total-produits">0.00</span> €</p>

@@ -310,7 +310,16 @@
         text-align: right;
       }
     }
-  </style>
+      /* Le reste du monde est sorti du paiement en ligne : la zone 5
+       de POST coute 85 EUR le colis. Discret, mais visible juste
+       sous le selecteur, la ou la question se pose. */
+    .hors-europe {
+      margin: 0.55rem 0 0;
+      font-size: 0.88rem;
+      opacity: 0.75;
+    }
+    .hors-europe a { color: inherit; }
+</style>
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-YF42H2CYXX"></script>
@@ -383,8 +392,8 @@
         <option value="FR">France</option>
         <option value="LU">Luxembourg</option>
         <option value="UE">Union Européenne (hors France et Luxembourg), Royaume-Uni et Suisse</option>
-        <option value="WORLD">Reste du monde (hors Union Européenne, Royaume-Uni et Suisse)</option>
       </select>
+      <p class="hors-europe">Hors Europe ? <a href="/contact.html">Écrivez-moi</a>, je vous fais un devis d’expédition.</p>
 
       <p style="visibility: hidden;"><strong>Pays sélectionné :</strong> <span id="pays-label">France</span></p>
       <p><strong>Prix des livres :</strong> <span id="total-produits">0.00</span> €</p>

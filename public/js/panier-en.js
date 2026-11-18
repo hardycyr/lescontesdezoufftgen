@@ -125,11 +125,12 @@ function mettreAJourFraisEtTotal() {
   paysLabel.textContent = pays;
 }
 
+// Doit rester identique a la table de server.js, qui fait foi :
+// ici on ne fait qu’AFFICHER le montant, le serveur le facture.
 function calculerFraisDePort(pays, quantite) {
-  if (pays === "FR") return quantite <= 1 ? 650 : 1000;
-  if (pays === "LU") return quantite <= 1 ? 400 : 700;
-  if (pays === "UE") return quantite <= 1 ? 700 : 1300;
-  return quantite <= 1 ? 900 : 4000;
+  if (pays === "FR") return quantite <= 1 ? 800 : quantite <= 2 ? 1000 : 1200;
+  if (pays === "LU") return 700;
+  return 1700;
 }
 
 // -------------------

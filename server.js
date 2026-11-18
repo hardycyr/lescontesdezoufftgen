@@ -239,9 +239,10 @@ const BREVO_SENDER_NAME =
 // avertissement est ecrit dans le journal du serveur, pour que l'oubli se
 // voie.
 const CATALOGUE = {
-  "livre-1": { nom: "Le Petit Zouffarceur", prix: 1900 },
-  "livre-2": { nom: "La Maison du Petit Zouffarceur", prix: 1900 },
-  "livre-3": { nom: "Papa Sanglier et sa dent en or", prix: 1900 },
+  "livre-1": { nom: "Le Petit Zouffarceur", prix: 2500 },
+  "livre-2": { nom: "La Maison du Petit Zouffarceur", prix: 2500 },
+  "livre-3": { nom: "Papa Sanglier et sa dent en or", prix: 2500 },
+  "livre-4": { nom: "La Sorcière de la frontière", prix: 2500 },
 };
 
 // ====================== STRIPE ======================
@@ -308,14 +309,30 @@ app.post("/create-checkout-session", async (req, res) => {
 
     let shippingCost = 0;
 
+    // Tarifs releves par Helene (post.lu) et grille Colissimo 2026.
+    // Quatre albums emballes font ~1,7 kg : tout tient sous 2 kg.
+    //
+    //   France     → poste francaise : 7,59 / 9,59 / 11,19 selon le poids
+    //   Luxembourg → POST national   : 6 € petit colis, 7 € grand format
+    //   Europe     → POST zone 1 12 €, zone 2 16 €, au forfait
+    //
+    // La regle : la France depuis la France, tout le reste depuis le
+    // Luxembourg. Le forfait luxembourgeois ne depend pas du nombre
+    // d'albums — vers l'etranger, le quatrieme ne coute rien de port.
     if (country === "FR") {
-      shippingCost = totalQuantity <= 1 ? 650 : 1000;
-    } else if (["LU"].includes(country)) {
-      shippingCost = totalQuantity <= 1 ? 400 : 700;
-    } else if (["UE"].includes(country)) {
-      shippingCost = totalQuantity <= 1 ? 700 : 1300;
+      shippingCost = totalQuantity <= 1 ? 800 : totalQuantity <= 2 ? 1000 : 1200;
+    } else if (country === "LU") {
+      shippingCost = 700;
+    } else if (country === "UE") {
+      shippingCost = 1700;
     } else {
-      shippingCost = totalQuantity <= 1 ? 900 : 4000;
+      // Le reste du monde ne passe plus par le paiement en ligne : la
+      // zone 5 de POST coute 85 EUR le colis, soit trois fois le prix
+      // d'un album. On traite ces commandes a la main, sur devis.
+      return res.status(400).json({
+        error:
+          "Livraison hors Europe : merci de nous ecrire pour un devis.",
+      });
     }
 
     line_items.push({
