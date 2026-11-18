@@ -214,12 +214,24 @@
 
     .books-quick-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1rem;
-      margin: 1.5rem 0;
-      max-width: 760px;
-      margin-left: auto;
-      margin-right: auto;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.3rem;
+      /* La colonne de texte fait 760 px : quatre albums n'y tiennent
+         pas. La grille, et elle seule, en sort pour occuper toute la
+         largeur de la page. */
+      width: min(1000px, calc(100vw - 5rem));
+      margin: 2rem auto;
+      position: relative;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @media (max-width: 900px) {
+      .books-quick-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+
+    @media (max-width: 520px) {
+      .books-quick-grid { grid-template-columns: 1fr; }
     }
 
     .books-quick-grid a {
@@ -469,10 +481,6 @@
           <h3>La Sorcière de la frontière</h3>
           <p>Tome 4 — Un conte de la frontière</p>
         </a>
-      </div>
-
-      <div class="cta-button-wrapper">
-        <a href="/collection.html" class="cta-button">Voir toute la collection</a>
       </div>
 
       <section>
