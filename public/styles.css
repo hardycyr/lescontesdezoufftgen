@@ -530,6 +530,16 @@ main:has(.hero-accueil),
     gap: 0.25rem;
   }
 
+  /* Le compteur du panier. La regle `nav a.menu-icon` monte a
+     1,15 rem pour les icones ; or elles sont devenues des SVG a
+     largeur fixe, et cette taille ne s'applique plus qu'a ce texte.
+     Le « (1) » paraissait donc 44 % plus gros que le menu. On le
+     ramene a la taille des liens. */
+  nav a.menu-icon #panier-compteur {
+    font-size: 0.80rem;
+    letter-spacing: 0.02em;
+  }
+
   /* SVG icones du menu (enveloppe, panier) : heritent de la couleur du
      texte (currentColor) -> changent au hover en meme temps que les liens. */
   nav a.menu-icon .icon-envelope,
