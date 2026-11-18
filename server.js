@@ -46,6 +46,12 @@ Object.entries(redirects301).forEach(([from, to]) => {
   app.get(from, (req, res) => res.redirect(301, to));
 });
 
+// Les pages des kits ont vecu une journee avant de devenir les rituels
+// des objets narratifs. Redirection permanente : l'adresse a pu etre
+// partagee ou indexee.
+app.get("/kits.html", (req, res) => res.redirect(301, "/objetsnarratifs.html"));
+app.get("/story-kits.html", (req, res) => res.redirect(301, "/story-objects.html"));
+
 app.use(express.static("public"));
 
 const __filename = fileURLToPath(import.meta.url);
@@ -245,10 +251,13 @@ const CATALOGUE = {
   "livre-2": { nom: "La Maison du Petit Zouffarceur", prix: 2500, poids: 350 },
   "livre-3": { nom: "Papa Sanglier et sa dent en or", prix: 2500, poids: 350 },
   "livre-4": { nom: "La Sorcière de la frontière", prix: 2500, poids: 350 },
-  "kit-1": { nom: "Kit — Le rituel des noisettes", prix: 1000, poids: 150 },
-  "kit-2": { nom: "Kit — Une maison à planter", prix: 1000, poids: 150 },
-  "kit-3": { nom: "Kit — Sur les traces de Papa Sanglier", prix: 1000, poids: 150 },
-  "kit-4": { nom: "Kit — Le talisman anti-vol de doudous", prix: 1000, poids: 150 },
+  // Les identifiants restent kit-N : ils ne sont jamais affiches, mais
+  // ils dorment dans le panier de qui en a mis un avant le changement
+  // de nom. Les libelles, eux, sont ceux imprimes sur les cartes.
+  "kit-1": { nom: "Le rituel des noisettes", prix: 1000, poids: 150 },
+  "kit-2": { nom: "Une maison à planter", prix: 1000, poids: 150 },
+  "kit-3": { nom: "Sur les traces de Papa Sanglier", prix: 1000, poids: 150 },
+  "kit-4": { nom: "Le talisman anti-vol de doudous", prix: 1000, poids: 150 },
 };
 
 // Compte une fois par colis. C'est le chiffre le moins sur de tous :

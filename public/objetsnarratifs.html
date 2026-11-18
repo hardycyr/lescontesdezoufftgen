@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Découvrez les objets narratifs inspirés des Contes de Zoufftgen : des pièces réalisées à la main, en petites séries, prolongeant l’univers des récits."
+    content="Les quatre rituels des Contes de Zoufftgen — une carte illustrée, un objet à garder, un geste à faire en famille — et les pièces faites à la main qui prolongent les récits."
   />
   <meta
     property="og:title"
@@ -246,6 +246,52 @@
         font-size: 1.6rem;
       }
     }
+    /* Les fiches de rituel : la photo d'un cote, le texte de l'autre,
+       en alternance. Les !important sont obliges, `.objects-content
+       section` imposant display:block !important a toute la page. */
+    .rituels-photo {
+      display: block;
+      width: 100%;
+      max-width: 760px;
+      margin: 1.4rem auto 0.4rem;
+      border-radius: 10px;
+    }
+    .objects-content .rituel-fiche {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 2rem;
+      align-items: center;
+      margin: 2.4rem 0 !important;
+    }
+    .objects-content .rituel-fiche:nth-of-type(even) {
+      flex-direction: row-reverse !important;
+    }
+    .rituel-photo {
+      flex: 0 0 38%;
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+    .rituel-corps { flex: 1; text-align: center; }
+    .objects-content .rituel-corps h2 { text-align: center; }
+    @media (max-width: 760px) {
+      .objects-content .rituel-fiche,
+      .objects-content .rituel-fiche:nth-of-type(even) {
+        flex-direction: column !important;
+      }
+      .rituel-photo { max-width: 260px; margin: 0 auto; }
+    }
+    .rituel-livre { font-size: 0.95rem; opacity: 0.8; margin-top: -0.4rem; }
+    .rituel-prix {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-variant-numeric: lining-nums;
+      font-feature-settings: 'lnum' 1;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0.6rem 0 0.9rem;
+    }
   </style>
 <script type="application/ld+json">
 {
@@ -277,7 +323,6 @@
       <ul id="menu-list">
         <li><a href="/">Accueil</a></li>
         <li><a href="/collection.html">La collection</a></li>
-        <li><a href="/kits.html">Les kits</a></li>
         <li><a href="/objetsnarratifs.html">Objets narratifs</a></li>
         <li><a href="/interventions.html">Écoles &amp; collectivités</a></li>
         <li><a href="/univers.html">L'univers</a></li>
@@ -327,6 +372,146 @@
           Dans l’atelier, certains éléments des <em>Contes de Zoufftgen</em> prennent
           vie autrement. Un détail aperçu dans une illustration, une forme évoquée
           dans un récit… un fragment d’univers qui se détache, et devient objet.
+        </p>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+
+      <section>
+        <h2>Les rituels des contes</h2>
+        <p>
+          Quatre d’entre eux existent déjà, un par conte. Chacun tient dans
+          un petit pochon de lin : une carte illustrée, qui raconte le
+          rituel et donne les gestes, et l’objet qui va avec — des
+          noisettes, un gland à planter, une tranche de bois peinte à la
+          main. Rien d’électronique, rien à installer.
+        </p>
+        <p>
+          Les tranches de bois sont peintes une par une. Les glands et les
+          noisettes sont ramassés dans la forêt de Zoufftgen, celle des
+          contes.
+        </p>
+        <img
+          class="rituels-photo"
+          loading="lazy"
+          src="/images/kits-des-contes.jpg"
+          alt="Les quatre rituels des Contes de Zoufftgen : pochons de lin, tranches de bois peintes à la main et cartes illustrées"
+        />
+      </section>
+
+      <section class="rituel-fiche">
+        <img
+          class="rituel-photo"
+          loading="lazy"
+          src="/images/kits/kit-1.jpg"
+          width="760"
+          height="950"
+          alt="Les noisettes du rituel et la carte illustrée du Rituel des noisettes, posées sur une table en bois"
+        />
+        <div class="rituel-corps">
+          <h2>Le rituel des noisettes</h2>
+          <p class="rituel-livre">Pour prolonger <a href="/livre/petit-zouffarceur.html"><em>Le Petit Zouffarceur</em></a></p>
+          <p>Une carte illustrée et un pochon de noisettes à déposer sur la fenêtre, pour inviter le Petit Zouffarceur à passer.</p>
+          <p class="rituel-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-1"
+            data-nom="Le rituel des noisettes"
+            data-prix="1000"
+          >Ajouter au panier</a>
+        </div>
+      </section>
+
+      <section class="rituel-fiche">
+        <img
+          class="rituel-photo"
+          loading="lazy"
+          src="/images/kits/kit-2.jpg"
+          width="760"
+          height="950"
+          alt="Deux glands et la carte illustrée Une maison à planter, posés sur une table en bois"
+        />
+        <div class="rituel-corps">
+          <h2>Une maison à planter</h2>
+          <p class="rituel-livre">Pour prolonger <a href="/livre/la-maison.html"><em>La Maison du Petit Zouffarceur</em></a></p>
+          <p>Une carte illustrée et un véritable gland, à planter pour que pousse, un jour, la maison de quelqu’un.</p>
+          <p class="rituel-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-2"
+            data-nom="Une maison à planter"
+            data-prix="1000"
+          >Ajouter au panier</a>
+        </div>
+      </section>
+
+      <section class="rituel-fiche">
+        <img
+          class="rituel-photo"
+          loading="lazy"
+          src="/images/kits/kit-3.jpg"
+          width="760"
+          height="950"
+          alt="Le rituel Sur les traces de Papa Sanglier : la carte, le pochon de lin et la rondelle de bois peinte à l’empreinte du sanglier"
+        />
+        <div class="rituel-corps">
+          <h2>Sur les traces de Papa Sanglier</h2>
+          <p class="rituel-livre">Pour prolonger <a href="/livre/papa-sanglier.html"><em>Papa Sanglier et sa dent en or</em></a></p>
+          <p>Une carte illustrée présentant l’empreinte du sanglier, à reconnaître ensuite en promenade, et une tranche de bois peinte à la main.</p>
+          <p class="rituel-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-3"
+            data-nom="Sur les traces de Papa Sanglier"
+            data-prix="1000"
+          >Ajouter au panier</a>
+        </div>
+      </section>
+
+      <section class="rituel-fiche">
+        <img
+          class="rituel-photo"
+          loading="lazy"
+          src="/images/kits/kit-4.jpg"
+          width="760"
+          height="950"
+          alt="La carte illustrée du Talisman anti-vol de doudous, posée sur une table en bois"
+        />
+        <div class="rituel-corps">
+          <h2>Le talisman anti-vol de doudous</h2>
+          <p class="rituel-livre">Pour prolonger <a href="/livre/la-sorciere.html"><em>La Sorcière de la frontière</em></a></p>
+          <p>Une tranche de bois peinte à la main : un balai sur une face, pour tenir la sorcière à distance des doudous.</p>
+          <p class="rituel-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-4"
+            data-nom="Le talisman anti-vol de doudous"
+            data-prix="1000"
+          >Ajouter au panier</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>Un mot sur l’envoi</h2>
+        <p>
+          Un rituel commandé seul voyage dans son propre colis, et la poste
+          facture un petit colis presque comme un grand : comptez
+          8&nbsp;&euro; de port pour 10&nbsp;&euro; de rituel.
+          <strong>Ajouté à une commande d’album, il ne change presque
+          rien :</strong> un livre seul part à 8&nbsp;&euro;, un livre et
+          son rituel à 10&nbsp;&euro;.
+        </p>
+        <p>
+          Et si vous passez par Zoufftgen, le retrait sur rendez-vous est
+          toujours possible : <a href="/contact.html">écrivez-moi</a>.
         </p>
       </section>
 
@@ -388,28 +573,11 @@
       <section>
         <h2>À venir</h2>
         <p>
-          Ces objets ne sont pas encore proposés à la vente.
+          Les glands sculptés, eux, ne sont pas encore proposés à la vente.
           Ils apparaîtront progressivement, au fil du temps et des créations.
         </p>
       </section>
 
-      <div class="leaf-separator" aria-hidden="true">
-        <span class="leaf-separator-line"></span>
-        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
-        <span class="leaf-separator-line"></span>
-      </div>
-
-      <section>
-        <h2>Les kits des contes, eux, sont disponibles</h2>
-        <p>
-          À côté de ces pièces uniques, chaque album a son petit kit :
-          une carte illustrée, un objet à garder, et un rituel à faire
-          ensemble une fois le livre refermé. Ceux-là se commandent.
-        </p>
-        <p style="text-align:center">
-          <a class="btn-more" href="/kits.html">Découvrir les kits</a>
-        </p>
-      </section>
     </div>
   </main>
 

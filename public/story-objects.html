@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Discover the story objects inspired by The Tales of Zoufftgen: handmade pieces, in small batches, extending the world of the stories."
+    content="The four rituals of The Tales of Zoufftgen — an illustrated card, an object to keep, a gesture to share — and the handmade pieces that extend the stories."
   />
   <meta property="og:title" content="Story objects | The Tales of Zoufftgen" />
   <meta
@@ -207,6 +207,52 @@
         font-size: 1.6rem;
       }
     }
+    /* Les fiches de rituel : la photo d'un cote, le texte de l'autre,
+       en alternance. Les !important sont obliges, `.objects-content
+       section` imposant display:block !important a toute la page. */
+    .rituels-photo {
+      display: block;
+      width: 100%;
+      max-width: 760px;
+      margin: 1.4rem auto 0.4rem;
+      border-radius: 10px;
+    }
+    .objects-content .rituel-fiche {
+      display: flex !important;
+      flex-direction: row !important;
+      gap: 2rem;
+      align-items: center;
+      margin: 2.4rem 0 !important;
+    }
+    .objects-content .rituel-fiche:nth-of-type(even) {
+      flex-direction: row-reverse !important;
+    }
+    .rituel-photo {
+      flex: 0 0 38%;
+      max-width: 300px;
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+    }
+    .rituel-corps { flex: 1; text-align: center; }
+    .objects-content .rituel-corps h2 { text-align: center; }
+    @media (max-width: 760px) {
+      .objects-content .rituel-fiche,
+      .objects-content .rituel-fiche:nth-of-type(even) {
+        flex-direction: column !important;
+      }
+      .rituel-photo { max-width: 260px; margin: 0 auto; }
+    }
+    .rituel-livre { font-size: 0.95rem; opacity: 0.8; margin-top: -0.4rem; }
+    .rituel-prix {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-variant-numeric: lining-nums;
+      font-feature-settings: 'lnum' 1;
+      font-size: 1.5rem;
+      font-weight: 600;
+      margin: 0.6rem 0 0.9rem;
+    }
   </style>
 <script type="application/ld+json">
 {
@@ -238,7 +284,6 @@
       <ul id="menu-list">
         <li><a href="/index-en.html">Home</a></li>
         <li><a href="/mybooks.html">The collection</a></li>
-        <li><a href="/story-kits.html">The kits</a></li>
         <li><a href="/story-objects.html">Story objects</a></li>
         <li><a href="/author-visits.html">Author visits</a></li>
         <li><a href="/universe.html">The world</a></li>
@@ -299,6 +344,145 @@
       </div>
 
       <section>
+        <h2>The story rituals</h2>
+        <p>
+          Four of them already exist, one per tale. Each fits in a small
+          linen pouch: an illustrated card that tells the ritual and gives
+          the gestures, and the object that goes with it &mdash; hazelnuts,
+          an acorn to plant, a hand-painted wooden disc. Nothing
+          electronic, nothing to install.
+        </p>
+        <p>
+          The wooden discs are painted one by one. The acorns and hazelnuts
+          are gathered in the forest of Zoufftgen, the one in the tales.
+          The cards are printed in French, like the books themselves.
+        </p>
+        <img
+          class="rituels-photo"
+          loading="lazy"
+          src="/images/kits-des-contes.jpg"
+          alt="The four rituals of the Tales of Zoufftgen: linen pouches, hand-painted wooden discs and illustrated cards"
+        />
+      </section>
+
+      <section class="rituel-fiche">
+        <img
+          class="rituel-photo"
+          loading="lazy"
+          src="/images/kits/kit-1.jpg"
+          width="760"
+          height="950"
+          alt="The hazelnuts and the illustrated card of Le rituel des noisettes, on a wooden table"
+        />
+        <div class="rituel-corps">
+          <h2>Le rituel des noisettes</h2>
+          <p class="rituel-livre">The hazelnut ritual &mdash; to carry on <a href="/livre/petit-zouffarceur.html"><em>Le Petit Zouffarceur</em></a></p>
+          <p>An illustrated card and a pouch of hazelnuts to leave on the windowsill, to invite the Petit Zouffarceur in.</p>
+          <p class="rituel-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-1"
+            data-nom="Le rituel des noisettes"
+            data-prix="1000"
+          >Add to cart</a>
+        </div>
+      </section>
+
+      <section class="rituel-fiche">
+        <img
+          class="rituel-photo"
+          loading="lazy"
+          src="/images/kits/kit-2.jpg"
+          width="760"
+          height="950"
+          alt="Two acorns and the illustrated card of Une maison à planter, on a wooden table"
+        />
+        <div class="rituel-corps">
+          <h2>Une maison à planter</h2>
+          <p class="rituel-livre">A house to plant &mdash; to carry on <a href="/livre/la-maison.html"><em>La Maison du Petit Zouffarceur</em></a></p>
+          <p>An illustrated card and a real acorn, to plant so that one day somebody’s house may grow.</p>
+          <p class="rituel-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-2"
+            data-nom="Une maison à planter"
+            data-prix="1000"
+          >Add to cart</a>
+        </div>
+      </section>
+
+      <section class="rituel-fiche">
+        <img
+          class="rituel-photo"
+          loading="lazy"
+          src="/images/kits/kit-3.jpg"
+          width="760"
+          height="950"
+          alt="The ritual Sur les traces de Papa Sanglier: the card, the linen pouch and the wooden disc painted with a boar footprint"
+        />
+        <div class="rituel-corps">
+          <h2>Sur les traces de Papa Sanglier</h2>
+          <p class="rituel-livre">On the boar’s trail &mdash; to carry on <a href="/livre/papa-sanglier.html"><em>Papa Sanglier et sa dent en or</em></a></p>
+          <p>An illustrated card showing the boar’s footprint, to recognise on your next walk, and a hand-painted wooden disc.</p>
+          <p class="rituel-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-3"
+            data-nom="Sur les traces de Papa Sanglier"
+            data-prix="1000"
+          >Add to cart</a>
+        </div>
+      </section>
+
+      <section class="rituel-fiche">
+        <img
+          class="rituel-photo"
+          loading="lazy"
+          src="/images/kits/kit-4.jpg"
+          width="760"
+          height="950"
+          alt="The illustrated card of Le talisman anti-vol de doudous, on a wooden table"
+        />
+        <div class="rituel-corps">
+          <h2>Le talisman anti-vol de doudous</h2>
+          <p class="rituel-livre">The cuddly-toy talisman &mdash; to carry on <a href="/livre/la-sorciere.html"><em>La Sorcière de la frontière</em></a></p>
+          <p>A hand-painted wooden disc: a broomstick on one face, to keep the witch away from the cuddly toys.</p>
+          <p class="rituel-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-4"
+            data-nom="Le talisman anti-vol de doudous"
+            data-prix="1000"
+          >Add to cart</a>
+        </div>
+      </section>
+
+      <section>
+        <h2>A word about shipping</h2>
+        <p>
+          A ritual ordered on its own travels in its own parcel, and the
+          post charges a small parcel almost like a large one.
+          <strong>Added to a book order it changes almost nothing:</strong>
+          the parcel stays in the same weight bracket.
+        </p>
+        <p>
+          And if you happen to pass through Zoufftgen, collection by
+          appointment is always possible:
+          <a href="/contact-en.html">write to me</a>.
+        </p>
+      </section>
+
+      <div class="leaf-separator" aria-hidden="true">
+        <span class="leaf-separator-line"></span>
+        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
+        <span class="leaf-separator-line"></span>
+      </div>
+
+      <section>
         <h2>Slow work, in small batches</h2>
         <p>
           These pieces are handmade, in small batches or as one-of-a-kind objects.
@@ -348,28 +532,11 @@
       <section>
         <h2>Coming soon</h2>
         <p>
-          These objects are not yet for sale.
+          The carved acorns, for their part, are not yet for sale.
           They will appear gradually, in the rhythm of creation.
         </p>
       </section>
 
-      <div class="leaf-separator" aria-hidden="true">
-        <span class="leaf-separator-line"></span>
-        <img loading="lazy" class="leaf-separator-icon" src="/images/feuille-separateur.png" alt="" />
-        <span class="leaf-separator-line"></span>
-      </div>
-
-      <section>
-        <h2>The story kits are available</h2>
-        <p>
-          Alongside these one-off pieces, each album has its own little kit:
-          an illustrated card, an object to keep, and a small ritual to share
-          once the book is closed. Those can be ordered.
-        </p>
-        <p style="text-align:center">
-          <a class="btn-more" href="/story-kits.html">Discover the kits</a>
-        </p>
-      </section>
     </div>
   </main>
 

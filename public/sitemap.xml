@@ -5,7 +5,7 @@
 
   <!-- Genere depuis les pages elles-memes : chaque <loc> est la
        canonique declaree par la page, et <lastmod> la date du
-       dernier commit qui l'a touchee. Regenerer avec scripts/sitemap.py. -->
+       dernier commit qui l'a touchee. Voir scratchpad/sitemap.py. -->
 
   <!-- ===================== Pages francaises ===================== -->
 
@@ -36,18 +36,9 @@
   </url>
 
   <url>
-    <loc>https://www.lescontesdezoufftgen.com/kits.html</loc>
-    <lastmod>2026-11-18</lastmod>
-    <priority>0.85</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/kits.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/story-kits.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/kits.html" />
-  </url>
-
-  <url>
     <loc>https://www.lescontesdezoufftgen.com/objetsnarratifs.html</loc>
     <lastmod>2026-11-18</lastmod>
-    <priority>0.80</priority>
+    <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/objetsnarratifs.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/story-objects.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/objetsnarratifs.html" />
@@ -199,18 +190,9 @@
   </url>
 
   <url>
-    <loc>https://www.lescontesdezoufftgen.com/story-kits.html</loc>
-    <lastmod>2026-11-18</lastmod>
-    <priority>0.75</priority>
-    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/kits.html" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/story-kits.html" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/kits.html" />
-  </url>
-
-  <url>
     <loc>https://www.lescontesdezoufftgen.com/story-objects.html</loc>
     <lastmod>2026-11-18</lastmod>
-    <priority>0.70</priority>
+    <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/objetsnarratifs.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/story-objects.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/objetsnarratifs.html" />
