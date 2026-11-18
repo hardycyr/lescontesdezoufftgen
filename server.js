@@ -247,7 +247,7 @@ const CATALOGUE = {
   "livre-4": { nom: "La Sorcière de la frontière", prix: 2500, poids: 350 },
   "kit-1": { nom: "Kit — Le rituel des noisettes", prix: 1000, poids: 150 },
   "kit-2": { nom: "Kit — Une maison à planter", prix: 1000, poids: 150 },
-  "kit-3": { nom: "Kit — Les empreintes de la forêt", prix: 1000, poids: 150 },
+  "kit-3": { nom: "Kit — Sur les traces de Papa Sanglier", prix: 1000, poids: 150 },
   "kit-4": { nom: "Kit — Le talisman anti-vol de doudous", prix: 1000, poids: 150 },
 };
 
