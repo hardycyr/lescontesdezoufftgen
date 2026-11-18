@@ -5,7 +5,7 @@
 
   <!-- Genere depuis les pages elles-memes : chaque <loc> est la
        canonique declaree par la page, et <lastmod> la date du
-       dernier commit qui l'a touchee. Voir scratchpad/sitemap.py. -->
+       dernier commit qui l'a touchee. Regenerer avec scripts/sitemap.py. -->
 
   <!-- ===================== Pages francaises ===================== -->
 
