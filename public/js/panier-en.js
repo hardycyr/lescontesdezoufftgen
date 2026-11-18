@@ -111,7 +111,7 @@ function mettreAJourFraisEtTotal() {
     totalQuantite += item.quantity;
   });
 
-  const frais = calculerFraisDePort(pays, totalQuantite);
+  const frais = calculerFraisDePort(pays, poidsDuPanier(panier));
   const total = totalProduits + frais;
 
 
@@ -125,12 +125,26 @@ function mettreAJourFraisEtTotal() {
   paysLabel.textContent = pays;
 }
 
-// Doit rester identique a la table de server.js, qui fait foi :
+// Doit rester identique aux tables de server.js, qui fait foi :
 // ici on ne fait qu’AFFICHER le montant, le serveur le facture.
-function calculerFraisDePort(pays, quantite) {
-  if (pays === "FR") return quantite <= 1 ? 800 : quantite <= 2 ? 1000 : 1200;
-  if (pays === "LU") return 700;
-  return 1700;
+// Le port depend du POIDS : un album pese 350 g, un kit 150 g.
+const POIDS = { livre: 350, kit: 150 };
+const POIDS_EMBALLAGE = 120;
+
+function poidsDuPanier(panier) {
+  return panier.reduce(
+    (g, item) =>
+      g + (String(item.id).startsWith("kit-") ? POIDS.kit : POIDS.livre) *
+        item.quantity,
+    POIDS_EMBALLAGE
+  );
+}
+
+function calculerFraisDePort(pays, poids) {
+  if (pays === "FR")
+    return poids <= 500 ? 800 : poids <= 1000 ? 1000 : poids <= 2000 ? 1200 : 1800;
+  if (pays === "LU") return poids <= 2000 ? 700 : 900;
+  return poids <= 2000 ? 1700 : 3300;
 }
 
 // -------------------

@@ -238,12 +238,22 @@ const BREVO_SENDER_NAME =
 // divergent, la commande passe quand meme (au prix de cette table) mais un
 // avertissement est ecrit dans le journal du serveur, pour que l'oubli se
 // voie.
+// Le POIDS sert au calcul des frais de port : un album pese 350 g
+// (mesure), un kit 150 g (estimation haute, a confirmer).
 const CATALOGUE = {
-  "livre-1": { nom: "Le Petit Zouffarceur", prix: 2500 },
-  "livre-2": { nom: "La Maison du Petit Zouffarceur", prix: 2500 },
-  "livre-3": { nom: "Papa Sanglier et sa dent en or", prix: 2500 },
-  "livre-4": { nom: "La Sorcière de la frontière", prix: 2500 },
+  "livre-1": { nom: "Le Petit Zouffarceur", prix: 2500, poids: 350 },
+  "livre-2": { nom: "La Maison du Petit Zouffarceur", prix: 2500, poids: 350 },
+  "livre-3": { nom: "Papa Sanglier et sa dent en or", prix: 2500, poids: 350 },
+  "livre-4": { nom: "La Sorcière de la frontière", prix: 2500, poids: 350 },
+  "kit-1": { nom: "Kit — Le rituel des noisettes", prix: 1000, poids: 150 },
+  "kit-2": { nom: "Kit — Une maison à planter", prix: 1000, poids: 150 },
+  "kit-3": { nom: "Kit — Les empreintes de la forêt", prix: 1000, poids: 150 },
+  "kit-4": { nom: "Kit — Le talisman anti-vol de doudous", prix: 1000, poids: 150 },
 };
+
+// Compte une fois par colis. C'est le chiffre le moins sur de tous :
+// a corriger ici le jour ou un colis pret a partir sera pese.
+const POIDS_EMBALLAGE = 120;
 
 // ====================== STRIPE ======================
 
@@ -267,6 +277,7 @@ app.post("/create-checkout-session", async (req, res) => {
     // Le panier dit QUOI et COMBIEN. Le catalogue dit le nom et le prix.
     const line_items = [];
     let totalQuantity = 0;
+    let poidsTotal = POIDS_EMBALLAGE;
 
     for (const item of cart) {
       // hasOwnProperty, et pas CATALOGUE[id] directement : un identifiant
@@ -296,6 +307,7 @@ app.post("/create-checkout-session", async (req, res) => {
         5
       );
       totalQuantity += quantite;
+      poidsTotal += (article.poids || 350) * quantite;
 
       line_items.push({
         price_data: {
@@ -309,26 +321,35 @@ app.post("/create-checkout-session", async (req, res) => {
 
     let shippingCost = 0;
 
-    // Tarifs releves par Helene (post.lu) et grille Colissimo 2026.
-    // Quatre albums emballes font ~1,7 kg : tout tient sous 2 kg.
+    // Tranches de POIDS, et non plus de nombre d'articles : un kit
+    // pese 150 g, un album 350 g, et les tarifs postaux changent au
+    // poids. Tarifs releves par Helene (laposte.fr et post.lu).
     //
-    //   France     → poste francaise : 7,59 / 9,59 / 11,19 selon le poids
-    //   Luxembourg → POST national   : 6 € petit colis, 7 € grand format
-    //   Europe     → POST zone 1 12 €, zone 2 16 €, au forfait
+    //   France     → Colissimo : 500 g 7,59 · 1 kg 9,59 · 2 kg 11,19
+    //                             · 5 kg 17,39
+    //   Luxembourg → POST national : 2 kg 7 · 10 kg 9
+    //   Europe     → POST zone 2  : 2 kg 16 · 10 kg 45
     //
-    // La regle : la France depuis la France, tout le reste depuis le
-    // Luxembourg. Le forfait luxembourgeois ne depend pas du nombre
-    // d'albums — vers l'etranger, le quatrieme ne coute rien de port.
+    // La regle d'expedition : la France depuis la France, le Luxembourg
+    // et l'Europe depuis le Luxembourg — Helene passe la frontiere tous
+    // les matins.
+    //
+    // ATTENTION a l'Europe au-dela de 2 kg : POST saute de 16 a 45 €.
+    // Deux colis de moins de 2 kg coutent 32 €. On facture 33, et ce
+    // jour-la il faut vraiment expedier DEUX paquets.
     if (country === "FR") {
-      shippingCost = totalQuantity <= 1 ? 800 : totalQuantity <= 2 ? 1000 : 1200;
+      shippingCost =
+        poidsTotal <= 500 ? 800 :
+        poidsTotal <= 1000 ? 1000 :
+        poidsTotal <= 2000 ? 1200 : 1800;
     } else if (country === "LU") {
-      shippingCost = 700;
+      shippingCost = poidsTotal <= 2000 ? 700 : 900;
     } else if (country === "UE") {
-      shippingCost = 1700;
+      shippingCost = poidsTotal <= 2000 ? 1700 : 3300;
     } else {
-      // Le reste du monde ne passe plus par le paiement en ligne : la
+      // Le reste du monde ne passe pas par le paiement en ligne : la
       // zone 5 de POST coute 85 EUR le colis, soit trois fois le prix
-      // d'un album. On traite ces commandes a la main, sur devis.
+      // d'un album. Ces commandes se traitent a la main, sur devis.
       return res.status(400).json({
         error:
           "Livraison hors Europe : merci de nous ecrire pour un devis.",
