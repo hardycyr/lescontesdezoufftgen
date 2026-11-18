@@ -27,8 +27,12 @@
   <meta name="twitter:image" content="https://www.lescontesdezoufftgen.com/images/tome-1.webp" />
   <meta name="twitter:card" content="summary_large_image" />
 
-  <meta name="product:price:amount" content="25.00" />
-  <meta name="product:price:currency" content="EUR" />
+  <!-- Open Graph ne lit que `property`, jamais `name`. -->
+  <meta property="product:price:amount" content="25.00" />
+  <meta property="product:price:currency" content="EUR" />
+  <meta property="product:availability" content="in stock" />
+  <meta property="product:condition" content="new" />
+  <meta property="product:retailer_item_id" content="9782959164958" />
 
   <!-- Donnees structurees Schema.org pour les rich results Google -->
   <script type="application/ld+json">
