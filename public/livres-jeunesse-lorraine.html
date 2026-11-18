@@ -216,14 +216,11 @@
       display: grid;
       grid-template-columns: repeat(4, 1fr);
       gap: 1.3rem;
-      /* La colonne de texte fait 760 px : quatre albums n'y tiennent
-         pas. La grille, et elle seule, en sort pour occuper toute la
-         largeur de la page. */
-      width: min(1000px, calc(100vw - 5rem));
-      margin: 2rem auto;
-      position: relative;
-      left: 50%;
-      transform: translateX(-50%);
+      /* Fille directe de `.seo-page` (et non de la colonne de texte,
+         large de 760 px) : elle prend toute la largeur utile de la
+         page blanche, sans rien calculer depuis la fenetre. */
+      width: 100%;
+      margin: 2rem 0 2.5rem;
     }
 
     @media (max-width: 900px) {
@@ -460,7 +457,9 @@
       </section>
 
 
-      <div class="books-quick-grid">
+    </div><!-- /seo-content : la grille sort de la colonne de texte -->
+
+    <div class="books-quick-grid">
         <a href="/boutique/le-petit-zouffarceur.html">
           <img loading="lazy" src="/images/tome-1.webp" alt="Le Petit Zouffarceur — livre jeunesse de Lorraine, tome 1 de la collection" />
           <h3>Le Petit Zouffarceur</h3>
@@ -479,9 +478,11 @@
         <a href="/boutique/la-sorciere-de-la-frontiere.html">
           <img loading="lazy" src="/images/tome-4.webp" alt="La Sorcière de la frontière — livre jeunesse de la frontière franco-luxembourgeoise, tome 4" />
           <h3>La Sorcière de la frontière</h3>
-          <p>Tome 4 — Un conte de la frontière</p>
-        </a>
-      </div>
+        <p>Tome 4 — Un conte de la frontière</p>
+      </a>
+    </div>
+
+    <div class="seo-content"><!-- reprise de la colonne de texte -->
 
       <section>
         <h2>Un livre jeunesse à offrir, ancré dans la région</h2>
