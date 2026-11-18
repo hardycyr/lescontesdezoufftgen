@@ -197,6 +197,12 @@
 
     .recapitulatif p:last-of-type {
       font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      /* Cormorant donne des chiffres elzeviriens : a cote du Libre
+         Baskerville des lignes au-dessus, le total paraissait plus
+         petit et en minuscules. On lui demande ses chiffres de
+         haut de casse, tous de meme hauteur. */
+      font-variant-numeric: lining-nums;
+      font-feature-settings: 'lnum' 1;
       font-size: 1.4rem;
       font-weight: 600;
       letter-spacing: 0.02em;
@@ -396,9 +402,9 @@
       <p class="hors-europe">Hors Europe ? <a href="/contact.html">Écrivez-moi</a>, je vous fais un devis d’expédition.</p>
 
       <p style="visibility: hidden;"><strong>Pays sélectionné :</strong> <span id="pays-label">France</span></p>
-      <p><strong>Prix des livres :</strong> <span id="total-produits">0.00</span> €</p>
-      <p><strong>Frais de port :</strong> <span id="frais-port">0.00</span> €</p>
-      <p><strong>Prix total :</strong> <span id="total-general">0.00</span> €</p>
+      <p><strong>Prix des livres :</strong> <span id="total-produits">0,00</span> €</p>
+      <p><strong>Frais de port :</strong> <span id="frais-port">0,00</span> €</p>
+      <p><strong>Prix total :</strong> <span id="total-general">0,00</span> €</p>
 
       <label for="notePersonnelle">Note personnelle (facultatif)</label>
       <textarea id="notePersonnelle" name="notePersonnelle" rows="3" placeholder="Une dédicace, une précision pour votre commande…"></textarea>

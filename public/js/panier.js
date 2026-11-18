@@ -30,6 +30,13 @@ const T = EST_EN
 // -------------------
 // 🧠 Fonctions utilitaires
 // -------------------
+// Le francais ecrit 100,00 € : virgule decimale, et une espace
+// INSECABLE avant le symbole — sinon l’euro peut se retrouver
+// seul en debut de ligne.
+function euros(centimes) {
+  return (centimes / 100).toFixed(2).replace(".", ",");
+}
+
 function getPanier() {
   return JSON.parse(localStorage.getItem("panier") || "[]");
 }
@@ -113,15 +120,15 @@ function afficherPanier() {
 
     ligne.innerHTML = `
   <td data-label="${T.produit}">${item.name}</td>
-  <td data-label="${T.prixUnitaire}">${(item.price / 100).toFixed(2)} €</td>
+  <td data-label="${T.prixUnitaire}">${euros(item.price)} €</td>
   <td data-label="${T.quantite}"><input type="number" min="1" value="${item.quantity}" onchange="changerQuantite(${index}, this.value)" /></td>
-  <td data-label="${T.total}">${(total / 100).toFixed(2)} €</td>
+  <td data-label="${T.total}">${euros(total)} €</td>
   <td data-label="${T.actions}"><button class="btn-supprimer" onclick="supprimerArticle(${index})">❌</button></td>
 `;
     tbody.appendChild(ligne);
   });
 
-  totalElt.textContent = (totalGeneral / 100).toFixed(2);
+  totalElt.textContent = euros(totalGeneral);
 }
 
 // -------------------
@@ -149,13 +156,13 @@ function mettreAJourFraisEtTotal() {
   const total = totalProduits + frais;
 
 
-  if (totalProduitsSpan) totalProduitsSpan.textContent = (totalProduits / 100).toFixed(2);
-  if (fraisPortSpan)     fraisPortSpan.textContent = (frais / 100).toFixed(2);
-  if (totalGeneralSpan)  totalGeneralSpan.textContent = (total / 100).toFixed(2);
+  if (totalProduitsSpan) totalProduitsSpan.textContent = euros(totalProduits);
+  if (fraisPortSpan)     fraisPortSpan.textContent = euros(frais);
+  if (totalGeneralSpan)  totalGeneralSpan.textContent = euros(total);
   if (paysLabel)         paysLabel.textContent = pays;
-  totalProduitsSpan.textContent = (totalProduits / 100).toFixed(2);
-  fraisPortSpan.textContent = (frais / 100).toFixed(2);
-  totalGeneralSpan.textContent = (total / 100).toFixed(2);
+  totalProduitsSpan.textContent = euros(totalProduits);
+  fraisPortSpan.textContent = euros(frais);
+  totalGeneralSpan.textContent = euros(total);
   paysLabel.textContent = pays;
 }
 
