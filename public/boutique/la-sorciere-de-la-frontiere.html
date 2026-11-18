@@ -519,6 +519,23 @@
         font-size: 1.6rem;
       }
     }
+    /* L'age de lecture, juste sous l'accroche : on sort de l'italique
+       de .book-intro p pour que ce soit une mention, pas une suite du
+       texte. Chiffres alignes : Libre Baskerville sort sinon des
+       chiffres elzeviriens au milieu d'une ligne en capitales basses. */
+    .book-ages {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.9rem;
+      font-style: normal;
+      color: #555;
+      text-align: center;
+      letter-spacing: 0.02em;
+      font-variant-numeric: lining-nums;
+      font-feature-settings: 'lnum' 1;
+      margin: 1rem auto 0;
+      max-width: 600px;
+    }
+
   </style>
 <script type="application/ld+json">
 {
@@ -612,6 +629,9 @@
         </p>
         <p>Un jour, elle eut une idée extraordinairement mauvaise.</p>
         <p>Mais cette fois, les enfants de Zoufftgen n’allaient pas se laisser faire…</p>
+        <p class="book-ages">
+          Lecture accompagnée dès 3&nbsp;ans &middot; Lecture autonome à partir de 6-7&nbsp;ans
+        </p>
       </div>
     </section>
 
@@ -676,8 +696,6 @@
           <li>un QR code pour écouter l’histoire</li>
           <li>un dessin pas à pas pour prolonger la lecture</li>
           <li>couverture rigide, dorure 3D, format carré 21 × 21 cm, 32 pages</li>
-          <li>lecture accompagnée dès 3 ans</li>
-          <li>lecture autonome à partir de 6-7 ans</li>
         </ul>
       </section>
     </div>

@@ -172,6 +172,23 @@
       .book-content { font-size: 0.95rem; line-height: 1.7; }
       .book-content h2, .purchase-box h2 { font-size: 1.6rem; }
     }
+    /* L'age de lecture, juste sous l'accroche : on sort de l'italique
+       de .book-intro p pour que ce soit une mention, pas une suite du
+       texte. Chiffres alignes : Libre Baskerville sort sinon des
+       chiffres elzeviriens au milieu d'une ligne en capitales basses. */
+    .book-ages {
+      font-family: 'Libre Baskerville', 'Baskerville', Georgia, serif;
+      font-size: 0.9rem;
+      font-style: normal;
+      color: #555;
+      text-align: center;
+      letter-spacing: 0.02em;
+      font-variant-numeric: lining-nums;
+      font-feature-settings: 'lnum' 1;
+      margin: 1rem auto 0;
+      max-width: 600px;
+    }
+
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -246,6 +263,9 @@
           Has the Petit Zouffarceur disappeared? Where has he gone?
           New adventures will lead the villagers all the way to his house…
         </p>
+        <p class="book-ages">
+          Read-aloud from age 3 &middot; Independent reading from age 6-7
+        </p>
       </div>
     </section>
 
@@ -295,8 +315,6 @@
           <li>activities to extend the reading</li>
           <li>a recipe to make as a family</li>
           <li>hardcover, 3D gilding, square format 21 × 21 cm, 32 pages</li>
-          <li>read-aloud from age 3</li>
-          <li>independent reading from age 6-7</li>
         </ul>
       </section>
     </div>
