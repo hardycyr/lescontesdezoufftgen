@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Découvrez les objets narratifs inspirés des Contes de Zoufftgen : des pièces réalisées à la main, en petites séries, prolongeant l’univers des récits."
+    content="Quatre petits kits, un par conte : une carte illustrée, un objet à garder, et un rituel à faire en famille après la lecture."
   />
   <meta
     property="og:title"
@@ -44,6 +44,8 @@
 
   <link rel="canonical" href="https://www.lescontesdezoufftgen.com/kits.html" />
   <link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/kits.html" />
+  <link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/story-kits.html" />
+  <link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/kits.html" />
 
   <link rel="stylesheet" href="/styles.css" />
   <link rel="icon" href="/favicon.ico" type="image/x-icon" />
@@ -254,7 +256,28 @@
       margin: 0 auto 2.2rem;
       border-radius: 10px;
     }
-    .kit-fiche { text-align: center; }
+    /* La fiche de kit : la photo d'un cote, le texte de l'autre, et
+       l'alternance pour que la page ne devienne pas une colonne. */
+    .kit-fiche {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+      margin: 2.4rem 0;
+    }
+    .kit-fiche:nth-of-type(even) { flex-direction: row-reverse; }
+    .kit-photo {
+      flex: 0 0 38%;
+      max-width: 300px;
+      width: 100%;
+      border-radius: 10px;
+      display: block;
+    }
+    .kit-corps { flex: 1; text-align: center; }
+    @media (max-width: 760px) {
+      .kit-fiche,
+      .kit-fiche:nth-of-type(even) { flex-direction: column; }
+      .kit-photo { max-width: 260px; margin: 0 auto; }
+    }
     .kit-livre { font-size: 0.95rem; opacity: 0.8; margin-top: -0.4rem; }
     .kit-prix {
       font-family: 'Cormorant Garamond', 'Times New Roman', serif;
@@ -296,7 +319,8 @@
       <ul id="menu-list">
         <li><a href="/">Accueil</a></li>
         <li><a href="/collection.html">La collection</a></li>
-        <li><a href="/kits.html">Objets narratifs</a></li>
+        <li><a href="/kits.html">Les kits</a></li>
+        <li><a href="/objetsnarratifs.html">Objets narratifs</a></li>
         <li><a href="/interventions.html">Écoles &amp; collectivités</a></li>
         <li><a href="/univers.html">L'univers</a></li>
         <li><a href="/parutions.html">Parutions &amp; Rencontres</a></li>
@@ -316,7 +340,7 @@
             alt="Français"
           />
         </a>
-        <a href="/story-objects.html">
+        <a href="/story-kits.html">
           <img loading="lazy"
             src="https://flagcdn.com/20x15/gb.png"
             srcset="https://flagcdn.com/40x30/gb.png 2x, https://flagcdn.com/60x45/gb.png 3x"
@@ -366,59 +390,103 @@
       </div>
 
       <section class="kit-fiche">
-        <h2>Le rituel des noisettes</h2>
-        <p class="kit-livre">Pour prolonger <a href="/livre/petit-zouffarceur.html"><em>Le Petit Zouffarceur</em></a></p>
-        <p>Une carte illustrée et un pochon de noisettes à déposer sur la fenêtre, pour inviter le Petit Zouffarceur à passer.</p>
-        <p class="kit-prix">10&nbsp;&euro;</p>
-        <a
-          href="#"
-          class="btn-more btn-cart"
-          data-id="kit-1"
-          data-nom="Le rituel des noisettes"
-          data-prix="1000"
-        >Ajouter au panier</a>
+        <img
+          class="kit-photo"
+          loading="lazy"
+          src="/images/kits/kit-1.jpg"
+          width="760"
+          height="950"
+          alt="Les noisettes du rituel et la carte illustrée du Rituel des noisettes, posées sur une table en bois"
+        />
+        <div class="kit-corps">
+          <h2>Le rituel des noisettes</h2>
+          <p class="kit-livre">Pour prolonger <a href="/livre/petit-zouffarceur.html"><em>Le Petit Zouffarceur</em></a></p>
+          <p>Une carte illustrée et un pochon de noisettes à déposer sur la fenêtre, pour inviter le Petit Zouffarceur à passer.</p>
+          <p class="kit-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-1"
+            data-nom="Le rituel des noisettes"
+            data-prix="1000"
+          >Ajouter au panier</a>
+      
+        </div>
       </section>
 
       <section class="kit-fiche">
-        <h2>Une maison à planter</h2>
-        <p class="kit-livre">Pour prolonger <a href="/livre/la-maison.html"><em>La Maison du Petit Zouffarceur</em></a></p>
-        <p>Une carte illustrée et un véritable gland, à planter pour que pousse, un jour, la maison de quelqu’un.</p>
-        <p class="kit-prix">10&nbsp;&euro;</p>
-        <a
-          href="#"
-          class="btn-more btn-cart"
-          data-id="kit-2"
-          data-nom="Une maison à planter"
-          data-prix="1000"
-        >Ajouter au panier</a>
+        <img
+          class="kit-photo"
+          loading="lazy"
+          src="/images/kits/kit-2.jpg"
+          width="760"
+          height="950"
+          alt="Deux glands et la carte illustrée Une maison à planter, posés sur une table en bois"
+        />
+        <div class="kit-corps">
+          <h2>Une maison à planter</h2>
+          <p class="kit-livre">Pour prolonger <a href="/livre/la-maison.html"><em>La Maison du Petit Zouffarceur</em></a></p>
+          <p>Une carte illustrée et un véritable gland, à planter pour que pousse, un jour, la maison de quelqu’un.</p>
+          <p class="kit-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-2"
+            data-nom="Une maison à planter"
+            data-prix="1000"
+          >Ajouter au panier</a>
+      
+        </div>
       </section>
 
       <section class="kit-fiche">
-        <h2>Les empreintes de la forêt</h2>
-        <p class="kit-livre">Pour prolonger <a href="/livre/papa-sanglier.html"><em>Papa Sanglier et sa dent en or</em></a></p>
-        <p>Une carte illustrée présentant l’empreinte du sanglier, à reconnaître ensuite en promenade, et une tranche de bois peinte à la main.</p>
-        <p class="kit-prix">10&nbsp;&euro;</p>
-        <a
-          href="#"
-          class="btn-more btn-cart"
-          data-id="kit-3"
-          data-nom="Les empreintes de la forêt"
-          data-prix="1000"
-        >Ajouter au panier</a>
+        <img
+          class="kit-photo"
+          loading="lazy"
+          src="/images/kits/kit-3.jpg"
+          width="760"
+          height="950"
+          alt="Le kit Sur les traces de Papa Sanglier : la carte, le pochon de lin et la rondelle de bois peinte à l’empreinte du sanglier"
+        />
+        <div class="kit-corps">
+          <h2>Les empreintes de la forêt</h2>
+          <p class="kit-livre">Pour prolonger <a href="/livre/papa-sanglier.html"><em>Papa Sanglier et sa dent en or</em></a></p>
+          <p>Une carte illustrée présentant l’empreinte du sanglier, à reconnaître ensuite en promenade, et une tranche de bois peinte à la main.</p>
+          <p class="kit-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-3"
+            data-nom="Les empreintes de la forêt"
+            data-prix="1000"
+          >Ajouter au panier</a>
+      
+        </div>
       </section>
 
       <section class="kit-fiche">
-        <h2>Le talisman anti-vol de doudous</h2>
-        <p class="kit-livre">Pour prolonger <a href="/livre/la-sorciere.html"><em>La Sorcière de la frontière</em></a></p>
-        <p>Une tranche de bois peinte à la main : un balai sur une face, pour tenir la sorcière à distance des doudous.</p>
-        <p class="kit-prix">10&nbsp;&euro;</p>
-        <a
-          href="#"
-          class="btn-more btn-cart"
-          data-id="kit-4"
-          data-nom="Le talisman anti-vol de doudous"
-          data-prix="1000"
-        >Ajouter au panier</a>
+        <img
+          class="kit-photo"
+          loading="lazy"
+          src="/images/kits/kit-4.jpg"
+          width="760"
+          height="950"
+          alt="La carte illustrée du Talisman anti-vol de doudous, posée sur une table en bois"
+        />
+        <div class="kit-corps">
+          <h2>Le talisman anti-vol de doudous</h2>
+          <p class="kit-livre">Pour prolonger <a href="/livre/la-sorciere.html"><em>La Sorcière de la frontière</em></a></p>
+          <p>Une tranche de bois peinte à la main : un balai sur une face, pour tenir la sorcière à distance des doudous.</p>
+          <p class="kit-prix">10&nbsp;&euro;</p>
+          <a
+            href="#"
+            class="btn-more btn-cart"
+            data-id="kit-4"
+            data-nom="Le talisman anti-vol de doudous"
+            data-prix="1000"
+          >Ajouter au panier</a>
+      
+        </div>
       </section>
 
       <div class="leaf-separator" aria-hidden="true">
