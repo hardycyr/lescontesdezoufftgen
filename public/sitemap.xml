@@ -3,11 +3,15 @@
     xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
     xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
-  <!-- ============================ Pages francaises ============================ -->
+  <!-- Genere depuis les pages elles-memes : chaque <loc> est la
+       canonique declaree par la page, et <lastmod> la date du
+       dernier commit qui l'a touchee. Regenerer avec scripts/sitemap.py. -->
+
+  <!-- ===================== Pages francaises ===================== -->
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>1.00</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/index-en.html" />
@@ -16,23 +20,33 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/collection.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.90</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/collection.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/mybooks.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/collection.html" />
   </url>
 
-  <!-- Landing page SEO ciblee : requetes commerciales "livre jeunesse Lorraine/Moselle" -->
   <url>
     <loc>https://www.lescontesdezoufftgen.com/livres-jeunesse-lorraine.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/livres-jeunesse-lorraine.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/livres-jeunesse-lorraine.html" />
+  </url>
+
+  <url>
+    <loc>https://www.lescontesdezoufftgen.com/kits.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/kits.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/story-kits.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/kits.html" />
   </url>
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/objetsnarratifs.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/objetsnarratifs.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/story-objects.html" />
@@ -41,7 +55,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/interventions.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/interventions.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/author-visits.html" />
@@ -49,8 +63,14 @@
   </url>
 
   <url>
+    <loc>https://www.lescontesdezoufftgen.com/audios</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.80</priority>
+  </url>
+
+  <url>
     <loc>https://www.lescontesdezoufftgen.com/univers.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/univers.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/universe.html" />
@@ -59,7 +79,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/parutions.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/parutions.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/news-and-events.html" />
@@ -68,7 +88,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/projet.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/projet.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/the-project.html" />
@@ -77,7 +97,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/apropos.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/apropos.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/about.html" />
@@ -86,7 +106,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/contact.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.60</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/contact.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/contact-en.html" />
@@ -95,7 +115,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur-en.html" />
@@ -104,7 +124,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/boutique/la-maison-du-petit-zouffarceur.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/boutique/la-maison-du-petit-zouffarceur.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/boutique/la-maison-du-petit-zouffarceur-en.html" />
@@ -113,18 +133,56 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/boutique/papa-sanglier-et-sa-dent-or.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/boutique/papa-sanglier-et-sa-dent-or.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/boutique/papa-sanglier-et-sa-dent-or-en.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/boutique/papa-sanglier-et-sa-dent-or.html" />
   </url>
 
-  <!-- ============================ Pages anglaises ============================ -->
+  <url>
+    <loc>https://www.lescontesdezoufftgen.com/boutique/la-sorciere-de-la-frontiere.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/boutique/la-sorciere-de-la-frontiere.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/boutique/la-sorciere-de-la-frontiere.html" />
+  </url>
+
+  <url>
+    <loc>https://www.lescontesdezoufftgen.com/livre/petit-zouffarceur</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lescontesdezoufftgen.com/livre/la-maison</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lescontesdezoufftgen.com/livre/papa-sanglier</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lescontesdezoufftgen.com/livre/la-sorciere</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.70</priority>
+  </url>
+
+  <url>
+    <loc>https://www.lescontesdezoufftgen.com/gland</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.50</priority>
+  </url>
+
+  <!-- ===================== Pages anglaises ====================== -->
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/index-en.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.90</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/index-en.html" />
@@ -133,7 +191,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/mybooks.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.80</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/collection.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/mybooks.html" />
@@ -141,8 +199,17 @@
   </url>
 
   <url>
+    <loc>https://www.lescontesdezoufftgen.com/story-kits.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/kits.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/story-kits.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/kits.html" />
+  </url>
+
+  <url>
     <loc>https://www.lescontesdezoufftgen.com/story-objects.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/objetsnarratifs.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/story-objects.html" />
@@ -151,7 +218,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/author-visits.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/interventions.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/author-visits.html" />
@@ -160,7 +227,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/universe.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.60</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/univers.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/universe.html" />
@@ -169,7 +236,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/news-and-events.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.60</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/parutions.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/news-and-events.html" />
@@ -178,7 +245,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/the-project.html</loc>
-    <lastmod>2026-07-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.70</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/projet.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/the-project.html" />
@@ -187,7 +254,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/about.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.60</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/apropos.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/about.html" />
@@ -196,7 +263,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/contact-en.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.50</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/contact.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/contact-en.html" />
@@ -205,7 +272,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur-en.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/boutique/le-petit-zouffarceur-en.html" />
@@ -214,7 +281,7 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/boutique/la-maison-du-petit-zouffarceur-en.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/boutique/la-maison-du-petit-zouffarceur.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/boutique/la-maison-du-petit-zouffarceur-en.html" />
@@ -223,11 +290,20 @@
 
   <url>
     <loc>https://www.lescontesdezoufftgen.com/boutique/papa-sanglier-et-sa-dent-or-en.html</loc>
-    <lastmod>2026-06-04</lastmod>
+    <lastmod>2026-11-18</lastmod>
     <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/boutique/papa-sanglier-et-sa-dent-or.html" />
     <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/boutique/papa-sanglier-et-sa-dent-or-en.html" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/boutique/papa-sanglier-et-sa-dent-or.html" />
+  </url>
+
+  <url>
+    <loc>https://www.lescontesdezoufftgen.com/boutique/la-sorciere-de-la-frontiere-en.html</loc>
+    <lastmod>2026-11-18</lastmod>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://www.lescontesdezoufftgen.com/boutique/la-sorciere-de-la-frontiere.html" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.lescontesdezoufftgen.com/boutique/la-sorciere-de-la-frontiere-en.html" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://www.lescontesdezoufftgen.com/boutique/la-sorciere-de-la-frontiere.html" />
   </url>
 
 </urlset>
