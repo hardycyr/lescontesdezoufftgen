@@ -292,6 +292,16 @@
       font-weight: 600;
       margin: 0.6rem 0 0.9rem;
     }
+    /* La dorure en gros plan : une photo verticale, bornee, centree.
+       Sans largeur maximale elle ferait 880 px de haut dans la colonne. */
+    .dorure-photo {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      margin: 1.4rem auto 0.4rem;
+      border-radius: 10px;
+    }
   </style>
 <script type="application/ld+json">
 {
@@ -496,6 +506,19 @@
           noisettes sont ramassés dans la forêt de Zoufftgen, celle des
           contes.
         </p>
+        <p>
+          Les cartes sont <strong>dorées à chaud</strong>, comme les
+          couvertures des albums : le titre, le filet et la petite feuille
+          de chêne accrochent la lumière quand on incline la carte.
+        </p>
+        <img
+          class="dorure-photo"
+          loading="lazy"
+          src="/images/kits/dorure-carte.jpg"
+          width="880"
+          height="1100"
+          alt="Gros plan sur la dorure à chaud de la carte Sur les traces de Papa Sanglier : le titre, le filet et la feuille de chêne en or"
+        />
         <img
           class="rituels-photo"
           loading="lazy"

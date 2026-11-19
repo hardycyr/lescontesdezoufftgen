@@ -253,6 +253,16 @@
       font-weight: 600;
       margin: 0.6rem 0 0.9rem;
     }
+    /* La dorure en gros plan : une photo verticale, bornee, centree.
+       Sans largeur maximale elle ferait 880 px de haut dans la colonne. */
+    .dorure-photo {
+      display: block;
+      width: 100%;
+      max-width: 340px;
+      height: auto;
+      margin: 1.4rem auto 0.4rem;
+      border-radius: 10px;
+    }
   </style>
 <script type="application/ld+json">
 {
@@ -458,6 +468,19 @@
           are gathered in the forest of Zoufftgen, the one in the tales.
           The cards are printed in French, like the books themselves.
         </p>
+        <p>
+          The cards are <strong>hot-foil stamped</strong>, like the book
+          covers: the title, the rule and the small oak leaf catch the
+          light when you tilt the card.
+        </p>
+        <img
+          class="dorure-photo"
+          loading="lazy"
+          src="/images/kits/dorure-carte.jpg"
+          width="880"
+          height="1100"
+          alt="Close-up of the gold foil on the card Sur les traces de Papa Sanglier: the title, the rule and the oak leaf"
+        />
         <img
           class="rituels-photo"
           loading="lazy"
