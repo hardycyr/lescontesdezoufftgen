@@ -194,10 +194,48 @@
     }
 
     /* Le renvoi vers le rituel : une phrase, pas un encart. */
-    .renvoi-rituel {
-      margin-top: 0.9rem;
+    /* Le rituel : une vignette cliquable, pas une ligne de texte.
+       Une phrase en italique au bas d'une liste se confond avec la
+       liste ; une image s'arrete. */
+    .rituel-lien {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 430px;
+      margin: 1.5rem auto 0;
+      padding: 0.65rem 1rem 0.65rem 0.65rem;
+      border: 1px solid rgba(201, 163, 90, 0.5);
+      border-radius: 10px;
+      text-decoration: none !important;
+      color: black;
+      font-weight: 400 !important;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+    .rituel-lien:hover {
+      background: rgba(201, 163, 90, 0.10);
+      border-color: #C9A35A;
+    }
+    .rituel-lien img {
+      width: 88px;
+      height: 88px;
+      flex: 0 0 88px;
+      border-radius: 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .rituel-lien-nom {
+      display: block;
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .rituel-lien-sous {
+      display: block;
+      font-size: 0.86rem;
+      color: #555;
       font-style: italic;
-      color: #444;
+      margin-top: 0.25rem;
     }
   </style>
 
@@ -331,11 +369,14 @@
           <li>a recipe to make as a family</li>
           <li>hardcover, 3D gilding, square format 21 × 21 cm, 32 pages</li>
         </ul>
-        <p class="renvoi-rituel">
-          And to carry the reading on, the ritual that goes with it:
-          <a href="/story-objects.html#kit-2"><em>Une maison à planter</em></a>,
-          &euro;&nbsp;10.
-        </p>
+        <a class="rituel-lien" href="/story-objects.html#kit-2">
+          <img loading="lazy" src="/images/kits/kit-2.jpg"
+               width="900" height="900" alt="Le rituel Une maison à planter : la carte illustrée, le pochon de lin et trois glands" />
+          <span>
+            <span class="rituel-lien-nom">Une maison à planter</span>
+            <span class="rituel-lien-sous">To carry the reading on &middot; &euro;&nbsp;10</span>
+          </span>
+        </a>
       </section>
     </div>
 

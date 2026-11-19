@@ -186,10 +186,82 @@
     }
 
     /* Le renvoi vers le rituel : une phrase, pas un encart. */
-    .renvoi-rituel {
-      margin-top: 0.9rem;
+    /* Le rituel : une vignette cliquable, pas une ligne de texte.
+       Une phrase en italique au bas d'une liste se confond avec la
+       liste ; une image s'arrete. */
+    .rituel-lien {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      max-width: 430px;
+      margin: 1.5rem auto 0;
+      padding: 0.65rem 1rem 0.65rem 0.65rem;
+      border: 1px solid rgba(201, 163, 90, 0.5);
+      border-radius: 10px;
+      text-decoration: none !important;
+      color: black;
+      font-weight: 400 !important;
+      transition: background 0.25s ease, border-color 0.25s ease;
+    }
+    .rituel-lien:hover {
+      background: rgba(201, 163, 90, 0.10);
+      border-color: #C9A35A;
+    }
+    .rituel-lien img {
+      width: 88px;
+      height: 88px;
+      flex: 0 0 88px;
+      border-radius: 8px;
+      display: block;
+      object-fit: cover;
+    }
+    .rituel-lien-nom {
+      display: block;
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.3rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+    .rituel-lien-sous {
+      display: block;
+      font-size: 0.86rem;
+      color: #555;
       font-style: italic;
-      color: #444;
+      margin-top: 0.25rem;
+    }
+    /* Les autres contes : deux couvertures a taille egale. Sans cette
+       regle, les images prennent leur taille naturelle — c'est ce qui
+       faisait une Sorciere geante en bas de Papa Sanglier. */
+    .other-books {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 540px;
+      margin: 1.5rem auto;
+    }
+    .other-books a {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+      text-align: center;
+    }
+    .other-books img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+      transition: transform 0.25s ease;
+    }
+    .other-books a:hover img { transform: scale(1.03); }
+    .other-books-title {
+      font-family: 'Cormorant Garamond', 'Times New Roman', serif;
+      font-size: 1.2rem;
+      font-style: italic;
+      font-weight: 500;
+      color: black;
+      margin: 0.6rem 0 0;
+      line-height: 1.3;
     }
   </style>
 <script type="application/ld+json">
@@ -321,11 +393,14 @@
           <li>an information page about wild boars</li>
           <li>hardcover, 3D gilding, square format 21 × 21 cm, 32 pages</li>
         </ul>
-        <p class="renvoi-rituel">
-          And to carry the reading on, the ritual that goes with it:
-          <a href="/story-objects.html#kit-3"><em>Sur les traces de Papa Sanglier</em></a>,
-          &euro;&nbsp;10.
-        </p>
+        <a class="rituel-lien" href="/story-objects.html#kit-3">
+          <img loading="lazy" src="/images/kits/kit-3.jpg"
+               width="900" height="900" alt="Le rituel Sur les traces de Papa Sanglier : la carte, le pochon et la rondelle de bois peinte" />
+          <span>
+            <span class="rituel-lien-nom">Sur les traces de Papa Sanglier</span>
+            <span class="rituel-lien-sous">To carry the reading on &middot; &euro;&nbsp;10</span>
+          </span>
+        </a>
       </section>
     </div>
 
@@ -335,6 +410,31 @@
       <img loading="lazy" src="/images/papa sanglier/page-historique.webp"
            alt="Heritage page about the forester's house of Zoufftgen" />
     </div>
+    <div class="book-content">
+      <section>
+        <h2>Discover the other tales</h2>
+      </section>
+    </div>
+
+    <div class="other-books">
+        <a href="/boutique/le-petit-zouffarceur-en.html">
+          <img
+            loading="lazy"
+            src="/images/tome-1.webp"
+            alt="Le Petit Zouffarceur — tome 1 de la collection Les Contes de Zoufftgen"
+          />
+          <p class="other-books-title">Le Petit Zouffarceur</p>
+        </a>
+        <a href="/boutique/la-sorciere-de-la-frontiere-en.html">
+          <img
+            loading="lazy"
+            src="/images/tome-4.webp"
+            alt="La Sorcière de la frontière — tome 4 de la collection Les Contes de Zoufftgen"
+          />
+          <p class="other-books-title">La Sorcière de la frontière</p>
+        </a>
+    </div>
+
   </main>
 
   <footer>
