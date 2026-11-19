@@ -237,6 +237,12 @@
       font-style: italic;
       margin-top: 0.25rem;
     }
+    @media (max-width: 700px) {
+      .other-books { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 420px) {
+      .other-books { grid-template-columns: 1fr; }
+    }
   </style>
 
   <!-- Google tag (gtag.js) -->
@@ -395,12 +401,28 @@
 
     <div class="other-books">
       <a href="/boutique/le-petit-zouffarceur-en.html">
-        <img loading="lazy" src="/images/tome-1.webp"
-             alt="Le Petit Zouffarceur — Volume 1 of the collection The Tales of Zoufftgen" />
+        <img
+          loading="lazy"
+          src="/images/tome-1.webp"
+          alt="Le Petit Zouffarceur — tome 1 de la collection Les Contes de Zoufftgen"
+        />
+        <p class="other-books-title">Le Petit Zouffarceur</p>
       </a>
       <a href="/boutique/papa-sanglier-et-sa-dent-or-en.html">
-        <img loading="lazy" src="/images/tome-3.webp"
-             alt="Papa Sanglier et sa dent en or — Volume 3 of the collection The Tales of Zoufftgen" />
+        <img
+          loading="lazy"
+          src="/images/tome-3.webp"
+          alt="Papa Sanglier et sa dent en or — tome 3 de la collection Les Contes de Zoufftgen"
+        />
+        <p class="other-books-title">Papa Sanglier et sa dent en or</p>
+      </a>
+      <a href="/boutique/la-sorciere-de-la-frontiere-en.html">
+        <img
+          loading="lazy"
+          src="/images/tome-4.webp"
+          alt="La Sorcière de la frontière — tome 4 de la collection Les Contes de Zoufftgen"
+        />
+        <p class="other-books-title">La Sorcière de la frontière</p>
       </a>
     </div>
 

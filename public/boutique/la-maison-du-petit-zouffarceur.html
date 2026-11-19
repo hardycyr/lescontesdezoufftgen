@@ -483,9 +483,9 @@
     /* Bloc "autres contes" : 2 couvertures cliquables cote a cote. */
     .other-books {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 1.5rem;
-      max-width: 540px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.2rem;
+      max-width: 760px;
       margin: 1.5rem auto;
     }
     .other-books a {
@@ -618,6 +618,12 @@
       color: #555;
       font-style: italic;
       margin-top: 0.25rem;
+    }
+    @media (max-width: 700px) {
+      .other-books { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 420px) {
+      .other-books { grid-template-columns: 1fr; }
     }
   </style>
 
@@ -832,6 +838,14 @@
           alt="Papa Sanglier et sa dent en or — tome 3 de la collection Les Contes de Zoufftgen"
         />
         <p class="other-books-title">Papa Sanglier et sa dent en or</p>
+      </a>
+      <a href="/boutique/la-sorciere-de-la-frontiere.html">
+        <img
+          loading="lazy"
+          src="/images/tome-4.webp"
+          alt="La Sorcière de la frontière — tome 4 de la collection Les Contes de Zoufftgen"
+        />
+        <p class="other-books-title">La Sorcière de la frontière</p>
       </a>
     </div>
 
