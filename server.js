@@ -86,16 +86,19 @@ const ENREGISTREMENTS = {
       sorciere: "mf-sorciere.m4a",
     },
   },
-  // les contes entiers lus a voix haute, en francais (6 a 8 minutes)
-  conte: {
-    dossier: "contes",
-    pistes: {
-      zouffarceur: "conte-zouffarceur.m4a",
-      maison: "conte-maison.m4a",
-      sanglier: "conte-sanglier.m4a",
-      sorciere: "conte-sorciere.m4a",
-    },
-  },
+  // Les contes entiers sont retires le temps d'un nouvel
+  // enregistrement : des phrases etaient dites deux fois. Les fichiers
+  // restent dans medias/contes, mais plus aucune adresse ne les sert.
+  // Pour les remettre, il suffit de decommenter ce bloc.
+  // conte: {
+  //   dossier: "contes",
+  //   pistes: {
+  //     zouffarceur: "conte-zouffarceur.m4a",
+  //     maison: "conte-maison.m4a",
+  //     sanglier: "conte-sanglier.m4a",
+  //     sorciere: "conte-sorciere.m4a",
+  //   },
+  // },
 };
 
 const ecoutes = Object.create(null);
